@@ -1,3 +1,3 @@
 # OCEAN
 ## Operator-Centered Enhancement of Awareness in Navigation
-<img src="[https://your-image-url.type](https://github.com/marccasals98/OCEAN/blob/main/OCEAN.png)" width="100">
+<img src="https://github.com/marccasals98/OCEAN/blob/main/OCEAN.png" width="100">
