@@ -2,3 +2,5 @@ matplotlib
 numpy
 torch
 librosa
+utils
+pandas
