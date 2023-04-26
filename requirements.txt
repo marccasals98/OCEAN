@@ -4,3 +4,5 @@ torch
 librosa
 utils
 pandas
+argparse
+tqdm
