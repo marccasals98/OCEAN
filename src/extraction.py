@@ -4,6 +4,7 @@ import pandas as pd
 from  scipy.io import wavfile 
 from tqdm import tqdm
 from datetime import datetime
+import argparse
 
 class Extractor:
 
@@ -11,6 +12,10 @@ class Extractor:
 
         self.dataset_path = dataset_path
         self.output_path = output_path
+
+        # pd dataframe for extraction statistics:
+        cols = ['subdataset', 'original name of wav file', 'species', 'vocalization', 'date', 'first sample from orig. file', 'last sample from orig. file', 'sampling frequency in Hz']
+        self.extraction_df = pd.DataFrame(columns=cols)
     
     def scan_dataset(self):
         '''
@@ -26,7 +31,7 @@ class Extractor:
         '''
         subdatasets_dirs = []
         for f in os.listdir(self.dataset_path):
-            path = os.path.join(dataset_path, f)
+            path = os.path.join(self.dataset_path, f)
             if os.path.isdir(path) and not f[0].isdigit(): # to avoid saving documentation and other dir that start with a digit
                 subdatasets_dirs.append(f)
         subdatasets_dirs.reverse()
@@ -211,6 +216,9 @@ class Extractor:
                                 date = self.extract_date(wav_file, subdirectory)
                                 output_file_name = subdirectory + "_" + wav_name + "_" + species + "_" + vocalization + "_" + date + "_" + str(begin_sample) + "_" + str(end_sample) + "_" + str(sample_rate) + "Hz.wav"
                                 wavfile.write(os.path.join(self.output_path, output_file_name), sample_rate, sig_event)
+                                # add data to the extraction dataframe:
+                                row = [subdirectory, wav_name, species, vocalization, date, begin_sample, end_sample, sample_rate]
+                                self.extraction_df.loc[len(self.extraction_df)] = row
                                 extracted_counter += 1
                             except FileNotFoundError: # in case wav file is not found
                                 not_extracted_counter += 1
@@ -231,6 +239,7 @@ class Extractor:
                             tqdm.write('Event not extracted: Starts and ends in different files')
                             log_file.write('Event not extracted: Starts and ends in different files\n')
                             
+        self.extraction_df.to_pickle(os.path.join(self.output_path, 'extraction_df.pkl'))
         self.print_extraction_report(log_file, extracted_counter, not_extracted_counter, species_not_identified_counter, file_not_found_counter, multifile_event_counter)
         log_file.close()
 
