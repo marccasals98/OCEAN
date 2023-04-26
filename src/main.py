@@ -8,6 +8,9 @@ from utils import accuracy
 import torch.nn.functional as F
 import numpy as np
 
+# fede
+
+
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
 def train_single_epoch(model, train_loader, optimizer):
