@@ -2,9 +2,11 @@ import os
 import pandas as pd
 from torch.utils.data import Dataset
 from PIL import Image
+from torchvision.io import read_image
+
 
 class BlueFinLib(Dataset):
-    def __init__(self, species, wav_name, pickle_path, img_dir):
+    def __init__(self, pickle_path, img_dir):
         super().__init__()
         df = pd.read_pickle(pickle_path)
         self.species = list(df.species_labels)
@@ -17,6 +19,8 @@ class BlueFinLib(Dataset):
         return len(self.species_labels)
 
     def __getitem__(self, index):
-        img_path = os.path.join(self.img_dir, self.wav_name[index]) # arreglar: s'hauran de borrar les cometes 'audiofile.wav'
-        label = species_labels[index]
+        img_path = os.path.join(self.img_dir, self.wav_name[index]) 
+        label = self.species_labels[index]
+        image = read_image(img_path)
         return image, label
+    
