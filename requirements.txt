@@ -6,3 +6,4 @@ utils
 pandas
 argparse
 tqdm
+torchvision
