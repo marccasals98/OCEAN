@@ -252,8 +252,8 @@ if __name__=="__main__":
 
     parser = argparse.ArgumentParser(description='Extract events from the specified dataset')
 
-    parser.add_argument('--dataset_path', type=str, help='path of the dataset to extract')
-    parser.add_argument('--output_path', type=str, help='directory where extracted events and log_file are saved')
+    parser.add_argument('dataset_path', type=str, help='path of the dataset to extract')
+    parser.add_argument('output_path', type=str, help='directory where extracted events and log_file are saved')
 
     params=parser.parse_args()
 
