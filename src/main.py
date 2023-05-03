@@ -44,15 +44,6 @@ def eval_single_epoch(model, val_loader):
     return np.mean(accs), np.mean(losses)
 
 def data_loaders():
-    all_data = BlueFinLib()
-    train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(all_data, [10000, 2500, 2500])
-    train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=config["batch_size"])
-    test_loader = DataLoader(test_dataset, batch_size=config["batch_size"])
-
-    return train_loader, val_loader, test_loader
-
-def train_model(config):
     data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
     total_data = BlueFinLib("path fitxer pickle", "path carpeta imatges", transform=data_transforms)
     train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
@@ -62,6 +53,11 @@ def train_model(config):
     train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=config["batch_size"])
     test_loader = DataLoader(test_dataset, batch_size=config["batch_size"])
+
+    return train_loader, val_loader, test_loader
+
+def train_model(config):
+
     train_loader, val_loader, test_loader = data_loaders()
 
     my_model = ResNet50().to(device)
