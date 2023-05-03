@@ -4,7 +4,8 @@ from torch.utils.data import DataLoader
 from dataset import BlueFinLib
 from ResNet import ResNet50, ResNet101, ResNet152
 import torch.optim as optim
-from utils import accuracy
+from torchvision import transforms
+from torch_utils import accuracy
 import torch.nn.functional as F
 import numpy as np
 
@@ -52,7 +53,15 @@ def data_loaders():
     return train_loader, val_loader, test_loader
 
 def train_model(config):
-
+    data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
+    total_data = BlueFinLib("path fitxer pickle", "path carpeta imatges", transform=data_transforms)
+    train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
+                                                                              [config['num_samples_train'],
+                                                                                config['num_samples_val'],
+                                                                                config['num_samples_test']])
+    train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=config["batch_size"])
+    test_loader = DataLoader(test_dataset, batch_size=config["batch_size"])
     train_loader, val_loader, test_loader = data_loaders()
 
     my_model = ResNet50().to(device)
@@ -77,5 +86,8 @@ if __name__ == "__main__":
         "lr": 1e-3,
         "batch_size": 64,
         "epochs": 10,
+        "num_samples_train": 1000,
+        "num_samples_val": 100,
+        "num_samples_test": 100,
     }
     my_model = train_model(config)
