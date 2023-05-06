@@ -50,7 +50,7 @@ class BlueFinLib(Dataset):
 
     def __getitem__(self, index):
         img_path = os.path.join(self.img_dir, self.wav_name[index]+'.png') 
-        label = self.species_labels[index]
+        label = self.species[index]
         image = read_image(img_path)
         if self.transform:
             image = self.transform(image)
