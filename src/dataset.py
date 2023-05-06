@@ -38,7 +38,7 @@ class BlueFinLib(Dataset):
         '''
         super().__init__() # is this necessary?
         df = pd.read_pickle(pickle_path)
-        self.species = list(df.species_labels)
+        self.species = list(df.species)
         self.wav_name = list(df['original name of wav file']) 
         self.img_dir = img_dir 
         #self.specie = df[df.iloc[:,1]==self.wav_name].species.values[0]
@@ -46,7 +46,7 @@ class BlueFinLib(Dataset):
 
 
     def __len__(self):
-        return len(self.species_labels)
+        return len(self.species)
 
     def __getitem__(self, index):
         img_path = os.path.join(self.img_dir, self.wav_name[index]+'.png') 
