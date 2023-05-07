@@ -31,3 +31,4 @@ def test_dataset_getitem_transform():
     assert isinstance(item[0], torch.Tensor)
     assert isinstance(item[1], str)
     assert item[0].shape == torch.Size([1, 820, 920]) # tried with a random image from Internet.
+

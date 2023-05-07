@@ -1,8 +1,9 @@
 import os
 import pandas as pd
 from torch.utils.data import Dataset
-from PIL import Image
 from torchvision.io import read_image
+import torch
+
 
 
 class BlueFinLib(Dataset):
@@ -48,7 +49,10 @@ class BlueFinLib(Dataset):
     def __len__(self):
         return len(self.species)
 
-    def __getitem__(self, index):
+    def __getitem__(self, index)-> tuple(torch.Tensor, str):
+        # TODO: fer un try per si no es pot obrir la imatge.
+        # TODO: canviar el nom del fitxer pel que sera el complet.
+        # TODO: el espectograma es guarda com a pickle.
         img_path = os.path.join(self.img_dir, self.wav_name[index]+'.png') 
         label = self.species[index]
         image = read_image(img_path)
