@@ -34,7 +34,6 @@ class Extractor:
             path = os.path.join(self.dataset_path, f)
             if os.path.isdir(path) and not f[0].isdigit(): # to avoid saving documentation and other dir that start with a digit
                 subdatasets_dirs.append(f)
-        subdatasets_dirs.reverse()
         print('Found dataset subdirectories:')
         print(subdatasets_dirs)
         return subdatasets_dirs
@@ -126,39 +125,80 @@ class Extractor:
             date = wav_file.split('_')[0]
         return date
 
-    def print_extraction_report(self, log_file, n_extracted, n_not_extracted, n_species_not_identified, n_file_not_found, n_multifile_event):
+    def species2int(self, species):
+        '''
+        Retutrns the int that corresponds to the entered species:
+        Blue: 0
+        Fin: 1
+        Unidentified: 2
+        Minke: 3
+        Humpback: 4
+        
+        Arguments
+        ---------
+        species: string
+            species in string format
+        '''
+        if species == 'Blue':
+            return 0
+        elif species == 'Fin':
+            return 1
+        elif species == 'Unidentified':
+            return 2
+        elif species == 'Minke':
+            return 3
+        elif species == 'Humpback':
+            return 4
+        else:
+            return 5
+
+
+    def print_extraction_report(self, log_file, extracted, not_extracted, species_not_identified, file_not_found, multifile_event, not_identified_species):
         '''
         Prints extraction report in console and in log_file
 
         Arguments
         ---------
         log_file: file
-        n_extracted: int
-        n_not_extracted: int
-        n_species_not_identified: int
-        n_file_not_found: int 
-        n_multifile_event: int
+        extracted: list
+        not_extracted: list
+        species_not_identified: int
+        file_not_found: list
+        multifile_event: list
+        not_identified_species: list
+            List of the annotation files where species has not been identified.
 
         '''
+        total = sum(extracted) + sum(not_extracted)
+        
 
         # printing report in console:
         print('\n----------------------------------------------------------')
         print('EXTRACTION COMPLETED:')
-        print(f'Total events extracted: {n_extracted}')
-        print(f'Total events not extracted: {n_not_extracted}')
-        print(f'    due to unidentified species: {n_species_not_identified}')
-        print(f'    due to not found file: {n_file_not_found}')
-        print(f'    due to starting and ending in different files: {n_multifile_event}')
+        print(f"Total events extracted: {sum(extracted)} ({round(100*sum(extracted)/total, 2)}%) (Blue:{extracted[self.species2int('Blue')]}, Fin:{extracted[self.species2int('Fin')]}, Unidentified:{extracted[self.species2int('Unidentified')]}, Minke:{extracted[self.species2int('Minke')]}, Humpback:{extracted[self.species2int('Humpback')]})")
+        print(f"Total events not extracted: {sum(not_extracted)} ({round(100*sum(not_extracted)/total, 2)}%) (Blue:{not_extracted[self.species2int('Blue')]}, Fin:{not_extracted[self.species2int('Fin')]}, Unidentified:{not_extracted[self.species2int('Unidentified')]}, Minke:{not_extracted[self.species2int('Minke')]}, Humpback:{not_extracted[self.species2int('Humpback')]})")
+        print(f"    due to unidentified species: {species_not_identified} ({round(100*species_not_identified/total, 2)}%)")
+        print(f"    due to not found file: {sum(file_not_found)} ({round(100*sum(file_not_found)/total, 2)}%) (Blue:{file_not_found[self.species2int('Blue')]}, Fin:{file_not_found[self.species2int('Fin')]}, Unidentified:{file_not_found[self.species2int('Unidentified')]}, Minke:{file_not_found[self.species2int('Minke')]}, Humpback:{file_not_found[self.species2int('Humpback')]})")
+        print(f"    due to starting and ending in different files: {sum(multifile_event)} ({round(100*sum(multifile_event)/total, 2)}%) (Blue:{multifile_event[self.species2int('Blue')]}, Fin:{multifile_event[self.species2int('Fin')]}, Unidentified:{multifile_event[self.species2int('Unidentified')]}, Minke:{multifile_event[self.species2int('Minke')]}, Humpback:{multifile_event[self.species2int('Humpback')]})")
+        if len(not_identified_species) > 0:
+            print('\nUnable to identify species from:')
+            for f in not_identified_species:
+                print('\t' + f)
         print('----------------------------------------------------------')
+        
 
         # printing report in log file:
         log_file.write('----------------------------------------------------------\n')
         log_file.write('EXTRACTION COMPLETED:\n')
-        log_file.write(f'Total events extracted: {n_extracted}\n')
-        log_file.write(f'Total events not extracted: {n_not_extracted}\n')
-        log_file.write(f'    due to unidentified species: {n_species_not_identified}\n')
-        log_file.write(f'    due to not found file: {n_file_not_found}\n')
-        log_file.write(f'    due to starting and ending in different files: {n_multifile_event}\n')
+        log_file.write(f"Total events extracted: {sum(extracted)} ({round(100*sum(extracted)/total, 2)}%) (Blue:{extracted[self.species2int('Blue')]}, Fin:{extracted[self.species2int('Fin')]}, Unidentified:{extracted[self.species2int('Unidentified')]}, Minke:{extracted[self.species2int('Minke')]}, Humpback:{extracted[self.species2int('Humpback')]})\n")
+        log_file.write(f"Total events not extracted: {sum(not_extracted)} ({round(100*sum(not_extracted)/total, 2)}%) (Blue:{not_extracted[self.species2int('Blue')]}, Fin:{not_extracted[self.species2int('Fin')]}, Unidentified:{not_extracted[self.species2int('Unidentified')]}, Minke:{not_extracted[self.species2int('Minke')]}, Humpback:{not_extracted[self.species2int('Humpback')]})\n")
+        log_file.write(f"\tdue to unidentified species: {species_not_identified} ({round(100*species_not_identified/total, 2)}%)\n")
+        log_file.write(f"\tdue to not found file: {sum(file_not_found)} ({round(100*sum(file_not_found)/total, 2)}%) (Blue:{file_not_found[self.species2int('Blue')]}, Fin:{file_not_found[self.species2int('Fin')]}, Unidentified:{file_not_found[self.species2int('Unidentified')]}, Minke:{file_not_found[self.species2int('Minke')]}, Humpback:{file_not_found[self.species2int('Humpback')]})\n")
+        log_file.write(f"\tdue to starting and ending in different files: {sum(multifile_event)} ({round(100*sum(multifile_event)/total, 2)}%) (Blue:{multifile_event[self.species2int('Blue')]}, Fin:{multifile_event[self.species2int('Fin')]}, Unidentified:{multifile_event[self.species2int('Unidentified')]}, Minke:{multifile_event[self.species2int('Minke')]}, Humpback:{multifile_event[self.species2int('Humpback')]})\n")
+        if len(not_identified_species) > 0:
+            log_file.write('\nUnable to identify species from:\n')
+            for f in not_identified_species:
+                log_file.write('\t' + f + '\n')
         log_file.write('----------------------------------------------------------\n')
     
     def extract(self, subdatasets_dirs):
@@ -173,12 +213,17 @@ class Extractor:
         '''
         if not os.path.exists(self.output_path):
             os.mkdir(self.output_path) # create output dir in case it doesnt exists.
+
+        logdir_path = os.path.join(self.output_path, 'logs')
+        if not os.path.exists(logdir_path):
+            os.mkdir(logdir_path) # create directory for saving log files
+        
         
         # create log file with date and time of execution
         now = datetime.now()
         date_time_filename = now.strftime("%Y%m%d-%H.%M.%S")
         date_time_txt = now.strftime("%Y-%m-%d at %H:%M:%S")
-        log_file = open(os.path.join(self.output_path, 'log_file_' + date_time_filename + '.txt'), 'w')
+        log_file = open(os.path.join(logdir_path, 'log_file_' + date_time_filename + '.txt'), 'w')
         log_file.write(f'Log file for extraction executed on {date_time_txt}:\n')
         log_file.write('--------------------------------------------------------------------\n')
         log_file.write('Naming criterion for extracted wav files:\n')
@@ -187,11 +232,13 @@ class Extractor:
         log_file.write('\n LOG:\n')
 
         # initialize counters for extraction report
-        not_extracted_counter = 0
-        file_not_found_counter = 0
-        species_not_identified_counter = 0
-        multifile_event_counter = 0
-        extracted_counter = 0
+        l_extracted_counter = [0,0,0,0,0] # Counter for extracted vocalizations by species [Blue, Fin, Unidentified, Minke, Humpback]
+        l_not_extracted_counter = [0,0,0,0,0]
+        l_file_not_found_counter = [0,0,0,0,0]
+        l_multifile_event_counter = [0,0,0,0,0]
+        species_not_identified_counter = 0 
+        not_identified_species = []
+
 
         for i, subdirectory in enumerate(subdatasets_dirs): # iterate through subdataset directories
             print(f'Extracting {subdirectory} ...')
@@ -202,7 +249,10 @@ class Extractor:
                     ann = pd.read_csv(os.path.join(annotations_subdir, filename), sep="\t") # open annotation file as pd.dataframe
                     for index, row in tqdm(ann.iterrows(), total=ann.shape[0]): # iterate through events in annotation file
                         if row['Begin File'] == row['End File']: # event starts and ends in same file
-                            wav_file = row['Begin File']
+                            if subdirectory == 'Greenwich64S2015':
+                                wav_file = row['Begin File'].replace('_AWI229-11_SV1057','')
+                            else:
+                                wav_file = row['Begin File']
                             wav_path = os.path.join(self.dataset_path, subdirectory, 'wav', wav_file)
                             try: # try extracting the annotated event in wav file
                                 sample_rate, sig = wavfile.read(wav_path) # open file
@@ -219,28 +269,40 @@ class Extractor:
                                 # add data to the extraction dataframe:
                                 row = [subdirectory, wav_name, species, vocalization, date, begin_sample, end_sample, sample_rate]
                                 self.extraction_df.loc[len(self.extraction_df)] = row
-                                extracted_counter += 1
+                                #print(species)
+                                #print(self.species2int(species))
+                                l_extracted_counter[self.species2int(species)] += 1
+                                #extracted_counter += 1
+
                             except FileNotFoundError: # in case wav file is not found
-                                not_extracted_counter += 1
-                                file_not_found_counter += 1
+                                #not_extracted_counter += 1
+                                #file_not_found_counter += 1
+                                species, vocalization = self.extract_species(filename)
+                                l_not_extracted_counter[self.species2int(species)] += 1
+                                l_file_not_found_counter[self.species2int(species)] += 1
                                 d = os.path.join(self.dataset_path, subdirectory,'wav')
                                 tqdm.write(f'FILE: {wav_file} NOT FOUND IN: {d}')
                                 log_file.write(f'FILE: {wav_file} NOT FOUND IN: {d}\n')
                             except ValueError: # in case not able to extract species from annotation file
-                                not_extracted_counter += ann.shape[0]
+                                #not_extracted_counter += ann.shape[0]
+                                l_not_extracted_counter[self.species2int('Unidentified')] += ann.shape[0]
                                 species_not_identified_counter += ann.shape[0]
+                                not_identified_species.append(filename)
                                 tqdm.write(f'Not able to extract species and vocalization from: {filename}')
                                 log_file.write(f'Not able to extract species and vocalization from: {filename}\n')
                                 break
 
                         else: # event starts and ends in different files
-                            not_extracted_counter += 1
-                            multifile_event_counter += 1
+                            #not_extracted_counter += 1
+                            #multifile_event_counter += 1
+                            species, vocalization = self.extract_species(filename)
+                            l_not_extracted_counter[self.species2int(species)] += 1
+                            l_multifile_event_counter[self.species2int(species)] += 1
                             tqdm.write('Event not extracted: Starts and ends in different files')
                             log_file.write('Event not extracted: Starts and ends in different files\n')
                             
-        self.extraction_df.to_pickle(os.path.join(self.output_path, 'extraction_df.pkl'))
-        self.print_extraction_report(log_file, extracted_counter, not_extracted_counter, species_not_identified_counter, file_not_found_counter, multifile_event_counter)
+        self.extraction_df.to_pickle(os.path.join(logdir_path, 'extraction_df_'+ date_time_filename +'.pkl'))
+        self.print_extraction_report(log_file, l_extracted_counter, l_not_extracted_counter, species_not_identified_counter, l_file_not_found_counter, l_multifile_event_counter, not_identified_species)
         log_file.close()
 
 def main(dataset_path, output_path):
