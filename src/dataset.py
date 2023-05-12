@@ -1,8 +1,9 @@
 import os
 import pandas as pd
 from torch.utils.data import Dataset
-from PIL import Image
 from torchvision.io import read_image
+import torch
+
 
 
 class BlueFinLib(Dataset):
@@ -47,13 +48,27 @@ class BlueFinLib(Dataset):
 
     def __len__(self):
         return len(self.species)
+    
+
+    def sample_spectrogram_crop():
+         ...     
+
+    def get_feature_vector():
+         ...
 
     def __getitem__(self, index):
+        # TODO: canviar el nom del fitxer pel que sera el complet.
+        # TODO: el espectograma es guarda com a pickle.
         img_path = os.path.join(self.img_dir, self.wav_name[index]+'.png') 
         label = self.species[index]
-        image = read_image(img_path)
+        try:
+                image = read_image(img_path)
+        except FileNotFoundError:
+                print(f"File {img_path} not found.")
+        # TODO: slice the histograms.
+        features = ...
         if self.transform:
-            image = self.transform(image)
-        return image, label
+            features = self.transform(features)
+        return features, label
 
 
