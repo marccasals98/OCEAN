@@ -8,3 +8,4 @@ argparse
 tqdm
 torchvision
 torch_utils
+pytest

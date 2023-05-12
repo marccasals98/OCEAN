@@ -1,6 +1,5 @@
 import torch
 from torch.utils.data import DataLoader
-
 from dataset import BlueFinLib
 from ResNet import ResNet50, ResNet101, ResNet152
 import torch.optim as optim
@@ -45,7 +44,7 @@ def eval_single_epoch(model, val_loader):
 
 def data_loaders():
     data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
-    total_data = BlueFinLib("path fitxer pickle", "path carpeta imatges", transform=data_transforms)
+    total_data = BlueFinLib(r"C:\Users\marcc\OneDrive\Escritorio\data\extraction_df.pkl", r"C:\Users\marcc\OneDrive\Escritorio\data\imgs", transform=data_transforms)
     train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
                                                                               [config['num_samples_train'],
                                                                                 config['num_samples_val'],
