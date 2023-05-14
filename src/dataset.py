@@ -2,7 +2,8 @@ import os
 import pandas as pd
 from torch.utils.data import Dataset
 from torchvision.io import read_image
-import torch
+from random import randint
+import numpy as np
 
 
 
@@ -26,7 +27,7 @@ class BlueFinLib(Dataset):
             The transformations that are done to the tensor.
     
     '''
-    def __init__(self, pickle_path: str, img_dir: str, transform=None):
+    def __init__(self, pickle_path: str, img_dir: str, config: dict, transform=None):
         '''
         Arguments:
         ----------
@@ -42,19 +43,38 @@ class BlueFinLib(Dataset):
         self.species = list(df.species)
         self.wav_name = list(df['original name of wav file']) 
         self.img_dir = img_dir 
-        #self.specie = df[df.iloc[:,1]==self.wav_name].species.values[0]
         self.transform = transform
+        self.config = config
 
 
     def __len__(self):
         return len(self.species)
     
+    @staticmethod
+    def sample_spectrogram_crop(image, parameters):
+        '''
+        This function takes an image and returns a random crop of the image.
+        '''
+        # Cut the image with a fixed length a random place.
+        file_frames = image.shape[0]
+        # get a random start index
+        index = randint(0, max(0, file_frames - parameters['random_crop_frames'] - 1))
+        # get the end index
+        end_index = np.array(range(min(file_frames, int(parameters['random_crop_frames'])))) + index
+        # slice the image
+        features = image[end_index, :]
+        return features
 
-    def sample_spectrogram_crop():
-         ...     
-
-    def get_feature_vector():
-         ...
+    @staticmethod
+    def get_feature_vector(image, parameters):
+        '''
+        This function takes an image and returns a feature vector. 
+        The feature vector is a slice of the image.
+        '''
+        ima_trans = np.transpose(image)
+        ima_norm = (ima_trans-np.min(ima_trans))/(np.max(ima_trans)-np.min(ima_trans))
+        features = BlueFinLib.sample_spectrogram_crop(ima_norm, parameters)
+        return features
 
     def __getitem__(self, index):
         # TODO: canviar el nom del fitxer pel que sera el complet.
@@ -62,11 +82,13 @@ class BlueFinLib(Dataset):
         img_path = os.path.join(self.img_dir, self.wav_name[index]+'.png') 
         label = self.species[index]
         try:
-                image = read_image(img_path)
+                with open(img_path, 'rb') as f:
+                        image = read_image(f)
         except FileNotFoundError:
                 print(f"File {img_path} not found.")
         # TODO: slice the histograms.
-        features = ...
+        parameters = self.config
+        features = BlueFinLib.get_feature_vector(image, parameters)
         if self.transform:
             features = self.transform(features)
         return features, label
