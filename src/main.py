@@ -42,9 +42,12 @@ def eval_single_epoch(model, val_loader):
             accs.append(acc.item())
     return np.mean(accs), np.mean(losses)
 
-def data_loaders():
+def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
-    total_data = BlueFinLib(r"C:\Users\marcc\OneDrive\Escritorio\data\extraction_df.pkl", r"C:\Users\marcc\OneDrive\Escritorio\data\imgs", transform=data_transforms)
+    total_data = BlueFinLib(r"C:\Users\marcc\OneDrive\Escritorio\data\extraction_df.pkl",
+                            r"C:\Users\marcc\OneDrive\Escritorio\data\imgs",
+                            config,
+                            transform=data_transforms)
     train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
                                                                               [config['num_samples_train'],
                                                                                 config['num_samples_val'],
@@ -57,7 +60,7 @@ def data_loaders():
 
 def train_model(config):
 
-    train_loader, val_loader, test_loader = data_loaders()
+    train_loader, val_loader, test_loader = data_loaders(config)
 
     my_model = ResNet50().to(device)
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
@@ -84,5 +87,6 @@ if __name__ == "__main__":
         "num_samples_train": 1000,
         "num_samples_val": 100,
         "num_samples_test": 100,
+        "random_crop_frames": 100,
     }
     my_model = train_model(config)
