@@ -39,9 +39,14 @@ class BlueFinLib(Dataset):
                 the transformations of the tensor.
         '''
         super().__init__() # is this necessary?
-        df = pd.read_pickle(pickle_path)
-        self.species = list(df.species)
-        self.wav_name = list(df['original name of wav file']) 
+        # NOTE: I have changed from local variable df to attribute df.
+        self.df = pd.read_pickle(pickle_path)
+       
+       # - TODO: check if this is necessary.   ---
+        self.species = list(self.df.species)
+        self.wav_name = list(self.df['original name of wav file']) 
+        # -----------------------------------------
+
         self.img_dir = img_dir 
         self.transform = transform
         self.config = config
@@ -54,6 +59,9 @@ class BlueFinLib(Dataset):
     def sample_spectrogram_crop(image, parameters):
         '''
         This function takes an image and returns a random crop of the image.
+
+        As we are working with spectrograms and we need all images to be the same size (to work with batches), 
+        we will need to crop all these spectrograms equally to feed the network.
         '''
         # Cut the image with a fixed length a random place.
         file_frames = image.shape[0]
@@ -77,17 +85,24 @@ class BlueFinLib(Dataset):
         return features
 
     def __getitem__(self, index):
-        # TODO: canviar el nom del fitxer pel que sera el complet.
-        # TODO: el espectograma es guarda com a pickle.
-        img_path = os.path.join(self.img_dir, self.wav_name[index]+'.png') 
+        # TODO: fer bona documentació.
+        img_path = os.path.join(self.img_dir,
+                                self.df['subdataset'][index]+'_'+
+                                self.df['original name of wav file'][index]+'_'+
+                                self.df['species'][index]+'_'+
+                                self.df['vocalization'][index]+'_'+
+                                self.df['first sample from orig. file'][index]+'_'+
+                                self.df['last sample from orig. file'][index]+'_'+
+                                self.df['sampling frequency in Hz'][index]+'_'+
+                                '.pkl') 
         label = self.species[index]
         try:
                 with open(img_path, 'rb') as f:
                         image = read_image(f)
         except FileNotFoundError:
                 print(f"File {img_path} not found.")
-        # TODO: slice the histograms.
         parameters = self.config
+        # slice the spectrogram to have all the same length:
         features = BlueFinLib.get_feature_vector(image, parameters)
         if self.transform:
             features = self.transform(features)

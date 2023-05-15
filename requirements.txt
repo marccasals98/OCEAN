@@ -9,3 +9,4 @@ tqdm
 torchvision
 torch_utils
 pytest
+wandb
