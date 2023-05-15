@@ -79,7 +79,7 @@ def train_model(config):
     return my_model
 
 if __name__ == "__main__":
-
+    # TODO: calculate properly "random_crop_frames". Use the fede function
     config = {
         "lr": 1e-3,
         "batch_size": 64,
@@ -87,6 +87,6 @@ if __name__ == "__main__":
         "num_samples_train": 1000,
         "num_samples_val": 100,
         "num_samples_test": 100,
-        "random_crop_frames": 100,
+        "random_crop_frames": 4,
     }
     my_model = train_model(config)
