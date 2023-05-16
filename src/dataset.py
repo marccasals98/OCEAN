@@ -82,16 +82,8 @@ class BlueFinLib(Dataset):
         This function takes an image and returns a feature vector. 
         The feature vector is a slice of the image.
         '''
-        ima_trans = np.transpose(image)
-        #ima_norm *= 255.0/ima_trans.max()
-        print('tipus', type(ima_trans))
-        #print(type(np.min(ima_trans)))
-        #ima_norm = (ima_trans-ima_trans.min())/(ima_trans.max()-ima_trans.min())
-        print(type(ima_trans.astype(np.float32)))
-        ima_tensor = torch.from_numpy(ima_trans.astype(np.float32))
-        normalize_transform = transforms.Normalize(mean = [0.5], std = [0.5])
-        ima_norm = normalize_transform(ima_tensor)
-        print(ima_norm)
+        ima_trans = np.transpose(image['features'])
+        ima_norm = (ima_trans-ima_trans.min())/(ima_trans.max()-ima_trans.min())
         features = BlueFinLib.sample_spectrogram_crop(ima_norm, parameters)
         return features
 
