@@ -1,7 +1,10 @@
 import os
 import pandas as pd
+import torch
 from torch.utils.data import Dataset
 from torchvision.io import read_image
+import torchvision.transforms as transforms
+import pickle
 from random import randint
 import numpy as np
 
@@ -80,7 +83,15 @@ class BlueFinLib(Dataset):
         The feature vector is a slice of the image.
         '''
         ima_trans = np.transpose(image)
-        ima_norm = (ima_trans-np.min(ima_trans))/(np.max(ima_trans)-np.min(ima_trans))
+        #ima_norm *= 255.0/ima_trans.max()
+        print('tipus', type(ima_trans))
+        #print(type(np.min(ima_trans)))
+        #ima_norm = (ima_trans-ima_trans.min())/(ima_trans.max()-ima_trans.min())
+        print(type(ima_trans.astype(np.float32)))
+        ima_tensor = torch.from_numpy(ima_trans.astype(np.float32))
+        normalize_transform = transforms.Normalize(mean = [0.5], std = [0.5])
+        ima_norm = normalize_transform(ima_tensor)
+        print(ima_norm)
         features = BlueFinLib.sample_spectrogram_crop(ima_norm, parameters)
         return features
 
@@ -98,9 +109,10 @@ class BlueFinLib(Dataset):
                                 ) 
         label = self.species[index]
         try:
+                print(img_path)
                 with open(img_path, 'rb') as f:
-                        image = read_image(f)
-                        print('horaaaaayyyy:', index)
+                        image = pickle.load(f)
+                        
         except FileNotFoundError:
                 print(f"File {img_path} not found.")
         parameters = self.config
