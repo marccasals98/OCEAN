@@ -91,14 +91,16 @@ class BlueFinLib(Dataset):
                                 self.df['original name of wav file'][index]+'_'+
                                 self.df['species'][index]+'_'+
                                 self.df['vocalization'][index]+'_'+
+                                self.df['date'][index]+'_'+
                                 self.df['first sample from orig. file'][index]+'_'+
                                 self.df['last sample from orig. file'][index]+'_'+
-                                self.df['sampling frequency in Hz'][index]+'_'+
-                                '.pkl') 
+                                self.df['sampling frequency in Hz'][index]
+                                ) 
         label = self.species[index]
         try:
                 with open(img_path, 'rb') as f:
                         image = read_image(f)
+                        print('horaaaaayyyy:', index)
         except FileNotFoundError:
                 print(f"File {img_path} not found.")
         parameters = self.config
@@ -107,5 +109,7 @@ class BlueFinLib(Dataset):
         if self.transform:
             features = self.transform(features)
         return features, label
+    
+    # /home/usuaris/veussd/DATABASES/Ocean/toyDataset/BallenyIslands2015_20150115-170000_Blue_Bm-D_20150115_2989_5753_1000Hz.pickle
 
 

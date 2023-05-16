@@ -44,8 +44,8 @@ def eval_single_epoch(model, val_loader):
 
 def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
-    total_data = BlueFinLib(r"C:\Users\marcc\OneDrive\Escritorio\data\extraction_df.pkl",
-                            r"C:\Users\marcc\OneDrive\Escritorio\data\imgs",
+    total_data = BlueFinLib("/home/usuaris/veussd/DATABASES/Ocean/toyDataset.pkl", # extraction dataframe
+                            "/home/usuaris/veussd/DATABASES/Ocean/toyDataset", # spectrogram directory
                             config,
                             transform=data_transforms)
     train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
@@ -62,7 +62,7 @@ def train_model(config):
 
     train_loader, val_loader, test_loader = data_loaders(config)
 
-    my_model = ResNet50().to(device)
+    my_model = ResNet50(2, 1).to(device)
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
 
     # TRAINING
@@ -80,13 +80,14 @@ def train_model(config):
 
 if __name__ == "__main__":
     # TODO: calculate properly "random_crop_frames". Use the fede function
+    
     config = {
         "lr": 1e-3,
-        "batch_size": 64,
+        "batch_size": 1,
         "epochs": 10,
-        "num_samples_train": 1000,
-        "num_samples_val": 100,
-        "num_samples_test": 100,
+        "num_samples_train": 1,
+        "num_samples_val": 1,
+        "num_samples_test": 1,
         "random_crop_frames": 4,
     }
     my_model = train_model(config)
