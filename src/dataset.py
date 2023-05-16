@@ -99,9 +99,10 @@ class BlueFinLib(Dataset):
                                 self.df['last sample from orig. file'][index]+'_'+
                                 self.df['sampling frequency in Hz'][index]
                                 ) 
-        label = self.species[index]
+        label = self.df['species'][index]
+        label_tensor = torch.tensor(label)
+        print(label_tensor)
         try:
-                print(img_path)
                 with open(img_path, 'rb') as f:
                         image = pickle.load(f)
                         
@@ -112,7 +113,7 @@ class BlueFinLib(Dataset):
         features = BlueFinLib.get_feature_vector(image, parameters)
         if self.transform:
             features = self.transform(features)
-        return features, label
+        return features, label_tensor
     
     # /home/usuaris/veussd/DATABASES/Ocean/toyDataset/BallenyIslands2015_20150115-170000_Blue_Bm-D_20150115_2989_5753_1000Hz.pickle
 
