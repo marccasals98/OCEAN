@@ -83,7 +83,7 @@ if __name__ == "__main__":
     
     config = {
         "lr": 1e-3,
-        "batch_size": 1,
+        "batch_size": 1, # This number must be bigger than one (nn.BatchNorm)
         "epochs": 10,
         "num_samples_train": 1,
         "num_samples_val": 1,
