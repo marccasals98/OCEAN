@@ -15,9 +15,6 @@ def train_single_epoch(model, train_loader, optimizer):
     accs, losses = [], []
     for x, y in train_loader:
         optimizer.zero_grad()
-        # TODO: I don't know why but the y is a tuple here
-        # y = y[0] 
-        print(type(y))
         x, y = x.to(device), y.to(device)
         y_ = model(x)
         loss = F.cross_entropy(y_, y)

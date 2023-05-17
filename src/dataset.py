@@ -56,7 +56,7 @@ class BlueFinLib(Dataset):
 
 
     def __len__(self):
-        return len(self.species)
+        return len(self.df.species)
     
     @staticmethod
     def sample_spectrogram_crop(image, parameters):
@@ -101,7 +101,6 @@ class BlueFinLib(Dataset):
                                 ) 
         label = self.df['num_species'][index]
         # label_tensor = torch.tensor(label)
-        print(label_tensor)
         try:
                 with open(img_path, 'rb') as f:
                         image = pickle.load(f)
@@ -113,7 +112,7 @@ class BlueFinLib(Dataset):
         features = BlueFinLib.get_feature_vector(image, parameters)
         if self.transform:
             features = self.transform(features)
-        return features, label_tensor
+        return features, label
     
     # /home/usuaris/veussd/DATABASES/Ocean/toyDataset/BallenyIslands2015_20150115-170000_Blue_Bm-D_20150115_2989_5753_1000Hz.pickle
 
