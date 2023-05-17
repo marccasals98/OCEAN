@@ -47,7 +47,7 @@ class BlueFinLib(Dataset):
        
        # - TODO: check if this is necessary.   ---
         self.species = list(self.df.species)
-        self.wav_name = list(self.df['original name of wav file']) 
+        self.wav_name = list(self.df['wav_name']) 
         # -----------------------------------------
 
         self.img_dir = img_dir 
@@ -91,16 +91,16 @@ class BlueFinLib(Dataset):
         # TODO: fer bona documentació.
         img_path = os.path.join(self.img_dir,
                                 self.df['subdataset'][index]+'_'+
-                                self.df['original name of wav file'][index]+'_'+
+                                self.df['wav_name'][index]+'_'+
                                 self.df['species'][index]+'_'+
                                 self.df['vocalization'][index]+'_'+
                                 self.df['date'][index]+'_'+
-                                self.df['first sample from orig. file'][index]+'_'+
-                                self.df['last sample from orig. file'][index]+'_'+
-                                self.df['sampling frequency in Hz'][index]
+                                self.df['begin_sample'][index]+'_'+
+                                self.df['end_sample'][index]+'_'+
+                                self.df['sampling_rate'][index]
                                 ) 
-        label = self.df['species'][index]
-        label_tensor = torch.tensor(label)
+        label = self.df['num_species'][index]
+        # label_tensor = torch.tensor(label)
         print(label_tensor)
         try:
                 with open(img_path, 'rb') as f:
