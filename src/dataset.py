@@ -68,9 +68,13 @@ class BlueFinLib(Dataset):
         '''
         # Cut the image with a fixed length a random place.
         file_frames = image.shape[0]
-        # get a random start index
+        # Check if we need padding:
+        if file_frames < parameters['random_crop_frames']:
+                padding_frames = parameters['random_crop_frames'] - file_frames
+                image = np.pad(image, pad_width=((0, padding_frames), (0, 0)), mode = 'constant')
+                file_frames = image.shape[0]
+        # Random start index:
         index = randint(0, max(0, file_frames - parameters['random_crop_frames'] - 1))
-        # get the end index
         end_index = np.array(range(min(file_frames, int(parameters['random_crop_frames'])))) + index
         # slice the image
         features = image[end_index, :]
@@ -88,7 +92,6 @@ class BlueFinLib(Dataset):
         return features
 
     def __getitem__(self, index):
-        # TODO: fer bona documentació.
         img_path = os.path.join(self.img_dir,
                                 self.df['subdataset'][index]+'_'+
                                 self.df['wav_name'][index]+'_'+
@@ -97,23 +100,21 @@ class BlueFinLib(Dataset):
                                 self.df['date'][index]+'_'+
                                 self.df['begin_sample'][index]+'_'+
                                 self.df['end_sample'][index]+'_'+
-                                self.df['sampling_rate'][index]
-                                ) 
+                                self.df['sampling_rate'][index]+'Hz'+'.pickle'
+                                )
         label = self.df['num_species'][index]
-        # label_tensor = torch.tensor(label)
         try:
                 with open(img_path, 'rb') as f:
                         image = pickle.load(f)
-                        
+                parameters = self.config
+                # Slice the spectrogram to have all the same length:
+                features = BlueFinLib.get_feature_vector(image, parameters)
+                if self.transform:
+                        features = self.transform(features)
+                return features, label
+
         except FileNotFoundError:
                 print(f"File {img_path} not found.")
-        parameters = self.config
-        # slice the spectrogram to have all the same length:
-        features = BlueFinLib.get_feature_vector(image, parameters)
-        if self.transform:
-            features = self.transform(features)
-        return features, label
     
-    # /home/usuaris/veussd/DATABASES/Ocean/toyDataset/BallenyIslands2015_20150115-170000_Blue_Bm-D_20150115_2989_5753_1000Hz.pickle
 
 

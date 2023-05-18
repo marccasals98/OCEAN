@@ -83,11 +83,11 @@ if __name__ == "__main__":
     
     config = {
         "lr": 1e-3,
-        "batch_size": 1, # This number must be bigger than one (nn.BatchNorm)
+        "batch_size": 3, # This number must be bigger than one (nn.BatchNorm)
         "epochs": 10,
-        "num_samples_train": 1,
-        "num_samples_val": 1,
-        "num_samples_test": 1,
+        "num_samples_train": 3,
+        "num_samples_val": 2,
+        "num_samples_test": 2,
         "random_crop_frames": 4,
     }
     my_model = train_model(config)
