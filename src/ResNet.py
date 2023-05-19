@@ -88,6 +88,7 @@ class ResNet(nn.Module):
         
         self.avgpool = nn.AdaptiveAvgPool2d((1,1))
         self.fc = nn.Linear(512*ResBlock.expansion, num_classes)
+        self.softmax = nn.Softmax(dim=1)
         
     def forward(self, x):
         x = self.relu(self.batch_norm1(self.conv1(x)))
@@ -101,7 +102,7 @@ class ResNet(nn.Module):
         x = self.avgpool(x)
         x = x.reshape(x.shape[0], -1)
         x = self.fc(x)
-        
+        x = self.softmax(x)
         return x
         
     def _make_layer(self, ResBlock, blocks, planes, stride=1):

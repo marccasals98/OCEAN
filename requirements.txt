@@ -10,3 +10,4 @@ torchvision
 torch_utils
 pytest
 wandb
+scikit-learn

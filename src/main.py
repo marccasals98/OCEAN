@@ -4,25 +4,37 @@ from dataset import BlueFinLib
 from ResNet import ResNet50, ResNet101, ResNet152
 import torch.optim as optim
 from torchvision import transforms
-from torch_utils import accuracy
+from sklearn.metrics import confusion_matrix
 import torch.nn.functional as F
 import numpy as np
+from tqdm import tqdm
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+
+def accuracy(labels, outputs):
+    preds = outputs.argmax(-1, keepdim=True)
+    acum = preds.eq(labels.view_as(preds)).sum().item()
+    return acum
 
 def train_single_epoch(model, train_loader, optimizer):
     model.train()
     accs, losses = [], []
-    for x, y in train_loader:
+    for x, y in tqdm(train_loader, unit="batch", total=len(train_loader)):
         optimizer.zero_grad()
         x, y = x.to(device), y.to(device)
         y_ = model(x)
+        print('Output model:', y_)
+        print('Labels:', y)
         loss = F.cross_entropy(y_, y)
         loss.backward()
         optimizer.step()
         acc = accuracy(y, y_)
         losses.append(loss.item())
-        accs.append(acc.item())
+        accs.append(acc) # accs.append(acc.item())
+        pred = y_.detach().numpy()
+        print('label:', y, 'pred:', pred)
+        cm = confusion_matrix(y, pred)
+        print(cm)
     return np.mean(accs), np.mean(losses)
 
 
@@ -39,7 +51,7 @@ def eval_single_epoch(model, val_loader):
             loss = F.cross_entropy(y_, y)
             acc = accuracy(y, y_)
             losses.append(loss.item())
-            accs.append(acc.item())
+            accs.append(acc) # accs.append(acc.item())
     return np.mean(accs), np.mean(losses)
 
 def data_loaders(config):
@@ -84,7 +96,7 @@ if __name__ == "__main__":
     config = {
         "lr": 1e-3,
         "batch_size": 3, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 10,
+        "epochs": 2,
         "num_samples_train": 3,
         "num_samples_val": 2,
         "num_samples_test": 2,
