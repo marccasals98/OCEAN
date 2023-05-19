@@ -9,6 +9,7 @@ import torch.nn.functional as F
 import numpy as np
 from tqdm import tqdm
 
+
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
 def accuracy(labels, outputs):
@@ -25,6 +26,7 @@ def train_single_epoch(model, train_loader, optimizer):
         y_ = model(x)
         print('Output model:', y_)
         print('Labels:', y)
+        print('tipus y:', type(y), 'tipus y_:', type(y_))
         loss = F.cross_entropy(y_, y)
         loss.backward()
         optimizer.step()

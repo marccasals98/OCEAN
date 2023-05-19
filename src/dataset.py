@@ -7,6 +7,7 @@ import torchvision.transforms as transforms
 import pickle
 from random import randint
 import numpy as np
+import torch.nn.functional as F
 
 
 
@@ -42,17 +43,11 @@ class BlueFinLib(Dataset):
                 the transformations of the tensor.
         '''
         super().__init__() # is this necessary?
-        # NOTE: I have changed from local variable df to attribute df.
         self.df = pd.read_pickle(pickle_path)
-       
-       # - TODO: check if this is necessary.   ---
-        self.species = list(self.df.species)
-        self.wav_name = list(self.df['wav_name']) 
-        # -----------------------------------------
-
         self.img_dir = img_dir 
         self.transform = transform
         self.config = config
+        self.num_classes = self.df.species.nunique()
 
 
     def __len__(self):
@@ -103,6 +98,7 @@ class BlueFinLib(Dataset):
                                 self.df['sampling_rate'][index]+'Hz'+'.pickle'
                                 )
         label = self.df['num_species'][index]
+        one_hot = F.one_hot(torch.tensor(label), self.num_classes).float()
         try:
                 with open(img_path, 'rb') as f:
                         image = pickle.load(f)
@@ -111,7 +107,7 @@ class BlueFinLib(Dataset):
                 features = BlueFinLib.get_feature_vector(image, parameters)
                 if self.transform:
                         features = self.transform(features)
-                return features, label
+                return features, one_hot
 
         except FileNotFoundError:
                 print(f"File {img_path} not found.")
