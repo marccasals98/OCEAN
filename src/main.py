@@ -13,7 +13,10 @@ from tqdm import tqdm
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
 def accuracy(labels, outputs):
+    # label shape [batch, num_classes], outputs shape [batch, num_classes]
     preds = outputs.argmax(-1, keepdim=True)
+    labels = labels.argmax(-1, keepdim=True) # bc we have done one_hot encoding.
+    # label shape [batch, 1], outputs shape [batch, 1]
     acum = preds.eq(labels.view_as(preds)).sum().item()
     return acum
 
@@ -24,9 +27,6 @@ def train_single_epoch(model, train_loader, optimizer):
         optimizer.zero_grad()
         x, y = x.to(device), y.to(device)
         y_ = model(x)
-        print('Output model:', y_)
-        print('Labels:', y)
-        print('tipus y:', type(y), 'tipus y_:', type(y_))
         loss = F.cross_entropy(y_, y)
         loss.backward()
         optimizer.step()
@@ -34,9 +34,9 @@ def train_single_epoch(model, train_loader, optimizer):
         losses.append(loss.item())
         accs.append(acc) # accs.append(acc.item())
         pred = y_.detach().numpy()
-        print('label:', y, 'pred:', pred)
-        cm = confusion_matrix(y, pred)
-        print(cm)
+        print('label:', y.shape, 'pred:', pred.shape)
+        #cm = confusion_matrix(y.argmax(-1, keepdim=True), pred.argmax(-1, keepdim=True))
+        #print(cm)
     return np.mean(accs), np.mean(losses)
 
 
