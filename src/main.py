@@ -12,12 +12,26 @@ from tqdm import tqdm
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
-def accuracy(labels, outputs):
-    # label shape [batch, num_classes], outputs shape [batch, num_classes]
+def accuracy(labels: torch.Tensor, outputs: torch.Tensor) -> int:
+    '''
+    This function returns the number of coincidences that happen in two arrays of the same length.
+
+    Arguments:
+    ----------
+    labels : torch.Tensor [batch, num_classes]
+        The ground truth of the classes.
+    outputs : torch.Tensor [batch, num_classes]
+        The model prediction of the most likely class.
+    
+    Returns:
+    --------
+    acum : int
+        The number of coincidences.
+    '''
     preds = outputs.argmax(-1, keepdim=True)
     labels = labels.argmax(-1, keepdim=True) # bc we have done one_hot encoding.
     # label shape [batch, 1], outputs shape [batch, 1]
-    acum = preds.eq(labels.view_as(preds)).sum().item()
+    acum = preds.eq(labels.view_as(preds)).sum().item() # sums the times both arrays coincide.
     return acum
 
 def train_single_epoch(model, train_loader, optimizer):
@@ -33,9 +47,6 @@ def train_single_epoch(model, train_loader, optimizer):
         acc = accuracy(y, y_)
         losses.append(loss.item())
         accs.append(acc) # accs.append(acc.item())
-        pred = y_.detach().numpy()
-        cm = confusion_matrix(y.argmax(-1), pred.argmax(-1))
-        print('Confussion matrix train:\n', cm)
     return np.mean(losses), np.sum(accs)/len(train_loader.dataset)
 
 
@@ -55,7 +66,7 @@ def eval_single_epoch(model, val_loader):
             accs.append(acc) # accs.append(acc.item())
             pred = y_.detach().numpy()
             cm = confusion_matrix(y.argmax(-1), pred.argmax(-1))
-            print('Confussion matrix eval:\n', cm)
+            print('Confussion matrix eval:\n', cm) # maybe not necessary to be print every time.
     return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
 
 def data_loaders(config):
