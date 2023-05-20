@@ -1,9 +1,13 @@
 import os
 import pandas as pd
+import torch
 from torch.utils.data import Dataset
 from torchvision.io import read_image
+import torchvision.transforms as transforms
+import pickle
 from random import randint
 import numpy as np
+import torch.nn.functional as F
 
 
 
@@ -39,27 +43,33 @@ class BlueFinLib(Dataset):
                 the transformations of the tensor.
         '''
         super().__init__() # is this necessary?
-        df = pd.read_pickle(pickle_path)
-        self.species = list(df.species)
-        self.wav_name = list(df['original name of wav file']) 
+        self.df = pd.read_pickle(pickle_path)
         self.img_dir = img_dir 
         self.transform = transform
         self.config = config
+        self.num_classes = self.df.species.nunique()
 
 
     def __len__(self):
-        return len(self.species)
+        return len(self.df.species)
     
     @staticmethod
     def sample_spectrogram_crop(image, parameters):
         '''
         This function takes an image and returns a random crop of the image.
+
+        As we are working with spectrograms and we need all images to be the same size (to work with batches), 
+        we will need to crop all these spectrograms equally to feed the network.
         '''
         # Cut the image with a fixed length a random place.
         file_frames = image.shape[0]
-        # get a random start index
+        # Check if we need padding:
+        if file_frames < parameters['random_crop_frames']:
+                padding_frames = parameters['random_crop_frames'] - file_frames
+                image = np.pad(image, pad_width=((0, padding_frames), (0, 0)), mode = 'constant')
+                file_frames = image.shape[0]
+        # Random start index:
         index = randint(0, max(0, file_frames - parameters['random_crop_frames'] - 1))
-        # get the end index
         end_index = np.array(range(min(file_frames, int(parameters['random_crop_frames'])))) + index
         # slice the image
         features = image[end_index, :]
@@ -71,26 +81,36 @@ class BlueFinLib(Dataset):
         This function takes an image and returns a feature vector. 
         The feature vector is a slice of the image.
         '''
-        ima_trans = np.transpose(image)
-        ima_norm = (ima_trans-np.min(ima_trans))/(np.max(ima_trans)-np.min(ima_trans))
+        ima_trans = np.transpose(image['features'])
+        ima_norm = (ima_trans-ima_trans.min())/(ima_trans.max()-ima_trans.min())
         features = BlueFinLib.sample_spectrogram_crop(ima_norm, parameters)
         return features
 
     def __getitem__(self, index):
-        # TODO: canviar el nom del fitxer pel que sera el complet.
-        # TODO: el espectograma es guarda com a pickle.
-        img_path = os.path.join(self.img_dir, self.wav_name[index]+'.png') 
-        label = self.species[index]
+        img_path = os.path.join(self.img_dir,
+                                self.df['subdataset'][index]+'_'+
+                                self.df['wav_name'][index]+'_'+
+                                self.df['species'][index]+'_'+
+                                self.df['vocalization'][index]+'_'+
+                                self.df['date'][index]+'_'+
+                                self.df['begin_sample'][index]+'_'+
+                                self.df['end_sample'][index]+'_'+
+                                self.df['sampling_rate'][index]+'Hz'+'.pickle'
+                                )
+        label = self.df['num_species'][index]
+        one_hot = F.one_hot(torch.tensor(label), self.num_classes).float()
         try:
                 with open(img_path, 'rb') as f:
-                        image = read_image(f)
+                        image = pickle.load(f)
+                parameters = self.config
+                # Slice the spectrogram to have all the same length:
+                features = BlueFinLib.get_feature_vector(image, parameters)
+                if self.transform:
+                        features = self.transform(features)
+                return features, one_hot
+
         except FileNotFoundError:
                 print(f"File {img_path} not found.")
-        # TODO: slice the histograms.
-        parameters = self.config
-        features = BlueFinLib.get_feature_vector(image, parameters)
-        if self.transform:
-            features = self.transform(features)
-        return features, label
+    
 
 
