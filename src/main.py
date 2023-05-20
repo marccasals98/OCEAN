@@ -34,10 +34,9 @@ def train_single_epoch(model, train_loader, optimizer):
         losses.append(loss.item())
         accs.append(acc) # accs.append(acc.item())
         pred = y_.detach().numpy()
-        print('label:', y.shape, 'pred:', pred.shape)
-        #cm = confusion_matrix(y.argmax(-1, keepdim=True), pred.argmax(-1, keepdim=True))
-        #print(cm)
-    return np.mean(accs), np.mean(losses)
+        cm = confusion_matrix(y.argmax(-1), pred.argmax(-1))
+        print('Confussion matrix train:\n', cm)
+    return np.mean(losses), np.sum(accs)/len(train_loader.dataset)
 
 
 def eval_single_epoch(model, val_loader):
@@ -54,7 +53,10 @@ def eval_single_epoch(model, val_loader):
             acc = accuracy(y, y_)
             losses.append(loss.item())
             accs.append(acc) # accs.append(acc.item())
-    return np.mean(accs), np.mean(losses)
+            pred = y_.detach().numpy()
+            cm = confusion_matrix(y.argmax(-1), pred.argmax(-1))
+            print('Confussion matrix eval:\n', cm)
+    return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
 
 def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
