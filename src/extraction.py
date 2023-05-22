@@ -14,7 +14,7 @@ class Extractor:
         self.output_path = output_path
 
         # pd dataframe for extraction statistics:
-        cols = ['subdataset', 'original name of wav file', 'species', 'vocalization', 'date', 'first sample from orig. file', 'last sample from orig. file', 'sampling frequency in Hz']
+        cols = ['subdataset', 'wav_name','species', 'num_species', 'vocalization', 'date', 'begin_sample', 'end_sample', 'sampling_rate']
         self.extraction_df = pd.DataFrame(columns=cols)
     
     def scan_dataset(self):
@@ -153,7 +153,7 @@ class Extractor:
             return 5
 
 
-    def print_extraction_report(self, log_file, extracted, not_extracted, species_not_identified, file_not_found, multifile_event, not_identified_species):
+    def print_extraction_report(self, log_file, extracted, not_extracted, species_not_identified, file_not_found, multifile_event, not_identified_species, exec_time):
         '''
         Prints extraction report in console and in log_file
 
@@ -167,6 +167,8 @@ class Extractor:
         multifile_event: list
         not_identified_species: list
             List of the annotation files where species has not been identified.
+        exec_time: datetime.timedelta
+            Total execution time
 
         '''
         total = sum(extracted) + sum(not_extracted)
@@ -174,7 +176,7 @@ class Extractor:
 
         # printing report in console:
         print('\n----------------------------------------------------------')
-        print('EXTRACTION COMPLETED:')
+        print(f'EXTRACTION COMPLETED: {exec_time}')
         print(f"Total events extracted: {sum(extracted)} ({round(100*sum(extracted)/total, 2)}%) (Blue:{extracted[self.species2int('Blue')]}, Fin:{extracted[self.species2int('Fin')]}, Unidentified:{extracted[self.species2int('Unidentified')]}, Minke:{extracted[self.species2int('Minke')]}, Humpback:{extracted[self.species2int('Humpback')]})")
         print(f"Total events not extracted: {sum(not_extracted)} ({round(100*sum(not_extracted)/total, 2)}%) (Blue:{not_extracted[self.species2int('Blue')]}, Fin:{not_extracted[self.species2int('Fin')]}, Unidentified:{not_extracted[self.species2int('Unidentified')]}, Minke:{not_extracted[self.species2int('Minke')]}, Humpback:{not_extracted[self.species2int('Humpback')]})")
         print(f"    due to unidentified species: {species_not_identified} ({round(100*species_not_identified/total, 2)}%)")
@@ -189,7 +191,7 @@ class Extractor:
 
         # printing report in log file:
         log_file.write('----------------------------------------------------------\n')
-        log_file.write('EXTRACTION COMPLETED:\n')
+        log_file.write(f'EXTRACTION COMPLETED: {exec_time}\n')
         log_file.write(f"Total events extracted: {sum(extracted)} ({round(100*sum(extracted)/total, 2)}%) (Blue:{extracted[self.species2int('Blue')]}, Fin:{extracted[self.species2int('Fin')]}, Unidentified:{extracted[self.species2int('Unidentified')]}, Minke:{extracted[self.species2int('Minke')]}, Humpback:{extracted[self.species2int('Humpback')]})\n")
         log_file.write(f"Total events not extracted: {sum(not_extracted)} ({round(100*sum(not_extracted)/total, 2)}%) (Blue:{not_extracted[self.species2int('Blue')]}, Fin:{not_extracted[self.species2int('Fin')]}, Unidentified:{not_extracted[self.species2int('Unidentified')]}, Minke:{not_extracted[self.species2int('Minke')]}, Humpback:{not_extracted[self.species2int('Humpback')]})\n")
         log_file.write(f"\tdue to unidentified species: {species_not_identified} ({round(100*species_not_identified/total, 2)}%)\n")
@@ -212,22 +214,26 @@ class Extractor:
 
         '''
         if not os.path.exists(self.output_path):
-            os.mkdir(self.output_path) # create output dir in case it doesnt exists.
+            os.mkdir(self.output_path) # create output dir .
 
-        logdir_path = os.path.join(self.output_path, 'logs')
-        if not os.path.exists(logdir_path):
-            os.mkdir(logdir_path) # create directory for saving log files
+        log_dir_path = os.path.join(self.output_path, 'logs')
+        if not os.path.exists(log_dir_path):
+            os.mkdir(log_dir_path) # create directory for saving log files
+
+        data_dir_path = os.path.join(self.output_path, 'data')
+        if not os.path.exists(data_dir_path):
+            os.mkdir(data_dir_path) # create directory for saving data (wav files)
         
         
         # create log file with date and time of execution
-        now = datetime.now()
-        date_time_filename = now.strftime("%Y%m%d-%H.%M.%S")
-        date_time_txt = now.strftime("%Y-%m-%d at %H:%M:%S")
-        log_file = open(os.path.join(logdir_path, 'log_file_' + date_time_filename + '.txt'), 'w')
+        init_time = datetime.now()
+        date_time_filename = init_time.strftime("%Y%m%d-%H.%M.%S")
+        date_time_txt = init_time.strftime("%Y-%m-%d at %H:%M:%S")
+        log_file = open(os.path.join(log_dir_path, 'log_file_' + date_time_filename + '.txt'), 'w')
         log_file.write(f'Log file for extraction executed on {date_time_txt}:\n')
         log_file.write('--------------------------------------------------------------------\n')
         log_file.write('Naming criterion for extracted wav files:\n')
-        log_file.write('{subdataset}_{original name of wav file}_{species}_{vocalization}_{date}_{first sample from orig. file}_{last sample from orig. file}_{sampling frequency in Hz}.wav\n')
+        log_file.write('{subdataset}_{original name of wav file}_{species}_{species as a number}_{vocalization}_{date}_{first sample from orig. file}_{last sample from orig. file}_{sampling frequency in Hz}.wav\n')
         log_file.write('--------------------------------------------------------------------\n')
         log_file.write('\n LOG:\n')
 
@@ -263,11 +269,12 @@ class Extractor:
                                 wav_name, extension = os.path.splitext(wav_file)
                                 wav_name = wav_name.replace('_','-')
                                 species, vocalization = self.extract_species(filename)
+                                num_species = self.species2int(species)
                                 date = self.extract_date(wav_file, subdirectory)
                                 output_file_name = subdirectory + "_" + wav_name + "_" + species + "_" + vocalization + "_" + date + "_" + str(begin_sample) + "_" + str(end_sample) + "_" + str(sample_rate) + "Hz.wav"
-                                wavfile.write(os.path.join(self.output_path, output_file_name), sample_rate, sig_event)
+                                wavfile.write(os.path.join(data_dir_path, output_file_name), sample_rate, sig_event)
                                 # add data to the extraction dataframe:
-                                row = [subdirectory, wav_name, species, vocalization, date, begin_sample, end_sample, sample_rate]
+                                row = [subdirectory, wav_name, species, num_species, vocalization, date, begin_sample, end_sample, sample_rate]
                                 self.extraction_df.loc[len(self.extraction_df)] = row
                                 #print(species)
                                 #print(self.species2int(species))
@@ -301,8 +308,9 @@ class Extractor:
                             tqdm.write('Event not extracted: Starts and ends in different files')
                             log_file.write('Event not extracted: Starts and ends in different files\n')
                             
-        self.extraction_df.to_pickle(os.path.join(logdir_path, 'extraction_df_'+ date_time_filename +'.pkl'))
-        self.print_extraction_report(log_file, l_extracted_counter, l_not_extracted_counter, species_not_identified_counter, l_file_not_found_counter, l_multifile_event_counter, not_identified_species)
+        self.extraction_df.to_pickle(os.path.join(log_dir_path, 'extraction_df_'+ date_time_filename +'.pkl'))
+        delta_time = datetime.now() - init_time
+        self.print_extraction_report(log_file, l_extracted_counter, l_not_extracted_counter, species_not_identified_counter, l_file_not_found_counter, l_multifile_event_counter, not_identified_species, delta_time)
         log_file.close()
 
 def main(dataset_path, output_path):
