@@ -96,7 +96,7 @@ def log_image_table(images, predicted, labels, probs):
 
 def wandb_init(config):
     wandb.init(project="acoustic_trends", config=config)
-    wandb.run.name = f"lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}_arch={config['architecture']}"
+    wandb.run.name = f"{config['architecture']}_lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}"
     wandb.run.save()
 
 def train_model(config):
@@ -115,14 +115,15 @@ def train_model(config):
         print(f"Eval Epoch {epoch} loss={val_loss:.2f} acc={val_acc:.2f}")
         train_metrics = {"train/train_loss":train_loss,
                         "train/train_acc":train_acc,
-                        "train/epoch":epoch,
                         "val/val_loss":val_loss,
                         "val/val_acc":val_acc}
-        wandb.log(train_metrics, commit=False)
+        wandb.log(train_metrics, step=epoch+1)
 
     # TEST
     loss, acc = eval_single_epoch(my_model, test_loader)
     print(f"Test loss={loss:.2f} acc={acc:.2f}")
+    wandb.log({"test/test_loss":loss,
+                "test/test_acc":acc})
 
     wandb.finish()
     return my_model
@@ -134,7 +135,7 @@ if __name__ == "__main__":
     config = {
         "lr": 1e-3,
         "batch_size": 3, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 2,
+        "epochs": 100,
         "architecture": "ResNet50",
         "num_samples_train": 3,
         "num_samples_val": 2,
