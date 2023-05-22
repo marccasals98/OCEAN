@@ -72,7 +72,7 @@ def eval_single_epoch(model, val_loader):
 def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
     total_data = BlueFinLib(pickle_path = "/home/usuaris/veussd/DATABASES/Ocean/toyDataset.pkl", 
-                            img_dir = "/home/usuaris/veussd/DATABASES/Ocean/toyDataset", 
+                            img_dir = "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_05_21_12_08_09_23hqmc53_zany-totem-48", 
                             config = config,
                             transform=data_transforms)
     train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
