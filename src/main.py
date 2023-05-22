@@ -8,6 +8,7 @@ from sklearn.metrics import confusion_matrix
 import torch.nn.functional as F
 import numpy as np
 from tqdm import tqdm
+import wandb
 
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -71,8 +72,8 @@ def eval_single_epoch(model, val_loader):
 
 def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
-    total_data = BlueFinLib(pickle_path = "/home/usuaris/veussd/DATABASES/Ocean/toyDataset.pkl", 
-                            img_dir = "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_05_21_12_08_09_23hqmc53_zany-totem-48", 
+    total_data = BlueFinLib(pickle_path = "/Users/marccasals/Desktop/ocean_set/toyDataset.pkl", 
+                            img_dir = "/Users/marccasals/Desktop/ocean_set/toyDataset", 
                             config = config,
                             transform=data_transforms)
     train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
@@ -85,25 +86,47 @@ def data_loaders(config):
 
     return train_loader, val_loader, test_loader
 
+def log_image_table(images, predicted, labels, probs):
+    "Log a wandb.Table with (img, pred, target, scores)"
+    # 🐝 Create a wandb Table to log images, labels and predictions to
+    table = wandb.Table(columns=["image", "pred", "target"]+[f"score_{i}" for i in range(10)])
+    for img, pred, targ, prob in zip(images.to("cpu"), predicted.to("cpu"), labels.to("cpu"), probs.to("cpu")):
+        table.add_data(wandb.Image(img[0].numpy()*255), pred, targ, *prob.numpy())
+    wandb.log({"predictions_table":table}, commit=False)
+
+def wandb_init(config):
+    wandb.init(project="acoustic_trends", config=config)
+    wandb.run.name = f"lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}_arch={config['architecture']}"
+    wandb.run.save()
+
 def train_model(config):
 
     train_loader, val_loader, test_loader = data_loaders(config)
 
     my_model = ResNet50(2, 1).to(device)
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
+    wandb_init(config)
 
     # TRAINING
     for epoch in range(config["epochs"]):
-        loss, acc = train_single_epoch(my_model, train_loader, optimizer)
-        print(f"Train Epoch {epoch} loss={loss:.2f} acc={acc:.2f}")
-        loss, acc = eval_single_epoch(my_model, val_loader)
-        print(f"Eval Epoch {epoch} loss={loss:.2f} acc={acc:.2f}")
-    
+        train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
+        print(f"Train Epoch {epoch} loss={train_loss:.2f} acc={train_acc:.2f}")
+        val_loss, val_acc = eval_single_epoch(my_model, val_loader)
+        print(f"Eval Epoch {epoch} loss={val_loss:.2f} acc={val_acc:.2f}")
+        train_metrics = {"train/train_loss":train_loss,
+                        "train/train_acc":train_acc,
+                        "train/epoch":epoch,
+                        "val/val_loss":val_loss,
+                        "val/val_acc":val_acc}
+        wandb.log(train_metrics, commit=False)
+
     # TEST
     loss, acc = eval_single_epoch(my_model, test_loader)
     print(f"Test loss={loss:.2f} acc={acc:.2f}")
 
+    wandb.finish()
     return my_model
+
 
 if __name__ == "__main__":
     # TODO: calculate properly "random_crop_frames". Use the fede function
@@ -112,6 +135,7 @@ if __name__ == "__main__":
         "lr": 1e-3,
         "batch_size": 3, # This number must be bigger than one (nn.BatchNorm)
         "epochs": 2,
+        "architecture": "ResNet50",
         "num_samples_train": 3,
         "num_samples_val": 2,
         "num_samples_test": 2,
