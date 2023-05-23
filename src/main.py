@@ -42,6 +42,8 @@ def train_single_epoch(model, train_loader, optimizer):
         optimizer.zero_grad()
         x, y = x.to(device), y.to(device)
         y_ = model(x)
+        #print('output: ', y_)
+        #print('labels: ', y)
         loss = F.cross_entropy(y_, y)
         loss.backward()
         optimizer.step()
@@ -65,9 +67,9 @@ def eval_single_epoch(model, val_loader):
             acc = accuracy(y, y_)
             losses.append(loss.item())
             accs.append(acc) # accs.append(acc.item())
-            pred = y_.detach().numpy()
-            cm = confusion_matrix(y.argmax(-1), pred.argmax(-1))
-            print('Confussion matrix eval:\n', cm) # maybe not necessary to be print every time.
+            #pred = y_.detach().numpy()
+            #cm = confusion_matrix(y.argmax(-1), pred.argmax(-1))
+            #print('Confussion matrix eval:\n', cm) # maybe not necessary to be print every time.
     return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
 
 def data_loaders(config):
@@ -103,7 +105,7 @@ def train_model(config):
 
     train_loader, val_loader, test_loader = data_loaders(config)
 
-    my_model = ResNet50(2, 1).to(device)
+    my_model = ResNet50(num_classes = 5, channels=1).to(device)
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
     wandb_init(config)
 
@@ -134,7 +136,7 @@ if __name__ == "__main__":
     
     config = {
         "lr": 1e-3,
-        "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
+        "batch_size": 3, # This number must be bigger than one (nn.BatchNorm)
         "epochs": 10,
         "architecture": "ResNet50",
         "num_samples_train": 57532,
