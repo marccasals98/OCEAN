@@ -72,8 +72,8 @@ def eval_single_epoch(model, val_loader):
 
 def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
-    total_data = BlueFinLib(pickle_path = "/Users/marccasals/Desktop/ocean_set/toyDataset.pkl", 
-                            img_dir = "/Users/marccasals/Desktop/ocean_set/toyDataset", 
+    total_data = BlueFinLib(pickle_path = "/home/usuaris/veussd/DATABASES/Ocean/df_23_05_21_12_08_09_23hqmc53_zany-totem-48.pkl", 
+                            img_dir = "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_05_21_12_08_09_23hqmc53_zany-totem-48", 
                             config = config,
                             transform=data_transforms)
     train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
@@ -134,12 +134,12 @@ if __name__ == "__main__":
     
     config = {
         "lr": 1e-3,
-        "batch_size": 3, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 100,
+        "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
+        "epochs": 10,
         "architecture": "ResNet50",
-        "num_samples_train": 3,
-        "num_samples_val": 2,
-        "num_samples_test": 2,
+        "num_samples_train": 57532,
+        "num_samples_val": 19178,
+        "num_samples_test": 19177,
         "random_crop_frames": 4,
     }
     my_model = train_model(config)
