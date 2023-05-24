@@ -105,7 +105,7 @@ def train_model(config):
 
     train_loader, val_loader, test_loader = data_loaders(config)
 
-    my_model = ResNet50(num_classes = 5, channels=1).to(device)
+    my_model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
     wandb_init(config)
 
@@ -136,12 +136,13 @@ if __name__ == "__main__":
     
     config = {
         "lr": 1e-3,
-        "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
+        "batch_size": 3, # This number must be bigger than one (nn.BatchNorm)
         "epochs": 10,
         "architecture": "ResNet50",
-        "num_samples_train": 57532,
-        "num_samples_val": 19178,
-        "num_samples_test": 19177,
+        "num_samples_train": 3,
+        "num_samples_val": 2,
+        "species": ['Fin', 'Blue'],
+        "num_samples_test": 2,
         "random_crop_frames": 4,
     }
     my_model = train_model(config)
