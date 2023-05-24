@@ -43,7 +43,8 @@ class BlueFinLib(Dataset):
                 the transformations of the tensor.
         '''
         super().__init__() # is this necessary?
-        self.df = pd.read_pickle(pickle_path)
+        base_df = pd.read_pickle(pickle_path)
+        self.df = base_df[base_df['species'].isin(config['species'])]
         self.img_dir = img_dir 
         self.transform = transform
         self.config = config
