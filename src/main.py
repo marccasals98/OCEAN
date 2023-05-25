@@ -74,12 +74,12 @@ def eval_single_epoch(model, val_loader):
 
 def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
-    total_data = BlueFinLib(pickle_path = config["pickle_path"], 
-                            img_dir = config["img_dir"], 
+    total_data = BlueFinLib(pickle_path = "/home/usuaris/veussd/DATABASES/Ocean/df_23_05_21_12_08_09_23hqmc53_zany-totem-48.pkl", 
+                            img_dir = "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_05_21_12_08_09_23hqmc53_zany-totem-48", 
                             config = config,
                             transform=data_transforms)
     train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
-                                                                               [config['num_samples_train'],
+                                                                              [config['num_samples_train'],
                                                                                 config['num_samples_val'],
                                                                                 config['num_samples_test']])
     train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
@@ -133,18 +133,16 @@ def train_model(config):
 
 if __name__ == "__main__":
     # TODO: calculate properly "random_crop_frames". Use the fede function
+    
     config = {
         "lr": 1e-3,
-        "batch_size": 3, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 10,
+        "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
+        "epochs": 50,
         "architecture": "ResNet50",
-        "num_samples_train": 0.6,
-        "num_samples_val": 0.2,
-        "num_samples_test": 0.2,
+        "num_samples_train": 43185,
+        "num_samples_val": 14396,
         "species": ['Fin', 'Blue'],
+        "num_samples_test": 14395,
         "random_crop_frames": 100,
-        "pickle_path": "/home/usuaris/veussd/DATABASES/Ocean/df_23_05_21_12_08_09_23hqmc53_zany-totem-48.pkl",
-        "img_dir": "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_05_21_12_08_09_23hqmc53_zany-totem-48",
-        "save_dir": ""
     }
     my_model = train_model(config)
