@@ -137,7 +137,7 @@ if __name__ == "__main__":
     config = {
         "lr": 1e-3,
         "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 50,
+        "epochs": 10,
         "architecture": "ResNet50",
         "num_samples_train": 43185,
         "num_samples_val": 14396,
