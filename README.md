@@ -2,9 +2,11 @@
 ## Operator-Centered Enhancement of Awareness in Navigation
 <img src="https://github.com/marccasals98/OCEAN/blob/main/OCEAN.png" width="300">
 ## Train in CALCULA:
+
 ```
 srun -A veu -p veu --mem=16G -c 2 --gres=gpu:4 python src/main.py
 ```
+
 ### Enhancing operator awareness in navigation
 The OCEAN project is focused on enhancing operator awareness in navigation, to reduce the frequency of severe accidents like collision and grounding, to mitigate ship-strike risks to marine mammals, and to mitigate the risk presented by floating obstacles to ships.
 
