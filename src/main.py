@@ -108,6 +108,8 @@ def train_model(config):
     my_model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
     wandb_init(config)
+    best_metric = float('-inf')
+    best_params = None
 
     # TRAINING
     for epoch in range(config["epochs"]):
@@ -120,6 +122,12 @@ def train_model(config):
                         "val/val_loss":val_loss,
                         "val/val_acc":val_acc}
         wandb.log(train_metrics, step=epoch+1)
+        if val_acc > best_metric:
+            best_metric = val_acc
+            best_params = my_model.state_dict()
+            #torch.save(best_params, config["save_dir"] + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
+            torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
+
 
     # TEST
     loss, acc = eval_single_epoch(my_model, test_loader)
@@ -137,10 +145,10 @@ if __name__ == "__main__":
     # TODO: wandb.run.save without any arguments is deprecated. 
     
     config = {
+        "architecture": "ResNet50",
         "lr": 1e-3,
         "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 10,
-        "architecture": "ResNet50",
+        "epochs": 1,
         "num_samples_train": 0.6,
         "num_samples_val": 0.2,
         "num_samples_test": 0.2,
@@ -148,5 +156,6 @@ if __name__ == "__main__":
         "random_crop_secs": 5, 
         "pickle_path": "/home/usuaris/veussd/DATABASES/Ocean/df_23_05_21_12_08_09_23hqmc53_zany-totem-48.pkl",
         "img_dir": "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_05_21_12_08_09_23hqmc53_zany-totem-48",
+        "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/"
     }
     my_model = train_model(config)
