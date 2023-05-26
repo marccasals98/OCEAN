@@ -54,9 +54,34 @@ class BlueFinLib(Dataset):
 
     def __len__(self):
         return len(self.df.species)
-    
+        
     @staticmethod
-    def sample_spectrogram_crop(image, parameters):
+    def seconds_to_frames(image_dict: dict, parameters: dict) -> int:
+        '''
+        Calculate the number of frames from the spectrogram we need to crop.  
+        '''
+        # Pass from the dictionary with all the info to the image and settings:
+        image = image_dict['features']
+        image_settings = image_dict['settings']
+
+        # Get the parameters: 
+        file_frames = image.shape[0]
+        sampling_rate = image_settings.sampling_rate
+        hop_length = int(image_settings.hop_length_secs * sampling_rate)
+        n_fft = int(image_settings.n_fft_secs * sampling_rate)
+
+        # Get estimation crop size in frames:
+        estimated_samples = (file_frames - 1) * hop_length + n_fft
+        estimated_audio_length_secs = estimated_samples / sampling_rate
+        estimated_frames_1_sec = file_frames / estimated_audio_length_secs
+        random_crop_frames = int(parameters['random_crop_secs'] * estimated_frames_1_sec)
+        
+        return random_crop_frames
+
+
+
+    @staticmethod
+    def sample_spectrogram_crop(image: np.ndarray, parameters: dict, random_crop_frames: int) -> np.ndarray:
         '''
         This function takes an image and returns a random crop of the image.
 
@@ -66,26 +91,27 @@ class BlueFinLib(Dataset):
         # Cut the image with a fixed length a random place.
         file_frames = image.shape[0]
         # Check if we need padding:
-        if file_frames < parameters['random_crop_frames']:
-                padding_frames = parameters['random_crop_frames'] - file_frames
+        if file_frames < random_crop_frames:
+                padding_frames = random_crop_frames - file_frames
                 image = np.pad(image, pad_width=((0, padding_frames), (0, 0)), mode = 'constant')
                 file_frames = image.shape[0]
         # Random start index:
-        index = randint(0, max(0, file_frames - parameters['random_crop_frames'] - 1))
-        end_index = np.array(range(min(file_frames, int(parameters['random_crop_frames'])))) + index
+        index = randint(0, max(0, file_frames - random_crop_frames - 1))
+        end_index = np.array(range(min(file_frames, int(random_crop_frames)))) + index
         # slice the image
         features = image[end_index, :]
         return features
 
     @staticmethod
-    def get_feature_vector(image, parameters):
+    def get_feature_vector(image_dict: dict, parameters: dict) -> np.ndarray:
         '''
         This function takes an image and returns a feature vector. 
         The feature vector is a slice of the image.
         '''
-        ima_trans = np.transpose(image['features'])
+        ima_trans = np.transpose(image_dict['features'])
         ima_norm = (ima_trans-ima_trans.min())/(ima_trans.max()-ima_trans.min())
-        features = BlueFinLib.sample_spectrogram_crop(ima_norm, parameters)
+        random_crop_frames = BlueFinLib.seconds_to_frames(image_dict, parameters)
+        features = BlueFinLib.sample_spectrogram_crop(ima_norm, parameters, random_crop_frames)
         return features
 
     def __getitem__(self, index):
@@ -103,10 +129,10 @@ class BlueFinLib(Dataset):
         one_hot = F.one_hot(torch.tensor(label), self.num_classes).float()
         try:
                 with open(img_path, 'rb') as f:
-                        image = pickle.load(f)
+                        image_dict = pickle.load(f)
                 parameters = self.config
                 # Slice the spectrogram to have all the same length:
-                features = BlueFinLib.get_feature_vector(image, parameters)
+                features = BlueFinLib.get_feature_vector(image_dict, parameters)
                 if self.transform:
                         features = self.transform(features)
                 return features, one_hot

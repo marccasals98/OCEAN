@@ -132,7 +132,9 @@ def train_model(config):
 
 
 if __name__ == "__main__":
-    # TODO: calculate properly "random_crop_frames". Use the fede function
+    # TODO: check if random_crop_frames are calculated properly!
+    # TODO: implement the save model.
+    # TODO: wandb.run.save without any arguments is deprecated. 
     
     config = {
         "lr": 1e-3,
@@ -143,7 +145,7 @@ if __name__ == "__main__":
         "num_samples_val": 0.2,
         "num_samples_test": 0.2,
         "species": ['Fin', 'Blue'],
-        "random_crop_frames": 100,
+        "random_crop_secs": 5, 
         "pickle_path": "/home/usuaris/veussd/DATABASES/Ocean/df_23_05_21_12_08_09_23hqmc53_zany-totem-48.pkl",
         "img_dir": "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_05_21_12_08_09_23hqmc53_zany-totem-48",
     }
