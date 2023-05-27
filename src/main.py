@@ -105,7 +105,10 @@ def train_model(config):
 
     train_loader, val_loader, test_loader = data_loaders(config)
 
+    # CANVIAR PER DMHA
     my_model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
+
+
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
     wandb_init(config)
     best_metric = float('-inf')
