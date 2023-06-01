@@ -2,6 +2,7 @@ import torch
 from torch.utils.data import DataLoader
 from dataset import BlueFinLib
 from ResNet import ResNet50, ResNet101, ResNet152
+from LeNet import LeNet5
 import torch.optim as optim
 from torchvision import transforms
 from sklearn.metrics import confusion_matrix
@@ -105,7 +106,8 @@ def train_model(config):
 
     train_loader, val_loader, test_loader = data_loaders(config)
 
-    my_model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
+    #my_model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
+    my_model = LeNet5(n_classes= len(config['species']))
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
     wandb_init(config)
     best_metric = float('-inf')
@@ -147,13 +149,13 @@ if __name__ == "__main__":
     config = {
         "architecture": "ResNet50",
         "lr": 1e-3,
-        "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
+        "batch_size": 64, # This number must be bigger than one (nn.BatchNorm)
         "epochs": 1,
         "num_samples_train": 0.6,
         "num_samples_val": 0.2,
         "num_samples_test": 0.2,
         "species": ['Fin', 'Blue'],
-        "random_crop_secs": 5, 
+        "random_crop_secs": 10, 
         "pickle_path": "/home/usuaris/veussd/DATABASES/Ocean/df_23_05_21_12_08_09_23hqmc53_zany-totem-48.pkl",
         "img_dir": "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_05_21_12_08_09_23hqmc53_zany-totem-48",
         "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/"
