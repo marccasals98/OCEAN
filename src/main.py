@@ -9,6 +9,7 @@ import torch.nn.functional as F
 import numpy as np
 from tqdm import tqdm
 import wandb
+from torchvision.models import resnet50
 
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -39,12 +40,12 @@ def train_single_epoch(model, train_loader, optimizer):
     model.train()
     accs, losses = [], []
     for x, y in tqdm(train_loader, unit="batch", total=len(train_loader)):
-        optimizer.zero_grad()
         x, y = x.to(device), y.to(device)
         y_ = model(x)
         #print('output: ', y_)
         #print('labels: ', y)
         loss = F.cross_entropy(y_, y)
+        optimizer.zero_grad()
         loss.backward()
         optimizer.step()
         acc = accuracy(y, y_)
@@ -104,8 +105,8 @@ def wandb_init(config):
 def train_model(config):
 
     train_loader, val_loader, test_loader = data_loaders(config)
-
-    my_model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
+    my_model = resnet50(weights="IMAGENET1K_V2")
+    #my_model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
     wandb_init(config)
     best_metric = float('-inf')
@@ -147,8 +148,8 @@ if __name__ == "__main__":
     config = {
         "architecture": "ResNet50",
         "lr": 1e-3,
-        "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 1,
+        "batch_size": 64, # This number must be bigger than one (nn.BatchNorm)
+        "epochs": 10,
         "num_samples_train": 0.6,
         "num_samples_val": 0.2,
         "num_samples_test": 0.2,

@@ -100,6 +100,12 @@ class BlueFinLib(Dataset):
         end_index = np.array(range(min(file_frames, int(random_crop_frames)))) + index
         # slice the image
         features = image[end_index, :]
+        print('forma: ', features.shape)
+        features_torch = torch.from_numpy(features)
+        features_torch = features_torch.unsqueeze(0)
+        features_torch = features_torch.expand(3, -1, -1)
+        features = features_torch.numpy()
+        print('forma despres processat: ', features.shape)
         return features
 
     @staticmethod
