@@ -12,6 +12,11 @@ class NonPositiveDurationException(Exception):
         # Call the base class constructor with the custom message
         super().__init__(message)
 
+class NonSpeciesException(Exception): 
+    def __init__(self, message):
+        # Call the base class constructor with the custom message
+        super().__init__(message)
+
 class Extractor:
 
     def __init__(self, dataset_path, output_path, min_frame_size_sec):
@@ -105,7 +110,7 @@ class Extractor:
             species = 'Humpback'
             vocalization = ''
         else:
-            raise ValueError('Not able to identify species from file name')
+            raise NonSpeciesException('Not able to identify species from file name')
         
         return species, vocalization
 
@@ -280,17 +285,18 @@ class Extractor:
                                 num_species = self.species2int(species)
                                 if row['End File Samp (samples)'] <= row['Beg File Samp (samples)']: # event with non positive duration
                                     raise NonPositiveDurationException('Event not extracted: non positive duration')
-                                
-                                if ((row['End File Samp (samples)'] - row['Beg File Samp (samples)'])/sample_rate) < self.min_frame_size_sec: # event shorter than min_frame_size
+                                min_frame_size_samples = self.min_frame_size_sec * sample_rate
+                                if (row['End File Samp (samples)'] - row['Beg File Samp (samples)']) < min_frame_size_samples: # event shorter than min_frame_size
                                     event_begin_sample = row['Beg File Samp (samples)']
                                     event_end_sample = row['End File Samp (samples)']
-                                    begin_sample = random.randint(event_end_sample - self.min_frame_size_sec, event_begin_sample)
-                                    end_sample = begin_sample + self.min_frame_size_sec
+                                    begin_sample = random.randint(event_end_sample - min_frame_size_samples, event_begin_sample)
+                                    end_sample = begin_sample + min_frame_size_samples
                                     if begin_sample < 0: # begin_sample falls outside the audio
                                         # correct samples to fall inside
                                         end_sample = end_sample - begin_sample
                                         begin_sample = 0
                                     elif end_sample >= len(sig): # end_sample falls outside the audio
+                                        # correct samples to fall inside
                                         diff = end_sample - (len(sig)-1)
                                         end_sample = end_sample -diff
                                         begin_sample =  begin_sample - diff
@@ -326,7 +332,7 @@ class Extractor:
                                 d = os.path.join(self.dataset_path, subdirectory,'wav')
                                 tqdm.write(f'FILE: {wav_file} NOT FOUND IN: {d}')
                                 log_file.write(f'FILE: {wav_file} NOT FOUND IN: {d}\n')
-                            except ValueError: # in case not able to extract species from annotation file
+                            except NonSpeciesException: # in case not able to extract species from annotation file
                                 #not_extracted_counter += ann.shape[0]
                                 l_not_extracted_counter[self.species2int('Unidentified')] += ann.shape[0]
                                 species_not_identified_counter += ann.shape[0]
