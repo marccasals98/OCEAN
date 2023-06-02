@@ -5,18 +5,25 @@ from  scipy.io import wavfile
 from tqdm import tqdm
 from datetime import datetime
 import argparse
+import random
 
 class NonPositiveDurationException(Exception): 
     def __init__(self, message):
         # Call the base class constructor with the custom message
         super().__init__(message)
 
+class NonSpeciesException(Exception): 
+    def __init__(self, message):
+        # Call the base class constructor with the custom message
+        super().__init__(message)
+
 class Extractor:
 
-    def __init__(self, dataset_path, output_path):
+    def __init__(self, dataset_path, output_path, min_frame_size_sec):
 
         self.dataset_path = dataset_path
         self.output_path = output_path
+        self.min_frame_size_sec = min_frame_size_sec
 
         # pd dataframe for extraction statistics:
         cols = ['subdataset', 'wav_name','species', 'num_species', 'vocalization', 'date', 'begin_sample', 'end_sample', 'sampling_rate']
@@ -103,7 +110,7 @@ class Extractor:
             species = 'Humpback'
             vocalization = ''
         else:
-            raise ValueError('Not able to identify species from file name')
+            raise NonSpeciesException('Not able to identify species from file name')
         
         return species, vocalization
 
@@ -278,8 +285,25 @@ class Extractor:
                                 num_species = self.species2int(species)
                                 if row['End File Samp (samples)'] <= row['Beg File Samp (samples)']: # event with non positive duration
                                     raise NonPositiveDurationException('Event not extracted: non positive duration')
-                                begin_sample = row['Beg File Samp (samples)']
-                                end_sample = row['End File Samp (samples)']
+                                min_frame_size_samples = self.min_frame_size_sec * sample_rate
+                                if (row['End File Samp (samples)'] - row['Beg File Samp (samples)']) < min_frame_size_samples: # event shorter than min_frame_size
+                                    event_begin_sample = row['Beg File Samp (samples)']
+                                    event_end_sample = row['End File Samp (samples)']
+                                    begin_sample = random.randint(event_end_sample - min_frame_size_samples, event_begin_sample)
+                                    end_sample = begin_sample + min_frame_size_samples
+                                    if begin_sample < 0: # begin_sample falls outside the audio
+                                        # correct samples to fall inside
+                                        end_sample = end_sample - begin_sample
+                                        begin_sample = 0
+                                    elif end_sample >= len(sig): # end_sample falls outside the audio
+                                        # correct samples to fall inside
+                                        diff = end_sample - (len(sig)-1)
+                                        end_sample = end_sample -diff
+                                        begin_sample =  begin_sample - diff
+                                else:
+                                    begin_sample = row['Beg File Samp (samples)']
+                                    end_sample = row['End File Samp (samples)']
+
                                 sig_event = sig[begin_sample:end_sample] # extract event
                                 date = self.extract_date(wav_file, subdirectory)
                                 output_file_name = subdirectory + "_" + wav_name + "_" + species + "_" + vocalization + "_" + date + "_" + str(begin_sample) + "_" + str(end_sample) + "_" + str(sample_rate) + "Hz.wav"
@@ -308,7 +332,7 @@ class Extractor:
                                 d = os.path.join(self.dataset_path, subdirectory,'wav')
                                 tqdm.write(f'FILE: {wav_file} NOT FOUND IN: {d}')
                                 log_file.write(f'FILE: {wav_file} NOT FOUND IN: {d}\n')
-                            except ValueError: # in case not able to extract species from annotation file
+                            except NonSpeciesException: # in case not able to extract species from annotation file
                                 #not_extracted_counter += ann.shape[0]
                                 l_not_extracted_counter[self.species2int('Unidentified')] += ann.shape[0]
                                 species_not_identified_counter += ann.shape[0]
@@ -331,8 +355,8 @@ class Extractor:
         self.print_extraction_report(log_file, l_extracted_counter, l_not_extracted_counter, species_not_identified_counter, l_file_not_found_counter, l_multifile_event_counter, l_non_positvide_duration_counter, not_identified_species, delta_time)
         log_file.close()
 
-def main(dataset_path, output_path):
-    extractor = Extractor(dataset_path, output_path)
+def main(dataset_path, output_path, min_frame_size_sec):
+    extractor = Extractor(dataset_path, output_path, min_frame_size_sec)
     subdatasets = extractor.scan_dataset()
     extractor.extract(subdatasets)
 
@@ -342,7 +366,8 @@ if __name__=="__main__":
 
     parser.add_argument('dataset_path', type=str, help='path of the dataset to extract')
     parser.add_argument('output_path', type=str, help='directory where extracted events and log_file are saved')
+    parser.add_argument('--min_frame_size_sec', type=int, default=0, help='minimum frame size of the extracted frames containing the events')
 
     params=parser.parse_args()
 
-    main(params.dataset_path, params.output_path)
+    main(params.dataset_path, params.output_path, params.min_frame_size_sec)
