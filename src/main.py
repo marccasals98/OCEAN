@@ -9,6 +9,8 @@ import torch.nn.functional as F
 import numpy as np
 from tqdm import tqdm
 import wandb
+from DataframeCreator import DataframeCreator
+import os
 
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -74,7 +76,7 @@ def eval_single_epoch(model, val_loader):
 
 def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
-    total_data = BlueFinLib(pickle_path = config['pickle_path'], 
+    total_data = BlueFinLib(pickle_path = config['df_path'], 
                             img_dir = config['img_dir'], 
                             config = config,
                             transform=data_transforms)
@@ -126,7 +128,7 @@ def train_model(config):
             best_metric = val_acc
             best_params = my_model.state_dict()
             #torch.save(best_params, config["save_dir"] + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
-            torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
+            #torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
 
 
     # TEST
@@ -143,7 +145,7 @@ if __name__ == "__main__":
     # TODO: check if random_crop_frames are calculated properly!
     # TODO: implement the save model.
     # TODO: wandb.run.save without any arguments is deprecated. 
-    
+
     config = {
         "architecture": "ResNet50",
         "lr": 1e-3,
@@ -154,8 +156,13 @@ if __name__ == "__main__":
         "num_samples_test": 0.2,
         "species": ['Fin', 'Blue'],
         "random_crop_secs": 5, 
-        "pickle_path": "/home/usuaris/veussd/DATABASES/Ocean/df_23_05_21_12_08_09_23hqmc53_zany-totem-48.pkl",
-        "img_dir": "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_05_21_12_08_09_23hqmc53_zany-totem-48",
+        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes",
+        "df_path": "",
+        "img_dir" : "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57",
         "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/"
     }
+
+    df_creator = DataframeCreator(config['img_dir'], config['df_dir'])
+    config["df_path"] = df_creator.get_df_path()
+
     my_model = train_model(config)
