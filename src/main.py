@@ -150,7 +150,7 @@ if __name__ == "__main__":
         "architecture": "ResNet50",
         "lr": 1e-3,
         "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 1,
+        "epochs": 20,
         "num_samples_train": 0.6,
         "num_samples_val": 0.2,
         "num_samples_test": 0.2,
