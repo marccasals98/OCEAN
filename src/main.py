@@ -11,6 +11,8 @@ from tqdm import tqdm
 import wandb
 from DataframeCreator import DataframeCreator
 import os
+from LeNet import LeNet5
+
 
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -107,7 +109,8 @@ def train_model(config):
 
     train_loader, val_loader, test_loader = data_loaders(config)
 
-    my_model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
+    #my_model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
+    my_model = LeNet5(n_classes= len(config['species'])).to(device)
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
     wandb_init(config)
     best_metric = float('-inf')
@@ -128,7 +131,7 @@ def train_model(config):
             best_metric = val_acc
             best_params = my_model.state_dict()
             #torch.save(best_params, config["save_dir"] + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
-            #torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
+            torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
 
 
     # TEST
@@ -147,13 +150,13 @@ if __name__ == "__main__":
     # TODO: wandb.run.save without any arguments is deprecated. 
 
     config = {
-        "architecture": "ResNet50",
+        "architecture": "LeNet5",
         "lr": 1e-3,
-        "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
+        "batch_size": 64, # This number must be bigger than one (nn.BatchNorm)
         "epochs": 20,
-        "num_samples_train": 0.6,
-        "num_samples_val": 0.2,
-        "num_samples_test": 0.2,
+        "num_samples_train": 0.8,
+        "num_samples_val": 0.1,
+        "num_samples_test": 0.1,
         "species": ['Fin', 'Blue'],
         "random_crop_secs": 5, 
         "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes",

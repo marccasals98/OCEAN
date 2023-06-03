@@ -40,7 +40,7 @@ total_data = BlueFinLib(pickle_path = config['df_path'],
                         img_dir = config['img_dir'], 
                         config = config,
                         transform=data_transforms)
-for i in range(10):
+for i in tqdm(range(10)):
     features, label = total_data.__getitem__(i)
     image_np = features.numpy()
     # Transpose the array to match the expected image format
@@ -48,4 +48,4 @@ for i in range(10):
     # Plot the image
     plt.imshow(image_np)
     plt.axis('off')  # Disable axis
-    plt.savefig(f'/home/usuaris/veu/jaume.prats.cristia/workspace/ocean/images/{i}.png')
+    plt.savefig(f'/home/usuaris/veu/marc.casals/IMAGES/{i}.png')
