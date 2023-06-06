@@ -2,6 +2,8 @@ import torch
 from torch.utils.data import DataLoader
 from dataset import BlueFinLib
 from ResNet import ResNet50, ResNet101, ResNet152
+# import DMHA
+from DMHA import SpeakerClassifier
 import torch.optim as optim
 from torchvision import transforms
 from sklearn.metrics import confusion_matrix
@@ -106,7 +108,8 @@ def train_model(config):
     train_loader, val_loader, test_loader = data_loaders(config)
 
     # CANVIAR PER DMHA
-    my_model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
+    # my_model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
+    my_model = SpeakerClassifier(config, device)
 
 
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
@@ -147,7 +150,7 @@ if __name__ == "__main__":
     # TODO: implement the save model.
     # TODO: wandb.run.save without any arguments is deprecated. 
     
-    config = {
+    '''config = {
         "architecture": "ResNet50",
         "lr": 1e-3,
         "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
@@ -160,5 +163,40 @@ if __name__ == "__main__":
         "pickle_path": "/home/usuaris/veussd/DATABASES/Ocean/df_23_05_21_12_08_09_23hqmc53_zany-totem-48.pkl",
         "img_dir": "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_05_21_12_08_09_23hqmc53_zany-totem-48",
         "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/"
+    }'''
+
+    # config for DMHA model
+    config = {
+        "architecture": "SpeakerClassifier", #canviat
+        "lr": 1e-3,
+        "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
+        "epochs": 1,
+        "num_samples_train": 0.6,
+        "num_samples_val": 0.2,
+        "num_samples_test": 0.2,
+        "species": ['Fin', 'Blue'],
+        "random_crop_secs": 5, 
+        "pickle_path": "/home/usuaris/veussd/DATABASES/Ocean/df_23_05_21_12_08_09_23hqmc53_zany-totem-48.pkl",
+        "img_dir": "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_05_21_12_08_09_23hqmc53_zany-totem-48",
+        "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/",
+        
+        # afegim necessaris per DMHA
+        "train_labels_path": '/home/usuaris/veu/pol.cavero/labels_DMHA_Voxceleb/train_labels.ndx',
+        "train_data_dir": '/home/usuaris/veu/pol.cavero/datasets/voxceleb_2/dev/23_04_15_16_23_42_svagf2q9_noble-water-4/',
+        "valid_clients_path": '/home/usuaris/veu/pol.cavero/labels_DMHA_Voxceleb/valid_clients.ndx',
+        "valid_impostors_path": '/home/usuaris/veu/pol.cavero/labels_DMHA_Voxceleb/valid_impostors.ndx',
+        "valid_data_dir": '/home/usuaris/veu/pol.cavero/datasets/voxceleb_2/dev/23_04_15_16_23_42_svagf2q9_noble-water-4/',
+        "model_output_folder": './models/',
+        "embedding_size": 400,
+        "front_end": 'VGGNL',
+        "pooling_method": 'DoubleMHA',
+        "pooling_heads_number": 32,
+        "pooling_mask_prob": 0.3,
+
+        #inventat numero de mels
+        "n_mels": 20,
+        "pooling_output_size": 1, # M'ho he inventat perque no doni error
+        "bottleneck_drop_out": 1, # M'ho he inventat perque no doni error
+
     }
     my_model = train_model(config)
