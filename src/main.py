@@ -12,6 +12,7 @@ import wandb
 from DataframeCreator import DataframeCreator
 import os
 from LeNet import LeNet5
+from Inception import inception_v3
 
 
 
@@ -110,6 +111,8 @@ def select_model(config):
         model = ResNet50(num_classes = len(config['species']), channels=1).to(device)
     elif config['architecture'] == 'LeNet5':
         model = LeNet5(n_classes= len(config['species'])).to(device)
+    elif config['architecture'] == 'inception_v3':
+        model = inception_v3(pretrained=False, num_classes=len(config['species'])).to(device)
     else:
         raise ValueError('The model name is not on the list')
     return model
@@ -157,15 +160,13 @@ def train_model(config):
 
 
 if __name__ == "__main__":
-    # TODO: check if random_crop_frames are calculated properly!
-    # TODO: implement the save model.
     # TODO: wandb.run.save without any arguments is deprecated. 
 
     config = {
-        "architecture": "ResNet50",
+        "architecture": "inception_v3",
         "lr": 1e-3,
         "batch_size": 64, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 1,
+        "epochs": 20,
         "num_samples_train": 0.8,
         "num_samples_val": 0.1,
         "num_samples_test": 0.1,
