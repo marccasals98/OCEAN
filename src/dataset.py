@@ -45,6 +45,7 @@ class BlueFinLib(Dataset):
         super().__init__() # is this necessary?
         base_df = pd.read_pickle(pickle_path)
         self.df = base_df[base_df['species'].isin(config['species'])].reset_index(drop=True)
+        print(len(self.df))
         #print(self.df.head(n=50))
         self.img_dir = img_dir 
         self.transform = transform
