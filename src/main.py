@@ -12,6 +12,7 @@ import wandb
 from DataframeCreator import DataframeCreator
 import os
 from LeNet import LeNet5
+from torchsummary import summary
 
 
 
@@ -123,6 +124,7 @@ def train_model(config):
 
     train_loader, val_loader, test_loader = data_loaders(config)
     my_model = select_model(config)
+    summary(my_model, )
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
     wandb_init(config)
     best_metric = float('-inf')
@@ -165,7 +167,7 @@ if __name__ == "__main__":
         "architecture": "ResNet50",
         "lr": 1e-3,
         "batch_size": 64, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 1,
+        "epochs": 50,
         "num_samples_train": 0.8,
         "num_samples_val": 0.1,
         "num_samples_test": 0.1,
