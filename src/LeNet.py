@@ -31,4 +31,4 @@ class LeNet5(nn.Module):
         logits = self.classifier(x)
         probs = F.softmax(logits, dim=1)
         # return logits, probs
-        return probs
+        return logits
