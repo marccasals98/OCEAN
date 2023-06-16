@@ -6,6 +6,7 @@ from tqdm import tqdm
 from datetime import datetime
 import argparse
 import random
+import SpectralSubstraction as ss
 
 class NonPositiveDurationException(Exception): 
     def __init__(self, message):
@@ -19,11 +20,11 @@ class NonSpeciesException(Exception):
 
 class Extractor:
 
-    def __init__(self, dataset_path, output_path, min_frame_size_sec):
-
-        self.dataset_path = dataset_path
-        self.output_path = output_path
-        self.min_frame_size_sec = min_frame_size_sec
+    def __init__(self, params):
+        self.dataset_path = params.dataset_path
+        self.output_path = params.output_path
+        self.min_frame_size_sec = params.min_frame_size_sec
+        self.spectral_subtraction = params.spectral_subtraction
 
         # pd dataframe for extraction statistics:
         cols = ['subdataset', 'wav_name','species', 'num_species', 'vocalization', 'date', 'begin_sample', 'end_sample', 'sampling_rate']
@@ -46,6 +47,7 @@ class Extractor:
             path = os.path.join(self.dataset_path, f)
             if os.path.isdir(path) and not f[0].isdigit(): # to avoid saving documentation and other dir that start with a digit
                 subdatasets_dirs.append(f)
+        subdatasets_dirs = ['BallenyIslands2015']
         print('Found dataset subdirectories:')
         print(subdatasets_dirs)
         return subdatasets_dirs
@@ -262,10 +264,17 @@ class Extractor:
         not_identified_species = []
 
 
+        
+
         for i, subdirectory in enumerate(subdatasets_dirs): # iterate through subdataset directories
-            print(f'Extracting {subdirectory} ...')
+            if self.spectral_subtraction:
+                ss_comment = '(applying spectral subtraction)'
+            else:
+                ss_comment = ''
+            print(f'Extracting {subdirectory} ... {ss_comment}')
             log_file.write(f'Extracting {subdirectory} ...\n')
             annotations_subdir = os.path.join(self.dataset_path, subdirectory)
+            prev_wav_path = '' # used to avoid opening and processing multiple times same wav file
             for filename in os.listdir(annotations_subdir): # iterate through annotations in subdataset directory
                 if filename.endswith('.txt'): # check that it is an annotation file (.txt)
                     ann = pd.read_csv(os.path.join(annotations_subdir, filename), sep="\t") # open annotation file as pd.dataframe
@@ -277,7 +286,15 @@ class Extractor:
                                 wav_file = row['Begin File']
                             wav_path = os.path.join(self.dataset_path, subdirectory, 'wav', wav_file)
                             try: # try extracting the annotated event in wav file
-                                sample_rate, sig = wavfile.read(wav_path) # open file
+                                if prev_wav_path != wav_path: # to avoid opening and processing multiple times same wav file
+                                    sample_rate, raw_sig = wavfile.read(wav_path) # open file
+                                    # removing noise if spectral_subtraction is set
+                                    if self.spectral_subtraction:
+                                        sig = ss.reduce_noise(raw_sig,raw_sig, winsize=2**8, add_noisy_phase=True)
+                                    else:
+                                        sig = raw_sig
+                                    prev_wav_path = wav_path
+
                                 # saving and defining output file name:
                                 wav_name, extension = os.path.splitext(wav_file)
                                 wav_name = wav_name.replace('_','-')
@@ -355,8 +372,8 @@ class Extractor:
         self.print_extraction_report(log_file, l_extracted_counter, l_not_extracted_counter, species_not_identified_counter, l_file_not_found_counter, l_multifile_event_counter, l_non_positvide_duration_counter, not_identified_species, delta_time)
         log_file.close()
 
-def main(dataset_path, output_path, min_frame_size_sec):
-    extractor = Extractor(dataset_path, output_path, min_frame_size_sec)
+def main(params):
+    extractor = Extractor(params)
     subdatasets = extractor.scan_dataset()
     extractor.extract(subdatasets)
 
@@ -367,7 +384,9 @@ if __name__=="__main__":
     parser.add_argument('dataset_path', type=str, help='path of the dataset to extract')
     parser.add_argument('output_path', type=str, help='directory where extracted events and log_file are saved')
     parser.add_argument('--min_frame_size_sec', type=int, default=0, help='minimum frame size of the extracted frames containing the events')
+    parser.add_argument('--spectral_subtraction', type=bool, default=False, help='reduce noise to extracted samples with Spectral Subtraction')
+
 
     params=parser.parse_args()
 
-    main(params.dataset_path, params.output_path, params.min_frame_size_sec)
+    main(params)
