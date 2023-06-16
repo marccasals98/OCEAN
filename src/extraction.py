@@ -47,7 +47,6 @@ class Extractor:
             path = os.path.join(self.dataset_path, f)
             if os.path.isdir(path) and not f[0].isdigit(): # to avoid saving documentation and other dir that start with a digit
                 subdatasets_dirs.append(f)
-        subdatasets_dirs = ['BallenyIslands2015']
         print('Found dataset subdirectories:')
         print(subdatasets_dirs)
         return subdatasets_dirs
