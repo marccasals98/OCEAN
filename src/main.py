@@ -12,7 +12,6 @@ import wandb
 from DataframeCreator import DataframeCreator
 import os
 from LeNet import LeNet5
-from torchsummary import summary
 
 
 
@@ -78,7 +77,9 @@ def eval_single_epoch(model, val_loader):
     return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
 
 def data_loaders(config):
-    data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
+    data_transforms = transforms.Compose([transforms.ToTensor(),
+                                        transforms.Normalize(0.5, 0.5),
+                                        transforms.RandomErasing(),])
     total_data = BlueFinLib(pickle_path = config['df_path'], 
                             img_dir = config['img_dir'], 
                             config = config,
@@ -87,6 +88,7 @@ def data_loaders(config):
                                                                               [config['num_samples_train'],
                                                                                 config['num_samples_val'],
                                                                                 config['num_samples_test']])
+    # TODO: Implement data augmentation.
     train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=config["batch_size"])
     test_loader = DataLoader(test_dataset, batch_size=config["batch_size"])
@@ -117,14 +119,13 @@ def select_model(config):
 
 def train_model(config):
 
-    model_name = f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}"
+    model_name = f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}_random_crop_secs{config['random_crop_secs']}"
     print("=" * 60)
     print('Running model:', model_name)
     print("=" * 60)
 
     train_loader, val_loader, test_loader = data_loaders(config)
     my_model = select_model(config)
-    summary(my_model, )
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
     wandb_init(config)
     best_metric = float('-inf')
@@ -142,32 +143,32 @@ def train_model(config):
                         "val/val_acc":val_acc}
         wandb.log(train_metrics, step=epoch+1)
         if val_acc > best_metric:
+            best_epoch = epoch
             best_metric = val_acc
             best_params = my_model.state_dict()
-            #torch.save(best_params, config["save_dir"] + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
+            # torch.save(best_params, config["save_dir"] + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
             torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + model_name + ".pt")
 
 
     # TEST
+    my_model.load_state_dict(best_params) # load the best params of the validation.
     loss, acc = eval_single_epoch(my_model, test_loader)
     print(f"Test loss={loss:.2f} acc={acc:.2f}")
     wandb.log({"test/test_loss":loss,
                 "test/test_acc":acc})
+    print(f"The best epoch is epoch {epoch}")
 
     wandb.finish()
     return my_model
 
 
 if __name__ == "__main__":
-    # TODO: check if random_crop_frames are calculated properly!
-    # TODO: implement the save model.
     # TODO: wandb.run.save without any arguments is deprecated. 
-
     config = {
         "architecture": "ResNet50",
         "lr": 1e-3,
         "batch_size": 64, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 50,
+        "epochs": 20,
         "num_samples_train": 0.8,
         "num_samples_val": 0.1,
         "num_samples_test": 0.1,
