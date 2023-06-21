@@ -144,16 +144,12 @@ def train_model(config):
                         "val/val_acc":val_acc}
         wandb.log(train_metrics, step=epoch+1)
         if val_acc > best_metric:
-            print("We improved the Val Acc!")
             best_epoch = epoch
             best_metric = val_acc
             best_params = my_model.state_dict()
             # torch.save(best_params, config["save_dir"] + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
             torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + model_name + ".pt")
         
-        else:
-            print("We did not improve the Val Acc :(")
-
 
     # TEST
     my_model.load_state_dict(best_params) # load the best params of the validation.
@@ -172,17 +168,17 @@ if __name__ == "__main__":
     config = {
         "architecture": "ResNet50",
         "lr": 1e-3,
-        "batch_size": 64, # This number must be bigger than one (nn.BatchNorm)
+        "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
         "epochs": 25,
-        "num_samples_train": 0.8,
-        "num_samples_val": 0.1,
-        "num_samples_test": 0.1,
+        "num_samples_train": 0.6,
+        "num_samples_val": 0.2,
+        "num_samples_test": 0.2,
         "species": ['Fin', 'Blue'],
-        "random_crop_secs": 5, 
-        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes",
+        "random_crop_secs": 5, # number of seconds that has the spectrogram.
+        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes", # where the pickle dataframe is stored.
         "df_path": "",
-        "img_dir" : "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57",
-        "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/"
+        "img_dir" : "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57", # directory of the spectrograms.
+        "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/" # where we save the model checkpoints.
     }
 
     df_creator = DataframeCreator(config['img_dir'], config['df_dir'])
