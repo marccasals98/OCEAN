@@ -130,24 +130,29 @@ def train_model(config):
     wandb_init(config)
     best_metric = float('-inf')
     best_params = None
+    best_epoch = 0
 
     # TRAINING
     for epoch in range(config["epochs"]):
         train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
-        print(f"Train Epoch {epoch} loss={train_loss:.2f} acc={train_acc:.2f}")
+        print(f"Train Epoch {epoch+1} loss={train_loss:.2f} acc={train_acc:.2f}")
         val_loss, val_acc = eval_single_epoch(my_model, val_loader)
-        print(f"Eval Epoch {epoch} loss={val_loss:.2f} acc={val_acc:.2f}")
+        print(f"Eval Epoch {epoch+1} loss={val_loss:.2f} acc={val_acc:.2f}")
         train_metrics = {"train/train_loss":train_loss,
                         "train/train_acc":train_acc,
                         "val/val_loss":val_loss,
                         "val/val_acc":val_acc}
         wandb.log(train_metrics, step=epoch+1)
         if val_acc > best_metric:
+            print("We improved the Val Acc!")
             best_epoch = epoch
             best_metric = val_acc
             best_params = my_model.state_dict()
             # torch.save(best_params, config["save_dir"] + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
             torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + model_name + ".pt")
+        
+        else:
+            print("We did not improve the Val Acc :(")
 
 
     # TEST
@@ -156,7 +161,7 @@ def train_model(config):
     print(f"Test loss={loss:.2f} acc={acc:.2f}")
     wandb.log({"test/test_loss":loss,
                 "test/test_acc":acc})
-    print(f"The best epoch is epoch {epoch}")
+    print(f"The best epoch is epoch {best_epoch+1}")
 
     wandb.finish()
     return my_model
@@ -168,7 +173,7 @@ if __name__ == "__main__":
         "architecture": "ResNet50",
         "lr": 1e-3,
         "batch_size": 64, # This number must be bigger than one (nn.BatchNorm)
-        "epochs": 20,
+        "epochs": 25,
         "num_samples_train": 0.8,
         "num_samples_val": 0.1,
         "num_samples_test": 0.1,
