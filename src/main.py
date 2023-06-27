@@ -79,7 +79,7 @@ def eval_single_epoch(model, val_loader):
 def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(),
                                         transforms.Normalize(0.5, 0.5),
-                                        transforms.RandomErasing(),])
+                                        transforms.RandomErasing(p=config["random_erasing"]),])
     total_data = BlueFinLib(pickle_path = config['df_path'], 
                             img_dir = config['img_dir'], 
                             config = config,
@@ -95,6 +95,7 @@ def data_loaders(config):
 
     return train_loader, val_loader, test_loader
 
+
 def log_image_table(images, predicted, labels, probs):
     "Log a wandb.Table with (img, pred, target, scores)"
     # 🐝 Create a wandb Table to log images, labels and predictions to
@@ -105,7 +106,7 @@ def log_image_table(images, predicted, labels, probs):
 
 def wandb_init(config):
     wandb.init(project="acoustic_trends", config=config)
-    wandb.run.name = f"{config['architecture']}_lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}"
+    wandb.run.name = f"{config['architecture']}_lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}_random_crop_secs{config['random_crop_secs']}_random_erasing{config['random_erasing']}"
     wandb.run.save()
 
 def select_model(config):
@@ -119,7 +120,7 @@ def select_model(config):
 
 def train_model(config):
 
-    model_name = f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}_random_crop_secs{config['random_crop_secs']}"
+    model_name = f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}_random_crop_secs{config['random_crop_secs']}_random_erasing{config['random_erasing']}"
     print("=" * 60)
     print('Running model:', model_name)
     print("=" * 60)
@@ -144,6 +145,7 @@ def train_model(config):
                         "val/val_acc":val_acc}
         wandb.log(train_metrics, step=epoch+1)
         if val_acc > best_metric:
+            # TODO: Print the best validation score.∫
             best_epoch = epoch
             best_metric = val_acc
             best_params = my_model.state_dict()
@@ -175,6 +177,7 @@ if __name__ == "__main__":
         "num_samples_test": 0.2,
         "species": ['Fin', 'Blue'],
         "random_crop_secs": 5, # number of seconds that has the spectrogram.
+        "random_erasing": 0, # probability that the random erasing operation will be performed.
         "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes", # where the pickle dataframe is stored.
         "df_path": "",
         "img_dir" : "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57", # directory of the spectrograms.
