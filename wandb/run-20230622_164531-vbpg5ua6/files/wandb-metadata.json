@@ -1,0 +1,125 @@
+{
+    "os": "Linux-5.4.0-94-generic-x86_64-with-glibc2.17",
+    "python": "3.8.16",
+    "heartbeatAt": "2023-06-22T14:45:32.679665",
+    "startedAt": "2023-06-22T14:45:31.974874",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "src/main.py",
+    "codePath": "src/main.py",
+    "git": {
+        "remote": "https://github.com/marccasals98/OCEAN.git",
+        "commit": "27fc5823cef946f0dfa028fac228ba96e065b72f"
+    },
+    "email": null,
+    "root": "/home/usuaris/veu/pol.cavero/OCEAN",
+    "host": "veuc09",
+    "username": "pol.cavero",
+    "executable": "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 1914.6008124999998,
+        "min": 800.0,
+        "max": 3000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1002.536,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2450.679,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2444.559,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1092.558,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 799.993,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2531.318,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2154.232,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2872.616,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 999.724,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2560.141,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2596.396,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 844.299,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 799.992,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2576.161,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2069.458,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2838.951,
+            "min": 800.0,
+            "max": 3000.0
+        }
+    ],
+    "disk": {
+        "total": 17.288352966308594,
+        "used": 15.050411224365234
+    },
+    "gpu": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11554717696
+        }
+    ],
+    "memory": {
+        "total": 251.56626510620117
+    }
+}

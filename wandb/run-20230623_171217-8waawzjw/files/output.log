@@ -1,0 +1,150 @@
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+cpu
+label size:  torch.Size([128, 2])
+label view size:  torch.Size([256, 1])
+inner product size:  torch.Size([128, 2])
+wandb: WARNING Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+  0%|          | 0/478 [00:00<?, ?batch/s]
+Traceback (most recent call last):
+  File "src/main.py", line 232, in <module>
+    my_model = train_model(config)
+  File "src/main.py", line 138, in train_model
+    train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
+  File "src/main.py", line 51, in train_single_epoch
+    y_ = model(x, y)
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/DMHA.py", line 146, in forward
+    inner_products, inner_products_m_s = self.am_softmax_layer(embedding_3, label)
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/loss.py", line 65, in forward
+    aux_m = torch.zeros(inner_products.size()).scatter_(1, label_view, self.m) # make a zeros matrix with m in the corresponding label position
+RuntimeError: Expected index [256, 1] to be smaller than self [128, 2] apart from dimension 1

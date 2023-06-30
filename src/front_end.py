@@ -3,7 +3,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 import numpy as np
-
+from dataset import BlueFinLib # canvi marc
 
 class VGGNL(torch.nn.Module):
 
@@ -90,10 +90,10 @@ class VGGNL(torch.nn.Module):
             if num_block < vgg_n_blocks: # If num_block = vgg_n_blocks, start_block_channels and end_block_channels must not get updated
                 start_block_channels = end_block_channels # The next block will start with end_block_channels channels
                 end_block_channels = vgg_channels[num_block] 
-        
+
         # VGG ends with the end_block_channels of the last block
         self.vgg_end_channels = end_block_channels
-
+        # print("AFTER MODULE self.conv_block: ",self.conv_blocks)
 
     def forward(self, input_tensor):
 
@@ -104,18 +104,27 @@ class VGGNL(torch.nn.Module):
 
         # We need to add a new dimension corresponding to the channels
         # This channel dimension will be 1 because the spectrogram has only 1 channel
+        
+        #input_tensor.size(1) = BlueFinLib.seconds_to_frames(input_tensor, parameters) # canvi marc
+        #input_tensor.size(2) = parameters["n_mels"]
+        
+        #print("input tensor PRE: ", input_tensor.size())
         input_tensor =  input_tensor.view( 
             input_tensor.size(0),  
-            input_tensor.size(1), 
+            input_tensor.size(2),  # era 1     No usamos (1) porque es una constante 1
             1, 
-            input_tensor.size(2),
+            input_tensor.size(3), # era 2
             )
+        #print("input tensor POST: ", input_tensor.size())
             
         # We need to put the channel dimension first because nn.Conv2d need it that way
         input_tensor = input_tensor.transpose(1, 2)
+        print("input tensor AFTER TRANSPOSE: ", input_tensor.size())
 
         # Pass the tensor through the convolutional blocks 
-        encoded_tensor = self.conv_blocks(input_tensor)
+        encoded_tensor = self.conv_blocks(input_tensor) # descomentar si no va
+        #encoded_tensor = self.conv_blocks # eliminar si no va
+        print(encoded_tensor) # NANNNNNNNNNN
         
         # We want to flatten the output
         # For each batch, we will have encoded_tensor.size(1) hidden state vectors \

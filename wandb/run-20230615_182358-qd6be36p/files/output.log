@@ -1,0 +1,18 @@
+wandb: WARNING Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+  0%|          | 0/478 [00:00<?, ?batch/s]
+Traceback (most recent call last):
+  File "src/main.py", line 231, in <module>
+    my_model = train_model(config)
+  File "src/main.py", line 137, in train_model
+    train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
+  File "src/main.py", line 50, in train_single_epoch
+    y_ = model(x)
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/DMHA.py", line 126, in forward
+    encoder_output = self.front_end(input_tensor)
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/front_end.py", line 111, in forward
+    input_tensor =  input_tensor.view(
+RuntimeError: shape '[128, 1, 1, 36]' is invalid for input of size 184320

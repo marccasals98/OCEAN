@@ -52,7 +52,10 @@ class HeadAttention(nn.Module):
     def __maskAttention(self, attention_score, mask_value = -float('inf')):
         
         # seems that this works only with GPU (what about CPU?)
-        mask = torch.cuda.FloatTensor(attention_score.size()).random_(self.mask_prob)>0
+        if torch.cuda.is_available():
+            mask = torch.cuda.FloatTensor(attention_score.size()).random_(self.mask_prob)>0
+        else:
+            mask = torch.FloatTensor(attention_score.size()).random_(self.mask_prob)>0
         attention_score[~mask] = mask_value
         return attention_score
 

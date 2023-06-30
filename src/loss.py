@@ -23,6 +23,8 @@ class AMSoftmax(nn.Module):
 
     def forward(self, last_features, label = None):
 
+        # print("last_features:",last_features)
+        # print("label:",label)
         assert last_features.size()[0] == label.size()[0] # checks the batch dimension
         assert last_features.size()[1] == self.last_features_dim
 
@@ -52,10 +54,14 @@ class AMSoftmax(nn.Module):
         inner_products = torch.mm(x_norm, w_norm)
         
         # We need some reshaping of label
-        label_view = label.view(-1, 1)
+        # label_view = label.view(-1, 1)                                POL: IGUAL ARA JA NO CAL? LABEL 128,2 INNER 128,2
+        label_view = label.to(torch.int64) #                       POL: PASSANT DE FLOAT A INT, label era label_view aqui
         if label_view.is_cuda: label_view = label_view.cpu()
 
         # We construct the inner_products with the corresponding -m
+        # print("label size: ",label.size())
+        # print("label view size: ",label_view.size())
+        # print("inner product size: ",torch.zeros(inner_products.size()).size())
         aux_m = torch.zeros(inner_products.size()).scatter_(1, label_view, self.m) # make a zeros matrix with m in the corresponding label position
         if last_features.is_cuda: aux_m = aux_m.cuda() # TODO I don't know if this is ok 
         inner_products_m = inner_products - aux_m

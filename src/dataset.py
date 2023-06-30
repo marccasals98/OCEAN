@@ -76,7 +76,7 @@ class BlueFinLib(Dataset):
         estimated_audio_length_secs = estimated_samples / sampling_rate
         estimated_frames_1_sec = file_frames / estimated_audio_length_secs
         random_crop_frames = int(parameters['random_crop_secs'] * estimated_frames_1_sec)
-        
+        # print('el valor es ', random_crop_frames)
         return random_crop_frames
 
 

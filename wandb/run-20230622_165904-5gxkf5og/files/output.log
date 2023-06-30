@@ -1,0 +1,159 @@
+wandb: WARNING Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+  0%|          | 0/478 [00:01<?, ?batch/s]
+Traceback (most recent call last):
+  File "src/main.py", line 233, in <module>
+    my_model = train_model(config)
+  File "src/main.py", line 139, in train_model
+    train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
+  File "src/main.py", line 52, in train_single_epoch
+    y_ = model(x)
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/DMHA.py", line 147, in forward
+    inner_products, inner_products_m_s = self.am_softmax_layer(embedding_3, label)
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/loss.py", line 28, in forward
+    assert last_features.size()[0] == label.size()[0] # checks the batch dimension
+AttributeError: 'NoneType' object has no attribute 'size'
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+cpu
+torch.Size([128, 1, 36, 40])
+Antes del view: torch.Size([128, 1, 36, 40])
+None
+last_features: tensor([[ 0.0560,  0.4099, -0.3644,  ...,  0.0613,  0.1726,  1.4160],
+        [ 1.0107,  0.7231,  0.2975,  ..., -0.9561, -1.1564,  1.0845],
+        [-1.2667, -0.7575,  0.9461,  ...,  0.5263,  1.9309, -1.1904],
+        ...,
+        [-0.4279, -0.2142, -0.2338,  ..., -0.3465, -0.4735,  0.5736],
+        [ 0.0476, -0.6310, -0.7020,  ...,  0.0131,  0.7689, -1.1990],
+        [ 1.3074,  0.7227, -3.6101,  ...,  0.5679, -1.8650,  0.0748]],
+       grad_fn=<NativeBatchNormBackward0>)
+label: None

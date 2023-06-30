@@ -1,0 +1,117 @@
+{
+    "os": "Linux-5.4.0-94-generic-x86_64-with-glibc2.17",
+    "python": "3.8.16",
+    "heartbeatAt": "2023-06-20T13:59:50.996275",
+    "startedAt": "2023-06-20T13:59:50.342533",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "src/main.py",
+    "codePath": "src/main.py",
+    "git": {
+        "remote": "https://github.com/marccasals98/OCEAN.git",
+        "commit": "27fc5823cef946f0dfa028fac228ba96e065b72f"
+    },
+    "email": null,
+    "root": "/home/usuaris/veu/pol.cavero/OCEAN",
+    "host": "veuc09",
+    "username": "pol.cavero",
+    "executable": "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 1395.2294375000001,
+        "min": 800.0,
+        "max": 3000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 800.12,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1084.618,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2333.272,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 800.049,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 800.024,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 800.038,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2474.74,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1909.414,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 835.868,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1043.203,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2508.448,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 800.026,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 800.041,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2605.882,
+            "min": 800.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1927.928,
+            "min": 800.0,
+            "max": 3000.0
+        }
+    ],
+    "disk": {
+        "total": 17.288352966308594,
+        "used": 14.99136734008789
+    },
+    "memory": {
+        "total": 251.56626510620117
+    }
+}

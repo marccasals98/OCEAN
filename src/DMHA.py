@@ -18,19 +18,19 @@ class SpeakerClassifier(nn.Module):
         self.__initFullyConnectedBlock(parameters)
         
         self.am_softmax_layer = AMSoftmax(
-            parameters.embedding_size, 
-            parameters.number_speakers, 
-            s = parameters.scaling_factor, 
-            m = parameters.margin_factor, 
+            parameters['embedding_size'], 
+            parameters['number_speakers'], 
+            s = parameters['scaling_factor'], 
+            m = parameters['margin_factor'], 
             )
  
 
     def __initFrontEnd(self, parameters):
         
-        print("--------------")
+        '''print("--------------")
         for k, v in parameters.items():
             print(k, v)
-        print("--------------")
+        print("--------------")'''
 
         #if parameters.front_end == 'VGGNL':
         if parameters['front_end'] == 'VGGNL':
@@ -107,14 +107,14 @@ class SpeakerClassifier(nn.Module):
             # New Pooling classes output size is different from old poolings
             self.fc1 = nn.Linear(parameters.pooling_output_size, parameters.embedding_size)
         else:
-            self.fc1 = nn.Linear(self.hidden_states_dimension, parameters.embedding_size)
-        self.b1 = nn.BatchNorm1d(parameters.embedding_size)
-        self.fc2 = nn.Linear(parameters.embedding_size, parameters.embedding_size)
-        self.b2 = nn.BatchNorm1d(parameters.embedding_size)
-        self.fc3 = nn.Linear(parameters.embedding_size, parameters.embedding_size)
-        self.b3 = nn.BatchNorm1d(parameters.embedding_size)
+            self.fc1 = nn.Linear(self.hidden_states_dimension, parameters['embedding_size'])
+        self.b1 = nn.BatchNorm1d(parameters['embedding_size'])
+        self.fc2 = nn.Linear(parameters['embedding_size'], parameters['embedding_size'])
+        self.b2 = nn.BatchNorm1d(parameters['embedding_size'])
+        self.fc3 = nn.Linear(parameters['embedding_size'], parameters['embedding_size'])
+        self.b3 = nn.BatchNorm1d(parameters['embedding_size'])
 
-        self.drop_out = nn.Dropout(parameters.bottleneck_drop_out)
+        self.drop_out = nn.Dropout(parameters['bottleneck_drop_out'])
         self.softmax = nn.Softmax(dim=1)
 
 
@@ -123,7 +123,9 @@ class SpeakerClassifier(nn.Module):
         # Mandatory torch method
         # Set the net's forward pass
 
+        # print("self.front_end: ",self.front_end)
         encoder_output = self.front_end(input_tensor)
+        # print("encoder_output: ",encoder_output)
 
         # TODO seems that alignment is not used anywhere
         embedding_0, alignment = self.poolingLayer(encoder_output)

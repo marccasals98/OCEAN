@@ -46,10 +46,12 @@ def train_single_epoch(model, train_loader, optimizer):
     accs, losses = [], []
     for x, y in tqdm(train_loader, unit="batch", total=len(train_loader)):
         optimizer.zero_grad()
+        # print(device)
         x, y = x.to(device), y.to(device)
-        y_ = model(x)
-        #print('output: ', y_)
-        #print('labels: ', y)
+        y_ = model(x, y)[0] #                   POL: AFEGIT [0]
+        '''print('input: ', x)
+        print('output: ', y_)
+        print('labels: ', y)'''
         loss = F.cross_entropy(y_, y)
         loss.backward()
         optimizer.step()
@@ -68,7 +70,7 @@ def eval_single_epoch(model, val_loader):
         model.eval()
         for x, y in val_loader:
             x, y = x.to(device), y.to(device)
-            y_ = model(x)
+            y_ = model(x,y)[0] #                                  POL: HE POSAT ",y"
             loss = F.cross_entropy(y_, y)
             acc = accuracy(y, y_)
             losses.append(loss.item())
@@ -147,7 +149,7 @@ def train_model(config):
             best_metric = val_acc
             best_params = my_model.state_dict()
             #torch.save(best_params, config["save_dir"] + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
-            torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + model_name + ".pt")
+            torch.save(best_params, "/home/usuaris/veu/pol.cavero/OCEAN/save_best_modelPol/" + model_name + ".pt")
 
 
     # TEST
@@ -185,7 +187,7 @@ if __name__ == "__main__":
     config = {
         "architecture": "SpeakerClassifier", #canviat de ResNet50
         "lr": 1e-3,
-        "batch_size": 60, # This number must be bigger than one (nn.BatchNorm)
+        "batch_size": 128, # Marc tenia 60
         "epochs": 1,
         "num_samples_train": 0.8,
         "num_samples_val": 0.1,
@@ -207,16 +209,19 @@ if __name__ == "__main__":
         "embedding_size": 400,
         "front_end": 'VGGNL',
         "pooling_method": 'DoubleMHA',
-        "pooling_heads_number": 32,
+        "pooling_heads_number": 5, # Fede, abans era 32
         "pooling_mask_prob": 0.3,
 
         # inventat numero de mels
-        "n_mels": 20,
+        "n_mels": 40, # Fede
         "pooling_output_size": 1, # M'ho he inventat perque no doni error
-        "bottleneck_drop_out": 1, # M'ho he inventat perque no doni error
+        "bottleneck_drop_out": 0.5, # M'ho he inventat perque no doni error
         # DMHA params
-        "vgg_n_blocks": 1, # M'ho he inventat perque no doni error
-        "vgg_channels": [1,1,1], # M'ho he inventat perque no doni error
+        "vgg_n_blocks": 2, # Fede (abans 1)
+        "vgg_channels": [10, 10], # Fede (abans [1])
+        "number_speakers": 2, # Inventat, pero dos classes == dos speakers
+        "scaling_factor": 1, # M'ho he inventat perque no doni error
+        "margin_factor": 1,
         
         #"patchs_generator_patch_width": 10,
 

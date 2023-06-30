@@ -1,0 +1,158 @@
+wandb: WARNING Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+  0%|          | 0/478 [00:00<?, ?batch/s]
+Traceback (most recent call last):
+  File "src/main.py", line 232, in <module>
+    my_model = train_model(config)
+  File "src/main.py", line 138, in train_model
+    train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
+  File "src/main.py", line 51, in train_single_epoch
+    y_ = model(x)
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/DMHA.py", line 129, in forward
+    embedding_0, alignment = self.poolingLayer(encoder_output)
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/poolings_original.py", line 150, in forward
+    compressedRepresentation = self.headsAttention(utteranceRepresentation.view(utteranceRepresentation.size(0), self.heads_number, self.heads_size))[0]
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/poolings_original.py", line 80, in forward
+    attention_score = self.__narrowAttention(ht)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/poolings_original.py", line 63, in __narrowAttention
+    attention_score = self.__maskAttention(attention_score)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/poolings_original.py", line 55, in __maskAttention
+    mask = torch.cuda.FloatTensor(attention_score.size()).random_(self.mask_prob)>0
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/cuda/__init__.py", line 247, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+el valor es  36
+torch.Size([128, 1, 36, 40])
+Antes del view: torch.Size([128, 1, 36, 40])

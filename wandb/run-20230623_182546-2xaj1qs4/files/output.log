@@ -1,0 +1,53 @@
+wandb: WARNING Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+  3%|▎         | 16/478 [00:01<00:42, 10.75batch/s]
+SpeakerClassifier(
+  (front_end): VGGNL(
+    (conv_blocks): Sequential(
+      (convolutional_block_1): Sequential(
+        (0): Conv2d(1, 1, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(1, 1, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=True)
+      )
+    )
+  )
+  (poolingLayer): DoubleMHA(
+    (utteranceAttention): MultiHeadAttention()
+    (headsAttention): HeadAttention()
+  )
+  (fc1): Linear(in_features=4, out_features=400, bias=True)
+  (b1): BatchNorm1d(400, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (fc2): Linear(in_features=400, out_features=400, bias=True)
+  (b2): BatchNorm1d(400, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (fc3): Linear(in_features=400, out_features=400, bias=True)
+  (b3): BatchNorm1d(400, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (drop_out): Dropout(p=0.5, inplace=False)
+  (softmax): Softmax(dim=1)
+  (am_softmax_layer): AMSoftmax()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [00:45<00:00, 10.53batch/s]
+Train Epoch 0 loss=nan acc=0.65
+Eval Epoch 0 loss=nan acc=0.64
+Test loss=nan acc=0.63

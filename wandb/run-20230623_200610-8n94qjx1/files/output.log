@@ -1,0 +1,26 @@
+wandb: WARNING Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [00:42<00:00, 11.12batch/s]
+Train Epoch 0 loss=nan acc=0.64
+Eval Epoch 0 loss=nan acc=0.65
+Test loss=nan acc=0.64
