@@ -48,4 +48,4 @@ for i in tqdm(range(10)):
     # Plot the image
     plt.imshow(image_np)
     plt.axis('off')  # Disable axis
-    plt.savefig(f'/home/usuaris/veu/marc.casals/IMAGES/{i}.png')
+    #plt.savefig(f'/home/usuaris/veu/marc.casals/IMAGES/{i}.png')
