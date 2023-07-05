@@ -23,9 +23,9 @@ pip install -r requirements.txt
 ```
 
 4. Train.
-
+```bash
 python src/main.py
-
+```
 4b. Alternatively, to train in CALCULA (UPC)
 
 ```
