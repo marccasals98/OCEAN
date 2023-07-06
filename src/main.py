@@ -35,7 +35,7 @@ def train_single_epoch(model, train_loader, optimizer):
     return np.mean(losses), np.sum(accs)/len(train_loader.dataset)
 
 
-def eval_single_epoch(model, val_loader):
+def eval_single_epoch(model, val_loader, test=False):
     '''
     This function is made for both validation and test.
     '''
@@ -49,11 +49,20 @@ def eval_single_epoch(model, val_loader):
             acc = accuracy(y, y_)
             losses.append(loss.item())
             accs.append(acc) # accs.append(acc.item())
-            #pred = y_.detach().numpy()
-            #cm = confusion_matrix(y.argmax(-1), pred.argmax(-1))
-            #print('Confussion matrix eval:\n', cm) # maybe not necessary to be print every time.
-            metric = Metrics(labels=y, outputs=y_, device=device)
+            
+            # Confussion Matrix:
+            if test == True:
+                pred = y_.cpu().detach().numpy()
+                cm = confusion_matrix(y.cpu().argmax(-1), pred.argmax(-1))
+                print('Confussion matrix eval:\n', cm) # maybe not necessary to be print every time.
+            
+            # TODO: FINISH THIS!!!!!
+            """
+            # Other metrics:
+            metric = Metrics(labels=y.cpu().argmax(-1), outputs=pred.argmax(-1), device=device)
             precision = metric.precision()
+            """
+            precision = 1
     return  np.mean(losses), np.sum(accs)/len(val_loader.dataset), precision
 
 def data_loaders(config):
@@ -136,7 +145,7 @@ def train_model(config):
 
     # TEST
     my_model.load_state_dict(best_params) # load the best params of the validation.
-    loss, acc, pre = eval_single_epoch(my_model, test_loader)
+    loss, acc, pre = eval_single_epoch(my_model, test_loader, test=True)
     print(f"Test loss={loss:.2f} acc={acc:.2f}")
     wandb.log({"test/test_loss":loss,
                 "test/test_acc":acc})
@@ -159,9 +168,9 @@ if __name__ == "__main__":
         "species": ['Fin', 'Blue'],
         "random_crop_secs": 5, # number of seconds that has the spectrogram.
         "random_erasing": 0, # probability that the random erasing operation will be performed.
-        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes", # where the pickle dataframe is stored.
+        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean", # where the pickle dataframe is stored.
         "df_path": "",
-        "img_dir" : "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57", # directory of the spectrograms.
+        "img_dir" : "/home/usuaris/veussd/DATABASES/Ocean/toyDataset", # directory of the spectrograms.
         "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/" # where we save the model checkpoints.
     }
 
