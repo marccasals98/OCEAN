@@ -44,6 +44,7 @@ class Metrics():
         self.outputs = outputs
         self.device = device
         self.config = config
+        Metrics.tensor_transformation(self)
     
     def tensor_transformation(self)-> None:
         '''
@@ -55,21 +56,20 @@ class Metrics():
     def precision(self) -> float:
         precision = tm.Precision(task='multiclass',
                                  num_classes=len(self.config['species'])).to(self.device) # the dimension 1 is the number of classes.
-        Metrics.tensor_transformation(self)
         self.precision = precision(self.labels, self.outputs)
         return self.precision
     
     def recall(self) -> float:
         recall = tm.Recall(task='multiclass',
                            num_classes=len(self.config['species'])).to(self.device)
-        Metrics.tensor_transformation(self)
+        #Metrics.tensor_transformation(self)
         self.recall = recall(self.labels, self.outputs)
         return self.recall
     
     def f1(self) -> float:
         f1 = tm.F1Score(task='multiclass',
                    num_classes=len(self.config['species'])).to(self.device)
-        Metrics.tensor_transformation(self)
+        #Metrics.tensor_transformation(self)
         self.f1 = f1(self.labels, self.outputs)
         return self.f1
     
