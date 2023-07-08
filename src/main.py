@@ -24,8 +24,6 @@ def train_single_epoch(model, train_loader, optimizer):
         optimizer.zero_grad()
         x, y = x.to(device), y.to(device)
         y_ = model(x)
-        #print('output: ', y_)
-        #print('labels: ', y)
         loss = F.cross_entropy(y_, y)
         loss.backward()
         optimizer.step()
@@ -35,11 +33,12 @@ def train_single_epoch(model, train_loader, optimizer):
     return np.mean(losses), np.sum(accs)/len(train_loader.dataset)
 
 
-def eval_single_epoch(model, val_loader, test=False):
+def eval_single_epoch(model, val_loader, config, test=False):
     '''
     This function is made for both validation and test.
     '''
-    accs, losses = [], []
+    accs, losses, precisions, recalls, f1s = [], [], [], [], []
+    cm = np.empty([len(config['species']), len(config['species'])])
     with torch.no_grad():
         model.eval()
         for x, y in val_loader:
@@ -50,20 +49,23 @@ def eval_single_epoch(model, val_loader, test=False):
             losses.append(loss.item())
             accs.append(acc) # accs.append(acc.item())
             
-            # Confussion Matrix:
+            # We don't want to print all these metrics in evaluation, just in test.
             if test == True:
+                # Confussion Matrix:
                 pred = y_.cpu().detach().numpy()
-                cm = confusion_matrix(y.cpu().argmax(-1), pred.argmax(-1))
-                print('Confussion matrix eval:\n', cm) # maybe not necessary to be print every time.
+                cm = cm + confusion_matrix(y.cpu().argmax(-1), pred.argmax(-1))
             
-            # TODO: FINISH THIS!!!!!
-            """
-            # Other metrics:
-            metric = Metrics(labels=y.cpu().argmax(-1), outputs=pred.argmax(-1), device=device)
-            precision = metric.precision()
-            """
-            precision = 1
-    return  np.mean(losses), np.sum(accs)/len(val_loader.dataset), precision
+                # Other metrics:
+                metric = Metrics(labels=y, outputs=y_, config=config, device=device)
+                precisions.append(metric.precision())
+                recalls.append(metric.recall())
+                f1s.append(metric.f1())
+    if test == True:
+        print('Confussion matrix test:\n', cm)
+        return  np.mean(losses), np.sum(accs)/len(val_loader.dataset), torch.mean(torch.stack(precisions)), torch.mean(torch.stack(recalls)), torch.mean(torch.stack(f1s))
+    else:
+        return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
+            
 
 def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(),
@@ -126,9 +128,8 @@ def train_model(config):
     for epoch in range(config["epochs"]):
         train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
         print(f"Train Epoch {epoch+1} loss={train_loss:.2f} acc={train_acc:.2f}")
-        val_loss, val_acc, pre = eval_single_epoch(my_model, val_loader)
+        val_loss, val_acc = eval_single_epoch(my_model, val_loader, config)
         print(f"Eval Epoch {epoch+1} loss={val_loss:.2f} acc={val_acc:.2f}")
-        print(f"The precision is {pre} ")
         train_metrics = {"train/train_loss":train_loss,
                         "train/train_acc":train_acc,
                         "val/val_loss":val_loss,
@@ -145,11 +146,15 @@ def train_model(config):
 
     # TEST
     my_model.load_state_dict(best_params) # load the best params of the validation.
-    loss, acc, pre = eval_single_epoch(my_model, test_loader, test=True)
+    loss, acc, pre, recall, f1 = eval_single_epoch(my_model, test_loader, config, test=True)
     print(f"Test loss={loss:.2f} acc={acc:.2f}")
     wandb.log({"test/test_loss":loss,
                 "test/test_acc":acc})
     print(f"The best epoch is epoch {best_epoch+1}")
+    print(f"The precision is: {pre} ")
+    print(f"The recall: {recall} ")
+    print(f"The f1 score: {f1} ")
+
 
     wandb.finish()
     return my_model
@@ -168,9 +173,9 @@ if __name__ == "__main__":
         "species": ['Fin', 'Blue'],
         "random_crop_secs": 5, # number of seconds that has the spectrogram.
         "random_erasing": 0, # probability that the random erasing operation will be performed.
-        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean", # where the pickle dataframe is stored.
+        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes", # where the pickle dataframe is stored.
         "df_path": "",
-        "img_dir" : "/home/usuaris/veussd/DATABASES/Ocean/toyDataset", # directory of the spectrograms.
+        "img_dir" : "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57", # directory of the spectrograms.
         "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/" # where we save the model checkpoints.
     }
 
