@@ -12,32 +12,10 @@ import wandb
 from DataframeCreator import DataframeCreator
 import os
 from LeNet import LeNet5
-
+from metrics import accuracy, Metrics
 
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-
-def accuracy(labels: torch.Tensor, outputs: torch.Tensor) -> int:
-    '''
-    This function returns the number of coincidences that happen in two arrays of the same length.
-
-    Arguments:
-    ----------
-    labels : torch.Tensor [batch, num_classes]
-        The ground truth of the classes.
-    outputs : torch.Tensor [batch, num_classes]
-        The model prediction of the most likely class.
-    
-    Returns:
-    --------
-    acum : int
-        The number of coincidences.
-    '''
-    preds = outputs.argmax(-1, keepdim=True)
-    labels = labels.argmax(-1, keepdim=True) # bc we have done one_hot encoding.
-    # label shape [batch, 1], outputs shape [batch, 1]
-    acum = preds.eq(labels.view_as(preds)).sum().item() # sums the times both arrays coincide.
-    return acum
 
 def train_single_epoch(model, train_loader, optimizer):
     model.train()
@@ -46,8 +24,6 @@ def train_single_epoch(model, train_loader, optimizer):
         optimizer.zero_grad()
         x, y = x.to(device), y.to(device)
         y_ = model(x)
-        #print('output: ', y_)
-        #print('labels: ', y)
         loss = F.cross_entropy(y_, y)
         loss.backward()
         optimizer.step()
@@ -57,11 +33,12 @@ def train_single_epoch(model, train_loader, optimizer):
     return np.mean(losses), np.sum(accs)/len(train_loader.dataset)
 
 
-def eval_single_epoch(model, val_loader):
+def eval_single_epoch(model, val_loader, config, test=False):
     '''
     This function is made for both validation and test.
     '''
-    accs, losses = [], []
+    accs, losses, precisions, recalls, f1s = [], [], [], [], []
+    cm = np.empty([len(config['species']), len(config['species'])])
     with torch.no_grad():
         model.eval()
         for x, y in val_loader:
@@ -71,10 +48,25 @@ def eval_single_epoch(model, val_loader):
             acc = accuracy(y, y_)
             losses.append(loss.item())
             accs.append(acc) # accs.append(acc.item())
-            #pred = y_.detach().numpy()
-            #cm = confusion_matrix(y.argmax(-1), pred.argmax(-1))
-            #print('Confussion matrix eval:\n', cm) # maybe not necessary to be print every time.
-    return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
+            
+            # We don't want to print all these metrics in evaluation, just in test.
+            if test == True:
+                # Confussion Matrix:
+                pred = y_.cpu().detach().numpy()
+                cm = cm + confusion_matrix(y.cpu().argmax(-1), pred.argmax(-1))
+            
+                # Other metrics:
+                metric = Metrics(labels=y, outputs=y_, config=config, device=device)
+                metric.compute_metrics()
+                precisions.append(metric.precision)
+                recalls.append(metric.recall)
+                f1s.append(metric.f1)
+    if test == True:
+        print('Confussion matrix test:\n', cm)
+        return  np.mean(losses), np.sum(accs)/len(val_loader.dataset), torch.mean(torch.stack(precisions)), torch.mean(torch.stack(recalls)), torch.mean(torch.stack(f1s))
+    else:
+        return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
+            
 
 def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(),
@@ -137,7 +129,7 @@ def train_model(config):
     for epoch in range(config["epochs"]):
         train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
         print(f"Train Epoch {epoch+1} loss={train_loss:.2f} acc={train_acc:.2f}")
-        val_loss, val_acc = eval_single_epoch(my_model, val_loader)
+        val_loss, val_acc = eval_single_epoch(my_model, val_loader, config)
         print(f"Eval Epoch {epoch+1} loss={val_loss:.2f} acc={val_acc:.2f}")
         train_metrics = {"train/train_loss":train_loss,
                         "train/train_acc":train_acc,
@@ -155,11 +147,15 @@ def train_model(config):
 
     # TEST
     my_model.load_state_dict(best_params) # load the best params of the validation.
-    loss, acc = eval_single_epoch(my_model, test_loader)
+    loss, acc, pre, recall, f1 = eval_single_epoch(my_model, test_loader, config, test=True)
     print(f"Test loss={loss:.2f} acc={acc:.2f}")
     wandb.log({"test/test_loss":loss,
                 "test/test_acc":acc})
     print(f"The best epoch is epoch {best_epoch+1}")
+    print(f"The precision is: {pre} ")
+    print(f"The recall: {recall} ")
+    print(f"The f1 score: {f1} ")
+
 
     wandb.finish()
     return my_model
@@ -171,7 +167,7 @@ if __name__ == "__main__":
         "architecture": "ResNet50",
         "lr": 1e-3,
         "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
-        "epochs": 25,
+        "epochs": 1,
         "num_samples_train": 0.6,
         "num_samples_val": 0.2,
         "num_samples_test": 0.2,
