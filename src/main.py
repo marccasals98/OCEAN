@@ -57,9 +57,10 @@ def eval_single_epoch(model, val_loader, config, test=False):
             
                 # Other metrics:
                 metric = Metrics(labels=y, outputs=y_, config=config, device=device)
-                precisions.append(metric.precision())
-                recalls.append(metric.recall())
-                f1s.append(metric.f1())
+                metric.compute_metrics()
+                precisions.append(metric.precision)
+                recalls.append(metric.recall)
+                f1s.append(metric.f1)
     if test == True:
         print('Confussion matrix test:\n', cm)
         return  np.mean(losses), np.sum(accs)/len(val_loader.dataset), torch.mean(torch.stack(precisions)), torch.mean(torch.stack(recalls)), torch.mean(torch.stack(f1s))

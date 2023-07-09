@@ -49,32 +49,34 @@ class Metrics():
     def tensor_transformation(self)-> None:
         '''
         This function transforms the tensors to the correct shape for the metrics.
+
+        batch_size x num_classes -> batch_size
+
         '''
         self.labels = self.labels.argmax(-1, keepdim=True)
         self.outputs = self.outputs.argmax(-1, keepdim=True)
     
-    def precision(self) -> float:
+    def compute_precision(self) -> float:
         precision = tm.Precision(task='multiclass',
-                                 num_classes=len(self.config['species'])).to(self.device) # the dimension 1 is the number of classes.
+                                 num_classes=len(self.config['species']),
+                                 average='none').to(self.device) # the dimension 1 is the number of classes.
         self.precision = precision(self.labels, self.outputs)
-        return self.precision
     
-    def recall(self) -> float:
+    def compute_recall(self) -> float:
         recall = tm.Recall(task='multiclass',
-                           num_classes=len(self.config['species'])).to(self.device)
-        #Metrics.tensor_transformation(self)
+                           num_classes=len(self.config['species']),
+                           average='none').to(self.device)
         self.recall = recall(self.labels, self.outputs)
-        return self.recall
     
-    def f1(self) -> float:
+    def compute_f1(self) -> float:
         f1 = tm.F1Score(task='multiclass',
                    num_classes=len(self.config['species'])).to(self.device)
-        #Metrics.tensor_transformation(self)
         self.f1 = f1(self.labels, self.outputs)
-        return self.f1
     
-    def print_metrics(self):
-        print(f"Precision: {self.precision}")
+    def compute_metrics(self):
+        self.compute_precision()
+        self.compute_recall()
+        self.compute_f1()
 
     
 
