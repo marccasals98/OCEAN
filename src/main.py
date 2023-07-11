@@ -61,9 +61,10 @@ def eval_single_epoch(model, val_loader, config, test=False):
                 precisions.append(metric.precision)
                 recalls.append(metric.recall)
                 f1s.append(metric.f1)
+                # wandb.log({"Confussion Matrix": wandb.plot.confusion_matrix(preds=pred, y_true=y.cpu(), class_names=config['species'])})
     if test == True:
         print('Confussion matrix test:\n', cm)
-        return  np.mean(losses), np.sum(accs)/len(val_loader.dataset), torch.mean(torch.stack(precisions)), torch.mean(torch.stack(recalls)), torch.mean(torch.stack(f1s))
+        return  np.mean(losses), np.sum(accs)/len(val_loader.dataset), torch.mean(torch.stack(precisions)), torch.mean(torch.stack(recalls)), torch.mean(torch.stack(f1s)), cm
     else:
         return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
             
@@ -147,10 +148,13 @@ def train_model(config):
 
     # TEST
     my_model.load_state_dict(best_params) # load the best params of the validation.
-    loss, acc, pre, recall, f1 = eval_single_epoch(my_model, test_loader, config, test=True)
+    loss, acc, pre, recall, f1, cm = eval_single_epoch(my_model, test_loader, config, test=True)
     print(f"Test loss={loss:.2f} acc={acc:.2f}")
     wandb.log({"test/test_loss":loss,
-                "test/test_acc":acc})
+                "test/test_acc":acc,
+                "test/test_precision":pre,
+                "test/test_recall":recall,
+                "test/test_f1":f1})
     print(f"The best epoch is epoch {best_epoch+1}")
     print(f"The precision is: {pre} ")
     print(f"The recall: {recall} ")
