@@ -151,11 +151,12 @@ def train_model(config):
     print(f"Test loss={loss:.2f} acc={acc:.2f}")
     wandb.log({"test/test_loss":loss,
                 "test/test_acc":acc})
+    """
     print(f"The best epoch is epoch {best_epoch+1}")
     print(f"The precision is: {pre} ")
     print(f"The recall: {recall} ")
     print(f"The f1 score: {f1} ")
-
+    """
 
     wandb.finish()
     return my_model
