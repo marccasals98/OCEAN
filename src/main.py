@@ -61,7 +61,6 @@ def eval_single_epoch(model, val_loader, config, test=False):
                 precisions.append(metric.precision)
                 recalls.append(metric.recall)
                 f1s.append(metric.f1)
-                # wandb.log({"Confussion Matrix": wandb.plot.confusion_matrix(preds=pred, y_true=y.cpu(), class_names=config['species'])})
     if test == True:
         print('Confussion matrix test:\n', cm)
         return  np.mean(losses), np.sum(accs)/len(val_loader.dataset), torch.mean(torch.stack(precisions)), torch.mean(torch.stack(recalls)), torch.mean(torch.stack(f1s)), cm
@@ -138,29 +137,25 @@ def train_model(config):
                         "val/val_acc":val_acc}
         wandb.log(train_metrics, step=epoch+1)
         if val_acc > best_metric:
-            # TODO: Print the best validation score.∫
             best_epoch = epoch
             best_metric = val_acc
             best_params = my_model.state_dict()
-            # torch.save(best_params, config["save_dir"] + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
-            torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + model_name + ".pt")
+            # For each best validation, we overwrite the model parameters.
+            # The model could stop training and we'd still have the best params safe.
+            torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + model_name + ".pt") 
         
 
     # TEST
     my_model.load_state_dict(best_params) # load the best params of the validation.
     loss, acc, pre, recall, f1, cm = eval_single_epoch(my_model, test_loader, config, test=True)
-    print(f"Test loss={loss:.2f} acc={acc:.2f}")
-    wandb.log({"test/test_loss":loss,
+    
+    # loading metrics in wandb
+    wandb.log({"test/test_loss":loss, 
                 "test/test_acc":acc,
                 "test/test_precision":pre,
                 "test/test_recall":recall,
                 "test/test_f1":f1})
     print(f"The best epoch is epoch {best_epoch+1}")
-    print(f"The precision is: {pre} ")
-    print(f"The recall: {recall} ")
-    print(f"The f1 score: {f1} ")
-
-
     wandb.finish()
     return my_model
 
