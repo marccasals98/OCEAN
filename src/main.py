@@ -156,6 +156,7 @@ def train_model(config):
                 "test/test_recall":recall,
                 "test/test_f1":f1})
     print(f"The best epoch is epoch {best_epoch+1}")
+
     wandb.finish()
     return my_model
 
