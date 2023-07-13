@@ -62,7 +62,6 @@ def eval_single_epoch(model, val_loader, config, test=False):
                 recalls.append(metric.recall)
                 f1s.append(metric.f1)
     if test == True:
-        print('Confussion matrix test:\n', cm)
         return  np.mean(losses), np.sum(accs)/len(val_loader.dataset), torch.mean(torch.stack(precisions)), torch.mean(torch.stack(recalls)), torch.mean(torch.stack(f1s)), cm
     else:
         return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
@@ -149,6 +148,7 @@ def train_model(config):
     my_model.load_state_dict(best_params) # load the best params of the validation.
     loss, acc, pre, recall, f1, cm = eval_single_epoch(my_model, test_loader, config, test=True)
     
+    print('Confussion matrix test:\n', cm)
     # loading metrics in wandb
     wandb.log({"test/test_loss":loss, 
                 "test/test_acc":acc,
@@ -167,7 +167,7 @@ if __name__ == "__main__":
         "architecture": "ResNet50",
         "lr": 1e-3,
         "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
-        "epochs": 1,
+        "epochs": 25,
         "num_samples_train": 0.6,
         "num_samples_val": 0.2,
         "num_samples_test": 0.2,
