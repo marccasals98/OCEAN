@@ -2,7 +2,31 @@
 ## Operator-Centered Enhancement of Awareness in Navigation
 <img src="https://github.com/marccasals98/OCEAN/blob/main/OCEAN.png" width="300">
 
-## Train in CALCULA:
+## How to run:
+
+1. Create a Conda environment. For this you need to have Conda or Miniconda installed.
+
+```bash
+conda create --name name_env python=3.10
+```
+
+2. Activate the environment.
+
+```bash
+conda activate name_env
+```
+
+3. Install the dependencies.
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Train.
+```bash
+python src/main.py
+```
+4b. Alternatively, to train in CALCULA (UPC)
 
 ```
 srun -A veu -p veu --mem=16G -c 2 --gres=gpu:4 python src/main.py

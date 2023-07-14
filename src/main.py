@@ -97,8 +97,9 @@ def log_image_table(images, predicted, labels, probs):
 
 def wandb_init(config):
     wandb.init(project="acoustic_trends", config=config)
-    wandb.run.name = f"{config['architecture']}_lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}_random_crop_secs{config['random_crop_secs']}_random_erasing{config['random_erasing']}"
-    wandb.run.save()
+    model_name = f"{config['architecture']}_lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}_random_crop_secs{config['random_crop_secs']}_random_erasing{config['random_erasing']}"
+    wandb.run.name = model_name
+    wandb.run.save(f"{model_name}.h5")
 
 def select_model(config):
     if config['architecture'] == "ResNet50":
