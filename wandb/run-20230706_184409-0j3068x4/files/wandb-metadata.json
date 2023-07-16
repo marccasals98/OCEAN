@@ -1,0 +1,257 @@
+{
+    "os": "Linux-4.15.0-162-generic-x86_64-with-glibc2.17",
+    "python": "3.8.16",
+    "heartbeatAt": "2023-07-06T16:44:10.813793",
+    "startedAt": "2023-07-06T16:44:09.970484",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "src/main.py",
+    "codePath": "src/main.py",
+    "git": {
+        "remote": "https://github.com/marccasals98/OCEAN.git",
+        "commit": "dcd29408ac12e5e2a55118448f2b056b80b191de"
+    },
+    "email": null,
+    "root": "/home/usuaris/veu/pol.cavero/OCEAN",
+    "host": "veuc11",
+    "username": "pol.cavero",
+    "executable": "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/bin/python",
+    "cpu_count": 20,
+    "cpu_count_logical": 40,
+    "cpu_freq": {
+        "current": 1126.6821999999997,
+        "min": 1000.0,
+        "max": 2201.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1000.095,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.308,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.834,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.552,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1520.625,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1001.079,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.944,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.911,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.438,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.956,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.77,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.324,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.451,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 2199.999,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.09,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 999.741,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.352,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 999.959,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1001.45,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.347,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.487,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.682,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.079,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.704,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1623.708,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.156,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1001.583,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.041,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 999.964,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.771,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1001.337,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.221,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1001.175,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 2200.481,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.146,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.344,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 999.718,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.03,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.43,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.718,
+            "min": 1000.0,
+            "max": 2201.0
+        }
+    ],
+    "disk": {
+        "total": 17.288352966308594,
+        "used": 15.30843734741211
+    },
+    "gpu": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_count": 4,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11554717696
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11554717696
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11554717696
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11554717696
+        }
+    ],
+    "memory": {
+        "total": 376.5842399597168
+    }
+}

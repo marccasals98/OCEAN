@@ -77,7 +77,7 @@ class VGGNL(torch.nn.Module):
         end_block_channels = vgg_channels[0] # The first block ends with vgg_channels[0] channels
 
         for num_block in range(1, vgg_n_blocks + 1):
-            
+            print(f"Generating convolutional_block_{num_block}")
             conv_block_name = f"convolutional_block_{num_block}"
             conv_block = self.generate_conv_block(
                 start_block_channels = start_block_channels, 
@@ -108,23 +108,25 @@ class VGGNL(torch.nn.Module):
         #input_tensor.size(1) = BlueFinLib.seconds_to_frames(input_tensor, parameters) # canvi marc
         #input_tensor.size(2) = parameters["n_mels"]
         
-        #print("input tensor PRE: ", input_tensor.size())
+        # print("input tensor PRE: ", input_tensor.size())
         input_tensor =  input_tensor.view( 
             input_tensor.size(0),  
             input_tensor.size(2),  # era 1     No usamos (1) porque es una constante 1
             1, 
             input_tensor.size(3), # era 2
             )
-        #print("input tensor POST: ", input_tensor.size())
+        # print("input tensor POST: ", input_tensor.size())
             
         # We need to put the channel dimension first because nn.Conv2d need it that way
         input_tensor = input_tensor.transpose(1, 2)
-        print("input tensor AFTER TRANSPOSE: ", input_tensor.size())
+        # print("input tensor AFTER TRANSPOSE: ", input_tensor.size())
+        # print("input tensor AFTER TRANSPOSE: ", input_tensor)
 
         # Pass the tensor through the convolutional blocks 
         encoded_tensor = self.conv_blocks(input_tensor) # descomentar si no va
         #encoded_tensor = self.conv_blocks # eliminar si no va
-        print(encoded_tensor) # NANNNNNNNNNN
+        # print(f'encoded_tensor.size: {encoded_tensor.size()}') # NANNNNNNNNNN
+        # print(f'encoded_tensor.size: {encoded_tensor}')
         
         # We want to flatten the output
         # For each batch, we will have encoded_tensor.size(1) hidden state vectors \

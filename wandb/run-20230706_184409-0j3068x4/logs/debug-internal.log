@@ -1,0 +1,449 @@
+2023-07-06 18:44:09,989 INFO    StreamThr :36474 [internal.py:wandb_internal():86] W&B internal server running at pid: 36474, started at: 2023-07-06 18:44:09.988725
+2023-07-06 18:44:09,998 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status
+2023-07-06 18:44:10,000 INFO    WriterThread:36474 [datastore.py:open_for_write():85] open: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/run-0j3068x4.wandb
+2023-07-06 18:44:10,001 DEBUG   SenderThread:36474 [sender.py:send():369] send: header
+2023-07-06 18:44:10,192 DEBUG   SenderThread:36474 [sender.py:send():369] send: run
+2023-07-06 18:44:10,638 INFO    SenderThread:36474 [dir_watcher.py:__init__():211] watching files in: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files
+2023-07-06 18:44:10,638 INFO    SenderThread:36474 [sender.py:_start_run_threads():1100] run started: 0j3068x4 with start time 1688661849.990509
+2023-07-06 18:44:10,638 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: summary_record
+2023-07-06 18:44:10,639 INFO    SenderThread:36474 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-06 18:44:10,649 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: check_version
+2023-07-06 18:44:10,649 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: check_version
+2023-07-06 18:44:10,753 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: run_start
+2023-07-06 18:44:10,760 DEBUG   HandlerThread:36474 [system_info.py:__init__():31] System info init
+2023-07-06 18:44:10,760 DEBUG   HandlerThread:36474 [system_info.py:__init__():46] System info init done
+2023-07-06 18:44:10,760 INFO    HandlerThread:36474 [system_monitor.py:start():181] Starting system monitor
+2023-07-06 18:44:10,760 INFO    SystemMonitor:36474 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-07-06 18:44:10,760 INFO    HandlerThread:36474 [system_monitor.py:probe():201] Collecting system info
+2023-07-06 18:44:10,762 INFO    SystemMonitor:36474 [interfaces.py:start():190] Started cpu monitoring
+2023-07-06 18:44:10,762 INFO    SystemMonitor:36474 [interfaces.py:start():190] Started disk monitoring
+2023-07-06 18:44:10,767 INFO    SystemMonitor:36474 [interfaces.py:start():190] Started gpu monitoring
+2023-07-06 18:44:10,768 INFO    SystemMonitor:36474 [interfaces.py:start():190] Started memory monitoring
+2023-07-06 18:44:10,768 INFO    SystemMonitor:36474 [interfaces.py:start():190] Started network monitoring
+2023-07-06 18:44:10,813 DEBUG   HandlerThread:36474 [system_info.py:probe():195] Probing system
+2023-07-06 18:44:10,820 DEBUG   HandlerThread:36474 [system_info.py:_probe_git():180] Probing git
+2023-07-06 18:44:10,840 DEBUG   HandlerThread:36474 [system_info.py:_probe_git():188] Probing git done
+2023-07-06 18:44:10,840 DEBUG   HandlerThread:36474 [system_info.py:probe():240] Probing system done
+2023-07-06 18:44:10,840 DEBUG   HandlerThread:36474 [system_monitor.py:probe():210] {'os': 'Linux-4.15.0-162-generic-x86_64-with-glibc2.17', 'python': '3.8.16', 'heartbeatAt': '2023-07-06T16:44:10.813793', 'startedAt': '2023-07-06T16:44:09.970484', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'src/main.py', 'codePath': 'src/main.py', 'git': {'remote': 'https://github.com/marccasals98/OCEAN.git', 'commit': 'dcd29408ac12e5e2a55118448f2b056b80b191de'}, 'email': None, 'root': '/home/usuaris/veu/pol.cavero/OCEAN', 'host': 'veuc11', 'username': 'pol.cavero', 'executable': '/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/bin/python', 'cpu_count': 20, 'cpu_count_logical': 40, 'cpu_freq': {'current': 1126.6821999999997, 'min': 1000.0, 'max': 2201.0}, 'cpu_freq_per_core': [{'current': 1000.095, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.308, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.834, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.552, 'min': 1000.0, 'max': 2201.0}, {'current': 1520.625, 'min': 1000.0, 'max': 2201.0}, {'current': 1001.079, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.944, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.911, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.438, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.956, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.77, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.324, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.451, 'min': 1000.0, 'max': 2201.0}, {'current': 2199.999, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.09, 'min': 1000.0, 'max': 2201.0}, {'current': 999.741, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.352, 'min': 1000.0, 'max': 2201.0}, {'current': 999.959, 'min': 1000.0, 'max': 2201.0}, {'current': 1001.45, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.347, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.487, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.682, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.079, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.704, 'min': 1000.0, 'max': 2201.0}, {'current': 1623.708, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.156, 'min': 1000.0, 'max': 2201.0}, {'current': 1001.583, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.041, 'min': 1000.0, 'max': 2201.0}, {'current': 999.964, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.771, 'min': 1000.0, 'max': 2201.0}, {'current': 1001.337, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.221, 'min': 1000.0, 'max': 2201.0}, {'current': 1001.175, 'min': 1000.0, 'max': 2201.0}, {'current': 2200.481, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.146, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.344, 'min': 1000.0, 'max': 2201.0}, {'current': 999.718, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.03, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.43, 'min': 1000.0, 'max': 2201.0}, {'current': 1000.718, 'min': 1000.0, 'max': 2201.0}], 'disk': {'total': 17.288352966308594, 'used': 15.30843734741211}, 'gpu': 'NVIDIA GeForce RTX 2080 Ti', 'gpu_count': 4, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11554717696}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11554717696}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11554717696}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11554717696}], 'memory': {'total': 376.5842399597168}}
+2023-07-06 18:44:10,840 INFO    HandlerThread:36474 [system_monitor.py:probe():211] Finished collecting system info
+2023-07-06 18:44:10,840 INFO    HandlerThread:36474 [system_monitor.py:probe():214] Publishing system info
+2023-07-06 18:44:10,840 DEBUG   HandlerThread:36474 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-07-06 18:44:10,841 DEBUG   HandlerThread:36474 [system_info.py:_save_pip():67] Saving pip packages done
+2023-07-06 18:44:10,842 DEBUG   HandlerThread:36474 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-07-06 18:44:11,640 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_created():272] file/dir created: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/wandb-summary.json
+2023-07-06 18:44:11,641 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_created():272] file/dir created: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/conda-environment.yaml
+2023-07-06 18:44:11,641 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_created():272] file/dir created: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/requirements.txt
+2023-07-06 18:44:19,644 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/conda-environment.yaml
+2023-07-06 18:44:19,786 DEBUG   HandlerThread:36474 [system_info.py:_save_conda():86] Saving conda packages done
+2023-07-06 18:44:19,788 INFO    HandlerThread:36474 [system_monitor.py:probe():216] Finished publishing system info
+2023-07-06 18:44:19,817 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:44:19,817 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: keepalive
+2023-07-06 18:44:19,819 DEBUG   SenderThread:36474 [sender.py:send():369] send: files
+2023-07-06 18:44:19,820 INFO    SenderThread:36474 [sender.py:_save_file():1354] saving file wandb-metadata.json with policy now
+2023-07-06 18:44:19,831 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:44:19,831 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:44:19,994 DEBUG   SenderThread:36474 [sender.py:send():369] send: telemetry
+2023-07-06 18:44:19,994 DEBUG   SenderThread:36474 [sender.py:send():369] send: telemetry
+2023-07-06 18:44:19,995 DEBUG   SenderThread:36474 [sender.py:send():369] send: run
+2023-07-06 18:44:20,172 INFO    SenderThread:36474 [sender.py:send_run():978] updated run: 0j3068x4
+2023-07-06 18:44:20,173 DEBUG   SenderThread:36474 [sender.py:send():369] send: telemetry
+2023-07-06 18:44:20,356 INFO    wandb-upload_0:36474 [upload_job.py:push():133] Uploaded file /tmp/tmpxwz75qd4wandb/3bz13jyr-wandb-metadata.json
+2023-07-06 18:44:20,645 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/config.yaml
+2023-07-06 18:44:20,645 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_created():272] file/dir created: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:20,646 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_created():272] file/dir created: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/wandb-metadata.json
+2023-07-06 18:44:21,174 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:44:22,646 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:26,175 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:44:28,650 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:29,652 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:30,653 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:31,291 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:44:31,653 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:32,654 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:33,655 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:34,656 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:34,830 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:44:34,831 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:44:35,657 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:36,331 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:44:36,658 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:37,659 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:38,660 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:39,661 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:40,662 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:41,408 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:44:41,663 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/config.yaml
+2023-07-06 18:44:41,663 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:42,664 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:43,665 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:44,666 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:45,666 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:46,625 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:44:46,667 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:47,668 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:48,669 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:49,670 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:49,831 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:44:49,831 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:44:50,671 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:51,672 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:51,676 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:44:52,672 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:53,673 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:54,674 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:55,675 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:56,676 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:56,735 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:44:57,677 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:58,677 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:44:59,678 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:00,679 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:01,680 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:01,881 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:02,681 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:03,682 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:04,683 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:04,831 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:45:04,831 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:45:05,684 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:06,685 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:06,941 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:07,686 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:08,687 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:09,687 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:10,688 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:10,768 DEBUG   SystemMonitor:36474 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-07-06 18:45:10,771 DEBUG   SenderThread:36474 [sender.py:send():369] send: stats
+2023-07-06 18:45:11,691 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:12,005 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:12,692 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:13,692 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:14,693 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:15,694 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:16,695 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:17,024 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:17,696 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:18,697 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:19,698 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:19,831 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:45:19,831 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:45:20,699 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:21,700 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:22,037 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:22,701 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:23,701 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:24,702 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:25,703 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:26,704 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:27,153 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:27,705 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:28,706 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:29,707 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:30,708 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:31,708 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:32,240 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:32,709 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:33,710 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:34,711 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:34,831 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:45:34,832 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:45:35,712 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:36,713 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:37,366 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:37,713 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:38,714 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:39,715 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:40,716 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:40,773 DEBUG   SenderThread:36474 [sender.py:send():369] send: stats
+2023-07-06 18:45:41,717 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:42,718 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:43,063 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:43,718 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:44,719 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:48,064 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:49,831 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:45:49,832 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:45:50,200 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-06 18:45:51,723 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:52,724 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:53,142 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:53,725 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:54,726 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:55,727 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:56,728 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:57,729 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:58,172 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:45:58,730 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:45:59,730 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:00,731 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:01,732 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:02,733 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:03,195 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:03,734 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:04,735 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:04,831 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:46:04,832 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:46:05,736 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:06,737 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:07,738 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:08,274 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:08,739 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:09,739 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:10,740 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:10,775 DEBUG   SenderThread:36474 [sender.py:send():369] send: stats
+2023-07-06 18:46:11,742 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:12,743 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:13,301 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:13,744 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:14,745 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:15,746 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:16,748 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:17,749 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:18,327 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:18,750 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:19,751 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:19,831 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:46:19,832 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:46:20,752 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:21,752 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:22,753 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:23,349 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:23,754 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:24,755 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:25,756 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:26,757 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:27,758 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:28,385 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:28,758 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:29,759 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:30,760 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:31,761 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:32,762 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:33,438 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:33,763 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:34,763 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:34,832 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:46:34,832 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:46:35,764 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:36,765 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:37,766 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:38,806 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:40,777 DEBUG   SenderThread:36474 [sender.py:send():369] send: stats
+2023-07-06 18:46:40,842 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-06 18:46:40,843 DEBUG   SenderThread:36474 [sender.py:send():369] send: history
+2023-07-06 18:46:40,844 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: summary_record
+2023-07-06 18:46:40,845 INFO    SenderThread:36474 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-06 18:46:41,769 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/wandb-summary.json
+2023-07-06 18:46:41,769 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:42,769 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:43,770 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:43,840 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:44,772 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:45,773 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:46,774 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:47,775 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:48,776 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:48,932 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:49,778 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:49,832 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:46:49,832 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:46:50,779 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:51,779 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:52,780 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:53,781 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:53,980 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:54,782 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:55,783 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:56,784 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:57,785 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:58,786 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:46:58,994 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:46:59,787 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:00,788 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:01,789 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:02,790 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:03,790 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:04,068 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:47:04,791 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:04,832 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:47:04,833 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:47:05,792 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:06,793 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:07,794 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:08,795 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:09,087 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:47:09,796 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:10,779 DEBUG   SenderThread:36474 [sender.py:send():369] send: stats
+2023-07-06 18:47:10,797 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:11,798 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:12,799 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:13,800 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:14,130 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:47:14,801 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:15,802 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:16,803 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:17,804 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:18,805 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:19,180 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:47:19,806 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:19,832 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:47:19,833 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:47:20,807 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:21,808 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:22,809 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:23,810 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:24,214 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:47:24,811 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:25,812 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:26,813 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:27,814 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:29,369 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:47:30,343 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-06 18:47:30,344 DEBUG   SenderThread:36474 [sender.py:send():369] send: history
+2023-07-06 18:47:30,344 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: summary_record
+2023-07-06 18:47:30,345 INFO    SenderThread:36474 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-06 18:47:30,816 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/wandb-summary.json
+2023-07-06 18:47:31,817 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:34,832 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-06 18:47:34,833 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: stop_status
+2023-07-06 18:47:35,024 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:47:38,301 DEBUG   SenderThread:36474 [sender.py:send():369] send: exit
+2023-07-06 18:47:38,302 INFO    SenderThread:36474 [sender.py:send_exit():574] handling exit code: 1
+2023-07-06 18:47:38,302 INFO    SenderThread:36474 [sender.py:send_exit():576] handling runtime: 207
+2023-07-06 18:47:38,303 INFO    SenderThread:36474 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-06 18:47:38,303 INFO    SenderThread:36474 [sender.py:send_exit():582] send defer
+2023-07-06 18:47:38,303 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:38,303 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 0
+2023-07-06 18:47:38,304 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:38,304 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 0
+2023-07-06 18:47:38,304 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 1
+2023-07-06 18:47:38,304 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:38,304 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 1
+2023-07-06 18:47:38,304 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:38,304 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 1
+2023-07-06 18:47:38,304 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 2
+2023-07-06 18:47:38,304 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:38,304 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 2
+2023-07-06 18:47:38,304 INFO    HandlerThread:36474 [system_monitor.py:finish():190] Stopping system monitor
+2023-07-06 18:47:38,304 DEBUG   SystemMonitor:36474 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-07-06 18:47:38,305 DEBUG   SystemMonitor:36474 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-07-06 18:47:38,305 INFO    HandlerThread:36474 [interfaces.py:finish():202] Joined cpu monitor
+2023-07-06 18:47:38,307 INFO    HandlerThread:36474 [interfaces.py:finish():202] Joined disk monitor
+2023-07-06 18:47:38,647 INFO    HandlerThread:36474 [interfaces.py:finish():202] Joined gpu monitor
+2023-07-06 18:47:38,647 INFO    HandlerThread:36474 [interfaces.py:finish():202] Joined memory monitor
+2023-07-06 18:47:38,647 INFO    HandlerThread:36474 [interfaces.py:finish():202] Joined network monitor
+2023-07-06 18:47:38,648 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:38,648 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 2
+2023-07-06 18:47:38,648 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 3
+2023-07-06 18:47:38,648 DEBUG   SenderThread:36474 [sender.py:send():369] send: stats
+2023-07-06 18:47:38,648 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:38,648 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 3
+2023-07-06 18:47:38,649 DEBUG   SenderThread:36474 [sender.py:send():369] send: history
+2023-07-06 18:47:38,649 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: summary_record
+2023-07-06 18:47:38,650 INFO    SenderThread:36474 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-06 18:47:38,650 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:38,651 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 3
+2023-07-06 18:47:38,651 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 4
+2023-07-06 18:47:38,651 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:38,651 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 4
+2023-07-06 18:47:38,651 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:38,651 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 4
+2023-07-06 18:47:38,651 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 5
+2023-07-06 18:47:38,651 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:38,651 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 5
+2023-07-06 18:47:38,652 DEBUG   SenderThread:36474 [sender.py:send():369] send: summary
+2023-07-06 18:47:38,652 INFO    SenderThread:36474 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-06 18:47:38,653 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:38,653 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 5
+2023-07-06 18:47:38,653 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 6
+2023-07-06 18:47:38,653 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:38,653 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 6
+2023-07-06 18:47:38,653 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:38,653 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 6
+2023-07-06 18:47:38,653 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 7
+2023-07-06 18:47:38,653 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: status_report
+2023-07-06 18:47:38,653 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:38,654 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 7
+2023-07-06 18:47:38,654 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:38,654 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 7
+2023-07-06 18:47:38,821 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/wandb-summary.json
+2023-07-06 18:47:39,302 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-06 18:47:39,822 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:40,823 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:41,477 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 8
+2023-07-06 18:47:41,477 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: poll_exit
+2023-07-06 18:47:41,477 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:41,478 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 8
+2023-07-06 18:47:41,478 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:41,478 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 8
+2023-07-06 18:47:41,479 INFO    SenderThread:36474 [job_builder.py:build():232] Attempting to build job artifact
+2023-07-06 18:47:41,479 INFO    SenderThread:36474 [job_builder.py:build():256] is repo sourced job
+2023-07-06 18:47:41,485 INFO    SenderThread:36474 [job_builder.py:build():297] adding wandb-job metadata file
+2023-07-06 18:47:41,493 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 9
+2023-07-06 18:47:41,493 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:41,493 DEBUG   SenderThread:36474 [sender.py:send():369] send: artifact
+2023-07-06 18:47:41,494 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 9
+2023-07-06 18:47:41,824 INFO    Thread-12 :36474 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:42,641 INFO    wandb-upload_0:36474 [upload_job.py:push():88] Skipped uploading /home/usuaris/veu/pol.cavero/.local/share/wandb/artifacts/staging/tmphmtw42jr
+2023-07-06 18:47:43,008 INFO    wandb-upload_1:36474 [upload_job.py:push():91] Uploaded file /home/usuaris/veu/pol.cavero/.local/share/wandb/artifacts/staging/tmp2i1ct3f3
+2023-07-06 18:47:44,072 INFO    SenderThread:36474 [sender.py:send_artifact():1450] sent artifact job-https___github.com_marccasals98_OCEAN.git_src_main.py - {'id': 'QXJ0aWZhY3Q6NTA3MDQwNzM1', 'digest': 'c20ecd7a903adc5ae25ace82dc5e8558', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjc1NTM0OTky', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTA2MTU2MjUw', 'versionIndex': 12}}, 'version': 'latest'}
+2023-07-06 18:47:44,072 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:44,072 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 9
+2023-07-06 18:47:44,073 INFO    SenderThread:36474 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-07-06 18:47:44,304 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: keepalive
+2023-07-06 18:47:44,826 INFO    SenderThread:36474 [dir_watcher.py:finish():389] scan: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files
+2023-07-06 18:47:44,826 INFO    SenderThread:36474 [dir_watcher.py:finish():403] scan save: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/conda-environment.yaml conda-environment.yaml
+2023-07-06 18:47:44,827 INFO    SenderThread:36474 [dir_watcher.py:finish():403] scan save: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log output.log
+2023-07-06 18:47:44,833 INFO    SenderThread:36474 [dir_watcher.py:finish():403] scan save: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/requirements.txt requirements.txt
+2023-07-06 18:47:44,835 INFO    SenderThread:36474 [dir_watcher.py:finish():403] scan save: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/wandb-metadata.json wandb-metadata.json
+2023-07-06 18:47:44,835 INFO    SenderThread:36474 [dir_watcher.py:finish():403] scan save: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/config.yaml config.yaml
+2023-07-06 18:47:44,840 INFO    SenderThread:36474 [dir_watcher.py:finish():403] scan save: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/wandb-summary.json wandb-summary.json
+2023-07-06 18:47:44,844 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 10
+2023-07-06 18:47:44,847 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:44,851 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 10
+2023-07-06 18:47:44,852 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:44,852 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 10
+2023-07-06 18:47:44,852 INFO    SenderThread:36474 [file_pusher.py:finish():159] shutting down file pusher
+2023-07-06 18:47:45,302 INFO    wandb-upload_0:36474 [upload_job.py:push():133] Uploaded file /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/conda-environment.yaml
+2023-07-06 18:47:45,335 INFO    wandb-upload_1:36474 [upload_job.py:push():133] Uploaded file /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/output.log
+2023-07-06 18:47:45,416 INFO    wandb-upload_2:36474 [upload_job.py:push():133] Uploaded file /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/requirements.txt
+2023-07-06 18:47:45,423 INFO    wandb-upload_4:36474 [upload_job.py:push():133] Uploaded file /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/wandb-summary.json
+2023-07-06 18:47:45,433 INFO    wandb-upload_3:36474 [upload_job.py:push():133] Uploaded file /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/files/config.yaml
+2023-07-06 18:47:45,634 INFO    Thread-11 :36474 [sender.py:transition_state():602] send defer: 11
+2023-07-06 18:47:45,634 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:45,635 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 11
+2023-07-06 18:47:45,635 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:45,636 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 11
+2023-07-06 18:47:45,636 INFO    SenderThread:36474 [file_pusher.py:join():164] waiting for file pusher
+2023-07-06 18:47:45,636 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 12
+2023-07-06 18:47:45,636 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:45,636 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 12
+2023-07-06 18:47:45,637 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:45,637 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 12
+2023-07-06 18:47:45,799 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 13
+2023-07-06 18:47:45,800 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:45,800 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 13
+2023-07-06 18:47:45,800 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:45,800 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 13
+2023-07-06 18:47:45,800 INFO    SenderThread:36474 [sender.py:transition_state():602] send defer: 14
+2023-07-06 18:47:45,801 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: defer
+2023-07-06 18:47:45,801 INFO    HandlerThread:36474 [handler.py:handle_request_defer():170] handle defer: 14
+2023-07-06 18:47:45,801 DEBUG   SenderThread:36474 [sender.py:send():369] send: final
+2023-07-06 18:47:45,802 DEBUG   SenderThread:36474 [sender.py:send():369] send: footer
+2023-07-06 18:47:45,802 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: defer
+2023-07-06 18:47:45,802 INFO    SenderThread:36474 [sender.py:send_request_defer():598] handle sender defer: 14
+2023-07-06 18:47:45,803 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-06 18:47:45,803 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: poll_exit
+2023-07-06 18:47:45,804 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: server_info
+2023-07-06 18:47:45,805 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: get_summary
+2023-07-06 18:47:45,806 DEBUG   SenderThread:36474 [sender.py:send_request():396] send_request: server_info
+2023-07-06 18:47:45,810 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: sampled_history
+2023-07-06 18:47:45,942 INFO    MainThread:36474 [wandb_run.py:_footer_history_summary_info():3467] rendering history
+2023-07-06 18:47:45,943 INFO    MainThread:36474 [wandb_run.py:_footer_history_summary_info():3499] rendering summary
+2023-07-06 18:47:45,943 INFO    MainThread:36474 [wandb_run.py:_footer_sync_info():3426] logging synced files
+2023-07-06 18:47:45,944 DEBUG   HandlerThread:36474 [handler.py:handle_request():144] handle_request: shutdown
+2023-07-06 18:47:45,944 INFO    HandlerThread:36474 [handler.py:finish():854] shutting down handler
+2023-07-06 18:47:46,806 INFO    WriterThread:36474 [datastore.py:close():298] close: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230706_184409-0j3068x4/run-0j3068x4.wandb
+2023-07-06 18:47:46,942 INFO    SenderThread:36474 [sender.py:finish():1526] shutting down sender
+2023-07-06 18:47:46,942 INFO    SenderThread:36474 [file_pusher.py:finish():159] shutting down file pusher
+2023-07-06 18:47:46,942 INFO    SenderThread:36474 [file_pusher.py:join():164] waiting for file pusher

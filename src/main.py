@@ -15,9 +15,11 @@ from DataframeCreator import DataframeCreator
 import os
 from LeNet import LeNet5
 
+from sklearn.metrics import classification_report, accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+print(device)
 
 def accuracy(labels: torch.Tensor, outputs: torch.Tensor) -> int:
     '''
@@ -48,11 +50,12 @@ def train_single_epoch(model, train_loader, optimizer):
         optimizer.zero_grad()
         # print(device)
         x, y = x.to(device), y.to(device)
+        # print(f'input: {x.size()}')
+        # print('labels: ', y.size())
         y_ = model(x, y)[0] #                   POL: AFEGIT [0]
-        '''print('input: ', x)
-        print('output: ', y_)
-        print('labels: ', y)'''
+        # print('output: ', y_.size())
         loss = F.cross_entropy(y_, y)
+        # print(f'loss:{loss}')
         loss.backward()
         optimizer.step()
         acc = accuracy(y, y_)
@@ -86,13 +89,24 @@ def data_loaders(config):
                             img_dir = config['img_dir'], 
                             config = config,
                             transform=data_transforms)
-    train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
+
+    #nou. TOT AQUEST BLOC ES LO NOU, BORRAR I DESCOMENTAR SOTA
+    num_samples = len(total_data)
+    train_size = int(num_samples * config["num_samples_train"])
+    val_size = int(num_samples * config["num_samples_val"])
+    test_size = num_samples - train_size - val_size
+    train_data, val_data, test_data = torch.utils.data.random_split(total_data, [train_size, val_size, test_size])
+    train_loader = DataLoader(train_data, batch_size=config["batch_size"], shuffle=True)
+    val_loader = DataLoader(val_data, batch_size=config["batch_size"])
+    test_loader = DataLoader(test_data, batch_size=config["batch_size"])
+
+    '''train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
                                                                               [config['num_samples_train'],
                                                                                 config['num_samples_val'],
                                                                                 config['num_samples_test']])
     train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=config["batch_size"])
-    test_loader = DataLoader(test_dataset, batch_size=config["batch_size"])
+    test_loader = DataLoader(test_dataset, batch_size=config["batch_size"])'''
 
     return train_loader, val_loader, test_loader
 
@@ -115,7 +129,7 @@ def select_model(config):
     elif config['architecture'] == 'LeNet5':
         model = LeNet5(n_classes= len(config['species'])).to(device)
     elif config['architecture'] == 'SpeakerClassifier':
-        model = SpeakerClassifier(config, device)
+        model = SpeakerClassifier(config, device).to(device)
     else:
         raise ValueError('The model name is not on the list')
     return model
@@ -128,35 +142,84 @@ def train_model(config):
     print("=" * 60)
 
     train_loader, val_loader, test_loader = data_loaders(config)
-    my_model = select_model(config)
-    optimizer = optim.Adam(my_model.parameters(), config["lr"])
-    wandb_init(config)
-    best_metric = float('-inf')
-    best_params = None
 
-    # TRAINING
-    for epoch in range(config["epochs"]):
-        train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
-        print(f"Train Epoch {epoch} loss={train_loss:.2f} acc={train_acc:.2f}")
-        val_loss, val_acc = eval_single_epoch(my_model, val_loader)
-        print(f"Eval Epoch {epoch} loss={val_loss:.2f} acc={val_acc:.2f}")
-        train_metrics = {"train/train_loss":train_loss,
-                        "train/train_acc":train_acc,
-                        "val/val_loss":val_loss,
-                        "val/val_acc":val_acc}
-        wandb.log(train_metrics, step=epoch+1)
-        if val_acc > best_metric:
-            best_metric = val_acc
-            best_params = my_model.state_dict()
-            #torch.save(best_params, config["save_dir"] + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
-            torch.save(best_params, "/home/usuaris/veu/pol.cavero/OCEAN/save_best_modelPol/" + model_name + ".pt")
+    #nou. 
+    #best_metric = float('-inf')
+    #best_params = None
+    #nou. Lists to store results across iterations
+    train_losses = []
+    train_accuracies = []
+    val_losses = []
+    val_accuracies = []
+    test_losses = []
+    test_accuracies = []
+    #nounou. 
+    best_val_acc = float('-inf')
+    best_model_state = None
 
+    #nou. Iterations
+    for iteration in range(config["num_iterations"]):
+        print(f"Iteration: {iteration+1}")
 
-    # TEST
-    loss, acc = eval_single_epoch(my_model, test_loader)
-    print(f"Test loss={loss:.2f} acc={acc:.2f}")
-    wandb.log({"test/test_loss":loss,
-                "test/test_acc":acc})
+        my_model = select_model(config)
+        optimizer = optim.Adam(my_model.parameters(), config["lr"])
+        wandb_init(config)
+        # best_metric = float('-inf') nou. descomentar ...
+        #best_params = None nou. descomentar per ser com abans
+
+        # TRAINING
+        for epoch in range(config["epochs"]):
+            train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
+            print(f"Train Epoch {epoch} loss={train_loss:.2f} acc={train_acc:.2f}")
+            val_loss, val_acc = eval_single_epoch(my_model, val_loader)
+            print(f"Eval Epoch {epoch} loss={val_loss:.2f} acc={val_acc:.2f}")
+            train_metrics = {"train/train_loss":train_loss,
+                            "train/train_acc":train_acc,
+                            "val/val_loss":val_loss,
+                            "val/val_acc":val_acc}
+            wandb.log(train_metrics, step=epoch+1) #nounounou. comentat
+            '''if val_acc > best_metric:
+                best_metric = val_acc
+                best_params = my_model.state_dict()
+                #torch.save(best_params, config["save_dir"] + f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}.pt")
+                torch.save(best_params, "/home/usuaris/veu/pol.cavero/OCEAN/save_best_modelPol/" + model_name + ".pt")'''
+            
+            # nounou. save millor model de totes les iteracions
+            if val_acc > best_val_acc:
+                best_val_acc = val_acc
+                best_model_state = my_model.state_dict()
+                torch.save(best_model_state, "/home/usuaris/veu/pol.cavero/OCEAN/save_best_modelPol/" + model_name + ".pt")
+                # wandb.log(train_metrics, step=epoch+1)
+
+        # TEST
+        loss, acc = eval_single_epoch(my_model, test_loader)
+        print(f"Test loss={loss:.2f} acc={acc:.2f}")
+
+        wandb.log({"test/test_loss":loss,
+                    "test/test_acc":acc})
+
+        # nou. Store results for comparison
+        train_losses.append(train_loss)
+        train_accuracies.append(train_acc)
+        val_losses.append(val_loss)
+        val_accuracies.append(val_acc)
+        test_losses.append(loss)
+        test_accuracies.append(acc)
+    
+    # nou. Compare the results across iterations
+    print("Train Losses:", train_losses)
+    print("Train Accuracies:", train_accuracies)
+    print("Average Train Loss:", sum(train_losses)/len(train_losses))
+    print("Average Train Accuracy:", sum(train_accuracies)/len(train_accuracies))
+    print("Validation Losses:", val_losses)
+    print("Validation Accuracies:", val_accuracies)
+    print("Average Validation Loss:", sum(val_losses)/len(val_losses))
+    print("Average Validation Accuracy:", sum(val_accuracies)/len(val_accuracies))
+    print("Test Losses:", test_losses)
+    print("Test Accuracies:", test_accuracies)
+    print("Average Test Loss:", sum(test_losses)/len(test_losses))
+    print("Average Test Accuracy:", sum(test_accuracies)/len(test_accuracies))
+    print(f"Best model: Val acc:{best_val_acc}")
 
     wandb.finish()
     return my_model
@@ -188,7 +251,7 @@ if __name__ == "__main__":
         "architecture": "SpeakerClassifier", #canviat de ResNet50
         "lr": 1e-3,
         "batch_size": 128, # Marc tenia 60
-        "epochs": 1,
+        "epochs": 2,
         "num_samples_train": 0.8,
         "num_samples_val": 0.1,
         "num_samples_test": 0.1,
@@ -210,20 +273,21 @@ if __name__ == "__main__":
         "front_end": 'VGGNL',
         "pooling_method": 'DoubleMHA',
         "pooling_heads_number": 5, # Fede, abans era 32
-        "pooling_mask_prob": 0.3,
+        "pooling_mask_prob": 0.000001,
 
         # inventat numero de mels
         "n_mels": 40, # Fede
-        "pooling_output_size": 1, # M'ho he inventat perque no doni error
-        "bottleneck_drop_out": 0.5, # M'ho he inventat perque no doni error
+        "pooling_output_size": 400, 
+        "bottleneck_drop_out": 0.1, 
         # DMHA params
-        "vgg_n_blocks": 2, # Fede (abans 1)
-        "vgg_channels": [10, 10], # Fede (abans [1])
+        "vgg_n_blocks": 3, # Fede (abans 1)
+        "vgg_channels": [16, 32, 64], # Fede (abans [1])
         "number_speakers": 2, # Inventat, pero dos classes == dos speakers
-        "scaling_factor": 1, # M'ho he inventat perque no doni error
-        "margin_factor": 1,
+        "scaling_factor": 30, # M'ho he inventat perque no doni error
+        "margin_factor": 0.4,
         
-        #"patchs_generator_patch_width": 10,
+        # crossvalidation
+        "num_iterations": 4, # posat per mi
 
     }
 

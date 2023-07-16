@@ -1,0 +1,5 @@
+wandb: WARNING Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+  0%|          | 1/478 [00:01<09:54,  1.25s/batch]
+input: torch.Size([128, 1, 36, 40])
+labels:  torch.Size([128, 2])
+output:  torch.Size([128, 2])

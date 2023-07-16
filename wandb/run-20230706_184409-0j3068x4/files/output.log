@@ -1,0 +1,2968 @@
+wandb: WARNING Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+
+  0%|          | 1/478 [00:07<1:01:35,  7.75s/batch]
+output:  torch.Size([128, 2])
+loss:0.6929429769515991
+output:  torch.Size([128, 2])
+loss:0.6924902200698853
+output:  torch.Size([128, 2])
+loss:0.6855565309524536
+output:  torch.Size([128, 2])
+loss:0.6762046813964844
+output:  torch.Size([128, 2])
+
+  3%|▎         | 13/478 [00:09<01:33,  5.00batch/s]
+output:  torch.Size([128, 2])
+loss:0.6258646249771118
+output:  torch.Size([128, 2])
+loss:0.6313494443893433
+output:  torch.Size([128, 2])
+loss:0.6403625011444092
+output:  torch.Size([128, 2])
+loss:0.6055479049682617
+output:  torch.Size([128, 2])
+loss:0.6513492465019226
+output:  torch.Size([128, 2])
+loss:0.6252168416976929
+output:  torch.Size([128, 2])
+loss:0.6434428691864014
+output:  torch.Size([128, 2])
+loss:0.631466269493103
+output:  torch.Size([128, 2])
+loss:0.6169214248657227
+output:  torch.Size([128, 2])
+loss:0.5992943644523621
+output:  torch.Size([128, 2])
+loss:0.5997937321662903
+output:  torch.Size([128, 2])
+
+  5%|▌         | 25/478 [00:11<01:16,  5.90batch/s]
+output:  torch.Size([128, 2])
+loss:0.5995480418205261
+output:  torch.Size([128, 2])
+loss:0.6029554009437561
+output:  torch.Size([128, 2])
+loss:0.6052975058555603
+output:  torch.Size([128, 2])
+loss:0.6072579622268677
+output:  torch.Size([128, 2])
+loss:0.5641748905181885
+output:  torch.Size([128, 2])
+loss:0.5810628533363342
+output:  torch.Size([128, 2])
+loss:0.5936084985733032
+output:  torch.Size([128, 2])
+loss:0.5630509257316589
+output:  torch.Size([128, 2])
+loss:0.5832128524780273
+output:  torch.Size([128, 2])
+loss:0.564218282699585
+output:  torch.Size([128, 2])
+loss:0.5605841875076294
+output:  torch.Size([128, 2])
+
+  8%|▊         | 37/478 [00:13<01:14,  5.94batch/s]
+output:  torch.Size([128, 2])
+loss:0.5717047452926636
+output:  torch.Size([128, 2])
+loss:0.588789701461792
+output:  torch.Size([128, 2])
+loss:0.5873947739601135
+output:  torch.Size([128, 2])
+loss:0.5993384122848511
+output:  torch.Size([128, 2])
+loss:0.554023265838623
+output:  torch.Size([128, 2])
+loss:0.5434356927871704
+output:  torch.Size([128, 2])
+loss:0.5765212774276733
+output:  torch.Size([128, 2])
+loss:0.538960874080658
+output:  torch.Size([128, 2])
+loss:0.5548774003982544
+output:  torch.Size([128, 2])
+loss:0.5368520617485046
+output:  torch.Size([128, 2])
+loss:0.5746880769729614
+output:  torch.Size([128, 2])
+
+ 10%|█         | 48/478 [00:15<01:25,  5.01batch/s]
+output:  torch.Size([128, 2])
+loss:0.5076667666435242
+output:  torch.Size([128, 2])
+loss:0.5080698728561401
+output:  torch.Size([128, 2])
+loss:0.5377390384674072
+output:  torch.Size([128, 2])
+loss:0.5791229009628296
+output:  torch.Size([128, 2])
+loss:0.5766763687133789
+output:  torch.Size([128, 2])
+loss:0.534144401550293
+output:  torch.Size([128, 2])
+loss:0.5503391027450562
+output:  torch.Size([128, 2])
+loss:0.5445370078086853
+output:  torch.Size([128, 2])
+loss:0.4974687099456787
+output:  torch.Size([128, 2])
+loss:0.5389410257339478
+output:  torch.Size([128, 2])
+
+ 13%|█▎        | 60/478 [00:17<01:10,  5.95batch/s]
+output:  torch.Size([128, 2])
+loss:0.5498446226119995
+output:  torch.Size([128, 2])
+loss:0.5246579647064209
+output:  torch.Size([128, 2])
+loss:0.5407737493515015
+output:  torch.Size([128, 2])
+loss:0.5050675272941589
+output:  torch.Size([128, 2])
+loss:0.5178881883621216
+output:  torch.Size([128, 2])
+loss:0.5108963847160339
+output:  torch.Size([128, 2])
+loss:0.5091673135757446
+output:  torch.Size([128, 2])
+loss:0.5326564908027649
+output:  torch.Size([128, 2])
+loss:0.546729564666748
+output:  torch.Size([128, 2])
+loss:0.4952458441257477
+output:  torch.Size([128, 2])
+
+ 14%|█▍        | 67/478 [00:19<01:39,  4.15batch/s]
+output:  torch.Size([128, 2])
+loss:0.5370659232139587
+output:  torch.Size([128, 2])
+loss:0.5098317265510559
+output:  torch.Size([128, 2])
+loss:0.5283820033073425
+output:  torch.Size([128, 2])
+loss:0.5171341896057129
+output:  torch.Size([128, 2])
+loss:0.5219339728355408
+output:  torch.Size([128, 2])
+loss:0.5274153351783752
+output:  torch.Size([128, 2])
+loss:0.5067154765129089
+output:  torch.Size([128, 2])
+loss:0.49936622381210327
+output:  torch.Size([128, 2])
+
+ 17%|█▋        | 79/478 [00:21<01:08,  5.83batch/s]
+output:  torch.Size([128, 2])
+loss:0.5145772695541382
+output:  torch.Size([128, 2])
+loss:0.5094751715660095
+output:  torch.Size([128, 2])
+loss:0.501198410987854
+output:  torch.Size([128, 2])
+loss:0.517744243144989
+output:  torch.Size([128, 2])
+loss:0.5289881229400635
+output:  torch.Size([128, 2])
+loss:0.5099318623542786
+output:  torch.Size([128, 2])
+loss:0.5264289379119873
+output:  torch.Size([128, 2])
+loss:0.5254042148590088
+output:  torch.Size([128, 2])
+loss:0.5093598365783691
+output:  torch.Size([128, 2])
+loss:0.5600724816322327
+output:  torch.Size([128, 2])
+loss:0.49799054861068726
+output:  torch.Size([128, 2])
+
+ 19%|█▉        | 92/478 [00:23<01:01,  6.32batch/s]
+output:  torch.Size([128, 2])
+loss:0.4660825729370117
+output:  torch.Size([128, 2])
+loss:0.5164777040481567
+output:  torch.Size([128, 2])
+loss:0.5121315717697144
+output:  torch.Size([128, 2])
+loss:0.5262521505355835
+output:  torch.Size([128, 2])
+loss:0.48343944549560547
+output:  torch.Size([128, 2])
+loss:0.4936065375804901
+output:  torch.Size([128, 2])
+loss:0.5453444719314575
+output:  torch.Size([128, 2])
+loss:0.5174715518951416
+output:  torch.Size([128, 2])
+loss:0.47782474756240845
+output:  torch.Size([128, 2])
+loss:0.4868788421154022
+output:  torch.Size([128, 2])
+loss:0.5123450756072998
+output:  torch.Size([128, 2])
+loss:0.45672208070755005
+output:  torch.Size([128, 2])
+
+ 22%|██▏       | 105/478 [00:25<00:59,  6.32batch/s]
+output:  torch.Size([128, 2])
+loss:0.5383634567260742
+output:  torch.Size([128, 2])
+loss:0.5168739557266235
+output:  torch.Size([128, 2])
+loss:0.5083632469177246
+output:  torch.Size([128, 2])
+loss:0.4953504204750061
+output:  torch.Size([128, 2])
+loss:0.5338912010192871
+output:  torch.Size([128, 2])
+loss:0.5319463014602661
+output:  torch.Size([128, 2])
+loss:0.4831208288669586
+output:  torch.Size([128, 2])
+loss:0.5253661274909973
+output:  torch.Size([128, 2])
+loss:0.5116913914680481
+output:  torch.Size([128, 2])
+loss:0.5165247917175293
+output:  torch.Size([128, 2])
+loss:0.491883248090744
+output:  torch.Size([128, 2])
+
+ 25%|██▍       | 118/478 [00:27<00:57,  6.32batch/s]
+output:  torch.Size([128, 2])
+loss:0.5446233153343201
+output:  torch.Size([128, 2])
+loss:0.5221455097198486
+output:  torch.Size([128, 2])
+loss:0.49081265926361084
+output:  torch.Size([128, 2])
+loss:0.5218729972839355
+output:  torch.Size([128, 2])
+loss:0.5375555753707886
+output:  torch.Size([128, 2])
+loss:0.5073248147964478
+output:  torch.Size([128, 2])
+loss:0.5147481560707092
+output:  torch.Size([128, 2])
+loss:0.44790542125701904
+output:  torch.Size([128, 2])
+loss:0.5040116310119629
+output:  torch.Size([128, 2])
+loss:0.5385723114013672
+output:  torch.Size([128, 2])
+loss:0.5120906233787537
+output:  torch.Size([128, 2])
+loss:0.510829508304596
+output:  torch.Size([128, 2])
+
+ 27%|██▋       | 130/478 [00:29<00:55,  6.32batch/s]
+output:  torch.Size([128, 2])
+loss:0.5083480477333069
+output:  torch.Size([128, 2])
+loss:0.4873640537261963
+output:  torch.Size([128, 2])
+loss:0.49001502990722656
+output:  torch.Size([128, 2])
+loss:0.5009266138076782
+output:  torch.Size([128, 2])
+loss:0.4976648688316345
+output:  torch.Size([128, 2])
+loss:0.5591520667076111
+output:  torch.Size([128, 2])
+loss:0.5362530946731567
+output:  torch.Size([128, 2])
+loss:0.4801475405693054
+output:  torch.Size([128, 2])
+loss:0.5002181529998779
+output:  torch.Size([128, 2])
+loss:0.49581921100616455
+output:  torch.Size([128, 2])
+loss:0.4830051064491272
+output:  torch.Size([128, 2])
+loss:0.5308048725128174
+output:  torch.Size([128, 2])
+
+ 30%|██▉       | 142/478 [00:31<00:56,  5.92batch/s]
+output:  torch.Size([128, 2])
+loss:0.48728883266448975
+output:  torch.Size([128, 2])
+loss:0.5002717971801758
+output:  torch.Size([128, 2])
+loss:0.5212558507919312
+output:  torch.Size([128, 2])
+loss:0.49268996715545654
+output:  torch.Size([128, 2])
+loss:0.47248178720474243
+output:  torch.Size([128, 2])
+loss:0.44597095251083374
+output:  torch.Size([128, 2])
+loss:0.4748211205005646
+output:  torch.Size([128, 2])
+loss:0.47286921739578247
+output:  torch.Size([128, 2])
+loss:0.49149829149246216
+output:  torch.Size([128, 2])
+loss:0.5000336170196533
+output:  torch.Size([128, 2])
+loss:0.514007568359375
+output:  torch.Size([128, 2])
+
+ 32%|███▏      | 155/478 [00:33<00:49,  6.50batch/s]
+output:  torch.Size([128, 2])
+loss:0.48500382900238037
+output:  torch.Size([128, 2])
+loss:0.5381596088409424
+output:  torch.Size([128, 2])
+loss:0.475554496049881
+output:  torch.Size([128, 2])
+loss:0.4872197210788727
+output:  torch.Size([128, 2])
+loss:0.49494093656539917
+output:  torch.Size([128, 2])
+loss:0.46898889541625977
+output:  torch.Size([128, 2])
+loss:0.46370455622673035
+output:  torch.Size([128, 2])
+loss:0.48224204778671265
+output:  torch.Size([128, 2])
+loss:0.5103310942649841
+output:  torch.Size([128, 2])
+loss:0.5007367134094238
+output:  torch.Size([128, 2])
+loss:0.499276340007782
+output:  torch.Size([128, 2])
+loss:0.49181458353996277
+output:  torch.Size([128, 2])
+
+ 35%|███▌      | 168/478 [00:35<00:46,  6.64batch/s]
+output:  torch.Size([128, 2])
+loss:0.4847342371940613
+output:  torch.Size([128, 2])
+loss:0.5059298872947693
+output:  torch.Size([128, 2])
+loss:0.5198588371276855
+output:  torch.Size([128, 2])
+loss:0.48161906003952026
+output:  torch.Size([128, 2])
+loss:0.4491022229194641
+output:  torch.Size([128, 2])
+loss:0.49023517966270447
+output:  torch.Size([128, 2])
+loss:0.49893778562545776
+output:  torch.Size([128, 2])
+loss:0.4745764136314392
+output:  torch.Size([128, 2])
+loss:0.48868489265441895
+output:  torch.Size([128, 2])
+loss:0.46867677569389343
+output:  torch.Size([128, 2])
+loss:0.5211098194122314
+output:  torch.Size([128, 2])
+loss:0.4483487010002136
+output:  torch.Size([128, 2])
+
+ 38%|███▊      | 181/478 [00:37<00:45,  6.54batch/s]
+output:  torch.Size([128, 2])
+loss:0.4967505931854248
+output:  torch.Size([128, 2])
+loss:0.5069048404693604
+output:  torch.Size([128, 2])
+loss:0.4973105490207672
+output:  torch.Size([128, 2])
+loss:0.4797534942626953
+output:  torch.Size([128, 2])
+loss:0.48851731419563293
+output:  torch.Size([128, 2])
+loss:0.4721006751060486
+output:  torch.Size([128, 2])
+loss:0.5003522038459778
+output:  torch.Size([128, 2])
+loss:0.5246450901031494
+output:  torch.Size([128, 2])
+loss:0.48917004466056824
+output:  torch.Size([128, 2])
+loss:0.530297040939331
+output:  torch.Size([128, 2])
+loss:0.47295016050338745
+output:  torch.Size([128, 2])
+loss:0.48186394572257996
+output:  torch.Size([128, 2])
+
+ 41%|████      | 195/478 [00:39<00:43,  6.55batch/s]
+output:  torch.Size([128, 2])
+loss:0.4673232138156891
+output:  torch.Size([128, 2])
+loss:0.44329312443733215
+output:  torch.Size([128, 2])
+loss:0.45533525943756104
+output:  torch.Size([128, 2])
+loss:0.516286313533783
+output:  torch.Size([128, 2])
+loss:0.4934706687927246
+output:  torch.Size([128, 2])
+loss:0.467532753944397
+output:  torch.Size([128, 2])
+loss:0.5010932087898254
+output:  torch.Size([128, 2])
+loss:0.5085364580154419
+output:  torch.Size([128, 2])
+loss:0.4586074948310852
+output:  torch.Size([128, 2])
+loss:0.46678316593170166
+output:  torch.Size([128, 2])
+loss:0.4714326560497284
+output:  torch.Size([128, 2])
+loss:0.4852783977985382
+output:  torch.Size([128, 2])
+loss:0.4600588381290436
+output:  torch.Size([128, 2])
+
+ 44%|████▎     | 208/478 [00:41<00:40,  6.60batch/s]
+output:  torch.Size([128, 2])
+loss:0.46298927068710327
+output:  torch.Size([128, 2])
+loss:0.4568672776222229
+output:  torch.Size([128, 2])
+loss:0.49863702058792114
+output:  torch.Size([128, 2])
+loss:0.491280734539032
+output:  torch.Size([128, 2])
+loss:0.4725584387779236
+output:  torch.Size([128, 2])
+loss:0.4698314070701599
+output:  torch.Size([128, 2])
+loss:0.5067899227142334
+output:  torch.Size([128, 2])
+loss:0.4682568609714508
+output:  torch.Size([128, 2])
+loss:0.47404342889785767
+output:  torch.Size([128, 2])
+loss:0.46405890583992004
+output:  torch.Size([128, 2])
+loss:0.47835540771484375
+output:  torch.Size([128, 2])
+loss:0.4933302700519562
+output:  torch.Size([128, 2])
+
+ 46%|████▌     | 221/478 [00:43<00:39,  6.55batch/s]
+output:  torch.Size([128, 2])
+loss:0.5025495290756226
+output:  torch.Size([128, 2])
+loss:0.4667140245437622
+output:  torch.Size([128, 2])
+loss:0.4870690703392029
+output:  torch.Size([128, 2])
+loss:0.4324010908603668
+output:  torch.Size([128, 2])
+loss:0.5042161345481873
+output:  torch.Size([128, 2])
+loss:0.5145372152328491
+output:  torch.Size([128, 2])
+loss:0.48347359895706177
+output:  torch.Size([128, 2])
+loss:0.4773606061935425
+output:  torch.Size([128, 2])
+loss:0.4513518214225769
+output:  torch.Size([128, 2])
+loss:0.49762263894081116
+output:  torch.Size([128, 2])
+loss:0.4907257556915283
+output:  torch.Size([128, 2])
+loss:0.5032628774642944
+output:  torch.Size([128, 2])
+
+ 49%|████▉     | 234/478 [00:45<00:37,  6.51batch/s]
+output:  torch.Size([128, 2])
+loss:0.47665905952453613
+output:  torch.Size([128, 2])
+loss:0.4789496958255768
+output:  torch.Size([128, 2])
+loss:0.5083698034286499
+output:  torch.Size([128, 2])
+loss:0.49936020374298096
+output:  torch.Size([128, 2])
+loss:0.48685741424560547
+output:  torch.Size([128, 2])
+loss:0.4774070382118225
+output:  torch.Size([128, 2])
+loss:0.48412296175956726
+output:  torch.Size([128, 2])
+loss:0.47330620884895325
+output:  torch.Size([128, 2])
+loss:0.4847741723060608
+output:  torch.Size([128, 2])
+loss:0.45138975977897644
+output:  torch.Size([128, 2])
+loss:0.4561018943786621
+output:  torch.Size([128, 2])
+loss:0.482901006937027
+output:  torch.Size([128, 2])
+
+ 52%|█████▏    | 247/478 [00:47<00:34,  6.72batch/s]
+output:  torch.Size([128, 2])
+loss:0.4717559516429901
+output:  torch.Size([128, 2])
+loss:0.45178496837615967
+output:  torch.Size([128, 2])
+loss:0.47363001108169556
+output:  torch.Size([128, 2])
+loss:0.505566418170929
+output:  torch.Size([128, 2])
+loss:0.4874447286128998
+output:  torch.Size([128, 2])
+loss:0.4974806308746338
+output:  torch.Size([128, 2])
+loss:0.4995107054710388
+output:  torch.Size([128, 2])
+loss:0.4855296015739441
+output:  torch.Size([128, 2])
+loss:0.500964343547821
+output:  torch.Size([128, 2])
+loss:0.4729173481464386
+output:  torch.Size([128, 2])
+loss:0.481270968914032
+output:  torch.Size([128, 2])
+loss:0.5285739898681641
+output:  torch.Size([128, 2])
+
+ 54%|█████▍    | 260/478 [00:49<00:33,  6.57batch/s]
+output:  torch.Size([128, 2])
+loss:0.4722651243209839
+output:  torch.Size([128, 2])
+loss:0.4997992515563965
+output:  torch.Size([128, 2])
+loss:0.5085710287094116
+output:  torch.Size([128, 2])
+loss:0.48845386505126953
+output:  torch.Size([128, 2])
+loss:0.5200549364089966
+output:  torch.Size([128, 2])
+loss:0.4995507001876831
+output:  torch.Size([128, 2])
+loss:0.557435154914856
+output:  torch.Size([128, 2])
+loss:0.49358341097831726
+output:  torch.Size([128, 2])
+loss:0.46075236797332764
+output:  torch.Size([128, 2])
+loss:0.4849569797515869
+output:  torch.Size([128, 2])
+loss:0.46061643958091736
+output:  torch.Size([128, 2])
+loss:0.49796074628829956
+output:  torch.Size([128, 2])
+
+ 57%|█████▋    | 273/478 [00:51<00:30,  6.62batch/s]
+output:  torch.Size([128, 2])
+loss:0.4652245342731476
+output:  torch.Size([128, 2])
+loss:0.5120432376861572
+output:  torch.Size([128, 2])
+loss:0.5157254338264465
+output:  torch.Size([128, 2])
+loss:0.4979912042617798
+output:  torch.Size([128, 2])
+loss:0.47760820388793945
+output:  torch.Size([128, 2])
+loss:0.44435712695121765
+output:  torch.Size([128, 2])
+loss:0.4527326226234436
+output:  torch.Size([128, 2])
+loss:0.47369295358657837
+output:  torch.Size([128, 2])
+loss:0.49034565687179565
+output:  torch.Size([128, 2])
+loss:0.4668300151824951
+output:  torch.Size([128, 2])
+loss:0.44477155804634094
+output:  torch.Size([128, 2])
+loss:0.49988043308258057
+output:  torch.Size([128, 2])
+
+ 60%|██████    | 287/478 [00:53<00:28,  6.70batch/s]
+output:  torch.Size([128, 2])
+loss:0.4682631492614746
+output:  torch.Size([128, 2])
+loss:0.4606242775917053
+output:  torch.Size([128, 2])
+loss:0.45979732275009155
+output:  torch.Size([128, 2])
+loss:0.5046788454055786
+output:  torch.Size([128, 2])
+loss:0.47933393716812134
+output:  torch.Size([128, 2])
+loss:0.4841337203979492
+output:  torch.Size([128, 2])
+loss:0.4520304799079895
+output:  torch.Size([128, 2])
+loss:0.4738788306713104
+output:  torch.Size([128, 2])
+loss:0.48984667658805847
+output:  torch.Size([128, 2])
+loss:0.47691911458969116
+output:  torch.Size([128, 2])
+loss:0.4750206470489502
+output:  torch.Size([128, 2])
+loss:0.4690472185611725
+output:  torch.Size([128, 2])
+
+ 63%|██████▎   | 300/478 [00:56<00:28,  6.19batch/s]
+output:  torch.Size([128, 2])
+loss:0.4840586185455322
+output:  torch.Size([128, 2])
+loss:0.48102134466171265
+output:  torch.Size([128, 2])
+loss:0.44995248317718506
+output:  torch.Size([128, 2])
+loss:0.43960949778556824
+output:  torch.Size([128, 2])
+loss:0.5273482203483582
+output:  torch.Size([128, 2])
+loss:0.48847946524620056
+output:  torch.Size([128, 2])
+loss:0.5185202360153198
+output:  torch.Size([128, 2])
+loss:0.46698319911956787
+output:  torch.Size([128, 2])
+loss:0.45462071895599365
+output:  torch.Size([128, 2])
+loss:0.47837716341018677
+output:  torch.Size([128, 2])
+loss:0.4820330739021301
+output:  torch.Size([128, 2])
+loss:0.4839719533920288
+output:  torch.Size([128, 2])
+
+ 65%|██████▌   | 313/478 [00:57<00:24,  6.82batch/s]
+output:  torch.Size([128, 2])
+loss:0.48342201113700867
+output:  torch.Size([128, 2])
+loss:0.47850239276885986
+output:  torch.Size([128, 2])
+loss:0.49733418226242065
+output:  torch.Size([128, 2])
+loss:0.4796425700187683
+output:  torch.Size([128, 2])
+loss:0.4577381908893585
+output:  torch.Size([128, 2])
+loss:0.4951608180999756
+output:  torch.Size([128, 2])
+loss:0.4882819950580597
+output:  torch.Size([128, 2])
+loss:0.4470691680908203
+output:  torch.Size([128, 2])
+loss:0.4631626009941101
+output:  torch.Size([128, 2])
+loss:0.4460422992706299
+output:  torch.Size([128, 2])
+loss:0.4679543673992157
+output:  torch.Size([128, 2])
+loss:0.4848608076572418
+output:  torch.Size([128, 2])
+loss:0.4815313220024109
+output:  torch.Size([128, 2])
+
+ 68%|██████▊   | 325/478 [00:59<00:22,  6.73batch/s]
+output:  torch.Size([128, 2])
+loss:0.475168377161026
+output:  torch.Size([128, 2])
+loss:0.45836541056632996
+output:  torch.Size([128, 2])
+loss:0.4459812045097351
+output:  torch.Size([128, 2])
+loss:0.45429661870002747
+output:  torch.Size([128, 2])
+loss:0.4856150150299072
+output:  torch.Size([128, 2])
+loss:0.49205851554870605
+output:  torch.Size([128, 2])
+loss:0.47204914689064026
+output:  torch.Size([128, 2])
+loss:0.5017234086990356
+output:  torch.Size([128, 2])
+loss:0.4730442464351654
+output:  torch.Size([128, 2])
+loss:0.5337868928909302
+output:  torch.Size([128, 2])
+loss:0.4801393151283264
+output:  torch.Size([128, 2])
+
+ 71%|███████   | 338/478 [01:01<00:21,  6.62batch/s]
+output:  torch.Size([128, 2])
+loss:0.48338785767555237
+output:  torch.Size([128, 2])
+loss:0.4624478816986084
+output:  torch.Size([128, 2])
+loss:0.5089540481567383
+output:  torch.Size([128, 2])
+loss:0.5193681120872498
+output:  torch.Size([128, 2])
+loss:0.47825855016708374
+output:  torch.Size([128, 2])
+loss:0.534852921962738
+output:  torch.Size([128, 2])
+loss:0.4705619215965271
+output:  torch.Size([128, 2])
+loss:0.4783672094345093
+output:  torch.Size([128, 2])
+loss:0.44836169481277466
+output:  torch.Size([128, 2])
+loss:0.4729968309402466
+output:  torch.Size([128, 2])
+loss:0.510108232498169
+output:  torch.Size([128, 2])
+loss:0.4997740089893341
+output:  torch.Size([128, 2])
+
+ 74%|███████▎  | 352/478 [01:03<00:18,  6.78batch/s]
+output:  torch.Size([128, 2])
+loss:0.4538348317146301
+output:  torch.Size([128, 2])
+loss:0.47962209582328796
+output:  torch.Size([128, 2])
+loss:0.46182912588119507
+output:  torch.Size([128, 2])
+loss:0.4757847189903259
+output:  torch.Size([128, 2])
+loss:0.48670241236686707
+output:  torch.Size([128, 2])
+loss:0.5012547969818115
+output:  torch.Size([128, 2])
+loss:0.5294741988182068
+output:  torch.Size([128, 2])
+loss:0.4656659960746765
+output:  torch.Size([128, 2])
+loss:0.46758002042770386
+output:  torch.Size([128, 2])
+loss:0.4646490216255188
+output:  torch.Size([128, 2])
+loss:0.48015064001083374
+output:  torch.Size([128, 2])
+loss:0.482345849275589
+output:  torch.Size([128, 2])
+loss:0.44978517293930054
+output:  torch.Size([128, 2])
+
+ 77%|███████▋  | 366/478 [01:06<00:16,  6.86batch/s]
+output:  torch.Size([128, 2])
+loss:0.4923452138900757
+output:  torch.Size([128, 2])
+loss:0.5062395334243774
+output:  torch.Size([128, 2])
+loss:0.4688284397125244
+output:  torch.Size([128, 2])
+loss:0.4671998918056488
+output:  torch.Size([128, 2])
+loss:0.45695817470550537
+output:  torch.Size([128, 2])
+loss:0.4791463017463684
+output:  torch.Size([128, 2])
+loss:0.44609570503234863
+output:  torch.Size([128, 2])
+loss:0.4865265488624573
+output:  torch.Size([128, 2])
+loss:0.4720246195793152
+output:  torch.Size([128, 2])
+loss:0.4524455666542053
+output:  torch.Size([128, 2])
+loss:0.47464436292648315
+output:  torch.Size([128, 2])
+loss:0.4911990165710449
+output:  torch.Size([128, 2])
+loss:0.4540361762046814
+output:  torch.Size([128, 2])
+
+ 79%|███████▉  | 379/478 [01:07<00:14,  6.85batch/s]
+output:  torch.Size([128, 2])
+loss:0.4971024990081787
+output:  torch.Size([128, 2])
+loss:0.49215394258499146
+output:  torch.Size([128, 2])
+loss:0.4699903130531311
+output:  torch.Size([128, 2])
+loss:0.48740488290786743
+output:  torch.Size([128, 2])
+loss:0.5089163184165955
+output:  torch.Size([128, 2])
+loss:0.4796074628829956
+output:  torch.Size([128, 2])
+loss:0.48705655336380005
+output:  torch.Size([128, 2])
+loss:0.4590625762939453
+output:  torch.Size([128, 2])
+loss:0.4886798858642578
+output:  torch.Size([128, 2])
+loss:0.5137780904769897
+output:  torch.Size([128, 2])
+loss:0.4578145146369934
+output:  torch.Size([128, 2])
+loss:0.4744926691055298
+output:  torch.Size([128, 2])
+loss:0.5297214984893799
+output:  torch.Size([128, 2])
+
+ 82%|████████▏ | 393/478 [01:09<00:12,  6.84batch/s]
+output:  torch.Size([128, 2])
+loss:0.4966673254966736
+output:  torch.Size([128, 2])
+loss:0.4525931477546692
+output:  torch.Size([128, 2])
+loss:0.4768449366092682
+output:  torch.Size([128, 2])
+loss:0.47232335805892944
+output:  torch.Size([128, 2])
+loss:0.475335955619812
+output:  torch.Size([128, 2])
+loss:0.454860657453537
+output:  torch.Size([128, 2])
+loss:0.47887831926345825
+output:  torch.Size([128, 2])
+loss:0.5081273913383484
+output:  torch.Size([128, 2])
+loss:0.46022534370422363
+output:  torch.Size([128, 2])
+loss:0.45221400260925293
+output:  torch.Size([128, 2])
+loss:0.47486793994903564
+output:  torch.Size([128, 2])
+loss:0.45795443654060364
+output:  torch.Size([128, 2])
+
+ 85%|████████▌ | 407/478 [01:11<00:10,  6.94batch/s]
+output:  torch.Size([128, 2])
+loss:0.471519410610199
+output:  torch.Size([128, 2])
+loss:0.4374299943447113
+output:  torch.Size([128, 2])
+loss:0.5004490613937378
+output:  torch.Size([128, 2])
+loss:0.46536192297935486
+output:  torch.Size([128, 2])
+loss:0.47018033266067505
+output:  torch.Size([128, 2])
+loss:0.49065837264060974
+output:  torch.Size([128, 2])
+loss:0.4537426233291626
+output:  torch.Size([128, 2])
+loss:0.4761003851890564
+output:  torch.Size([128, 2])
+loss:0.5003858208656311
+output:  torch.Size([128, 2])
+loss:0.4691309332847595
+output:  torch.Size([128, 2])
+loss:0.4723210632801056
+output:  torch.Size([128, 2])
+loss:0.4569944143295288
+output:  torch.Size([128, 2])
+loss:0.4606790542602539
+output:  torch.Size([128, 2])
+
+ 88%|████████▊ | 421/478 [01:14<00:08,  6.81batch/s]
+output:  torch.Size([128, 2])
+loss:0.4540146589279175
+output:  torch.Size([128, 2])
+loss:0.5011224746704102
+output:  torch.Size([128, 2])
+loss:0.4680272936820984
+output:  torch.Size([128, 2])
+loss:0.4527500867843628
+output:  torch.Size([128, 2])
+loss:0.49801212549209595
+output:  torch.Size([128, 2])
+loss:0.4638344347476959
+output:  torch.Size([128, 2])
+loss:0.45390069484710693
+output:  torch.Size([128, 2])
+loss:0.46478745341300964
+output:  torch.Size([128, 2])
+loss:0.4853819012641907
+output:  torch.Size([128, 2])
+loss:0.4937063455581665
+output:  torch.Size([128, 2])
+loss:0.43415918946266174
+output:  torch.Size([128, 2])
+loss:0.4671827256679535
+output:  torch.Size([128, 2])
+loss:0.45962342619895935
+output:  torch.Size([128, 2])
+
+ 91%|█████████ | 434/478 [01:15<00:06,  6.76batch/s]
+output:  torch.Size([128, 2])
+loss:0.47041866183280945
+output:  torch.Size([128, 2])
+loss:0.4734744429588318
+output:  torch.Size([128, 2])
+loss:0.4720030128955841
+output:  torch.Size([128, 2])
+loss:0.49971824884414673
+output:  torch.Size([128, 2])
+loss:0.4996994137763977
+output:  torch.Size([128, 2])
+loss:0.4660900831222534
+output:  torch.Size([128, 2])
+loss:0.4971958100795746
+output:  torch.Size([128, 2])
+loss:0.47705525159835815
+output:  torch.Size([128, 2])
+loss:0.48528599739074707
+output:  torch.Size([128, 2])
+loss:0.4764007031917572
+output:  torch.Size([128, 2])
+loss:0.48049071431159973
+output:  torch.Size([128, 2])
+loss:0.5082287192344666
+output:  torch.Size([128, 2])
+loss:0.4367499351501465
+output:  torch.Size([128, 2])
+
+ 94%|█████████▎| 448/478 [01:17<00:04,  6.98batch/s]
+output:  torch.Size([128, 2])
+loss:0.45412641763687134
+output:  torch.Size([128, 2])
+loss:0.48476454615592957
+output:  torch.Size([128, 2])
+loss:0.48600172996520996
+output:  torch.Size([128, 2])
+loss:0.474577933549881
+output:  torch.Size([128, 2])
+loss:0.45980310440063477
+output:  torch.Size([128, 2])
+loss:0.4979095458984375
+output:  torch.Size([128, 2])
+loss:0.4925849437713623
+output:  torch.Size([128, 2])
+loss:0.47841739654541016
+output:  torch.Size([128, 2])
+loss:0.5173754096031189
+output:  torch.Size([128, 2])
+loss:0.500817060470581
+output:  torch.Size([128, 2])
+loss:0.46098849177360535
+output:  torch.Size([128, 2])
+loss:0.4865790605545044
+output:  torch.Size([128, 2])
+
+ 97%|█████████▋| 462/478 [01:19<00:02,  6.97batch/s]
+output:  torch.Size([128, 2])
+loss:0.511062741279602
+output:  torch.Size([128, 2])
+loss:0.46936994791030884
+output:  torch.Size([128, 2])
+loss:0.47369080781936646
+output:  torch.Size([128, 2])
+loss:0.4755746126174927
+output:  torch.Size([128, 2])
+loss:0.47893813252449036
+output:  torch.Size([128, 2])
+loss:0.4753663241863251
+output:  torch.Size([128, 2])
+loss:0.5017266273498535
+output:  torch.Size([128, 2])
+loss:0.49824339151382446
+output:  torch.Size([128, 2])
+loss:0.47606104612350464
+output:  torch.Size([128, 2])
+loss:0.4687232971191406
+output:  torch.Size([128, 2])
+loss:0.4764922559261322
+output:  torch.Size([128, 2])
+loss:0.47934991121292114
+output:  torch.Size([128, 2])
+loss:0.483559250831604
+output:  torch.Size([128, 2])
+
+100%|█████████▉| 476/478 [01:22<00:00,  6.79batch/s]
+output:  torch.Size([128, 2])
+loss:0.45850443840026855
+output:  torch.Size([128, 2])
+loss:0.4757463335990906
+output:  torch.Size([128, 2])
+loss:0.4712238013744354
+output:  torch.Size([128, 2])
+loss:0.49022936820983887
+output:  torch.Size([128, 2])
+loss:0.4895721971988678
+output:  torch.Size([128, 2])
+loss:0.4592379927635193
+output:  torch.Size([128, 2])
+loss:0.4718368351459503
+output:  torch.Size([128, 2])
+loss:0.4831322133541107
+output:  torch.Size([128, 2])
+loss:0.4840771555900574
+output:  torch.Size([128, 2])
+loss:0.4671196937561035
+output:  torch.Size([28, 2])
+loss:0.4511667788028717
+
+100%|██████████| 478/478 [01:22<00:00,  5.81batch/s]
+Eval Epoch 0 loss=0.49 acc=0.86
+output:  torch.Size([128, 2])
+loss:0.4486321806907654
+output:  torch.Size([128, 2])
+loss:0.45133423805236816
+output:  torch.Size([128, 2])
+loss:0.4373960494995117
+output:  torch.Size([128, 2])
+loss:0.5335366725921631
+  4%|▍         | 18/478 [00:01<00:43, 10.63batch/s]
+output:  torch.Size([128, 2])
+loss:0.47971904277801514
+output:  torch.Size([128, 2])
+loss:0.45052993297576904
+output:  torch.Size([128, 2])
+loss:0.513647198677063
+output:  torch.Size([128, 2])
+loss:0.5057206153869629
+output:  torch.Size([128, 2])
+loss:0.5079553723335266
+output:  torch.Size([128, 2])
+loss:0.47347840666770935
+output:  torch.Size([128, 2])
+loss:0.5037006139755249
+output:  torch.Size([128, 2])
+loss:0.46256881952285767
+output:  torch.Size([128, 2])
+loss:0.45066678524017334
+output:  torch.Size([128, 2])
+loss:0.447355717420578
+output:  torch.Size([128, 2])
+loss:0.4848291277885437
+output:  torch.Size([128, 2])
+loss:0.4804076552391052
+output:  torch.Size([128, 2])
+loss:0.47291868925094604
+output:  torch.Size([128, 2])
+loss:0.4773731529712677
+output:  torch.Size([128, 2])
+loss:0.48124855756759644
+output:  torch.Size([128, 2])
+loss:0.469011127948761
+output:  torch.Size([128, 2])
+loss:0.4560278058052063
+output:  torch.Size([128, 2])
+loss:0.4637749493122101
+output:  torch.Size([128, 2])
+loss:0.4839673638343811
+output:  torch.Size([128, 2])
+loss:0.4912533760070801
+output:  torch.Size([128, 2])
+loss:0.45928019285202026
+output:  torch.Size([128, 2])
+
+  8%|▊         | 38/478 [00:03<00:40, 10.80batch/s]
+output:  torch.Size([128, 2])
+loss:0.46865007281303406
+output:  torch.Size([128, 2])
+loss:0.5046716928482056
+output:  torch.Size([128, 2])
+loss:0.4652690887451172
+output:  torch.Size([128, 2])
+loss:0.4716342091560364
+output:  torch.Size([128, 2])
+loss:0.4484187364578247
+output:  torch.Size([128, 2])
+loss:0.4659366011619568
+output:  torch.Size([128, 2])
+loss:0.49494218826293945
+output:  torch.Size([128, 2])
+loss:0.43701595067977905
+output:  torch.Size([128, 2])
+loss:0.48918795585632324
+output:  torch.Size([128, 2])
+loss:0.4468212425708771
+output:  torch.Size([128, 2])
+loss:0.4630274176597595
+output:  torch.Size([128, 2])
+loss:0.4681776463985443
+output:  torch.Size([128, 2])
+loss:0.46526697278022766
+output:  torch.Size([128, 2])
+loss:0.4846336543560028
+output:  torch.Size([128, 2])
+loss:0.4655722975730896
+output:  torch.Size([128, 2])
+loss:0.4654690623283386
+output:  torch.Size([128, 2])
+loss:0.47943955659866333
+output:  torch.Size([128, 2])
+loss:0.45865297317504883
+output:  torch.Size([128, 2])
+loss:0.4514371156692505
+output:  torch.Size([128, 2])
+loss:0.4780879020690918
+output:  torch.Size([128, 2])
+
+ 13%|█▎        | 60/478 [00:05<00:39, 10.71batch/s]
+output:  torch.Size([128, 2])
+loss:0.49390918016433716
+output:  torch.Size([128, 2])
+loss:0.4420805871486664
+output:  torch.Size([128, 2])
+loss:0.434797465801239
+output:  torch.Size([128, 2])
+loss:0.4661315977573395
+output:  torch.Size([128, 2])
+loss:0.4719974398612976
+output:  torch.Size([128, 2])
+loss:0.46421292424201965
+output:  torch.Size([128, 2])
+loss:0.48037999868392944
+output:  torch.Size([128, 2])
+loss:0.44338852167129517
+output:  torch.Size([128, 2])
+loss:0.43329918384552
+output:  torch.Size([128, 2])
+loss:0.48519885540008545
+output:  torch.Size([128, 2])
+loss:0.47286033630371094
+output:  torch.Size([128, 2])
+loss:0.48185527324676514
+output:  torch.Size([128, 2])
+loss:0.48610594868659973
+output:  torch.Size([128, 2])
+loss:0.4829751253128052
+output:  torch.Size([128, 2])
+loss:0.4820042550563812
+output:  torch.Size([128, 2])
+loss:0.4897646903991699
+output:  torch.Size([128, 2])
+loss:0.4654451012611389
+output:  torch.Size([128, 2])
+loss:0.47074705362319946
+output:  torch.Size([128, 2])
+loss:0.4707430601119995
+output:  torch.Size([128, 2])
+loss:0.46023228764533997
+output:  torch.Size([128, 2])
+loss:0.45772698521614075
+output:  torch.Size([128, 2])
+
+ 17%|█▋        | 82/478 [00:07<00:37, 10.66batch/s]
+output:  torch.Size([128, 2])
+loss:0.46334314346313477
+output:  torch.Size([128, 2])
+loss:0.49709552526474
+output:  torch.Size([128, 2])
+loss:0.47073107957839966
+output:  torch.Size([128, 2])
+loss:0.5066351890563965
+output:  torch.Size([128, 2])
+loss:0.46138668060302734
+output:  torch.Size([128, 2])
+loss:0.4709457457065582
+output:  torch.Size([128, 2])
+loss:0.4750801920890808
+output:  torch.Size([128, 2])
+loss:0.47414177656173706
+output:  torch.Size([128, 2])
+loss:0.48627445101737976
+output:  torch.Size([128, 2])
+loss:0.48411688208580017
+output:  torch.Size([128, 2])
+loss:0.48342394828796387
+output:  torch.Size([128, 2])
+loss:0.4574548304080963
+output:  torch.Size([128, 2])
+loss:0.46478530764579773
+output:  torch.Size([128, 2])
+loss:0.4488000273704529
+output:  torch.Size([128, 2])
+loss:0.45901942253112793
+output:  torch.Size([128, 2])
+loss:0.4681699275970459
+output:  torch.Size([128, 2])
+loss:0.45871418714523315
+output:  torch.Size([128, 2])
+loss:0.4352506399154663
+output:  torch.Size([128, 2])
+loss:0.44354432821273804
+output:  torch.Size([128, 2])
+loss:0.47330623865127563
+output:  torch.Size([128, 2])
+loss:0.4981977343559265
+output:  torch.Size([128, 2])
+
+ 22%|██▏       | 104/478 [00:09<00:35, 10.67batch/s]
+output:  torch.Size([128, 2])
+loss:0.48625314235687256
+output:  torch.Size([128, 2])
+loss:0.47951287031173706
+output:  torch.Size([128, 2])
+loss:0.4679414927959442
+output:  torch.Size([128, 2])
+loss:0.4744010865688324
+output:  torch.Size([128, 2])
+loss:0.5066568851470947
+output:  torch.Size([128, 2])
+loss:0.46898794174194336
+output:  torch.Size([128, 2])
+loss:0.48295408487319946
+output:  torch.Size([128, 2])
+loss:0.46519654989242554
+output:  torch.Size([128, 2])
+loss:0.4884491562843323
+output:  torch.Size([128, 2])
+loss:0.46541085839271545
+output:  torch.Size([128, 2])
+loss:0.49719974398612976
+output:  torch.Size([128, 2])
+loss:0.48918819427490234
+output:  torch.Size([128, 2])
+loss:0.5436676740646362
+output:  torch.Size([128, 2])
+loss:0.485553503036499
+output:  torch.Size([128, 2])
+loss:0.4761247932910919
+output:  torch.Size([128, 2])
+loss:0.5032383799552917
+output:  torch.Size([128, 2])
+loss:0.46172529458999634
+output:  torch.Size([128, 2])
+loss:0.45275217294692993
+output:  torch.Size([128, 2])
+loss:0.47582387924194336
+output:  torch.Size([128, 2])
+loss:0.4618894159793854
+output:  torch.Size([128, 2])
+loss:0.4421141743659973
+output:  torch.Size([128, 2])
+
+ 26%|██▌       | 124/478 [00:11<00:33, 10.48batch/s]
+output:  torch.Size([128, 2])
+loss:0.471684992313385
+output:  torch.Size([128, 2])
+loss:0.47012603282928467
+output:  torch.Size([128, 2])
+loss:0.4960511326789856
+output:  torch.Size([128, 2])
+loss:0.5021486282348633
+output:  torch.Size([128, 2])
+loss:0.46369168162345886
+output:  torch.Size([128, 2])
+loss:0.4606166183948517
+output:  torch.Size([128, 2])
+loss:0.48453545570373535
+output:  torch.Size([128, 2])
+loss:0.48365771770477295
+output:  torch.Size([128, 2])
+loss:0.49306875467300415
+output:  torch.Size([128, 2])
+loss:0.4431260824203491
+output:  torch.Size([128, 2])
+loss:0.48500195145606995
+output:  torch.Size([128, 2])
+loss:0.4676164984703064
+output:  torch.Size([128, 2])
+loss:0.45266595482826233
+output:  torch.Size([128, 2])
+loss:0.4596264362335205
+output:  torch.Size([128, 2])
+loss:0.47925883531570435
+output:  torch.Size([128, 2])
+loss:0.4781776964664459
+output:  torch.Size([128, 2])
+loss:0.465531587600708
+output:  torch.Size([128, 2])
+loss:0.466586172580719
+output:  torch.Size([128, 2])
+loss:0.4737464487552643
+output:  torch.Size([128, 2])
+loss:0.47933441400527954
+output:  torch.Size([128, 2])
+
+ 31%|███       | 146/478 [00:13<00:32, 10.25batch/s]
+output:  torch.Size([128, 2])
+loss:0.4455966353416443
+output:  torch.Size([128, 2])
+loss:0.4637564420700073
+output:  torch.Size([128, 2])
+loss:0.43585851788520813
+output:  torch.Size([128, 2])
+loss:0.43126243352890015
+output:  torch.Size([128, 2])
+loss:0.44285252690315247
+output:  torch.Size([128, 2])
+loss:0.49877655506134033
+output:  torch.Size([128, 2])
+loss:0.4381263256072998
+output:  torch.Size([128, 2])
+loss:0.4629356265068054
+output:  torch.Size([128, 2])
+loss:0.47720643877983093
+output:  torch.Size([128, 2])
+loss:0.4602629542350769
+output:  torch.Size([128, 2])
+loss:0.4544263780117035
+output:  torch.Size([128, 2])
+loss:0.4633590877056122
+output:  torch.Size([128, 2])
+loss:0.49742692708969116
+output:  torch.Size([128, 2])
+loss:0.44611257314682007
+output:  torch.Size([128, 2])
+loss:0.4859835207462311
+output:  torch.Size([128, 2])
+loss:0.47632071375846863
+output:  torch.Size([128, 2])
+loss:0.46949705481529236
+output:  torch.Size([128, 2])
+loss:0.4458490014076233
+output:  torch.Size([128, 2])
+loss:0.4539335370063782
+output:  torch.Size([128, 2])
+
+ 35%|███▍      | 165/478 [00:15<00:31, 10.03batch/s]
+output:  torch.Size([128, 2])
+loss:0.42320719361305237
+output:  torch.Size([128, 2])
+loss:0.4603770971298218
+output:  torch.Size([128, 2])
+loss:0.465368390083313
+output:  torch.Size([128, 2])
+loss:0.4578351378440857
+output:  torch.Size([128, 2])
+loss:0.4665326476097107
+output:  torch.Size([128, 2])
+loss:0.47130221128463745
+output:  torch.Size([128, 2])
+loss:0.45200005173683167
+output:  torch.Size([128, 2])
+loss:0.44778895378112793
+output:  torch.Size([128, 2])
+loss:0.4660530090332031
+output:  torch.Size([128, 2])
+loss:0.510870635509491
+output:  torch.Size([128, 2])
+loss:0.4818476736545563
+output:  torch.Size([128, 2])
+loss:0.4829491972923279
+output:  torch.Size([128, 2])
+loss:0.4358789622783661
+output:  torch.Size([128, 2])
+loss:0.4752424359321594
+output:  torch.Size([128, 2])
+loss:0.4980798363685608
+output:  torch.Size([128, 2])
+loss:0.47234755754470825
+output:  torch.Size([128, 2])
+loss:0.5094524621963501
+output:  torch.Size([128, 2])
+loss:0.49023014307022095
+output:  torch.Size([128, 2])
+loss:0.4810559153556824
+output:  torch.Size([128, 2])
+loss:0.4858808219432831
+output:  torch.Size([128, 2])
+
+ 39%|███▉      | 187/478 [00:17<00:28, 10.23batch/s]
+output:  torch.Size([128, 2])
+loss:0.49777382612228394
+output:  torch.Size([128, 2])
+loss:0.4742639362812042
+output:  torch.Size([128, 2])
+loss:0.49824953079223633
+output:  torch.Size([128, 2])
+loss:0.4646559953689575
+output:  torch.Size([128, 2])
+loss:0.45345595479011536
+output:  torch.Size([128, 2])
+loss:0.435689240694046
+output:  torch.Size([128, 2])
+loss:0.49764832854270935
+output:  torch.Size([128, 2])
+loss:0.47624093294143677
+output:  torch.Size([128, 2])
+loss:0.4365929365158081
+output:  torch.Size([128, 2])
+loss:0.47054576873779297
+output:  torch.Size([128, 2])
+loss:0.470096617937088
+output:  torch.Size([128, 2])
+loss:0.44146499037742615
+output:  torch.Size([128, 2])
+loss:0.4229644536972046
+output:  torch.Size([128, 2])
+loss:0.4745844602584839
+output:  torch.Size([128, 2])
+loss:0.47149258852005005
+output:  torch.Size([128, 2])
+loss:0.4653381407260895
+output:  torch.Size([128, 2])
+loss:0.46445900201797485
+output:  torch.Size([128, 2])
+loss:0.46317893266677856
+output:  torch.Size([128, 2])
+loss:0.4994955062866211
+output:  torch.Size([128, 2])
+
+ 43%|████▎     | 207/478 [00:19<00:26, 10.06batch/s]
+output:  torch.Size([128, 2])
+loss:0.5030519962310791
+output:  torch.Size([128, 2])
+loss:0.483622282743454
+output:  torch.Size([128, 2])
+loss:0.4551411271095276
+output:  torch.Size([128, 2])
+loss:0.4580235183238983
+output:  torch.Size([128, 2])
+loss:0.4928855299949646
+output:  torch.Size([128, 2])
+loss:0.47932833433151245
+output:  torch.Size([128, 2])
+loss:0.44468849897384644
+output:  torch.Size([128, 2])
+loss:0.5073500871658325
+output:  torch.Size([128, 2])
+loss:0.455541729927063
+output:  torch.Size([128, 2])
+loss:0.4757033586502075
+output:  torch.Size([128, 2])
+loss:0.47113528847694397
+output:  torch.Size([128, 2])
+loss:0.4396445155143738
+output:  torch.Size([128, 2])
+loss:0.46176934242248535
+output:  torch.Size([128, 2])
+loss:0.45503076910972595
+output:  torch.Size([128, 2])
+loss:0.4544152319431305
+output:  torch.Size([128, 2])
+loss:0.45968735218048096
+output:  torch.Size([128, 2])
+loss:0.5192835330963135
+output:  torch.Size([128, 2])
+loss:0.47388219833374023
+output:  torch.Size([128, 2])
+loss:0.5029951333999634
+output:  torch.Size([128, 2])
+loss:0.4865932762622833
+output:  torch.Size([128, 2])
+
+ 47%|████▋     | 227/478 [00:21<00:25,  9.96batch/s]
+output:  torch.Size([128, 2])
+loss:0.4744090437889099
+output:  torch.Size([128, 2])
+loss:0.4910658001899719
+output:  torch.Size([128, 2])
+loss:0.47440671920776367
+output:  torch.Size([128, 2])
+loss:0.4612579345703125
+output:  torch.Size([128, 2])
+loss:0.44718316197395325
+output:  torch.Size([128, 2])
+loss:0.47691553831100464
+output:  torch.Size([128, 2])
+loss:0.464368999004364
+output:  torch.Size([128, 2])
+loss:0.4615418612957001
+output:  torch.Size([128, 2])
+loss:0.46400946378707886
+output:  torch.Size([128, 2])
+loss:0.4710273742675781
+output:  torch.Size([128, 2])
+loss:0.4998936653137207
+output:  torch.Size([128, 2])
+loss:0.46767348051071167
+output:  torch.Size([128, 2])
+loss:0.4893752932548523
+output:  torch.Size([128, 2])
+loss:0.455183744430542
+output:  torch.Size([128, 2])
+loss:0.4768494665622711
+output:  torch.Size([128, 2])
+loss:0.4630945920944214
+output:  torch.Size([128, 2])
+loss:0.4801357388496399
+output:  torch.Size([128, 2])
+loss:0.4346444606781006
+output:  torch.Size([128, 2])
+loss:0.4700106978416443
+output:  torch.Size([128, 2])
+
+ 52%|█████▏    | 247/478 [00:23<00:26,  8.76batch/s]
+output:  torch.Size([128, 2])
+loss:0.47172123193740845
+output:  torch.Size([128, 2])
+loss:0.48097023367881775
+output:  torch.Size([128, 2])
+loss:0.4641801714897156
+output:  torch.Size([128, 2])
+loss:0.4866470992565155
+output:  torch.Size([128, 2])
+loss:0.4688389301300049
+output:  torch.Size([128, 2])
+loss:0.4560271203517914
+output:  torch.Size([128, 2])
+loss:0.4677402377128601
+output:  torch.Size([128, 2])
+loss:0.4585951268672943
+output:  torch.Size([128, 2])
+loss:0.4652116000652313
+output:  torch.Size([128, 2])
+loss:0.4640220105648041
+output:  torch.Size([128, 2])
+loss:0.4980320334434509
+output:  torch.Size([128, 2])
+loss:0.4548502564430237
+output:  torch.Size([128, 2])
+loss:0.4319825768470764
+output:  torch.Size([128, 2])
+loss:0.46775615215301514
+output:  torch.Size([128, 2])
+loss:0.49276822805404663
+output:  torch.Size([128, 2])
+loss:0.4830681085586548
+output:  torch.Size([128, 2])
+loss:0.45563268661499023
+output:  torch.Size([128, 2])
+loss:0.4604305624961853
+output:  torch.Size([128, 2])
+
+ 56%|█████▌    | 267/478 [00:25<00:21, 10.03batch/s]
+output:  torch.Size([128, 2])
+loss:0.5013517141342163
+output:  torch.Size([128, 2])
+loss:0.4800313711166382
+output:  torch.Size([128, 2])
+loss:0.47754016518592834
+output:  torch.Size([128, 2])
+loss:0.44098788499832153
+output:  torch.Size([128, 2])
+loss:0.4861992597579956
+output:  torch.Size([128, 2])
+loss:0.46398258209228516
+output:  torch.Size([128, 2])
+loss:0.4486995339393616
+output:  torch.Size([128, 2])
+loss:0.4479251503944397
+output:  torch.Size([128, 2])
+loss:0.46914154291152954
+output:  torch.Size([128, 2])
+loss:0.45895248651504517
+output:  torch.Size([128, 2])
+loss:0.46095192432403564
+output:  torch.Size([128, 2])
+loss:0.4537363052368164
+output:  torch.Size([128, 2])
+loss:0.4984290301799774
+output:  torch.Size([128, 2])
+loss:0.4566129446029663
+output:  torch.Size([128, 2])
+loss:0.4687252938747406
+output:  torch.Size([128, 2])
+loss:0.47311174869537354
+output:  torch.Size([128, 2])
+loss:0.4824586808681488
+output:  torch.Size([128, 2])
+loss:0.44792497158050537
+output:  torch.Size([128, 2])
+loss:0.45367616415023804
+output:  torch.Size([128, 2])
+loss:0.46952664852142334
+output:  torch.Size([128, 2])
+
+ 60%|██████    | 287/478 [00:27<00:18, 10.07batch/s]
+output:  torch.Size([128, 2])
+loss:0.48275816440582275
+output:  torch.Size([128, 2])
+loss:0.48580992221832275
+output:  torch.Size([128, 2])
+loss:0.445552796125412
+output:  torch.Size([128, 2])
+loss:0.4637101888656616
+output:  torch.Size([128, 2])
+loss:0.45872223377227783
+output:  torch.Size([128, 2])
+loss:0.46508514881134033
+output:  torch.Size([128, 2])
+loss:0.49702778458595276
+output:  torch.Size([128, 2])
+loss:0.4419853091239929
+output:  torch.Size([128, 2])
+loss:0.4592638313770294
+output:  torch.Size([128, 2])
+loss:0.4667263627052307
+output:  torch.Size([128, 2])
+loss:0.46485912799835205
+output:  torch.Size([128, 2])
+loss:0.44142594933509827
+output:  torch.Size([128, 2])
+loss:0.45603638887405396
+output:  torch.Size([128, 2])
+loss:0.46102380752563477
+output:  torch.Size([128, 2])
+loss:0.48634424805641174
+output:  torch.Size([128, 2])
+loss:0.5143910646438599
+output:  torch.Size([128, 2])
+loss:0.4672010540962219
+output:  torch.Size([128, 2])
+loss:0.4968930184841156
+output:  torch.Size([128, 2])
+loss:0.4827853739261627
+output:  torch.Size([128, 2])
+
+ 64%|██████▍   | 307/478 [00:29<00:16, 10.18batch/s]
+output:  torch.Size([128, 2])
+loss:0.47391438484191895
+output:  torch.Size([128, 2])
+loss:0.43557798862457275
+output:  torch.Size([128, 2])
+loss:0.47086459398269653
+output:  torch.Size([128, 2])
+loss:0.454010546207428
+output:  torch.Size([128, 2])
+loss:0.4677121043205261
+output:  torch.Size([128, 2])
+loss:0.4946652054786682
+output:  torch.Size([128, 2])
+loss:0.4646964371204376
+output:  torch.Size([128, 2])
+loss:0.44707784056663513
+output:  torch.Size([128, 2])
+loss:0.4570498466491699
+output:  torch.Size([128, 2])
+loss:0.49059951305389404
+output:  torch.Size([128, 2])
+loss:0.46668586134910583
+output:  torch.Size([128, 2])
+loss:0.4835417568683624
+output:  torch.Size([128, 2])
+loss:0.49342232942581177
+output:  torch.Size([128, 2])
+loss:0.4591671824455261
+output:  torch.Size([128, 2])
+loss:0.47323116660118103
+output:  torch.Size([128, 2])
+loss:0.47656065225601196
+output:  torch.Size([128, 2])
+loss:0.4592365026473999
+output:  torch.Size([128, 2])
+loss:0.5028559565544128
+output:  torch.Size([128, 2])
+loss:0.46085020899772644
+output:  torch.Size([128, 2])
+loss:0.4975185692310333
+output:  torch.Size([128, 2])
+
+ 69%|██████▊   | 328/478 [00:31<00:14, 10.12batch/s]
+output:  torch.Size([128, 2])
+loss:0.5013296604156494
+output:  torch.Size([128, 2])
+loss:0.49898844957351685
+output:  torch.Size([128, 2])
+loss:0.4606431722640991
+output:  torch.Size([128, 2])
+loss:0.45122069120407104
+output:  torch.Size([128, 2])
+loss:0.4850183129310608
+output:  torch.Size([128, 2])
+loss:0.5155469179153442
+output:  torch.Size([128, 2])
+loss:0.4895201325416565
+output:  torch.Size([128, 2])
+loss:0.4639347195625305
+output:  torch.Size([128, 2])
+loss:0.5000638961791992
+output:  torch.Size([128, 2])
+loss:0.48743289709091187
+output:  torch.Size([128, 2])
+loss:0.48750174045562744
+output:  torch.Size([128, 2])
+loss:0.4554305970668793
+output:  torch.Size([128, 2])
+loss:0.5382039546966553
+output:  torch.Size([128, 2])
+loss:0.45971915125846863
+output:  torch.Size([128, 2])
+loss:0.4847038984298706
+output:  torch.Size([128, 2])
+loss:0.48753809928894043
+output:  torch.Size([128, 2])
+loss:0.49613893032073975
+output:  torch.Size([128, 2])
+loss:0.479303240776062
+output:  torch.Size([128, 2])
+loss:0.48543059825897217
+output:  torch.Size([128, 2])
+
+ 73%|███████▎  | 348/478 [00:33<00:12, 10.82batch/s]
+output:  torch.Size([128, 2])
+loss:0.4884946942329407
+output:  torch.Size([128, 2])
+loss:0.46560928225517273
+output:  torch.Size([128, 2])
+loss:0.48800352215766907
+output:  torch.Size([128, 2])
+loss:0.5032155513763428
+output:  torch.Size([128, 2])
+loss:0.4736110270023346
+output:  torch.Size([128, 2])
+loss:0.46410563588142395
+output:  torch.Size([128, 2])
+loss:0.49303770065307617
+output:  torch.Size([128, 2])
+loss:0.4786776304244995
+output:  torch.Size([128, 2])
+loss:0.45942816138267517
+output:  torch.Size([128, 2])
+loss:0.4460165202617645
+output:  torch.Size([128, 2])
+loss:0.44422438740730286
+output:  torch.Size([128, 2])
+loss:0.45242172479629517
+output:  torch.Size([128, 2])
+loss:0.4813911020755768
+output:  torch.Size([128, 2])
+loss:0.5126696825027466
+output:  torch.Size([128, 2])
+loss:0.44372743368148804
+output:  torch.Size([128, 2])
+loss:0.46020597219467163
+output:  torch.Size([128, 2])
+loss:0.4826738238334656
+output:  torch.Size([128, 2])
+loss:0.5072987675666809
+output:  torch.Size([128, 2])
+loss:0.47914987802505493
+output:  torch.Size([128, 2])
+loss:0.47462594509124756
+output:  torch.Size([128, 2])
+loss:0.4553355574607849
+output:  torch.Size([128, 2])
+
+ 77%|███████▋  | 370/478 [00:35<00:09, 10.85batch/s]
+output:  torch.Size([128, 2])
+loss:0.45386531949043274
+output:  torch.Size([128, 2])
+loss:0.48688456416130066
+output:  torch.Size([128, 2])
+loss:0.4607383608818054
+output:  torch.Size([128, 2])
+loss:0.4902467429637909
+output:  torch.Size([128, 2])
+loss:0.4728817343711853
+output:  torch.Size([128, 2])
+loss:0.47017407417297363
+output:  torch.Size([128, 2])
+loss:0.4687056541442871
+output:  torch.Size([128, 2])
+loss:0.47984790802001953
+output:  torch.Size([128, 2])
+loss:0.45799434185028076
+output:  torch.Size([128, 2])
+loss:0.4403054714202881
+output:  torch.Size([128, 2])
+loss:0.4698086380958557
+output:  torch.Size([128, 2])
+loss:0.47394078969955444
+output:  torch.Size([128, 2])
+loss:0.4752988815307617
+output:  torch.Size([128, 2])
+loss:0.49795931577682495
+output:  torch.Size([128, 2])
+loss:0.49826493859291077
+output:  torch.Size([128, 2])
+loss:0.4738818109035492
+output:  torch.Size([128, 2])
+loss:0.47303614020347595
+output:  torch.Size([128, 2])
+loss:0.4576224684715271
+output:  torch.Size([128, 2])
+loss:0.4625597298145294
+output:  torch.Size([128, 2])
+loss:0.4827851951122284
+output:  torch.Size([128, 2])
+loss:0.48385876417160034
+output:  torch.Size([128, 2])
+
+ 82%|████████▏ | 392/478 [00:37<00:07, 11.01batch/s]
+output:  torch.Size([128, 2])
+loss:0.4513673186302185
+output:  torch.Size([128, 2])
+loss:0.45622164011001587
+output:  torch.Size([128, 2])
+loss:0.470141738653183
+output:  torch.Size([128, 2])
+loss:0.4716634154319763
+output:  torch.Size([128, 2])
+loss:0.4949425458908081
+output:  torch.Size([128, 2])
+loss:0.491131991147995
+output:  torch.Size([128, 2])
+loss:0.46084064245224
+output:  torch.Size([128, 2])
+loss:0.4638928174972534
+output:  torch.Size([128, 2])
+loss:0.45056021213531494
+output:  torch.Size([128, 2])
+loss:0.4943055510520935
+output:  torch.Size([128, 2])
+loss:0.48894619941711426
+output:  torch.Size([128, 2])
+loss:0.42273572087287903
+output:  torch.Size([128, 2])
+loss:0.5279874205589294
+output:  torch.Size([128, 2])
+loss:0.47260546684265137
+output:  torch.Size([128, 2])
+loss:0.48982957005500793
+output:  torch.Size([128, 2])
+loss:0.4799603819847107
+output:  torch.Size([128, 2])
+loss:0.48699951171875
+output:  torch.Size([128, 2])
+loss:0.47624802589416504
+output:  torch.Size([128, 2])
+loss:0.46385130286216736
+output:  torch.Size([128, 2])
+loss:0.4932771921157837
+output:  torch.Size([128, 2])
+loss:0.5053609013557434
+output:  torch.Size([128, 2])
+
+ 87%|████████▋ | 414/478 [00:39<00:05, 11.04batch/s]
+output:  torch.Size([128, 2])
+loss:0.4673568308353424
+output:  torch.Size([128, 2])
+loss:0.46094298362731934
+output:  torch.Size([128, 2])
+loss:0.4830038547515869
+output:  torch.Size([128, 2])
+loss:0.48583143949508667
+output:  torch.Size([128, 2])
+loss:0.4689067006111145
+output:  torch.Size([128, 2])
+loss:0.49083206057548523
+output:  torch.Size([128, 2])
+loss:0.46795183420181274
+output:  torch.Size([128, 2])
+loss:0.46858102083206177
+output:  torch.Size([128, 2])
+loss:0.43431806564331055
+output:  torch.Size([128, 2])
+loss:0.49279549717903137
+output:  torch.Size([128, 2])
+loss:0.47411221265792847
+output:  torch.Size([128, 2])
+loss:0.4904481768608093
+output:  torch.Size([128, 2])
+loss:0.46115195751190186
+output:  torch.Size([128, 2])
+loss:0.5004558563232422
+output:  torch.Size([128, 2])
+loss:0.47396713495254517
+output:  torch.Size([128, 2])
+loss:0.45705878734588623
+output:  torch.Size([128, 2])
+loss:0.4588969647884369
+output:  torch.Size([128, 2])
+loss:0.4927856922149658
+output:  torch.Size([128, 2])
+loss:0.4526132047176361
+output:  torch.Size([128, 2])
+loss:0.45763319730758667
+output:  torch.Size([128, 2])
+loss:0.44759613275527954
+output:  torch.Size([128, 2])
+
+ 91%|█████████ | 436/478 [00:41<00:03, 10.76batch/s]
+output:  torch.Size([128, 2])
+loss:0.4339505732059479
+output:  torch.Size([128, 2])
+loss:0.49054187536239624
+output:  torch.Size([128, 2])
+loss:0.4353156089782715
+output:  torch.Size([128, 2])
+loss:0.4701170325279236
+output:  torch.Size([128, 2])
+loss:0.4988616704940796
+output:  torch.Size([128, 2])
+loss:0.46173927187919617
+output:  torch.Size([128, 2])
+loss:0.4453132748603821
+output:  torch.Size([128, 2])
+loss:0.4810628592967987
+output:  torch.Size([128, 2])
+loss:0.4764488637447357
+output:  torch.Size([128, 2])
+loss:0.45053476095199585
+output:  torch.Size([128, 2])
+loss:0.4660840928554535
+output:  torch.Size([128, 2])
+loss:0.47145700454711914
+output:  torch.Size([128, 2])
+loss:0.4462428689002991
+output:  torch.Size([128, 2])
+loss:0.4475768208503723
+output:  torch.Size([128, 2])
+loss:0.4530108571052551
+output:  torch.Size([128, 2])
+loss:0.46397390961647034
+output:  torch.Size([128, 2])
+loss:0.5077362656593323
+output:  torch.Size([128, 2])
+loss:0.45135101675987244
+output:  torch.Size([128, 2])
+loss:0.5017555356025696
+output:  torch.Size([128, 2])
+loss:0.4475861191749573
+output:  torch.Size([128, 2])
+loss:0.4671146869659424
+
+ 96%|█████████▌| 458/478 [00:43<00:01, 10.82batch/s]
+loss:0.4832227826118469
+output:  torch.Size([128, 2])
+loss:0.48305556178092957
+output:  torch.Size([128, 2])
+loss:0.4782777726650238
+output:  torch.Size([128, 2])
+loss:0.5050950646400452
+output:  torch.Size([128, 2])
+loss:0.4682639241218567
+output:  torch.Size([128, 2])
+loss:0.4862171709537506
+output:  torch.Size([128, 2])
+loss:0.4832612872123718
+output:  torch.Size([128, 2])
+loss:0.46848374605178833
+output:  torch.Size([128, 2])
+loss:0.4629918932914734
+output:  torch.Size([128, 2])
+loss:0.4750654995441437
+output:  torch.Size([128, 2])
+loss:0.48966145515441895
+output:  torch.Size([128, 2])
+loss:0.4827482998371124
+output:  torch.Size([128, 2])
+loss:0.4676598608493805
+output:  torch.Size([128, 2])
+loss:0.4477139413356781
+output:  torch.Size([128, 2])
+loss:0.46624818444252014
+output:  torch.Size([128, 2])
+loss:0.4455401599407196
+output:  torch.Size([128, 2])
+loss:0.458016574382782
+output:  torch.Size([128, 2])
+loss:0.4531031847000122
+output:  torch.Size([128, 2])
+loss:0.44862231612205505
+output:  torch.Size([128, 2])
+loss:0.46481356024742126
+output:  torch.Size([128, 2])
+loss:0.4725586175918579
+output:  torch.Size([128, 2])
+
+100%|██████████| 478/478 [00:45<00:00, 10.49batch/s]
+output:  torch.Size([128, 2])
+loss:0.5146278738975525
+output:  torch.Size([128, 2])
+loss:0.4655611515045166
+output:  torch.Size([128, 2])
+loss:0.4661790132522583
+output:  torch.Size([128, 2])
+loss:0.459572970867157
+output:  torch.Size([128, 2])
+loss:0.4629606604576111
+output:  torch.Size([128, 2])
+loss:0.4620935916900635
+output:  torch.Size([128, 2])
+loss:0.5111027359962463
+output:  torch.Size([128, 2])
+loss:0.45400622487068176
+output:  torch.Size([128, 2])
+loss:0.4858096241950989
+output:  torch.Size([28, 2])
+loss:0.458514928817749
+Train Epoch 1 loss=0.47 acc=0.88
+Eval Epoch 1 loss=0.47 acc=0.88
+output:  torch.Size([128, 2])
+loss:0.4384744167327881
+  3%|▎         | 13/478 [00:01<00:43, 10.72batch/s]
+output:  torch.Size([128, 2])
+loss:0.4633553624153137
+output:  torch.Size([128, 2])
+loss:0.47588276863098145
+output:  torch.Size([128, 2])
+loss:0.47751492261886597
+output:  torch.Size([128, 2])
+loss:0.5200998783111572
+output:  torch.Size([128, 2])
+loss:0.47255808115005493
+output:  torch.Size([128, 2])
+loss:0.47846001386642456
+output:  torch.Size([128, 2])
+loss:0.4881758689880371
+output:  torch.Size([128, 2])
+loss:0.4702278971672058
+output:  torch.Size([128, 2])
+loss:0.43613600730895996
+output:  torch.Size([128, 2])
+loss:0.4837392270565033
+output:  torch.Size([128, 2])
+loss:0.49094894528388977
+output:  torch.Size([128, 2])
+loss:0.45895206928253174
+output:  torch.Size([128, 2])
+loss:0.46495676040649414
+output:  torch.Size([128, 2])
+loss:0.44975587725639343
+output:  torch.Size([128, 2])
+loss:0.48139244318008423
+output:  torch.Size([128, 2])
+loss:0.4569169878959656
+output:  torch.Size([128, 2])
+loss:0.4437098503112793
+output:  torch.Size([128, 2])
+loss:0.45531779527664185
+output:  torch.Size([128, 2])
+loss:0.4548224210739136
+output:  torch.Size([128, 2])
+loss:0.4578980803489685
+output:  torch.Size([128, 2])
+
+  7%|▋         | 33/478 [00:03<00:40, 10.89batch/s]
+output:  torch.Size([128, 2])
+loss:0.42179155349731445
+output:  torch.Size([128, 2])
+loss:0.4797168970108032
+output:  torch.Size([128, 2])
+loss:0.47540318965911865
+output:  torch.Size([128, 2])
+loss:0.5272006988525391
+output:  torch.Size([128, 2])
+loss:0.46268361806869507
+output:  torch.Size([128, 2])
+loss:0.44493743777275085
+output:  torch.Size([128, 2])
+loss:0.5065933465957642
+output:  torch.Size([128, 2])
+loss:0.4952942430973053
+output:  torch.Size([128, 2])
+loss:0.4699022173881531
+output:  torch.Size([128, 2])
+loss:0.4723820686340332
+output:  torch.Size([128, 2])
+loss:0.47685062885284424
+output:  torch.Size([128, 2])
+loss:0.45511749386787415
+output:  torch.Size([128, 2])
+loss:0.44129881262779236
+output:  torch.Size([128, 2])
+loss:0.48975175619125366
+output:  torch.Size([128, 2])
+loss:0.45854073762893677
+output:  torch.Size([128, 2])
+loss:0.4672888219356537
+output:  torch.Size([128, 2])
+loss:0.4835880398750305
+output:  torch.Size([128, 2])
+loss:0.4396170675754547
+output:  torch.Size([128, 2])
+loss:0.4661499261856079
+output:  torch.Size([128, 2])
+loss:0.4546094536781311
+output:  torch.Size([128, 2])
+
+ 12%|█▏        | 55/478 [00:05<00:39, 10.71batch/s]
+output:  torch.Size([128, 2])
+loss:0.46281298995018005
+output:  torch.Size([128, 2])
+loss:0.4373929798603058
+output:  torch.Size([128, 2])
+loss:0.48720911145210266
+output:  torch.Size([128, 2])
+loss:0.4968121647834778
+output:  torch.Size([128, 2])
+loss:0.4533194303512573
+output:  torch.Size([128, 2])
+loss:0.4753783345222473
+output:  torch.Size([128, 2])
+loss:0.5135395526885986
+output:  torch.Size([128, 2])
+loss:0.4675738215446472
+output:  torch.Size([128, 2])
+loss:0.4670513868331909
+output:  torch.Size([128, 2])
+loss:0.4712507128715515
+output:  torch.Size([128, 2])
+loss:0.4684925377368927
+output:  torch.Size([128, 2])
+loss:0.46810632944107056
+output:  torch.Size([128, 2])
+loss:0.469463586807251
+output:  torch.Size([128, 2])
+loss:0.48487943410873413
+output:  torch.Size([128, 2])
+loss:0.4915435314178467
+output:  torch.Size([128, 2])
+loss:0.4641096591949463
+output:  torch.Size([128, 2])
+loss:0.4692577123641968
+output:  torch.Size([128, 2])
+loss:0.4578430652618408
+output:  torch.Size([128, 2])
+loss:0.46523308753967285
+output:  torch.Size([128, 2])
+loss:0.4535641074180603
+output:  torch.Size([128, 2])
+loss:0.4520241916179657
+output:  torch.Size([128, 2])
+
+ 16%|█▌        | 77/478 [00:07<00:37, 10.70batch/s]
+output:  torch.Size([128, 2])
+loss:0.45459896326065063
+output:  torch.Size([128, 2])
+loss:0.4728046655654907
+output:  torch.Size([128, 2])
+loss:0.46076929569244385
+output:  torch.Size([128, 2])
+loss:0.4636557102203369
+output:  torch.Size([128, 2])
+loss:0.45294690132141113
+output:  torch.Size([128, 2])
+loss:0.4829641282558441
+output:  torch.Size([128, 2])
+loss:0.4898275136947632
+output:  torch.Size([128, 2])
+loss:0.4555862247943878
+output:  torch.Size([128, 2])
+loss:0.4688574969768524
+output:  torch.Size([128, 2])
+loss:0.4473416209220886
+output:  torch.Size([128, 2])
+loss:0.47491925954818726
+output:  torch.Size([128, 2])
+loss:0.4629446268081665
+output:  torch.Size([128, 2])
+loss:0.4702581763267517
+output:  torch.Size([128, 2])
+loss:0.4630432724952698
+output:  torch.Size([128, 2])
+loss:0.48558104038238525
+output:  torch.Size([128, 2])
+loss:0.4793967008590698
+output:  torch.Size([128, 2])
+loss:0.49458739161491394
+output:  torch.Size([128, 2])
+loss:0.4632655680179596
+output:  torch.Size([128, 2])
+loss:0.485973060131073
+output:  torch.Size([128, 2])
+loss:0.4585078954696655
+output:  torch.Size([128, 2])
+loss:0.5009220838546753
+output:  torch.Size([128, 2])
+
+ 20%|██        | 97/478 [00:09<00:35, 10.66batch/s]
+output:  torch.Size([128, 2])
+loss:0.46075814962387085
+output:  torch.Size([128, 2])
+loss:0.5199968814849854
+output:  torch.Size([128, 2])
+loss:0.5186147689819336
+output:  torch.Size([128, 2])
+loss:0.4605883061885834
+output:  torch.Size([128, 2])
+loss:0.46407124400138855
+output:  torch.Size([128, 2])
+loss:0.44759321212768555
+output:  torch.Size([128, 2])
+loss:0.46289971470832825
+output:  torch.Size([128, 2])
+loss:0.4613266587257385
+output:  torch.Size([128, 2])
+loss:0.47737419605255127
+output:  torch.Size([128, 2])
+loss:0.506553053855896
+output:  torch.Size([128, 2])
+loss:0.499808669090271
+output:  torch.Size([128, 2])
+loss:0.4561508595943451
+output:  torch.Size([128, 2])
+loss:0.476199746131897
+output:  torch.Size([128, 2])
+loss:0.48493653535842896
+output:  torch.Size([128, 2])
+loss:0.471856027841568
+output:  torch.Size([128, 2])
+loss:0.44488072395324707
+output:  torch.Size([128, 2])
+loss:0.4600509703159332
+output:  torch.Size([128, 2])
+loss:0.46453797817230225
+output:  torch.Size([128, 2])
+loss:0.47902151942253113
+output:  torch.Size([128, 2])
+loss:0.4512341022491455
+output:  torch.Size([128, 2])
+
+ 25%|██▍       | 119/478 [00:11<00:33, 10.71batch/s]
+output:  torch.Size([128, 2])
+loss:0.4964853525161743
+output:  torch.Size([128, 2])
+loss:0.4873027205467224
+output:  torch.Size([128, 2])
+loss:0.4466920793056488
+output:  torch.Size([128, 2])
+loss:0.456958532333374
+output:  torch.Size([128, 2])
+loss:0.49233949184417725
+output:  torch.Size([128, 2])
+loss:0.46837443113327026
+output:  torch.Size([128, 2])
+loss:0.4594448208808899
+output:  torch.Size([128, 2])
+loss:0.5209914445877075
+output:  torch.Size([128, 2])
+loss:0.471121221780777
+output:  torch.Size([128, 2])
+loss:0.4421805739402771
+output:  torch.Size([128, 2])
+loss:0.5314593315124512
+output:  torch.Size([128, 2])
+loss:0.4650070071220398
+output:  torch.Size([128, 2])
+loss:0.506655752658844
+output:  torch.Size([128, 2])
+loss:0.5195691585540771
+output:  torch.Size([128, 2])
+loss:0.4749644994735718
+output:  torch.Size([128, 2])
+loss:0.47195306420326233
+output:  torch.Size([128, 2])
+loss:0.46711814403533936
+output:  torch.Size([128, 2])
+loss:0.4778938889503479
+output:  torch.Size([128, 2])
+loss:0.46927621960639954
+output:  torch.Size([128, 2])
+loss:0.5002495050430298
+output:  torch.Size([128, 2])
+loss:0.45631229877471924
+output:  torch.Size([128, 2])
+
+ 29%|██▉       | 141/478 [00:13<00:31, 10.73batch/s]
+output:  torch.Size([128, 2])
+loss:0.47352492809295654
+output:  torch.Size([128, 2])
+loss:0.5344232320785522
+output:  torch.Size([128, 2])
+loss:0.4656413793563843
+output:  torch.Size([128, 2])
+loss:0.4671134948730469
+output:  torch.Size([128, 2])
+loss:0.5024130344390869
+output:  torch.Size([128, 2])
+loss:0.49004584550857544
+output:  torch.Size([128, 2])
+loss:0.4887584149837494
+output:  torch.Size([128, 2])
+loss:0.4698372185230255
+output:  torch.Size([128, 2])
+loss:0.4510657489299774
+output:  torch.Size([128, 2])
+loss:0.46922606229782104
+output:  torch.Size([128, 2])
+loss:0.49952274560928345
+output:  torch.Size([128, 2])
+loss:0.45698001980781555
+output:  torch.Size([128, 2])
+loss:0.4505922794342041
+output:  torch.Size([128, 2])
+loss:0.4745136797428131
+output:  torch.Size([128, 2])
+loss:0.47102558612823486
+output:  torch.Size([128, 2])
+loss:0.45303913950920105
+output:  torch.Size([128, 2])
+loss:0.47109314799308777
+output:  torch.Size([128, 2])
+loss:0.44430220127105713
+output:  torch.Size([128, 2])
+loss:0.43899857997894287
+output:  torch.Size([128, 2])
+loss:0.45662325620651245
+output:  torch.Size([128, 2])
+
+ 34%|███▍      | 163/478 [00:15<00:29, 10.75batch/s]
+output:  torch.Size([128, 2])
+loss:0.445119708776474
+output:  torch.Size([128, 2])
+loss:0.4996922016143799
+output:  torch.Size([128, 2])
+loss:0.4851001501083374
+output:  torch.Size([128, 2])
+loss:0.4726840853691101
+output:  torch.Size([128, 2])
+loss:0.46168053150177
+output:  torch.Size([128, 2])
+loss:0.45038726925849915
+output:  torch.Size([128, 2])
+loss:0.43908822536468506
+output:  torch.Size([128, 2])
+loss:0.45270293951034546
+output:  torch.Size([128, 2])
+loss:0.4596233367919922
+output:  torch.Size([128, 2])
+loss:0.4799184799194336
+output:  torch.Size([128, 2])
+loss:0.4657709300518036
+output:  torch.Size([128, 2])
+loss:0.49385911226272583
+output:  torch.Size([128, 2])
+loss:0.4713507294654846
+output:  torch.Size([128, 2])
+loss:0.47200652956962585
+output:  torch.Size([128, 2])
+loss:0.4520331621170044
+output:  torch.Size([128, 2])
+loss:0.4665893316268921
+output:  torch.Size([128, 2])
+loss:0.5059056282043457
+output:  torch.Size([128, 2])
+loss:0.4447442591190338
+output:  torch.Size([128, 2])
+loss:0.4896475672721863
+output:  torch.Size([128, 2])
+loss:0.46962544322013855
+output:  torch.Size([128, 2])
+loss:0.4635413885116577
+output:  torch.Size([128, 2])
+
+ 38%|███▊      | 183/478 [00:17<00:27, 10.70batch/s]
+output:  torch.Size([128, 2])
+loss:0.5135052800178528
+output:  torch.Size([128, 2])
+loss:0.44759073853492737
+output:  torch.Size([128, 2])
+loss:0.48944252729415894
+output:  torch.Size([128, 2])
+loss:0.4629237651824951
+output:  torch.Size([128, 2])
+loss:0.4444378614425659
+output:  torch.Size([128, 2])
+loss:0.4679965376853943
+output:  torch.Size([128, 2])
+loss:0.4718773663043976
+output:  torch.Size([128, 2])
+loss:0.4451867341995239
+output:  torch.Size([128, 2])
+loss:0.4507339596748352
+output:  torch.Size([128, 2])
+loss:0.47767361998558044
+output:  torch.Size([128, 2])
+loss:0.470778226852417
+output:  torch.Size([128, 2])
+loss:0.4427405893802643
+output:  torch.Size([128, 2])
+loss:0.46429842710494995
+output:  torch.Size([128, 2])
+loss:0.43761616945266724
+output:  torch.Size([128, 2])
+loss:0.4911079704761505
+output:  torch.Size([128, 2])
+loss:0.49573394656181335
+output:  torch.Size([128, 2])
+loss:0.46143367886543274
+output:  torch.Size([128, 2])
+loss:0.4839513599872589
+output:  torch.Size([128, 2])
+loss:0.4885920286178589
+output:  torch.Size([128, 2])
+loss:0.4552445113658905
+output:  torch.Size([128, 2])
+loss:0.45679962635040283
+output:  torch.Size([128, 2])
+
+ 43%|████▎     | 205/478 [00:19<00:25, 10.69batch/s]
+output:  torch.Size([128, 2])
+loss:0.5121409893035889
+output:  torch.Size([128, 2])
+loss:0.4723414182662964
+output:  torch.Size([128, 2])
+loss:0.4541082978248596
+output:  torch.Size([128, 2])
+loss:0.4505693316459656
+output:  torch.Size([128, 2])
+loss:0.4505336284637451
+output:  torch.Size([128, 2])
+loss:0.454792320728302
+output:  torch.Size([128, 2])
+loss:0.4507867991924286
+output:  torch.Size([128, 2])
+loss:0.4517347812652588
+output:  torch.Size([128, 2])
+loss:0.4920344352722168
+output:  torch.Size([128, 2])
+loss:0.4445832073688507
+output:  torch.Size([128, 2])
+loss:0.46793198585510254
+output:  torch.Size([128, 2])
+loss:0.4774676561355591
+output:  torch.Size([128, 2])
+loss:0.4764522314071655
+output:  torch.Size([128, 2])
+loss:0.447770357131958
+output:  torch.Size([128, 2])
+loss:0.44742774963378906
+output:  torch.Size([128, 2])
+loss:0.5049362182617188
+output:  torch.Size([128, 2])
+loss:0.4652731120586395
+output:  torch.Size([128, 2])
+loss:0.4883277416229248
+output:  torch.Size([128, 2])
+loss:0.49741947650909424
+output:  torch.Size([128, 2])
+loss:0.4557172656059265
+output:  torch.Size([128, 2])
+
+ 47%|████▋     | 227/478 [00:21<00:22, 10.97batch/s]
+output:  torch.Size([128, 2])
+loss:0.4706493020057678
+output:  torch.Size([128, 2])
+loss:0.4510335624217987
+output:  torch.Size([128, 2])
+loss:0.4567340016365051
+output:  torch.Size([128, 2])
+loss:0.4715545177459717
+output:  torch.Size([128, 2])
+loss:0.47722265124320984
+output:  torch.Size([128, 2])
+loss:0.45316463708877563
+output:  torch.Size([128, 2])
+loss:0.46660012006759644
+output:  torch.Size([128, 2])
+loss:0.4586392939090729
+output:  torch.Size([128, 2])
+loss:0.4557354748249054
+output:  torch.Size([128, 2])
+loss:0.4768102765083313
+output:  torch.Size([128, 2])
+loss:0.5000662207603455
+output:  torch.Size([128, 2])
+loss:0.4450503885746002
+output:  torch.Size([128, 2])
+loss:0.4677932560443878
+output:  torch.Size([128, 2])
+loss:0.454847514629364
+output:  torch.Size([128, 2])
+loss:0.46342912316322327
+output:  torch.Size([128, 2])
+loss:0.45189088582992554
+output:  torch.Size([128, 2])
+loss:0.4524131715297699
+output:  torch.Size([128, 2])
+loss:0.44187718629837036
+output:  torch.Size([128, 2])
+loss:0.4719167947769165
+output:  torch.Size([128, 2])
+loss:0.49974316358566284
+output:  torch.Size([128, 2])
+loss:0.4630622863769531
+output:  torch.Size([128, 2])
+
+ 52%|█████▏    | 249/478 [00:23<00:20, 11.04batch/s]
+output:  torch.Size([128, 2])
+loss:0.48921144008636475
+output:  torch.Size([128, 2])
+loss:0.45609787106513977
+output:  torch.Size([128, 2])
+loss:0.47397613525390625
+output:  torch.Size([128, 2])
+loss:0.44203537702560425
+output:  torch.Size([128, 2])
+loss:0.441549152135849
+output:  torch.Size([128, 2])
+loss:0.4807496666908264
+output:  torch.Size([128, 2])
+loss:0.4814731180667877
+output:  torch.Size([128, 2])
+loss:0.4384373128414154
+output:  torch.Size([128, 2])
+loss:0.4503054916858673
+output:  torch.Size([128, 2])
+loss:0.4473575949668884
+output:  torch.Size([128, 2])
+loss:0.4616841971874237
+output:  torch.Size([128, 2])
+loss:0.4744730591773987
+output:  torch.Size([128, 2])
+loss:0.4474191665649414
+output:  torch.Size([128, 2])
+loss:0.4746711850166321
+output:  torch.Size([128, 2])
+loss:0.46031713485717773
+output:  torch.Size([128, 2])
+loss:0.45884180068969727
+output:  torch.Size([128, 2])
+loss:0.47327786684036255
+output:  torch.Size([128, 2])
+loss:0.4234897792339325
+output:  torch.Size([128, 2])
+loss:0.4644445776939392
+output:  torch.Size([128, 2])
+loss:0.44830697774887085
+output:  torch.Size([128, 2])
+loss:0.46650832891464233
+output:  torch.Size([128, 2])
+
+ 57%|█████▋    | 271/478 [00:25<00:18, 11.05batch/s]
+output:  torch.Size([128, 2])
+loss:0.47059422731399536
+output:  torch.Size([128, 2])
+loss:0.44756463170051575
+output:  torch.Size([128, 2])
+loss:0.4823407530784607
+output:  torch.Size([128, 2])
+loss:0.4521557688713074
+output:  torch.Size([128, 2])
+loss:0.4754939377307892
+output:  torch.Size([128, 2])
+loss:0.46436887979507446
+output:  torch.Size([128, 2])
+loss:0.45530837774276733
+output:  torch.Size([128, 2])
+loss:0.4812201261520386
+output:  torch.Size([128, 2])
+loss:0.46772751212120056
+output:  torch.Size([128, 2])
+loss:0.5010044574737549
+output:  torch.Size([128, 2])
+loss:0.4584323465824127
+output:  torch.Size([128, 2])
+loss:0.4503132700920105
+output:  torch.Size([128, 2])
+loss:0.4458180069923401
+output:  torch.Size([128, 2])
+loss:0.47552579641342163
+output:  torch.Size([128, 2])
+loss:0.4810680150985718
+output:  torch.Size([128, 2])
+loss:0.43826454877853394
+output:  torch.Size([128, 2])
+loss:0.445268452167511
+output:  torch.Size([128, 2])
+loss:0.4745514392852783
+output:  torch.Size([128, 2])
+loss:0.4573819637298584
+output:  torch.Size([128, 2])
+loss:0.48764926195144653
+output:  torch.Size([128, 2])
+loss:0.43939995765686035
+output:  torch.Size([128, 2])
+
+ 61%|██████▏   | 293/478 [00:27<00:16, 10.91batch/s]
+output:  torch.Size([128, 2])
+loss:0.467776894569397
+output:  torch.Size([128, 2])
+loss:0.47664856910705566
+output:  torch.Size([128, 2])
+loss:0.5074068307876587
+output:  torch.Size([128, 2])
+loss:0.45596519112586975
+output:  torch.Size([128, 2])
+loss:0.47184211015701294
+output:  torch.Size([128, 2])
+loss:0.4707028865814209
+output:  torch.Size([128, 2])
+loss:0.45726174116134644
+output:  torch.Size([128, 2])
+loss:0.4940856695175171
+output:  torch.Size([128, 2])
+loss:0.43539226055145264
+output:  torch.Size([128, 2])
+loss:0.43075695633888245
+output:  torch.Size([128, 2])
+loss:0.4451344609260559
+output:  torch.Size([128, 2])
+loss:0.4733075201511383
+output:  torch.Size([128, 2])
+loss:0.43811872601509094
+output:  torch.Size([128, 2])
+loss:0.4605908989906311
+output:  torch.Size([128, 2])
+loss:0.4363107979297638
+output:  torch.Size([128, 2])
+loss:0.44570448994636536
+output:  torch.Size([128, 2])
+loss:0.475841760635376
+output:  torch.Size([128, 2])
+loss:0.45785894989967346
+output:  torch.Size([128, 2])
+loss:0.471843957901001
+output:  torch.Size([128, 2])
+loss:0.46987539529800415
+output:  torch.Size([128, 2])
+loss:0.46515339612960815
+output:  torch.Size([128, 2])
+
+ 66%|██████▌   | 315/478 [00:29<00:15, 10.84batch/s]
+output:  torch.Size([128, 2])
+loss:0.44245636463165283
+output:  torch.Size([128, 2])
+loss:0.46026164293289185
+output:  torch.Size([128, 2])
+loss:0.4317314922809601
+output:  torch.Size([128, 2])
+loss:0.43948841094970703
+output:  torch.Size([128, 2])
+loss:0.45631277561187744
+output:  torch.Size([128, 2])
+loss:0.46498337388038635
+output:  torch.Size([128, 2])
+loss:0.43758559226989746
+output:  torch.Size([128, 2])
+loss:0.49841511249542236
+output:  torch.Size([128, 2])
+loss:0.4472450613975525
+output:  torch.Size([128, 2])
+loss:0.49306192994117737
+output:  torch.Size([128, 2])
+loss:0.4536372423171997
+output:  torch.Size([128, 2])
+loss:0.49077335000038147
+output:  torch.Size([128, 2])
+loss:0.4582545757293701
+output:  torch.Size([128, 2])
+loss:0.4933953881263733
+output:  torch.Size([128, 2])
+loss:0.46258091926574707
+output:  torch.Size([128, 2])
+loss:0.4724838435649872
+output:  torch.Size([128, 2])
+loss:0.4759068787097931
+output:  torch.Size([128, 2])
+loss:0.4788488745689392
+output:  torch.Size([128, 2])
+loss:0.4469749927520752
+output:  torch.Size([128, 2])
+loss:0.48806238174438477
+output:  torch.Size([128, 2])
+loss:0.4730200171470642
+output:  torch.Size([128, 2])
+
+ 71%|███████   | 337/478 [00:31<00:13, 10.69batch/s]
+output:  torch.Size([128, 2])
+loss:0.45940810441970825
+output:  torch.Size([128, 2])
+loss:0.4400010108947754
+output:  torch.Size([128, 2])
+loss:0.486571729183197
+output:  torch.Size([128, 2])
+loss:0.45584046840667725
+output:  torch.Size([128, 2])
+loss:0.4822666049003601
+output:  torch.Size([128, 2])
+loss:0.4504348039627075
+output:  torch.Size([128, 2])
+loss:0.47369351983070374
+output:  torch.Size([128, 2])
+loss:0.45958808064460754
+output:  torch.Size([128, 2])
+loss:0.4574625492095947
+output:  torch.Size([128, 2])
+loss:0.48581206798553467
+output:  torch.Size([128, 2])
+loss:0.4590594172477722
+output:  torch.Size([128, 2])
+loss:0.45398443937301636
+output:  torch.Size([128, 2])
+loss:0.4824943542480469
+output:  torch.Size([128, 2])
+loss:0.4935964345932007
+output:  torch.Size([128, 2])
+loss:0.4777216911315918
+output:  torch.Size([128, 2])
+loss:0.4766906499862671
+output:  torch.Size([128, 2])
+loss:0.4474266767501831
+output:  torch.Size([128, 2])
+loss:0.44910070300102234
+output:  torch.Size([128, 2])
+loss:0.45214566588401794
+output:  torch.Size([128, 2])
+loss:0.4665343761444092
+output:  torch.Size([128, 2])
+
+ 75%|███████▍  | 357/478 [00:33<00:11, 10.65batch/s]
+output:  torch.Size([128, 2])
+loss:0.45715001225471497
+output:  torch.Size([128, 2])
+loss:0.4797871708869934
+output:  torch.Size([128, 2])
+loss:0.4659940004348755
+output:  torch.Size([128, 2])
+loss:0.4430156648159027
+output:  torch.Size([128, 2])
+loss:0.4514043927192688
+output:  torch.Size([128, 2])
+loss:0.48576778173446655
+output:  torch.Size([128, 2])
+loss:0.4624858796596527
+output:  torch.Size([128, 2])
+loss:0.4601764380931854
+output:  torch.Size([128, 2])
+loss:0.43968093395233154
+output:  torch.Size([128, 2])
+loss:0.46140408515930176
+output:  torch.Size([128, 2])
+loss:0.43695008754730225
+output:  torch.Size([128, 2])
+loss:0.47342023253440857
+output:  torch.Size([128, 2])
+loss:0.49547386169433594
+output:  torch.Size([128, 2])
+loss:0.46529626846313477
+output:  torch.Size([128, 2])
+loss:0.49286237359046936
+output:  torch.Size([128, 2])
+loss:0.46253275871276855
+output:  torch.Size([128, 2])
+loss:0.467252641916275
+output:  torch.Size([128, 2])
+loss:0.4605685770511627
+output:  torch.Size([128, 2])
+loss:0.4651559591293335
+output:  torch.Size([128, 2])
+loss:0.4420226812362671
+output:  torch.Size([128, 2])
+loss:0.46566516160964966
+output:  torch.Size([128, 2])
+
+ 79%|███████▉  | 378/478 [00:35<00:09, 10.20batch/s]
+output:  torch.Size([128, 2])
+loss:0.48728588223457336
+output:  torch.Size([128, 2])
+loss:0.4504612386226654
+output:  torch.Size([128, 2])
+loss:0.48895296454429626
+output:  torch.Size([128, 2])
+loss:0.43394899368286133
+output:  torch.Size([128, 2])
+loss:0.4854642152786255
+output:  torch.Size([128, 2])
+loss:0.4663827121257782
+output:  torch.Size([128, 2])
+loss:0.47262805700302124
+output:  torch.Size([128, 2])
+loss:0.47467130422592163
+output:  torch.Size([128, 2])
+loss:0.4617254137992859
+output:  torch.Size([128, 2])
+loss:0.46003249287605286
+output:  torch.Size([128, 2])
+loss:0.47516316175460815
+output:  torch.Size([128, 2])
+loss:0.45671749114990234
+output:  torch.Size([128, 2])
+loss:0.48204490542411804
+output:  torch.Size([128, 2])
+loss:0.47111546993255615
+output:  torch.Size([128, 2])
+loss:0.45459967851638794
+output:  torch.Size([128, 2])
+loss:0.4547320008277893
+output:  torch.Size([128, 2])
+loss:0.4580265283584595
+output:  torch.Size([128, 2])
+loss:0.49645355343818665
+output:  torch.Size([128, 2])
+loss:0.4823554456233978
+output:  torch.Size([128, 2])
+
+ 84%|████████▎ | 400/478 [00:37<00:07, 10.70batch/s]
+output:  torch.Size([128, 2])
+loss:0.4907659888267517
+output:  torch.Size([128, 2])
+loss:0.48024263978004456
+output:  torch.Size([128, 2])
+loss:0.4731661081314087
+output:  torch.Size([128, 2])
+loss:0.4721725881099701
+output:  torch.Size([128, 2])
+loss:0.49848100543022156
+output:  torch.Size([128, 2])
+loss:0.44981712102890015
+output:  torch.Size([128, 2])
+loss:0.4567400813102722
+output:  torch.Size([128, 2])
+loss:0.4383186995983124
+output:  torch.Size([128, 2])
+loss:0.4466056227684021
+output:  torch.Size([128, 2])
+loss:0.47084081172943115
+output:  torch.Size([128, 2])
+loss:0.46087032556533813
+output:  torch.Size([128, 2])
+loss:0.4649162292480469
+output:  torch.Size([128, 2])
+loss:0.4631407856941223
+output:  torch.Size([128, 2])
+loss:0.45526808500289917
+output:  torch.Size([128, 2])
+loss:0.46718737483024597
+output:  torch.Size([128, 2])
+loss:0.44529449939727783
+output:  torch.Size([128, 2])
+loss:0.48035895824432373
+output:  torch.Size([128, 2])
+loss:0.46053218841552734
+output:  torch.Size([128, 2])
+loss:0.45945078134536743
+output:  torch.Size([128, 2])
+loss:0.420910507440567
+output:  torch.Size([128, 2])
+loss:0.4594455361366272
+output:  torch.Size([128, 2])
+
+ 88%|████████▊ | 420/478 [00:39<00:05, 10.64batch/s]
+output:  torch.Size([128, 2])
+loss:0.48335444927215576
+output:  torch.Size([128, 2])
+loss:0.45729637145996094
+output:  torch.Size([128, 2])
+loss:0.45087653398513794
+output:  torch.Size([128, 2])
+loss:0.41708338260650635
+output:  torch.Size([128, 2])
+loss:0.45282846689224243
+output:  torch.Size([128, 2])
+loss:0.4607628583908081
+output:  torch.Size([128, 2])
+loss:0.4770030081272125
+output:  torch.Size([128, 2])
+loss:0.4549271762371063
+output:  torch.Size([128, 2])
+loss:0.4458959102630615
+output:  torch.Size([128, 2])
+loss:0.44500312209129333
+output:  torch.Size([128, 2])
+loss:0.4523835778236389
+output:  torch.Size([128, 2])
+loss:0.4353044331073761
+output:  torch.Size([128, 2])
+loss:0.4834156036376953
+output:  torch.Size([128, 2])
+loss:0.41109558939933777
+output:  torch.Size([128, 2])
+loss:0.4713117778301239
+output:  torch.Size([128, 2])
+loss:0.48369884490966797
+output:  torch.Size([128, 2])
+loss:0.462027370929718
+output:  torch.Size([128, 2])
+loss:0.48411795496940613
+output:  torch.Size([128, 2])
+loss:0.4525650143623352
+output:  torch.Size([128, 2])
+loss:0.45244836807250977
+output:  torch.Size([128, 2])
+
+ 92%|█████████▏| 442/478 [00:41<00:03, 10.73batch/s]
+output:  torch.Size([128, 2])
+loss:0.4669678211212158
+output:  torch.Size([128, 2])
+loss:0.4686349630355835
+output:  torch.Size([128, 2])
+loss:0.4586024284362793
+output:  torch.Size([128, 2])
+loss:0.47159305214881897
+output:  torch.Size([128, 2])
+loss:0.47697287797927856
+output:  torch.Size([128, 2])
+loss:0.46148115396499634
+output:  torch.Size([128, 2])
+loss:0.45785626769065857
+output:  torch.Size([128, 2])
+loss:0.46738117933273315
+output:  torch.Size([128, 2])
+loss:0.47315511107444763
+output:  torch.Size([128, 2])
+loss:0.4886251389980316
+output:  torch.Size([128, 2])
+loss:0.4557179808616638
+output:  torch.Size([128, 2])
+loss:0.4763351082801819
+output:  torch.Size([128, 2])
+loss:0.47681546211242676
+output:  torch.Size([128, 2])
+loss:0.4692513644695282
+output:  torch.Size([128, 2])
+loss:0.4697328507900238
+output:  torch.Size([128, 2])
+loss:0.42611944675445557
+output:  torch.Size([128, 2])
+loss:0.49386972188949585
+output:  torch.Size([128, 2])
+loss:0.4431033134460449
+output:  torch.Size([128, 2])
+loss:0.47338998317718506
+output:  torch.Size([128, 2])
+loss:0.5008568167686462
+output:  torch.Size([128, 2])
+loss:0.4917363226413727
+output:  torch.Size([128, 2])
+
+ 97%|█████████▋| 464/478 [00:43<00:01, 10.75batch/s]
+output:  torch.Size([128, 2])
+loss:0.4540930390357971
+output:  torch.Size([128, 2])
+loss:0.4411977231502533
+output:  torch.Size([128, 2])
+loss:0.4146508276462555
+output:  torch.Size([128, 2])
+loss:0.4641686677932739
+output:  torch.Size([128, 2])
+loss:0.4709284007549286
+output:  torch.Size([128, 2])
+loss:0.48595130443573
+output:  torch.Size([128, 2])
+loss:0.4468882381916046
+output:  torch.Size([128, 2])
+loss:0.445707231760025
+output:  torch.Size([128, 2])
+loss:0.4494718611240387
+output:  torch.Size([128, 2])
+loss:0.4918872117996216
+output:  torch.Size([128, 2])
+loss:0.4822245240211487
+output:  torch.Size([128, 2])
+loss:0.4825172424316406
+output:  torch.Size([128, 2])
+loss:0.4543623626232147
+output:  torch.Size([128, 2])
+loss:0.4678618907928467
+output:  torch.Size([128, 2])
+loss:0.46579697728157043
+output:  torch.Size([128, 2])
+loss:0.4752084016799927
+output:  torch.Size([128, 2])
+loss:0.46699753403663635
+output:  torch.Size([128, 2])
+loss:0.440910667181015
+output:  torch.Size([128, 2])
+loss:0.45162299275398254
+output:  torch.Size([128, 2])
+loss:0.4674038887023926
+output:  torch.Size([128, 2])
+loss:0.48893702030181885
+output:  torch.Size([128, 2])
+
+100%|██████████| 478/478 [00:44<00:00, 10.74batch/s]
+output:  torch.Size([128, 2])
+loss:0.44707944989204407
+output:  torch.Size([28, 2])
+loss:0.49394848942756653
+Train Epoch 2 loss=0.47 acc=0.89
+Eval Epoch 2 loss=0.47 acc=0.89
+Test loss=0.46 acc=0.89
+Traceback (most recent call last):
+  File "src/main.py", line 252, in <module>
+    my_model = train_model(config)
+  File "src/main.py", line 166, in train_model
+    images = images.to(config["device"])
+KeyError: 'device'

@@ -1,0 +1,137 @@
+wandb_version: 1
+
+architecture:
+  desc: null
+  value: SpeakerClassifier
+lr:
+  desc: null
+  value: 0.001
+batch_size:
+  desc: null
+  value: 128
+epochs:
+  desc: null
+  value: 1
+num_samples_train:
+  desc: null
+  value: 0.8
+num_samples_val:
+  desc: null
+  value: 0.1
+num_samples_test:
+  desc: null
+  value: 0.1
+species:
+  desc: null
+  value:
+  - Fin
+  - Blue
+random_crop_secs:
+  desc: null
+  value: 5
+df_dir:
+  desc: null
+  value: /home/usuaris/veussd/DATABASES/Ocean/dataframes
+df_path:
+  desc: null
+  value: /home/usuaris/veussd/DATABASES/Ocean/dataframes/df_23_06_02_09_07_26_aty1jmit_wise-meadow-57.pkl
+img_dir:
+  desc: null
+  value: /home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57
+save_dir:
+  desc: null
+  value: /home/usuaris/veussd/DATABASES/Ocean/checkpoints/
+train_labels_path:
+  desc: null
+  value: /home/usuaris/veu/pol.cavero/labels_DMHA_Voxceleb/train_labels.ndx
+train_data_dir:
+  desc: null
+  value: /home/usuaris/veu/pol.cavero/datasets/voxceleb_2/dev/23_04_15_16_23_42_svagf2q9_noble-water-4/
+valid_clients_path:
+  desc: null
+  value: /home/usuaris/veu/pol.cavero/labels_DMHA_Voxceleb/valid_clients.ndx
+valid_impostors_path:
+  desc: null
+  value: /home/usuaris/veu/pol.cavero/labels_DMHA_Voxceleb/valid_impostors.ndx
+valid_data_dir:
+  desc: null
+  value: /home/usuaris/veu/pol.cavero/datasets/voxceleb_2/dev/23_04_15_16_23_42_svagf2q9_noble-water-4/
+model_output_folder:
+  desc: null
+  value: ./models/
+embedding_size:
+  desc: null
+  value: 400
+front_end:
+  desc: null
+  value: VGGNL
+pooling_method:
+  desc: null
+  value: DoubleMHA
+pooling_heads_number:
+  desc: null
+  value: 5
+pooling_mask_prob:
+  desc: null
+  value: 0.3
+n_mels:
+  desc: null
+  value: 40
+pooling_output_size:
+  desc: null
+  value: 400
+bottleneck_drop_out:
+  desc: null
+  value: 0.1
+vgg_n_blocks:
+  desc: null
+  value: 3
+vgg_channels:
+  desc: null
+  value:
+  - 10
+  - 10
+  - 10
+number_speakers:
+  desc: null
+  value: 2
+scaling_factor:
+  desc: null
+  value: 1
+margin_factor:
+  desc: null
+  value: 1
+_wandb:
+  desc: null
+  value:
+    python_version: 3.8.16
+    cli_version: 0.15.4
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1688116986.977076
+    t:
+      1:
+      - 1
+      - 5
+      - 41
+      - 53
+      - 55
+      2:
+      - 1
+      - 5
+      - 41
+      - 53
+      - 55
+      3:
+      - 2
+      - 16
+      - 17
+      - 23
+      - 37
+      4: 3.8.16
+      5: 0.15.4
+      8:
+      - 5
+      10:
+      - 3

@@ -1,0 +1,52 @@
+2023-07-05 16:29:26,319 INFO    StreamThr :27478 [internal.py:wandb_internal():86] W&B internal server running at pid: 27478, started at: 2023-07-05 16:29:26.317361
+2023-07-05 16:29:26,332 DEBUG   HandlerThread:27478 [handler.py:handle_request():144] handle_request: status
+2023-07-05 16:29:26,347 INFO    WriterThread:27478 [datastore.py:open_for_write():85] open: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230705_162926-oh75361i/run-oh75361i.wandb
+2023-07-05 16:29:26,348 DEBUG   SenderThread:27478 [sender.py:send():369] send: header
+2023-07-05 16:29:26,365 DEBUG   SenderThread:27478 [sender.py:send():369] send: run
+2023-07-05 16:29:30,744 DEBUG   HandlerThread:27478 [handler.py:handle_request():144] handle_request: check_version
+2023-07-05 16:29:30,745 INFO    SenderThread:27478 [dir_watcher.py:__init__():211] watching files in: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230705_162926-oh75361i/files
+2023-07-05 16:29:30,745 INFO    SenderThread:27478 [sender.py:_start_run_threads():1100] run started: oh75361i with start time 1688567366.320131
+2023-07-05 16:29:30,745 DEBUG   SenderThread:27478 [sender.py:send_request():396] send_request: summary_record
+2023-07-05 16:29:30,746 INFO    SenderThread:27478 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-05 16:29:30,746 DEBUG   SenderThread:27478 [sender.py:send_request():396] send_request: check_version
+2023-07-05 16:29:30,835 DEBUG   HandlerThread:27478 [handler.py:handle_request():144] handle_request: run_start
+2023-07-05 16:29:30,842 DEBUG   HandlerThread:27478 [system_info.py:__init__():31] System info init
+2023-07-05 16:29:30,843 DEBUG   HandlerThread:27478 [system_info.py:__init__():46] System info init done
+2023-07-05 16:29:30,843 INFO    HandlerThread:27478 [system_monitor.py:start():181] Starting system monitor
+2023-07-05 16:29:30,843 INFO    SystemMonitor:27478 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-07-05 16:29:30,843 INFO    HandlerThread:27478 [system_monitor.py:probe():201] Collecting system info
+2023-07-05 16:29:30,847 INFO    SystemMonitor:27478 [interfaces.py:start():190] Started cpu monitoring
+2023-07-05 16:29:30,849 INFO    SystemMonitor:27478 [interfaces.py:start():190] Started disk monitoring
+2023-07-05 16:29:30,850 INFO    SystemMonitor:27478 [interfaces.py:start():190] Started gpu monitoring
+2023-07-05 16:29:30,850 INFO    SystemMonitor:27478 [interfaces.py:start():190] Started memory monitoring
+2023-07-05 16:29:30,851 INFO    SystemMonitor:27478 [interfaces.py:start():190] Started network monitoring
+2023-07-05 16:29:30,883 DEBUG   HandlerThread:27478 [system_info.py:probe():195] Probing system
+2023-07-05 16:29:30,889 DEBUG   HandlerThread:27478 [system_info.py:_probe_git():180] Probing git
+2023-07-05 16:29:30,908 DEBUG   HandlerThread:27478 [system_info.py:_probe_git():188] Probing git done
+2023-07-05 16:29:30,908 DEBUG   HandlerThread:27478 [system_info.py:probe():240] Probing system done
+2023-07-05 16:29:30,908 DEBUG   HandlerThread:27478 [system_monitor.py:probe():210] {'os': 'Linux-4.15.0-162-generic-x86_64-with-glibc2.17', 'python': '3.8.16', 'heartbeatAt': '2023-07-05T14:29:30.883276', 'startedAt': '2023-07-05T14:29:26.299955', 'docker': None, 'cuda': '9.0.176.4', 'args': (), 'state': 'running', 'program': 'src/main.py', 'codePath': 'src/main.py', 'git': {'remote': 'https://github.com/marccasals98/OCEAN.git', 'commit': 'dcd29408ac12e5e2a55118448f2b056b80b191de'}, 'email': None, 'root': '/home/usuaris/veu/pol.cavero/OCEAN', 'host': 'veuc01', 'username': 'pol.cavero', 'executable': '/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/bin/python', 'cpu_count': 20, 'cpu_count_logical': 40, 'cpu_freq': {'current': 1504.577025, 'min': 1200.0, 'max': 3100.0}, 'cpu_freq_per_core': [{'current': 3100.136, 'min': 1200.0, 'max': 3100.0}, {'current': 1204.081, 'min': 1200.0, 'max': 3100.0}, {'current': 1203.376, 'min': 1200.0, 'max': 3100.0}, {'current': 1203.439, 'min': 1200.0, 'max': 3100.0}, {'current': 1203.268, 'min': 1200.0, 'max': 3100.0}, {'current': 1203.064, 'min': 1200.0, 'max': 3100.0}, {'current': 1202.376, 'min': 1200.0, 'max': 3100.0}, {'current': 1202.989, 'min': 1200.0, 'max': 3100.0}, {'current': 1202.457, 'min': 1200.0, 'max': 3100.0}, {'current': 1203.341, 'min': 1200.0, 'max': 3100.0}, {'current': 1888.586, 'min': 1200.0, 'max': 3100.0}, {'current': 1201.263, 'min': 1200.0, 'max': 3100.0}, {'current': 1200.832, 'min': 1200.0, 'max': 3100.0}, {'current': 1203.687, 'min': 1200.0, 'max': 3100.0}, {'current': 1203.076, 'min': 1200.0, 'max': 3100.0}, {'current': 1202.133, 'min': 1200.0, 'max': 3100.0}, {'current': 1202.781, 'min': 1200.0, 'max': 3100.0}, {'current': 1203.168, 'min': 1200.0, 'max': 3100.0}, {'current': 2869.571, 'min': 1200.0, 'max': 3100.0}, {'current': 2871.543, 'min': 1200.0, 'max': 3100.0}, {'current': 3067.632, 'min': 1200.0, 'max': 3100.0}, {'current': 1200.083, 'min': 1200.0, 'max': 3100.0}, {'current': 1200.931, 'min': 1200.0, 'max': 3100.0}, {'current': 1201.778, 'min': 1200.0, 'max': 3100.0}, {'current': 1201.377, 'min': 1200.0, 'max': 3100.0}, {'current': 1200.751, 'min': 1200.0, 'max': 3100.0}, {'current': 1201.105, 'min': 1200.0, 'max': 3100.0}, {'current': 1201.526, 'min': 1200.0, 'max': 3100.0}, {'current': 1200.83, 'min': 1200.0, 'max': 3100.0}, {'current': 1200.779, 'min': 1200.0, 'max': 3100.0}, {'current': 1835.662, 'min': 1200.0, 'max': 3100.0}, {'current': 1201.084, 'min': 1200.0, 'max': 3100.0}, {'current': 1200.234, 'min': 1200.0, 'max': 3100.0}, {'current': 1200.628, 'min': 1200.0, 'max': 3100.0}, {'current': 1201.298, 'min': 1200.0, 'max': 3100.0}, {'current': 1201.215, 'min': 1200.0, 'max': 3100.0}, {'current': 1201.307, 'min': 1200.0, 'max': 3100.0}, {'current': 1201.65, 'min': 1200.0, 'max': 3100.0}, {'current': 2499.409, 'min': 1200.0, 'max': 3100.0}, {'current': 2867.272, 'min': 1200.0, 'max': 3100.0}], 'disk': {'total': 109.53332901000977, 'used': 23.450393676757812}, 'memory': {'total': 251.79984283447266}}
+2023-07-05 16:29:30,908 INFO    HandlerThread:27478 [system_monitor.py:probe():211] Finished collecting system info
+2023-07-05 16:29:30,908 INFO    HandlerThread:27478 [system_monitor.py:probe():214] Publishing system info
+2023-07-05 16:29:30,908 DEBUG   HandlerThread:27478 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-07-05 16:29:30,909 DEBUG   HandlerThread:27478 [system_info.py:_save_pip():67] Saving pip packages done
+2023-07-05 16:29:30,909 DEBUG   HandlerThread:27478 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-07-05 16:29:31,747 INFO    Thread-12 :27478 [dir_watcher.py:_on_file_created():272] file/dir created: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230705_162926-oh75361i/files/wandb-summary.json
+2023-07-05 16:29:31,748 INFO    Thread-12 :27478 [dir_watcher.py:_on_file_created():272] file/dir created: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230705_162926-oh75361i/files/requirements.txt
+2023-07-05 16:29:31,748 INFO    Thread-12 :27478 [dir_watcher.py:_on_file_created():272] file/dir created: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230705_162926-oh75361i/files/conda-environment.yaml
+2023-07-05 16:29:34,953 DEBUG   HandlerThread:27478 [system_info.py:_save_conda():86] Saving conda packages done
+2023-07-05 16:29:34,954 INFO    HandlerThread:27478 [system_monitor.py:probe():216] Finished publishing system info
+2023-07-05 16:29:34,958 DEBUG   HandlerThread:27478 [handler.py:handle_request():144] handle_request: status_report
+2023-07-05 16:29:34,958 DEBUG   SenderThread:27478 [sender.py:send():369] send: files
+2023-07-05 16:29:34,959 INFO    SenderThread:27478 [sender.py:_save_file():1354] saving file wandb-metadata.json with policy now
+2023-07-05 16:29:34,969 DEBUG   HandlerThread:27478 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-05 16:29:34,969 DEBUG   SenderThread:27478 [sender.py:send_request():396] send_request: stop_status
+2023-07-05 16:29:35,133 DEBUG   SenderThread:27478 [sender.py:send():369] send: telemetry
+2023-07-05 16:29:35,133 DEBUG   SenderThread:27478 [sender.py:send():369] send: telemetry
+2023-07-05 16:29:35,133 DEBUG   SenderThread:27478 [sender.py:send():369] send: run
+2023-07-05 16:29:35,333 INFO    SenderThread:27478 [sender.py:send_run():978] updated run: oh75361i
+2023-07-05 16:29:35,334 DEBUG   SenderThread:27478 [sender.py:send():369] send: telemetry
+2023-07-05 16:29:35,432 INFO    wandb-upload_0:27478 [upload_job.py:push():133] Uploaded file /tmp/tmpr_g8kfhfwandb/om91fjed-wandb-metadata.json
+2023-07-05 16:29:35,758 INFO    Thread-12 :27478 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230705_162926-oh75361i/files/config.yaml
+2023-07-05 16:29:35,758 INFO    Thread-12 :27478 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230705_162926-oh75361i/files/conda-environment.yaml
+2023-07-05 16:29:35,759 INFO    Thread-12 :27478 [dir_watcher.py:_on_file_created():272] file/dir created: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230705_162926-oh75361i/files/output.log
+2023-07-05 16:29:35,759 INFO    Thread-12 :27478 [dir_watcher.py:_on_file_created():272] file/dir created: /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230705_162926-oh75361i/files/wandb-metadata.json

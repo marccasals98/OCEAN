@@ -1,0 +1,245 @@
+{
+    "os": "Linux-4.15.0-162-generic-x86_64-with-glibc2.17",
+    "python": "3.8.16",
+    "heartbeatAt": "2023-07-05T14:40:00.176589",
+    "startedAt": "2023-07-05T14:39:59.524452",
+    "docker": null,
+    "cuda": "9.0.176.4",
+    "args": [],
+    "state": "running",
+    "program": "src/main.py",
+    "codePath": "src/main.py",
+    "git": {
+        "remote": "https://github.com/marccasals98/OCEAN.git",
+        "commit": "dcd29408ac12e5e2a55118448f2b056b80b191de"
+    },
+    "email": null,
+    "root": "/home/usuaris/veu/pol.cavero/OCEAN",
+    "host": "veuc01",
+    "username": "pol.cavero",
+    "executable": "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/bin/python",
+    "cpu_count": 20,
+    "cpu_count_logical": 40,
+    "cpu_freq": {
+        "current": 1580.7176999999997,
+        "min": 1200.0,
+        "max": 3100.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1951.799,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 3066.281,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.08,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.363,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1204.041,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.567,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1202.489,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1202.77,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.599,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.148,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1593.19,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1641.237,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.04,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.486,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.24,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2112.225,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.931,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.867,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2855.736,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2856.753,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1988.201,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 3091.397,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.604,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.694,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.131,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.701,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.813,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.983,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.068,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.263,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1588.815,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1723.18,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.967,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.269,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.309,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2151.273,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.256,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.162,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2457.186,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2854.474,
+            "min": 1200.0,
+            "max": 3100.0
+        }
+    ],
+    "disk": {
+        "total": 109.53332901000977,
+        "used": 23.45050048828125
+    },
+    "gpu": "NVIDIA GeForce GTX TITAN X",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX TITAN X",
+            "memory_total": 12806127616
+        }
+    ],
+    "memory": {
+        "total": 251.79984283447266
+    }
+}

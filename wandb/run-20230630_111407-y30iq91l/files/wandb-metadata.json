@@ -1,0 +1,237 @@
+{
+    "os": "Linux-4.15.0-162-generic-x86_64-with-glibc2.17",
+    "python": "3.8.16",
+    "heartbeatAt": "2023-06-30T09:14:07.665498",
+    "startedAt": "2023-06-30T09:14:07.040025",
+    "docker": null,
+    "cuda": "9.0.176.4",
+    "args": [],
+    "state": "running",
+    "program": "src/main.py",
+    "codePath": "src/main.py",
+    "git": {
+        "remote": "https://github.com/marccasals98/OCEAN.git",
+        "commit": "dcd29408ac12e5e2a55118448f2b056b80b191de"
+    },
+    "email": null,
+    "root": "/home/usuaris/veu/pol.cavero/OCEAN",
+    "host": "veuc01",
+    "username": "pol.cavero",
+    "executable": "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/bin/python",
+    "cpu_count": 20,
+    "cpu_count_logical": 40,
+    "cpu_freq": {
+        "current": 1422.6260750000004,
+        "min": 1200.0,
+        "max": 3100.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2859.188,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2856.321,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1622.868,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.621,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1202.669,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.243,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.093,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1202.795,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.336,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.079,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.816,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.467,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.927,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1205.602,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.3,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.74,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.433,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.784,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1203.826,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1202.897,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2868.585,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2848.465,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1846.562,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1202.181,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.847,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.506,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.843,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.311,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.523,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.077,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.47,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.618,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.786,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1200.214,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.124,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1202.173,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.452,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.133,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.364,
+            "min": 1200.0,
+            "max": 3100.0
+        },
+        {
+            "current": 1201.349,
+            "min": 1200.0,
+            "max": 3100.0
+        }
+    ],
+    "disk": {
+        "total": 109.53332901000977,
+        "used": 23.438648223876953
+    },
+    "memory": {
+        "total": 251.79984283447266
+    }
+}
