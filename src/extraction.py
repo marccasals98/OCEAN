@@ -24,7 +24,7 @@ class Extractor:
         self.dataset_path = params.dataset_path
         self.output_path = params.output_path
         self.min_frame_size_sec = params.min_frame_size_sec
-        self.spectral_subtraction = params.spectral_subtraction
+        self.spectral_subtraction_prob = params.spectral_subtraction_prob
 
         # pd dataframe for extraction statistics:
         cols = ['subdataset', 'wav_name','species', 'num_species', 'vocalization', 'date', 'begin_sample', 'end_sample', 'sampling_rate']
@@ -266,8 +266,8 @@ class Extractor:
         
 
         for i, subdirectory in enumerate(subdatasets_dirs): # iterate through subdataset directories
-            if self.spectral_subtraction:
-                ss_comment = '(applying spectral subtraction)'
+            if self.spectral_subtraction_prob > 0:
+                ss_comment = f'(applying spectral subtraction with probability {self.spectral_subtraction_prob})'
             else:
                 ss_comment = ''
             print(f'Extracting {subdirectory} ... {ss_comment}')
@@ -288,7 +288,7 @@ class Extractor:
                                 if prev_wav_path != wav_path: # to avoid opening and processing multiple times same wav file
                                     sample_rate, raw_sig = wavfile.read(wav_path) # open file
                                     # removing noise if spectral_subtraction is set
-                                    if self.spectral_subtraction:
+                                    if self.spectral_subtraction_prob >= (random.randint(0,10)/10):
                                         sig = ss.reduce_noise(raw_sig,raw_sig, winsize=2**8, add_noisy_phase=True)
                                     else:
                                         sig = raw_sig
@@ -383,7 +383,7 @@ if __name__=="__main__":
     parser.add_argument('dataset_path', type=str, help='path of the dataset to extract')
     parser.add_argument('output_path', type=str, help='directory where extracted events and log_file are saved')
     parser.add_argument('--min_frame_size_sec', type=int, default=0, help='minimum frame size of the extracted frames containing the events')
-    parser.add_argument('--spectral_subtraction', type=bool, default=False, help='reduce noise to extracted samples with Spectral Subtraction')
+    parser.add_argument('--spectral_subtraction_prob', type=float, default=0.0, help='Probability on which Spectral Subtraction is applied to each event')
 
 
     params=parser.parse_args()
