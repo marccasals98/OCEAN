@@ -35,7 +35,7 @@ def main(params):
 
 
         if spectral_subtraction_prob >= (random.randint(0,10)/10):
-            cleaned_sig = ss.reduce_noise(resampled_sig, resampled_sig, winsize=2**8, add_noisy_phase=True)
+            cleaned_sig = ss.reduce_noise(resampled_sig, resampled_sig, winsize=window_samples, add_noisy_phase=True)
         else:
             cleaned_sig = raw_sig
         wavfile.write(os.path.join(output_path, filename), sample_rate, cleaned_sig)
