@@ -1,5 +1,7 @@
 import torch
 import torchmetrics as tm
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 def accuracy(labels: torch.Tensor, outputs: torch.Tensor) -> int:
     '''
@@ -110,7 +112,17 @@ class Metrics():
         self.compute_recall()
         self.compute_f1()
 
-    
 
-
-
+def plot_confusion_matrix(cm, classes, save_path=None):
+    plt.figure(figsize=(8, 6))
+    # Check if the values in cm are of type float
+    is_float_cm = any(isinstance(val, float) for row in cm for val in row)
+    fmt = '.0f' if is_float_cm else 'd'  # Use '.0f' for float values, 'd' for integer values
+    sns.heatmap(cm, annot=True, fmt=fmt, cmap='Blues', xticklabels=classes, yticklabels=classes)
+    plt.xlabel('Predicted Labels')
+    plt.ylabel('True Labels')
+    plt.title('Confusion Matrix')
+    if save_path:
+        plt.savefig(save_path)
+    else:
+        plt.show()
