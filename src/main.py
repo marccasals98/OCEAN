@@ -12,7 +12,7 @@ import wandb
 from DataframeCreator import DataframeCreator
 import os
 from LeNet import LeNet5
-from metrics import accuracy, Metrics
+from metrics import accuracy, Metrics, plot_confusion_matrix
 
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -150,6 +150,9 @@ def train_model(config):
     loss, acc, pre, recall, f1, cm = eval_single_epoch(my_model, test_loader, config, test=True)
     
     print('Confussion matrix test:\n', cm)
+    # seaborn confussion matrix
+    save_cm = '/home/usuaris/veu/marc.casals/OCEAN/plots/confussion_matrix.png'
+    plot_confusion_matrix(cm, len(config['species']), save_cm)
     # loading metrics in wandb
     wandb.log({"test/test_loss":loss, 
                 "test/test_acc":acc,
@@ -165,10 +168,10 @@ def train_model(config):
 if __name__ == "__main__":
     # TODO: wandb.run.save without any arguments is deprecated. 
     config = {
-        "architecture": "ResNet50",
+        "architecture": "LeNet5",
         "lr": 1e-3,
         "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
-        "epochs": 25,
+        "epochs": 20,
         "num_samples_train": 0.6,
         "num_samples_val": 0.2,
         "num_samples_test": 0.2,
