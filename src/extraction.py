@@ -274,7 +274,9 @@ class Extractor:
             log_file.write(f'Extracting {subdirectory} ...\n')
             annotations_subdir = os.path.join(self.dataset_path, subdirectory)
             prev_wav_path = '' # used to avoid opening and processing multiple times same wav file
+
             for filename in os.listdir(annotations_subdir): # iterate through annotations in subdataset directory
+                
                 if filename.endswith('.txt'): # check that it is an annotation file (.txt)
                     ann = pd.read_csv(os.path.join(annotations_subdir, filename), sep="\t") # open annotation file as pd.dataframe
                     for index, row in tqdm(ann.iterrows(), total=ann.shape[0]): # iterate through events in annotation file
