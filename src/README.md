@@ -27,3 +27,12 @@ Where ```type``` can take the following values:
 3. ```bug```: A bug in the code that we may encounter.
 
 An example of this type of working could be creating a branch named ```feature/data_augmentation```where we would do the data augmentation. 
+
+## Spectral Subtraction
+
+The code to run spectral subtraction is:
+
+```
+srun -A veu -p veu --mem=16G -c 8  python src/apply_spectral_subtraction.py --spectral_subtraction_prob 1.0 'input_path/data/' 'output_path'
+```
+
