@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [01:29<00:00,  5.33batch/s]
+Traceback (most recent call last):
+  File "src/main.py", line 320, in <module>
+    my_model = train_model(config)
+  File "src/main.py", line 191, in train_model
+    val_loss, val_acc = eval_single_epoch(my_model, val_loader, config)
+  File "src/main.py", line 77, in eval_single_epoch
+    y_ = model(x)[0] #                                  POL: HE POSAT ",y"
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/DMHA.py", line 148, in forward
+    inner_products, inner_products_m_s = self.am_softmax_layer(embedding_3, label)
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/usuaris/veu/pol.cavero/OCEAN/src/loss.py", line 28, in forward
+    assert last_features.size()[0] == label.size()[0] # checks the batch dimension
+AttributeError: 'NoneType' object has no attribute 'size'
+Train Epoch 0 loss=0.51 acc=0.83

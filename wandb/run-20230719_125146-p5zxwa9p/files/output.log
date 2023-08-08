@@ -1,0 +1,149 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [01:26<00:00,  5.51batch/s]
+Train Epoch 0 loss=0.50 acc=0.84
+  0%|          | 1/478 [00:00<00:49,  9.64batch/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [00:46<00:00, 10.22batch/s]
+Train Epoch 1 loss=0.47 acc=0.88
+Eval Epoch 1 loss=0.47 acc=0.89
+  2%|▏         | 8/478 [00:00<00:46, 10.03batch/s]
+Confussion matrix test:
+ [[4.71300000e+003 2.31000000e+002]
+ [7.02000000e+002 1.06318876e+248]]
+Iteration: 2
+Generating convolutional_block_1
+Generating convolutional_block_2
+Generating convolutional_block_3
+320
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [00:46<00:00, 10.22batch/s]
+Train Epoch 0 loss=0.51 acc=0.83
+  2%|▏         | 8/478 [00:00<00:55,  8.40batch/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [00:46<00:00, 10.23batch/s]
+Train Epoch 1 loss=0.47 acc=0.88
+Eval Epoch 1 loss=0.47 acc=0.89
+Confussion matrix test:
+ [[9.35500000e+003 5.33000000e+002]
+ [1.29900000e+003 1.06318876e+248]]
+Train Losses: [0.47131106631526387, 0.4744430256064467]
+Train Accuracies: [0.8820129987066778, 0.8779856915999542]
+Average Train Loss: 0.4728770459608553
+Average Train Accuracy: 0.879999345153316
+Validation Losses: [0.4678234120210012, 0.4667201921343803]
+Validation Accuracies: [0.8852652259332023, 0.888015717092338]
+Average Validation Loss: 0.46727180207769076
+Average Validation Accuracy: 0.8866404715127701
+Test Losses: [0.4747016261021296, 0.4707483688990275]
+Test Accuracies: [0.8778156102671556, 0.8822682032477737]
+Average Test Loss: 0.47272499750057856
+Average Test Accuracy: 0.8800419067574646
+Best model: Val acc:0.888015717092338

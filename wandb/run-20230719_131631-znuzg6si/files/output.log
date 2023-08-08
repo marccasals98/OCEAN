@@ -1,0 +1,85 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [01:34<00:00,  5.03batch/s]
+Train Epoch 0 loss=0.51 acc=0.84
+  1%|▏         | 6/478 [00:00<00:47,  9.98batch/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [00:47<00:00, 10.10batch/s]
+Train Epoch 1 loss=0.47 acc=0.88
+Traceback (most recent call last):
+  File "src/main.py", line 333, in <module>
+    my_model = train_model(config)
+  File "src/main.py", line 226, in train_model
+    loss, acc, pre, recall, f1, cm = eval_single_epoch(my_model, test_loader, config, test=True)
+  File "src/main.py", line 87, in eval_single_epoch
+    print(f"y shape: {y.shape()}")
+TypeError: 'torch.Size' object is not callable
+Eval Epoch 1 loss=0.47 acc=0.89
+........

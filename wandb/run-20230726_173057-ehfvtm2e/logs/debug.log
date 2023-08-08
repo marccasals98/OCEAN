@@ -1,0 +1,34 @@
+2023-07-26 17:30:57,316 INFO    MainThread:14210 [wandb_setup.py:_flush():76] Current SDK version is 0.15.4
+2023-07-26 17:30:57,316 INFO    MainThread:14210 [wandb_setup.py:_flush():76] Configure stats pid to 14210
+2023-07-26 17:30:57,316 INFO    MainThread:14210 [wandb_setup.py:_flush():76] Loading settings from /home/usuaris/veu/pol.cavero/.config/wandb/settings
+2023-07-26 17:30:57,316 INFO    MainThread:14210 [wandb_setup.py:_flush():76] Loading settings from /home/usuaris/veu/pol.cavero/OCEAN/wandb/settings
+2023-07-26 17:30:57,316 INFO    MainThread:14210 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-07-26 17:30:57,316 INFO    MainThread:14210 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-07-26 17:30:57,316 INFO    MainThread:14210 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'src/main.py', 'program': 'src/main.py'}
+2023-07-26 17:30:57,316 INFO    MainThread:14210 [wandb_init.py:_log_setup():507] Logging user logs to /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230726_173057-ehfvtm2e/logs/debug.log
+2023-07-26 17:30:57,316 INFO    MainThread:14210 [wandb_init.py:_log_setup():508] Logging internal logs to /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230726_173057-ehfvtm2e/logs/debug-internal.log
+2023-07-26 17:30:57,317 INFO    MainThread:14210 [wandb_init.py:init():547] calling init triggers
+2023-07-26 17:30:57,317 INFO    MainThread:14210 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {'architecture': 'SpeakerClassifier', 'lr': 0.001, 'batch_size': 128, 'epochs': 30, 'num_iterations': 10, 'num_samples_train': 0.6, 'num_samples_val': 0.2, 'num_samples_test': 0.2, 'species': ['Fin', 'Blue'], 'random_crop_secs': 5, 'random_erasing': 0, 'df_dir': '/home/usuaris/veussd/DATABASES/Ocean/dataframes_pol', 'df_path': '/home/usuaris/veussd/DATABASES/Ocean/dataframes_pol/df_23_07_24_23_48_38_1hpox7ma_fanciful-pond-68.pkl', 'img_dir': '/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_07_24_23_48_38_1hpox7ma_fanciful-pond-68', 'save_dir': '/home/usuaris/veussd/DATABASES/Ocean/checkpoints/', 'train_labels_path': '/home/usuaris/veu/pol.cavero/labels_DMHA_Voxceleb/train_labels.ndx', 'train_data_dir': '/home/usuaris/veu/pol.cavero/datasets/voxceleb_2/dev/23_04_15_16_23_42_svagf2q9_noble-water-4/', 'valid_clients_path': '/home/usuaris/veu/pol.cavero/labels_DMHA_Voxceleb/valid_clients.ndx', 'valid_impostors_path': '/home/usuaris/veu/pol.cavero/labels_DMHA_Voxceleb/valid_impostors.ndx', 'valid_data_dir': '/home/usuaris/veu/pol.cavero/datasets/voxceleb_2/dev/23_04_15_16_23_42_svagf2q9_noble-water-4/', 'model_output_folder': './models/', 'embedding_size': 400, 'front_end': 'VGGNL', 'pooling_method': 'DoubleMHA', 'pooling_heads_number': 5, 'pooling_mask_prob': 1e-06, 'n_mels': 40, 'pooling_output_size': 400, 'bottleneck_drop_out': 0.1, 'vgg_n_blocks': 3, 'vgg_channels': [16, 32, 64], 'number_speakers': 2, 'scaling_factor': 30, 'margin_factor': 0.4}
+2023-07-26 17:30:57,317 INFO    MainThread:14210 [wandb_init.py:init():596] starting backend
+2023-07-26 17:30:57,317 INFO    MainThread:14210 [wandb_init.py:init():600] setting up manager
+2023-07-26 17:30:57,319 INFO    MainThread:14210 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-07-26 17:30:57,323 INFO    MainThread:14210 [wandb_init.py:init():606] backend started and connected
+2023-07-26 17:30:57,331 INFO    MainThread:14210 [wandb_init.py:init():703] updated telemetry
+2023-07-26 17:30:57,361 INFO    MainThread:14210 [wandb_init.py:init():736] communicating run to backend with 60.0 second timeout
+2023-07-26 17:30:57,905 INFO    MainThread:14210 [wandb_run.py:_on_init():2176] communicating current version
+2023-07-26 17:30:57,981 INFO    MainThread:14210 [wandb_run.py:_on_init():2185] got version response upgrade_message: "wandb version 0.15.7 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-07-26 17:30:57,981 INFO    MainThread:14210 [wandb_init.py:init():787] starting run threads in backend
+2023-07-26 17:31:02,058 INFO    MainThread:14210 [wandb_run.py:_console_start():2155] atexit reg
+2023-07-26 17:31:02,058 INFO    MainThread:14210 [wandb_run.py:_redirect():2010] redirect: SettingsConsole.WRAP_RAW
+2023-07-26 17:31:02,059 INFO    MainThread:14210 [wandb_run.py:_redirect():2075] Wrapping output streams.
+2023-07-26 17:31:02,059 INFO    MainThread:14210 [wandb_run.py:_redirect():2100] Redirects installed.
+2023-07-26 17:31:02,060 INFO    MainThread:14210 [wandb_init.py:init():828] run started, returning control to user process
+2023-07-26 21:25:34,152 INFO    MainThread:14210 [wandb_run.py:_finish():1890] finishing run speaker_verification_datasetss/acoustic_trends/ehfvtm2e
+2023-07-26 21:25:34,153 INFO    MainThread:14210 [wandb_run.py:_atexit_cleanup():2124] got exitcode: 0
+2023-07-26 21:25:34,153 INFO    MainThread:14210 [wandb_run.py:_restore():2107] restore
+2023-07-26 21:25:34,153 INFO    MainThread:14210 [wandb_run.py:_restore():2113] restore done
+2023-07-26 21:25:42,708 INFO    MainThread:14210 [wandb_run.py:_footer_history_summary_info():3467] rendering history
+2023-07-26 21:25:42,709 INFO    MainThread:14210 [wandb_run.py:_footer_history_summary_info():3499] rendering summary
+2023-07-26 21:25:42,752 INFO    MainThread:14210 [wandb_run.py:_footer_sync_info():3426] logging synced files

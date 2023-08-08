@@ -14,8 +14,10 @@ import wandb
 from DataframeCreator import DataframeCreator
 import os
 from LeNet import LeNet5
-
 from sklearn.metrics import classification_report, accuracy_score, confusion_matrix, ConfusionMatrixDisplay
+from metrics import accuracy, Metrics
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -64,11 +66,12 @@ def train_single_epoch(model, train_loader, optimizer):
     return np.mean(losses), np.sum(accs)/len(train_loader.dataset)
 
 
-def eval_single_epoch(model, val_loader):
+def eval_single_epoch(model, val_loader, config, test=False):
     '''
     This function is made for both validation and test.
     '''
-    accs, losses = [], []
+    accs, losses, precisions, recalls, f1s = [], [], [], [], []
+    cm = np.empty([len(config['species']), len(config['species'])])
     with torch.no_grad():
         model.eval()
         for x, y in val_loader:
@@ -78,13 +81,55 @@ def eval_single_epoch(model, val_loader):
             acc = accuracy(y, y_)
             losses.append(loss.item())
             accs.append(acc) # accs.append(acc.item())
-            #pred = y_.detach().numpy()
-            #cm = confusion_matrix(y.argmax(-1), pred.argmax(-1))
-            #print('Confussion matrix eval:\n', cm) # maybe not necessary to be print every time.
-    return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
+
+            if test == True:
+                # Confussion Matrix:
+                pred = y_.cpu().detach().numpy()
+                '''print("........")
+                print(f"y shape: {y.size()}")
+                print(f"y_ shape: {y_.size()}")
+                print(f"pred shape: {pred.shape}")
+                print("y: ")
+                print(y)
+                print("pred: ")
+                print(pred)
+                print(f"y.cpu().argmax(-1): {y.cpu().argmax(-1)}")
+                print(f"pred.argmax(-1): {pred.argmax(-1)}")
+                print(f"confusion_matrix(y.cpu().argmax(-1), pred.argmax(-1)):")
+                print(confusion_matrix(y.cpu().argmax(-1), pred.argmax(-1)))
+                print("........")'''
+                cm = cm + confusion_matrix(y.cpu().argmax(-1).tolist(), pred.argmax(-1).tolist())
+                # Other metrics:
+                metric = Metrics(labels=y, outputs=y_, config=config, device=device)
+                metric.compute_metrics()
+                precisions.append(metric.precision)
+                recalls.append(metric.recall)
+                f1s.append(metric.f1)
+
+    # return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
+    if test == True:
+        return  np.mean(losses), np.sum(accs)/len(val_loader.dataset), torch.mean(torch.stack(precisions)), torch.mean(torch.stack(recalls)), torch.mean(torch.stack(f1s)), cm
+    else:
+        return  np.mean(losses), np.sum(accs)/len(val_loader.dataset)
+
+def plot_confusion_matrix(cm, classes, save_path=None):
+    plt.figure(figsize=(8, 6))
+    # Check if the values in cm are of type float
+    is_float_cm = any(isinstance(val, float) for row in cm for val in row)
+    fmt = '.0f' if is_float_cm else 'd'  # Use '.0f' for float values, 'd' for integer values
+    sns.heatmap(cm, annot=True, fmt=fmt, cmap='Blues', xticklabels=classes, yticklabels=classes)
+    plt.xlabel('Predicted Labels')
+    plt.ylabel('True Labels')
+    plt.title('Confusion Matrix')
+    if save_path:
+        plt.savefig(save_path)
+    else:
+        plt.show()
 
 def data_loaders(config):
-    data_transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize(0.5, 0.5)])
+    data_transforms = transforms.Compose([transforms.ToTensor(),
+                                        transforms.Normalize(0.5, 0.5),
+                                        transforms.RandomErasing(p=config["random_erasing"]),])
     total_data = BlueFinLib(pickle_path = config['df_path'], 
                             img_dir = config['img_dir'], 
                             config = config,
@@ -120,8 +165,9 @@ def log_image_table(images, predicted, labels, probs):
 
 def wandb_init(config):
     wandb.init(project="acoustic_trends", config=config)
-    wandb.run.name = f"{config['architecture']}_lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}"
-    wandb.run.save()
+    model_name = f"{config['architecture']}_lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}_random_crop_secs{config['random_crop_secs']}_random_erasing{config['random_erasing']}"
+    wandb.run.name = model_name
+    wandb.run.save(f"{model_name}.h5")
 
 def select_model(config):
     if config['architecture'] == "ResNet50":
@@ -136,12 +182,12 @@ def select_model(config):
 
 def train_model(config):
 
-    model_name = f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}"
+    model_name = f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}_random_crop_secs{config['random_crop_secs']}_random_erasing{config['random_erasing']}"
     print("=" * 60)
     print('Running model:', model_name)
     print("=" * 60)
 
-    train_loader, val_loader, test_loader = data_loaders(config)
+    #train_loader, val_loader, test_loader = data_loaders(config)
 
     #nou. 
     #best_metric = float('-inf')
@@ -157,13 +203,16 @@ def train_model(config):
     best_val_acc = float('-inf')
     best_model_state = None
 
+    wandb_init(config)
+
     #nou. Iterations
     for iteration in range(config["num_iterations"]):
         print(f"Iteration: {iteration+1}")
-
+        
+        train_loader, val_loader, test_loader = data_loaders(config)
         my_model = select_model(config)
         optimizer = optim.Adam(my_model.parameters(), config["lr"])
-        wandb_init(config)
+
         # best_metric = float('-inf') nou. descomentar ...
         #best_params = None nou. descomentar per ser com abans
 
@@ -171,7 +220,7 @@ def train_model(config):
         for epoch in range(config["epochs"]):
             train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
             print(f"Train Epoch {epoch} loss={train_loss:.2f} acc={train_acc:.2f}")
-            val_loss, val_acc = eval_single_epoch(my_model, val_loader)
+            val_loss, val_acc = eval_single_epoch(my_model, val_loader, config)
             print(f"Eval Epoch {epoch} loss={val_loss:.2f} acc={val_acc:.2f}")
             train_metrics = {"train/train_loss":train_loss,
                             "train/train_acc":train_acc,
@@ -192,11 +241,22 @@ def train_model(config):
                 # wandb.log(train_metrics, step=epoch+1)
 
         # TEST
-        loss, acc = eval_single_epoch(my_model, test_loader)
-        print(f"Test loss={loss:.2f} acc={acc:.2f}")
+        my_model.load_state_dict(best_model_state) # load the best params of the validation.
+        loss, acc, pre, recall, f1, cm = eval_single_epoch(my_model, test_loader, config, test=True)
 
-        wandb.log({"test/test_loss":loss,
-                    "test/test_acc":acc})
+        print(f"Test acc: {acc}")
+        print(f"Test loss: {loss}")
+        print(f"P: {pre}, R: {recall}, F1: {f1}")
+        print('Confussion matrix test:\n', cm)
+        class_labels = ['Blue', 'Fin']  # Replace with your actual class labels
+        plot_confusion_matrix(cm, class_labels, save_path=f'confusion_matrix{iteration}.png') # Using the plot_confusion_matrix function to create the heatmap
+        # loading metrics in wandb
+        wandb.log({"test/test_loss":loss, 
+                    "test/test_acc":acc,
+                    "test/test_precision":pre,
+                    "test/test_recall":recall,
+                    "test/test_f1":f1})
+        # print(f"The best epoch is epoch {best_epoch+1}")
 
         # nou. Store results for comparison
         train_losses.append(train_loss)
@@ -240,7 +300,7 @@ if __name__ == "__main__":
         "num_samples_test": 0.1,
         "species": ['Fin', 'Blue'],
         "random_crop_secs": 5, 
-        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes",
+        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes_pol",
         "df_path": "",
         "img_dir" : "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57",
         "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/"
@@ -251,13 +311,15 @@ if __name__ == "__main__":
         "architecture": "SpeakerClassifier", #canviat de ResNet50
         "lr": 1e-3,
         "batch_size": 128, # Marc tenia 60
-        "epochs": 2,
+        "epochs": 25,
+        "num_iterations": 2, # crossvalidation, posat per mi
         "num_samples_train": 0.8,
         "num_samples_val": 0.1,
         "num_samples_test": 0.1,
         "species": ['Fin', 'Blue'],
         "random_crop_secs": 5,
-        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes",
+        "random_erasing": 0,
+        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes_pol",
         "df_path": "",
         "img_dir" : "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57",
         "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/",
@@ -286,8 +348,6 @@ if __name__ == "__main__":
         "scaling_factor": 30, # M'ho he inventat perque no doni error
         "margin_factor": 0.4,
         
-        # crossvalidation
-        "num_iterations": 4, # posat per mi
 
     }
 

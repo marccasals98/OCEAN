@@ -1,0 +1,173 @@
+wandb: Currently logged in as: polcaverocarreras (speaker_verification_datasetss). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.8 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.4
+wandb: Run data is saved locally in /home/usuaris/veu/pol.cavero/OCEAN/wandb/run-20230803_141502-qospyw3v
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run exalted-firebrand-141
+wandb: ⭐️ View project at https://wandb.ai/speaker_verification_datasetss/acoustic_trends
+wandb: 🚀 View run at https://wandb.ai/speaker_verification_datasetss/acoustic_trends/runs/qospyw3v
+cuda
+============================================================
+Running model: SpeakerClassifier_lr0.001_bs128_epochs25_random_crop_secs5_random_erasing0
+============================================================
+Iteration: 1
+length dataset: 76354
+Generating convolutional_block_1
+Generating convolutional_block_2
+Generating convolutional_block_3
+320
+5
+  0%|          | 0/358 [00:00<?, ?batch/s]  0%|          | 0/358 [00:00<?, ?batch/s]
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140502-080000-AWI251-01-AU0231-250Hz_Fin_Bp-20Plus_20140502_66177_67427_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130319-230000-AWI251-01-AU0231-250Hz_Fin_Bp-20Hz_20130319_37756_39006_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-10-22-04-00-00_Blue_Bm-Ant-B_20141022_3293256_3300250_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140508-210000-AWI251-01-AU0231-250Hz_Fin_Bp-20Plus_20140508_24822_26072_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20141217-050000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20141217_43423_45473_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130216-110000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20130216_43672_45419_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140716-130000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140716_51667_53014_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2017_20170902-080000_Blue_Bm-Ant-A_20170902_899773_907620_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-09-23-00-00-00_Blue_Bm-Ant-A_20140923_3152135_3158761_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-03-26-12-00-00_Blue_Bm-Ant-A_20140326_3533900_3541538_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130315-090000-AWI251-01-AU0231-250Hz_Fin_Bp-20Hz_20130315_5023_6273_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-05-18-19-00-00_Fin_Bp-20Plus_20140518_3474593_3479593_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140421-130000-AWI251-01-AU0231-250Hz_Fin_Bp-Downsweep_20140421_51471_52721_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-06-25-18-00-00_Blue_Bm-Ant-A_20140625_375771_383593_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140906-200000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140906_23693_25562_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-01-30-18-00-00_Blue_Bm-Ant-A_20140130_3317165_3324067_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-05-31-05-00-00_Blue_Bm-Ant-B_20140531_68503_76141_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130212-020000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20130212_19684_20934_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20150422-020000_Fin_Bp-20Plus_20150422_2128054_2133054_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130215-160000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20130215_41649_42899_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130217-190000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20130217_37119_39387_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-03-11-22-00-00_Blue_Bm-Ant-A_20140311_76006_81896_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/MaudRise2014_20140609-150000-136A0375-10_Blue_Bm-Ant-A_20140609_384442_400531_2048Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140410-210000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140410_30452_32136_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140526-080000-AWI251-01-AU0231-250Hz_Fin_Bp-20Plus_20140526_50198_51448_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-04-19-14-00-00_Blue_Bm-Ant-Z_20140419_2103248_2115948_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140225-040000-AWI251-01-AU0231-250Hz_Fin_Bp-Downsweep_20140225_19546_20796_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130213-130000-AWI251-01-AU0231-250Hz_Fin_Bp-20Hz_20130213_57464_58714_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20150617-140000_Blue_Bm-Ant-A_20150617_2644922_2651554_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/Greenwich64S2015_20150404-190422_Blue_Bm-Ant-A_20150404-190422.wav_128915_130406_253Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20150502-160000_Fin_Bp-20Plus_20150502_1804759_1809759_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-04-12-07-00-00_Blue_Bm-Ant-A_20140412_3280359_3287997_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130316-100000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-B_20130316_26593_28140_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140523-000000-AWI251-01-AU0231-250Hz_Fin_Bp-20Hz_20140523_8651_9901_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-04-21-01-00-00_Blue_Bm-Ant-Z_20140421_326061_348606_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140505-040000-AWI251-01-AU0231-250Hz_Fin_Bp-Downsweep_20140505_50946_52196_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-06-08-01-00-00_Fin_Bp-20Hz_20140608_2464453_2469453_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-08-19-12-00-00_Blue_Bm-Ant-A_20140819_1143541_1148541_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-08-03-10-00-00_Blue_Bm-Ant-A_20140803_2713542_2721364_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130302-220000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20130302_5412_6732_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20141018-020000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20141018_13760_16266_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20150314-050000_Blue_Bm-Ant-A_20150314_3207832_3214464_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-05-31-18-00-00_Fin_Bp-20Plus_20140531_2696347_2701347_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20150224-140000_Blue_Bm-Ant-A_20150224_3466799_3474782_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2005_20050506-210000_Fin_Bp-20Hz_20050506_329931_332431_500Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20150307-040000_Blue_Bm-Ant-B_20150307_3327953_3333849_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-03-25-01-00-00_Fin_Bp-20Hz_20140325_715394_720394_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140308-200000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140308_30198_32656_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-07-25-12-00-00_Blue_Bm-Ant-Z_20140725_1159368_1168018_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2017_20170510-090000_Blue_Bm-Ant-B_20170510_1569302_1578457_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140417-190000-AWI251-01-AU0231-250Hz_Fin_Bp-20Hz_20140417_63880_65130_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130214-050000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20130214_69645_71580_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2005_20050828-150000_Blue_Bm-Ant-Z_20050828_861703_867812_500Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140930-100000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20140930_1236_2486_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/BallenyIslands2015_20150419-060000_Fin_Bp-HigherCall_20150419_2314240_2319240_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-02-28-23-00-00_Blue_Bm-Ant-A_20140228_1459991_1465604_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-05-27-13-00-00_Blue_Bm-Ant-A_20140527_1064896_1070878_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-07-25-12-00-00_Blue_Bm-Ant-A_20140725_3381805_3392479_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2005_20050506-210000_Fin_Bp-20Hz_20050506_566998_569498_500Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140430-200000-AWI251-01-AU0231-250Hz_Fin_Bp-20Plus_20140430_55465_56715_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130323-180000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20130323_13815_15065_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20150331-210000_Blue_Bm-Ant-A_20150331_208635_217970_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2017_20170307-170000_Blue_Bm-Ant-B_20170307_1932520_1941309_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130223-190000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-Z_20130223_26736_31712_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20150409-170000_Blue_Bm-D_20150409_1821130_1826130_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20150317-180000_Blue_Bm-Ant-A_20150317_1616622_1621622_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-11-04-17-00-00_Blue_Bm-Ant-A_20141104_2319944_2325373_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140219-080000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140219_32822_34442_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-06-08-01-00-00_Fin_Bp-20Plus_20140608_1803891_1808891_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-03-25-01-00-00_Fin_Bp-20Plus_20140325_2537438_2542438_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-02-18-00-00-00_Blue_Bm-Ant-A_20140218_3139099_3148486_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130320-050000-AWI251-01-AU0231-250Hz_Fin_Bp-20Hz_20130320_14195_15445_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/Greenwich64S2015_20151223-230334_Blue_Bm-Ant-A_20151223-230334.wav_141576_143134_253Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140104-120000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140104_14572_16610_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2017_20170207-100000_Blue_Bm-D_20170207_1600945_1605945_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/BallenyIslands2015_20150323-180000_Fin_Bp-Downsweep_20150323_151503_156503_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20141008-060000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20141008_50987_52536_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130225-220000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20130225_46791_48041_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140222-000000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140222_44689_46275_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130323-200000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20130323_42945_44195_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/MaudRise2014_20140119-230000-136A0038-04_Blue_Bm-Ant-A_20140119_1715289_1725529_2048Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20150301-210000_Blue_Bm-Ant-A_20150301_2610170_2619137_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140325-190000-AWI251-01-AU0231-250Hz_Fin_Bp-20Hz_20140325_31097_32347_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20141015-030000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20141015_21598_23648_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140417-000000-AWI251-01-AU0231-250Hz_Fin_Bp-20Plus_20140417_61529_62779_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-07-15-15-00-00_Blue_Bm-Ant-B_20140715_2345012_2355871_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-05-04-04-00-00_Fin_Bp-20Plus_20140504_2947741_2952741_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/MaudRise2014_20140319-110000-136A0178-08_Blue_Bm-Ant-A_20140319_233172_253047_2048Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2017_20170510-090000_Fin_Bp-20Plus_20170510_3266246_3271246_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-07-21-07-00-00_Blue_Bm-Ant-B_20140721_2046461_2055847_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130402-090000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20130402_72061_73311_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130703-190000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20130703_10214_12048_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130216-070000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20130216_66174_67424_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20141005-010000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20141005_18636_20641_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130217-130000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20130217_51656_53322_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20141217-090000-AWI251-01-AU0231-250Hz_Fin_Bp-Downsweep_20141217_24688_25938_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140619-190000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140619_52436_54120_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-05-29-17-00-00_Blue_Bm-Ant-B_20140529_2426636_2433722_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130124-140000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20130124_39007_40257_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-04-13-18-00-00_Blue_Bm-Ant-B_20140413_3549325_3564785_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130402-010000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20130402_44745_45995_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20150323-010000_Fin_Bp-20Plus_20150323_1628755_1633755_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140810-180000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140810_12269_14145_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/BallenyIslands2015_20150322-000000_Fin_Bp-HigherCall_20150322_1281497_1286497_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20141015-100000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20141015_49383_50633_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140529-120000-AWI251-01-AU0231-250Hz_Fin_Bp-20Plus_20140529_56700_57950_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140810-080000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140810_61288_63550_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/BallenyIslands2015_20150403-090000_Fin_Bp-20Hz_20150403_1272275_1277275_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2015_20151114-160000_Blue_Bm-Ant-A_20151114_678683_686913_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140611-120000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140611_42671_43922_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140508-060000-AWI251-01-AU0231-250Hz_Fin_Bp-20Hz_20140508_15681_16931_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130703-210000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20130703_53595_55666_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/MaudRise2014_20140712-000000-136A0453-07_Blue_Bm-Ant-A_20140712_1058826_1089269_2048Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-04-07-00-00-00_Fin_Bp-Downsweep_20140407_1133500_1138500_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/BallenyIslands2015_20151018-010000_Blue_Bm-Ant-A_20151018_1742504_1750126_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130317-230000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20130317_44502_45752_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-08-05-11-00-00_Blue_Bm-Ant-A_20140805_988044_995406_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2014_201-2014-06-08-01-00-00_Fin_Bp-20Hz_20140608_2009643_2014643_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/casey2014_200-2014-02-16-00-00-00_Blue_Bm-Ant-B_20140216_2091091_2099557_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130323-110000-AWI251-01-AU0231-250Hz_Fin_Bp-20Hz_20130323_6213_7463_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140417-200000-AWI251-01-AU0231-250Hz_Fin_Bp-20Plus_20140417_11527_12777_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130207-170000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20130207_2009_3515_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2013Aural_20130217-060000-AWI251-01-AU0231-250Hz_Blue_Bm-D_20130217_10135_11385_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140202-180000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20140202_14387_16981_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20140421-150000-AWI251-01-AU0231-250Hz_Fin_Bp-20Hz_20140421_634_1884_250Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/BallenyIslands2015_20150501-140000_Blue_Bm-Ant-A_20150501_456475_467907_1000Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/kerguelen2005_20050424-000000_Fin_Bp-Downsweep_20050424_113466_115966_500Hz.pickle not found.
+File home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/ElephantIsland2014_20141012-000000-AWI251-01-AU0231-250Hz_Blue_Bm-Ant-A_20141012_28933_31485_250Hz.pickle not found.
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run exalted-firebrand-141 at: https://wandb.ai/speaker_verification_datasetss/acoustic_trends/runs/qospyw3v
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230803_141502-qospyw3v/logs
+Traceback (most recent call last):
+  File "src/main.py", line 357, in <module>
+    my_model = train_model(config)
+  File "src/main.py", line 221, in train_model
+    train_loss, train_acc = train_single_epoch(my_model, train_loader, optimizer)
+  File "src/main.py", line 51, in train_single_epoch
+    for x, y in tqdm(train_loader, unit="batch", total=len(train_loader)):
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/tqdm/std.py", line 1178, in __iter__
+    for obj in iterable:
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    return self.collate_fn(data)
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/utils/data/_utils/collate.py", line 265, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+  File "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/lib/python3.8/site-packages/torch/utils/data/_utils/collate.py", line 150, in collate
+    raise TypeError(default_collate_err_msg_format.format(elem_type))
+TypeError: default_collate: batch must contain tensors, numpy arrays, numbers, dicts or lists; found <class 'NoneType'>

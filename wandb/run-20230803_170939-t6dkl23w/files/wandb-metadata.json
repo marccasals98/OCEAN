@@ -1,0 +1,265 @@
+{
+    "os": "Linux-4.15.0-162-generic-x86_64-with-glibc2.17",
+    "python": "3.8.16",
+    "heartbeatAt": "2023-08-03T15:09:40.181444",
+    "startedAt": "2023-08-03T15:09:39.415183",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "src/main.py",
+    "codePath": "src/main.py",
+    "git": {
+        "remote": "https://github.com/marccasals98/OCEAN.git",
+        "commit": "6738854ac8957a775a2f02de2ba20c596f01966a"
+    },
+    "email": null,
+    "root": "/home/usuaris/veu/pol.cavero/OCEAN",
+    "host": "veuc11",
+    "username": "pol.cavero",
+    "executable": "/home/usuaris/veu/pol.cavero/miniconda3/envs/ocean/bin/python",
+    "cpu_count": 20,
+    "cpu_count_logical": 40,
+    "cpu_freq": {
+        "current": 1130.8728999999998,
+        "min": 1000.0,
+        "max": 2201.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1300.449,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1001.158,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.251,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1001.085,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.648,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.723,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.899,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.534,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 999.859,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.234,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1001.137,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.949,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.285,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 2848.133,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.122,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.408,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 999.989,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 999.985,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.334,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.301,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1388.854,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.156,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1001.057,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.08,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.446,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.895,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.831,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.896,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.084,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.703,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.058,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.689,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 999.626,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 2801.597,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.099,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.528,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.685,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 999.935,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.443,
+            "min": 1000.0,
+            "max": 2201.0
+        },
+        {
+            "current": 1000.551,
+            "min": 1000.0,
+            "max": 2201.0
+        }
+    ],
+    "disk": {
+        "total": 17.288352966308594,
+        "used": 14.838233947753906
+    },
+    "gpu": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_count": 6,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11554717696
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11554717696
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11554717696
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11554717696
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11554717696
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11554717696
+        }
+    ],
+    "memory": {
+        "total": 376.5842399597168
+    }
+}

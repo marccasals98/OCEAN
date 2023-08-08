@@ -1,0 +1,93 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [01:53<00:00,  4.22batch/s]
+Train Epoch 0 loss=0.50 acc=0.84
+  2%|▏         | 10/478 [00:01<00:46, 10.01batch/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 99%|█████████▉| 474/478 [00:47<00:00, 10.15batch/s]
+
+100%|██████████| 478/478 [00:47<00:00, 10.06batch/s]
+Eval Epoch 1 loss=0.47 acc=0.89
+Traceback (most recent call last):
+  File "src/main.py", line 320, in <module>
+    my_model = train_model(config)
+  File "src/main.py", line 222, in train_model
+    print(f"The best epoch is epoch {best_epoch+1}")
+NameError: name 'best_epoch' is not defined
+Confussion matrix test:
+ [[4.64500000e+003 2.27000000e+002]
+ [6.98000000e+002 1.06318876e+248]]

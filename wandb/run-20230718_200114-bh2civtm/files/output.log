@@ -1,0 +1,101 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [02:18<00:00,  3.46batch/s]
+Train Epoch 0 loss=0.50 acc=0.84
+Eval Epoch 0 loss=0.47 acc=0.88
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [00:46<00:00, 10.19batch/s]
+Train Epoch 1 loss=0.47 acc=0.88
+Eval Epoch 1 loss=0.47 acc=0.88
+Traceback (most recent call last):
+  File "src/main.py", line 320, in <module>
+    my_model = train_model(config)
+  File "src/main.py", line 212, in train_model
+    my_model.load_state_dict(best_params) # load the best params of the validation.
+NameError: name 'best_params' is not defined

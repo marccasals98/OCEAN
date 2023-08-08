@@ -1,0 +1,279 @@
+wandb: WARNING Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████▉| 477/478 [01:55<00:00,  2.97batch/s]
+
+100%|██████████| 478/478 [01:55<00:00,  4.13batch/s]
+Eval Epoch 0 loss=0.49 acc=0.86
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 98%|█████████▊| 467/478 [00:45<00:01, 10.25batch/s]
+
+100%|██████████| 478/478 [00:46<00:00, 10.19batch/s]
+Eval Epoch 1 loss=0.47 acc=0.88
+Test loss=0.47 acc=0.88
+Iteration: 2
+Generating convolutional_block_1
+Generating convolutional_block_2
+Generating convolutional_block_3
+320
+5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 99%|█████████▉| 475/478 [00:46<00:00,  9.68batch/s]
+
+100%|██████████| 478/478 [00:47<00:00, 10.15batch/s]
+  1%|          | 3/478 [00:00<00:46, 10.13batch/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [00:46<00:00, 10.36batch/s]
+Train Epoch 1 loss=0.47 acc=0.88
+Eval Epoch 1 loss=0.47 acc=0.89
+Test loss=0.47 acc=0.89
+Iteration: 3
+Generating convolutional_block_1
+Generating convolutional_block_2
+Generating convolutional_block_3
+320
+5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 98%|█████████▊| 469/478 [00:45<00:00, 10.20batch/s]
+
+100%|██████████| 478/478 [00:46<00:00, 10.24batch/s]
+Eval Epoch 0 loss=0.48 acc=0.88
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 97%|█████████▋| 462/478 [00:45<00:01,  9.62batch/s]
+
+100%|██████████| 478/478 [00:46<00:00, 10.17batch/s]
+Eval Epoch 1 loss=0.47 acc=0.88
+Test loss=0.47 acc=0.88
+Iteration: 4
+Generating convolutional_block_1
+Generating convolutional_block_2
+Generating convolutional_block_3
+320
+5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 99%|█████████▉| 475/478 [00:47<00:00, 10.58batch/s]
+
+100%|██████████| 478/478 [00:47<00:00, 10.05batch/s]
+  1%|          | 3/478 [00:00<00:46, 10.27batch/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████▉| 476/478 [00:46<00:00, 10.32batch/s]
+
+100%|██████████| 478/478 [00:46<00:00, 10.25batch/s]
+Eval Epoch 1 loss=0.47 acc=0.88
+Test loss=0.48 acc=0.88
+Train Losses: [0.4762944107150433, 0.473461968691778, 0.4755106051471942, 0.47435604135611065]
+Train Accuracies: [0.8750716238560647, 0.8795409524745019, 0.876675998231914, 0.8777564952605471]
+Average Train Loss: 0.4749057564775315
+Average Train Accuracy: 0.8772612674557569
+Validation Losses: [0.46930352846781415, 0.4680272196729978, 0.4715735470255216, 0.4743258997797966]
+Validation Accuracies: [0.8838244924688933, 0.8855271774721677, 0.8835625409299279, 0.8784544859201048]
+Average Validation Loss: 0.4708075487365325
+Average Validation Accuracy: 0.8828421741977734
+Test Losses: [0.46947688808043797, 0.46800752729177475, 0.4743832985560099, 0.47501104523738225]
+Test Accuracies: [0.8846254583551598, 0.8867207962283918, 0.8774227344159246, 0.8770298585646935]
+Average Test Loss: 0.4717196897914012
+Average Test Accuracy: 0.8814497118910424
+Best model: Val acc:0.8855271774721677

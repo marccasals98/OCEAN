@@ -1,0 +1,80 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [01:23<00:00,  5.73batch/s]
+Train Epoch 0 loss=0.51 acc=0.84
+  0%|          | 0/478 [00:00<?, ?batch/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 478/478 [00:46<00:00, 10.18batch/s]
+Train Epoch 1 loss=0.47 acc=0.88
+Eval Epoch 1 loss=0.51 acc=0.83
+........
+y shape: torch.Size([128, 2])
+Traceback (most recent call last):
+  File "src/main.py", line 332, in <module>
+    my_model = train_model(config)
+  File "src/main.py", line 225, in train_model
+    loss, acc, pre, recall, f1, cm = eval_single_epoch(my_model, test_loader, config, test=True)
+  File "src/main.py", line 88, in eval_single_epoch
+    print(f"pred shape: {pred.size()}")
+TypeError: 'int' object is not callable
