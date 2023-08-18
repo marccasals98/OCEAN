@@ -38,7 +38,7 @@ def main(params):
             cleaned_sig = ss.reduce_noise(resampled_sig, resampled_sig, winsize=window_samples, add_noisy_phase=True)
         else:
             cleaned_sig = raw_sig
-        wavfile.write(os.path.join(output_path, filename), sample_rate, cleaned_sig)
+        wavfile.write(os.path.join(output_path, 'Spectral_Subtraction_' +filename), sample_rate, cleaned_sig)
     
 
 if __name__=="__main__":
