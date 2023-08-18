@@ -4,10 +4,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 
 # Define directories and proportions
-source_directory = '/home/usuaris/veussd/DATABASES/Ocean/DATASETS/Original_20230802/data'
-train_directory = '/home/usuaris/veussd/DATABASES/Ocean/DATASETS/Original_20230802_Train/data'
-valid_directory = '/home/usuaris/veussd/DATABASES/Ocean/DATASETS/Original_20230802_Valid/data'
-test_directory = '/home/usuaris/veussd/DATABASES/Ocean/DATASETS/Original_20230802_Test/data'
+source_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TOTAL/23_07_13_17_50_34_3nq1ezr9_twilight-wood-64'
+train_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TRAIN'
+valid_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/VALID'
+test_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TEST'
 
 # Create directories
 os.makedirs(train_directory, exist_ok=True)
@@ -22,6 +22,7 @@ all_files = shuffle(all_files)
 class_labels = [file_name.split('_')[2] for file_name in all_files]
 
 # Perform stratified split
+# We need to fix the random state to do exactly the same partition with Spectral Subtraction.
 train_files, test_files, _, _ = train_test_split(all_files, class_labels, test_size=0.2, stratify=class_labels, random_state=42)
 train_files, valid_files, _, _ = train_test_split(train_files, [file_name.split('_')[0] for file_name in train_files], test_size=0.25, stratify=[file_name.split('_')[0] for file_name in train_files], random_state=42)
 
