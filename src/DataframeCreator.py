@@ -3,6 +3,28 @@ import os
 from tqdm import tqdm
 
 class DataframeCreator:
+    '''
+    This class creates a dataframe from the files in a directory.
+    The dataframe will have the following columns:
+
+    Attributes:
+    -----------
+    input_path: string
+        path to the directory where the files are stored.
+    output_path: string
+        path to the directory where the dataframe will be stored.
+    df_name: string
+        name of the dataframe.
+
+    Methods:
+    --------
+    species2int(species)
+        Returns the int that corresponds to the entered species
+    create_df()
+        Creates the dataframe and stores it in the output_path directory.
+    get_df_path()
+        Returns the path to the dataframe.
+    '''
 
     def __init__(self, input_path, output_path):
         self.input_path = input_path
@@ -12,7 +34,7 @@ class DataframeCreator:
 
     def species2int(self, species):
         '''
-        Retutrns the int that corresponds to the entered species:
+        Returns the int that corresponds to the entered species:
         Blue: 0
         Fin: 1
         Unidentified: 2
