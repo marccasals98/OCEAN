@@ -71,18 +71,24 @@ def data_loaders(config):
     data_transforms = transforms.Compose([transforms.ToTensor(),
                                         transforms.Normalize(0.5, 0.5),
                                         transforms.RandomErasing(p=config["random_erasing"]),])
-    total_data = BlueFinLib(pickle_path = config['df_path'], 
-                            img_dir = config['img_dir'], 
+
+
+    train_data = BlueFinLib(pickle_path = config['df_path_train'], 
+                            img_dir = config['train_specs'], 
                             config = config,
                             transform=data_transforms)
-    train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(total_data,
-                                                                              [config['num_samples_train'],
-                                                                                config['num_samples_val'],
-                                                                                config['num_samples_test']])
-    # TODO: Implement data augmentation.
-    train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=config["batch_size"])
-    test_loader = DataLoader(test_dataset, batch_size=config["batch_size"])
+    val_data = BlueFinLib(pickle_path = config['df_path_val'], 
+                            img_dir = config['val_specs'], 
+                            config = config,
+                            transform=data_transforms)
+    test_data = BlueFinLib(pickle_path = config['df_path_test'],
+                            img_dir = config['test_specs'], 
+                            config = config,
+                            transform=data_transforms)
+
+    train_loader = DataLoader(train_data, batch_size=config["batch_size"], shuffle=True)
+    val_loader = DataLoader(val_data, batch_size=config["batch_size"])
+    test_loader = DataLoader(test_data, batch_size=config["batch_size"])
 
     return train_loader, val_loader, test_loader
 
@@ -166,25 +172,36 @@ def train_model(config):
 
 
 if __name__ == "__main__":
-    # TODO: wandb.run.save without any arguments is deprecated. 
+    
     config = {
+        
+        # MODEL CONFIG:
         "architecture": "LeNet5",
         "lr": 1e-3,
         "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
-        "epochs": 20,
-        "num_samples_train": 0.6,
-        "num_samples_val": 0.2,
-        "num_samples_test": 0.2,
+        "epochs": 1,
+
+        # RUN CONFIG:
         "species": ['Fin', 'Blue'],
         "random_crop_secs": 5, # number of seconds that has the spectrogram.
         "random_erasing": 0, # probability that the random erasing operation will be performed.
+        
+        # PATHS:
         "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes", # where the pickle dataframe is stored.
-        "df_path": "",
-        "img_dir" : "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57", # directory of the spectrograms.
-        "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/" # where we save the model checkpoints.
+        "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/", # where we save the model checkpoints.
+        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TRAIN",
+        "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/VALID",
+        "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TEST"
     }
+    
+    # Create the different pandas dataframes.
+    df_creator_train = DataframeCreator(config['train_specs'], config['df_dir'])
+    config["df_path_train"] = df_creator_train.get_df_path()
 
-    df_creator = DataframeCreator(config['img_dir'], config['df_dir'])
-    config["df_path"] = df_creator.get_df_path()
+    df_creator_val = DataframeCreator(config['val_specs'], config['df_dir'])
+    config["df_path_val"] = df_creator_val.get_df_path()
+
+    df_creator_test = DataframeCreator(config['test_specs'], config['df_dir'])
+    config["df_path_test"] = df_creator_test.get_df_path()
 
     my_model = train_model(config)
