@@ -16,6 +16,7 @@ There are other additional files that take action in more personalized tasks:
 * ```split.py```: This script is run to make the data partition.
 * ```stats.py```: This file is responsible to take some statistics of the dataset.
 
+
 ## Git procedure
 
 The branch ```main``` is the latest stable version of the project. The branch ```develop``` is the previous step, which tries to encompass all changes made independently from all branches.
