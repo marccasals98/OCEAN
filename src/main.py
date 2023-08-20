@@ -200,4 +200,4 @@ if __name__ == "__main__":
     df_creator_test = DataframeCreator(config['test_specs'], config['df_dir'])
     config["df_path_test"] = df_creator_test.get_df_path()
 
-    #my_model = train_model(config)
+    my_model = train_model(config)
