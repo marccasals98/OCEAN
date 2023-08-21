@@ -125,6 +125,9 @@ class BlueFinLib(Dataset):
                                 self.df['end_sample'][index]+'_'+
                                 self.df['sampling_rate'][index]+'Hz'+'.pickle'
                                 )
+        if self.df["SS"][index] == True:
+                img_path = img_path.replace('.pickle', '_SS.pickle')
+
         label = self.df['num_species'][index]
         one_hot = F.one_hot(torch.tensor(label), self.num_classes).float()
         try:

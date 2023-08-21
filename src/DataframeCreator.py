@@ -58,10 +58,21 @@ class DataframeCreator:
             return 4
         else:
             return 5
-        
+    
+    @staticmethod
+    def check_filename(filename):
+        # Extract the base filename without extension
+        base_filename = os.path.splitext(filename)[0]
+
+        # Check if the last two characters of the base filename are "SS"
+        if base_filename[-2:] == "SS":
+            return True
+        else:
+            return False
+    
     def create_df(self):
 
-        cols = ['subdataset', 'wav_name','species', 'num_species', 'vocalization', 'date', 'begin_sample', 'end_sample', 'sampling_rate']
+        cols = ['subdataset', 'wav_name','species', 'num_species', 'vocalization', 'date', 'begin_sample', 'end_sample', 'sampling_rate', 'SS']
         df = pd.DataFrame(columns=cols)
 
         print(f'Creating {self.df_name}')
@@ -75,7 +86,9 @@ class DataframeCreator:
             begin_sample = f.split('_')[5]
             end_sample = f.split('_')[6]
             sample_rate = f.split('_')[7].split('H')[0]
-            row = [subdirectory, wav_name, species, self.species2int(species), vocalization, date, begin_sample, end_sample, sample_rate]
+            SS = DataframeCreator.check_filename(f)
+            
+            row = [subdirectory, wav_name, species, self.species2int(species), vocalization, date, begin_sample, end_sample, sample_rate, SS]
             df.loc[len(df)] = row
         
         df_path = os.path.join(self.output_path, self.df_name)
