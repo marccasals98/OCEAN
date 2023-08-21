@@ -176,7 +176,7 @@ if __name__ == "__main__":
     config = {
         
         # MODEL CONFIG:
-        "architecture": "LeNet5",
+        "architecture": "ResNet50",
         "lr": 1e-3,
         "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
         "epochs": 25,
