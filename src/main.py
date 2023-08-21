@@ -189,7 +189,7 @@ if __name__ == "__main__":
         # PATHS:
         "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes", # where the pickle dataframe is stored.
         "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/", # where we save the model checkpoints.
-        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TRAIN",
+        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/DATA_AUG/TRAIN",
         "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/VALID",
         "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TEST"
     }
