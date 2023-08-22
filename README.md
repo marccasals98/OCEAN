@@ -31,7 +31,7 @@ python src/main.py
 ```
 srun -A veu -p veu --mem=16G -c 2 --gres=gpu:4 python src/main.py
 ```
-
+To use this code, it is needed the ```.wav``` files in three different folders: ```train``` ```valid``` and ```test```. The code will automatically create a pandas dataframe for every dataset. If it is needed to change the data once we have already trained, for example for using data with spectral subtraction, it will be required to delete the previous dataframes. 
 ### Enhancing operator awareness in navigation
 The OCEAN project is focused on enhancing operator awareness in navigation, to reduce the frequency of severe accidents like collision and grounding, to mitigate ship-strike risks to marine mammals, and to mitigate the risk presented by floating obstacles to ships.
 
