@@ -13,6 +13,8 @@ from DataframeCreator import DataframeCreator
 import os
 from LeNet import LeNet5
 from metrics import accuracy, Metrics, plot_confusion_matrix
+import torchaudio.transforms as T
+
 
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -68,15 +70,24 @@ def eval_single_epoch(model, val_loader, config, test=False):
             
 
 def data_loaders(config):
-    data_transforms = transforms.Compose([transforms.ToTensor(),
+    
+    # define the transformations
+    train_transforms = transforms.Compose([transforms.ToTensor(),
                                         transforms.Normalize(0.5, 0.5),
-                                        transforms.RandomErasing(p=config["random_erasing"]),])
-
-
+                                        transforms.RandomErasing(p=config["random_erasing"]),
+                                        transforms.RandomApply(torch.nn.ModuleList([
+                                            T.TimeMasking(time_mask_param=config["time_mask_param"]),
+                                            T.FrequencyMasking(freq_mask_param=config["freq_mask_param"])]), p=config["spec_aug_prob"]),
+                                        ])
+    
+    data_transforms = transforms.Compose([transforms.ToTensor(),
+                                        transforms.Normalize(0.5, 0.5),])
+    
+    # create the data with these transformations:
     train_data = BlueFinLib(pickle_path = config['df_path_train'], 
                             img_dir = config['train_specs'], 
                             config = config,
-                            transform=data_transforms)
+                            transform=train_transforms)
     val_data = BlueFinLib(pickle_path = config['df_path_val'], 
                             img_dir = config['val_specs'], 
                             config = config,
@@ -103,7 +114,7 @@ def log_image_table(images, predicted, labels, probs):
 
 def wandb_init(config):
     wandb.init(project="acoustic_trends", config=config)
-    model_name = f"{config['architecture']}_lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}_random_crop_secs{config['random_crop_secs']}_random_erasing{config['random_erasing']}"
+    model_name = f"{config['architecture']}_lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}_random_crop_secs{config['random_crop_secs']}_spec_aug_prob{config['spec_aug_prob']}"
     wandb.run.name = model_name
     wandb.run.save(f"{model_name}.h5")
 
@@ -118,7 +129,7 @@ def select_model(config):
 
 def train_model(config):
 
-    model_name = f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}_random_crop_secs{config['random_crop_secs']}_random_erasing{config['random_erasing']}"
+    model_name = f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}_random_crop_secs{config['random_crop_secs']}_spec_aug_prob{config['spec_aug_prob']}"
     print("=" * 60)
     print('Running model:', model_name)
     print("=" * 60)
@@ -174,17 +185,21 @@ def train_model(config):
 if __name__ == "__main__":
     
     config = {
-        
         # MODEL CONFIG:
-        "architecture": "LeNet5",
+        "architecture": "ResNet50",
         "lr": 1e-3,
         "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
-        "epochs": 25,
+        "epochs": 50,
 
         # RUN CONFIG:
         "species": ['Fin', 'Blue'],
         "random_crop_secs": 5, # number of seconds that has the spectrogram.
+
+        # DATA AUGMENTATION CONFIG:
         "random_erasing": 0, # probability that the random erasing operation will be performed.
+        "time_mask_param": 10, # number of time steps that will be masked.
+        "freq_mask_param": 10, # number of frequency steps that will be masked.
+        "spec_aug_prob": 0.2,
         
         # PATHS:
         "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes", # where the pickle dataframe is stored.
