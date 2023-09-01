@@ -37,3 +37,47 @@ The code to run spectral subtraction is:
 srun -A veu -p veu --mem=16G -c 8  python src/apply_spectral_subtraction.py --spectral_subtraction_prob 1.0 'input_path/data/' 'output_path'
 ```
 
+## Feature Extractor
+
+First of all, to create the spectrograms, we will need to create a ```.lst``` file that will contain all the ```.wav``` files that will be converted to spectrograms. To do so, we will run the following command.  
+
+```
+srun -p veu -c4 --mem 32GB --gres=gpu:1 python scripts/feature_extractor_paths_generator.py \
+	'/home/usuaris/veussd/DATABASES/Ocean/Cleaned_AcousticTrends_SSprob0.5/data' \
+	--dump_file_name 'spectrograms_5_sec_new.lst' \
+	--dump_file_folder './src/feature_extractor/'
+```
+
+where:
+
+1. ```--dump_file_folder```: Where we can find the ```.lst``` file.
+2. ```--dump_file_name```: The name of the ```.lst``` file.
+
+The code is run using an ```.sh``` file. 
+
+To run you need to do:
+
+```
+sbatch src/shs_container/voxceleb_1_test.sh
+```
+
+
+
+The different arguments that we can find in this file are:
+
+1. ```--audio_paths_file_folder```: Where we can find the ```.lst``` file.
+2. ```--audio_paths_file_name```: The name of the ```.lst``` file.
+3. ```--prepend_directory```: The directory that contains ```.wav```files.
+4. ```--dump_folder_name```: The directory where we will save the spectrograms in ```.pickle``` format. 
+
+Other parameters related to the STFT:
+
+5. ```--sampling_rate 250```
+6. ```--n_fft_secs 0.512```
+7. ```--win_length_secs 0.512```
+8. ```--hop_length_secs 0.128```
+9. ```--n_mels 40```
+
+
+
+
