@@ -7,7 +7,7 @@
 1. Create a Conda environment. For this you need to have Conda or Miniconda installed.
 
 ```bash
-conda create --name name_env python=3.10
+conda create --name name_env python=3.10 ipython
 ```
 
 2. Activate the environment.
