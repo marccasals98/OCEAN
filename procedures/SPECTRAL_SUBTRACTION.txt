@@ -1,0 +1,6 @@
+=====================
+SPECTRAL SUBTRACTION
+=====================
+
+To implement Spectral Subtraction we will need to create a uniform DATASET with all the samples. 
+
