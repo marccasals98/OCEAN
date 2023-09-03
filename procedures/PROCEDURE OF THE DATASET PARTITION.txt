@@ -1,0 +1,67 @@
+===================================
+PROCEDURE OF THE DATASET PARTITION:
+===================================
+
+PATHS:
+------
+
+Original Dataset Path: "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57"
+
+Spectral Subtraction Dataset: "/home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_07_13_17_50_34_3nq1ezr9_twilight-wood-64"
+
+
+ORIGINAL DATASET CREATION:
+--------------------------
+
+First of all I copied the Original dataset using the following command:
+
+```
+ for i in /home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_06_02_09_07_26_aty1jmit_wise-meadow-57/; do cp
+ -r "$i" /home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TOTAL/ ; done
+
+```
+
+
+The totality of the original spectrograms is located in the following folder:
+
+/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TOTAL/23_06_02_09_07_26_aty1jmit_wise-mead
+
+We also create three folders, one for train, test and valid:
+
+'/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TRAIN'
+'/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/VALID'
+'/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TEST'
+
+And we run the split.py in order to have the spectrograms in these folders. With random state 47.
+
+
+SPECTRAL SUBTRACTION DATASET CREATION:
+-------------------------------------
+
+First of all I copied the Original dataset using the following command:
+
+```
+ for i in /home/usuaris/veussd/DATABASES/Ocean/Spectrograms_AcousticTrends/23_07_13_17_50_34_3nq1ezr9_twilight-wood-64/; do cp
+ -r "$i" /home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TOTAL/ ; done
+
+```
+We also create three folders, one for train, test and valid:
+
+ 
+
+DATA AUGMENTATION DATASET CREATION:
+-----------------------------------
+
+We create the folders as before. The training set is the union of the previous trainining folders. In order to do it properly, we need to first copy the spectral subtraction. Change the name of the samples to add _SS and copy the ones from the Original folder. Otherwise, we will overwrite the samples and we will only have the ones from the Original. 
+
+To rename the samples we have used the following command:
+
+```
+for i in *.pickle; do mv "$i" "${i%.*}_SS.pickle"; done 
+```
+
+USING THE DATA AUGMENTATION DATASET:
+------------------------------------
+
+There is a problem using this dataset. It Dataset file won't read the _SS.pickle files. To do so, what we are going to do is make the dataframes again and add a column of SS with a boolean variable that indicates if it is spectral subtraction or not. 
+
