@@ -9,8 +9,8 @@
 python src/feature_extractor.py \
     --audio_paths_file_folder './src/feature_extractor/' \
 	--audio_paths_file_name 'spectrograms_5_sec_new.lst' \
-	--prepend_directory '/home/usuaris/veussd/DATABASES/Ocean/Cleaned_AcousticTrends_min5/data' \
-	--dump_folder_name '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/TEST_FEDE' \
+	--prepend_directory '/home/usuaris/veussd/DATABASES/Ocean/SPECTRAL_SUBTRACTION/SS_50' \
+	--dump_folder_name '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_50' \
 	--sampling_rate 250 \
 	--n_fft_secs 0.512 \
 	--win_length_secs 0.512 \

@@ -4,10 +4,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 
 # Define directories and proportions
-source_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TOTAL/23_07_13_17_50_34_3nq1ezr9_twilight-wood-64'
-train_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TRAIN'
-valid_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/VALID'
-test_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TEST'
+source_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_50/23_09_04_12_07_04_jmexpjiq_icy-valley-34'
+train_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_50/TRAIN'
+valid_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_50/VALID'
+test_directory = '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_50/TEST'
 
 # Create directories
 os.makedirs(train_directory, exist_ok=True)
