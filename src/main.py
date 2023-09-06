@@ -189,7 +189,7 @@ if __name__ == "__main__":
         "architecture": "ResNet50",
         "lr": 1e-3,
         "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
-        "epochs": 50,
+        "epochs": 20,
 
         # RUN CONFIG:
         "species": ['Fin', 'Blue'],
@@ -204,9 +204,9 @@ if __name__ == "__main__":
         # PATHS:
         "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes", # where the pickle dataframe is stored.
         "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/", # where we save the model checkpoints.
-        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_01/TRAIN",
-        "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_01/VALID",
-        "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_01/TEST"
+        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_50/TRAIN",
+        "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_50/VALID",
+        "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_50/TEST"
     }
     
     # Create the different pandas dataframes.
