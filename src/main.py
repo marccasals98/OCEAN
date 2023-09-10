@@ -202,13 +202,13 @@ if __name__ == "__main__":
         "spec_aug_prob": 0,
         
         # PATHS:
-        "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes", # where the pickle dataframe is stored.
+        "df_dir": "/home/usuaris/veu/marc.casals/dataframes", # where the pickle dataframe is stored.
         "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/", # where we save the model checkpoints.
-        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_50/TRAIN",
-        "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_50/VALID",
-        "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS/SS_50/TEST"
+        "train_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TRAIN',
+        "val_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/VALID',
+        "test_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TEST'
     }
-    
+
     # Create the different pandas dataframes.
     df_creator_train = DataframeCreator(config['train_specs'], config['df_dir'])
     config["df_path_train"] = df_creator_train.get_df_path()
@@ -246,4 +246,10 @@ PATHS TO THE SPECTROGRAMS:
         "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/VALID"
         "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TEST"
 
+
+NEW SPECTRAL SUBTRACTION:
+        "train_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TRAIN',
+        "val_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/VALID',
+        "test_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TEST'
+        
 """
