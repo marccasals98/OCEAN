@@ -1,6 +1,7 @@
 # SPECTRAL SUBTRACTION
 
 To implement Spectral Subtraction we will need to create a uniform DATASET with all the samples. 
+
 0. The initial step in order to start even thinking in spectral subtraction is to have an estimation of the noise. Spectral subtraction is an easy concept algorithm, but this step can be challenging.
 
 For each audio file we want its specific noise estimation. Because we are working with whale audios, we can assume that the vocalizations are very isolated. For this reason, we can consider the previous seconds of the vocalization as the estimation. Formally, if we consider $s$ and $e$ the initial and end of the vocalization respectively, we will define the noise of this audio as 
