@@ -12,6 +12,7 @@ import SpectralSubstraction as ss
 def main(params):
     input_path = params.input_path
     output_path = params.output_path
+    noise_path = params.noise_path
     spectral_subtraction_prob = params.spectral_subtraction_prob
 
     if not os.path.exists(output_path):
@@ -47,6 +48,7 @@ if __name__=="__main__":
 
     parser.add_argument('input_path', type=str, help='path of the input directory')
     parser.add_argument('output_path', type=str, help='path of the output directory')
+    parser.add_argument('noise_path', type=str, help='path of the noise samples for noise estimation')
     parser.add_argument('--spectral_subtraction_prob', type=float, default=0.0, help='Probability on which Spectral Subtraction is applied to each audio')
 
 
