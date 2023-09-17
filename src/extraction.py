@@ -6,6 +6,7 @@ from tqdm import tqdm
 from datetime import datetime
 import argparse
 import random
+from tqdm import tqdm
 
 class NonPositiveDurationException(Exception): 
     def __init__(self, message):
@@ -262,7 +263,7 @@ class Extractor:
         not_identified_species = []
 
 
-        for i, subdirectory in enumerate(subdatasets_dirs): # iterate through subdataset directories
+        for i, subdirectory in tqdm(enumerate(subdatasets_dirs)): # iterate through subdataset directories
             print(f'Extracting {subdirectory} ...')
             log_file.write(f'Extracting {subdirectory} ...\n')
             annotations_subdir = os.path.join(self.dataset_path, subdirectory)
@@ -303,10 +304,9 @@ class Extractor:
                                 else:
                                     begin_sample = row['Beg File Samp (samples)']
                                     end_sample = row['End File Samp (samples)']
-
-                                sig_event = sig[begin_sample:end_sample] # extract event
+                                sig_event = sig[begin_sample-10*sample_rate:end_sample-10*sample_rate] # extract event
                                 date = self.extract_date(wav_file, subdirectory)
-                                output_file_name = subdirectory + "_" + wav_name + "_" + species + "_" + vocalization + "_" + date + "_" + str(begin_sample) + "_" + str(end_sample) + "_" + str(sample_rate) + "Hz.wav"
+                                output_file_name = subdirectory + "_" + wav_name + "_" + species + "_" + vocalization + "_" + date + "_" + str(begin_sample) + "_" + str(end_sample) + "_" + str(sample_rate) + "_" + "noise_estimation" + "Hz.wav"
                                 wavfile.write(os.path.join(data_dir_path, output_file_name), sample_rate, sig_event)
                                 # add data to the extraction dataframe:
                                 row = [subdirectory, wav_name, species, num_species, vocalization, date, begin_sample, end_sample, sample_rate]
