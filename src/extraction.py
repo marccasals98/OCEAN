@@ -306,7 +306,7 @@ class Extractor:
                                     end_sample = row['End File Samp (samples)']
                                 sig_event = sig[begin_sample-10*sample_rate:end_sample-10*sample_rate] # extract event
                                 date = self.extract_date(wav_file, subdirectory)
-                                output_file_name = subdirectory + "_" + wav_name + "_" + species + "_" + vocalization + "_" + date + "_" + str(begin_sample) + "_" + str(end_sample) + "_" + str(sample_rate) + "_" + "noise_estimation" + "Hz.wav"
+                                output_file_name = subdirectory + "_" + wav_name + "_" + species + "_" + vocalization + "_" + date + "_" + str(begin_sample) + "_" + str(end_sample) + "_" + str(sample_rate) + "Hz.wav"
                                 wavfile.write(os.path.join(data_dir_path, output_file_name), sample_rate, sig_event)
                                 # add data to the extraction dataframe:
                                 row = [subdirectory, wav_name, species, num_species, vocalization, date, begin_sample, end_sample, sample_rate]
