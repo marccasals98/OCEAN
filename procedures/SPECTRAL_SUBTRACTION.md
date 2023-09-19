@@ -18,11 +18,12 @@ python3 src/extraction.py "raw_dataset" "final_dataset" --min_frame_size_sec 5
 
 1. The first step is to create the audio with spectral subtraction. To do so, we will checkout to ```feature/spectral_subtraction``` branch and run Jaume's code:
 
-This is an example with the $\alpha=10$:
+This is an example with the $\alpha=5$:
 
 ```
-srun -A veu -p veu --mem=16G -c 8  python src/apply_spectral_subtraction.py --spectral_subtraction_prob 1.0 '/home/usuaris/veussd/DATABASES/Ocean/Cleaned_AcousticTrends_min5/data' '/home/usuaris/veussd/DATABASES/Ocean/SPECTRAL_SUBTRACTION/SS_10'
+srun -A veu -p veu --mem=16G -c 8  python src/apply_spectral_subtraction.py --spectral_subtraction_prob 1.0 '/home/usuaris/veussd/DATABASES/Ocean/Cleaned_AcousticTrends_min5/data' '/home/usuaris/veussd/DATABASES/Ocean/SPECTRAL_SUBTRACTION_NOISE/SS_5' '/home/usuaris/veussd/DATABASES/Ocean/Noise_Aproximators/data'
 ```
+
 This is done with $\alpha\in\{0.1, 1, 5, 10, 50\}$.
 
 The Spectrograms will be saved in the following directory:
