@@ -2,13 +2,28 @@
 
 To implement Spectral Subtraction we will need to create a uniform DATASET with all the samples. 
 
-1. The first step is to create the audios with spectral substraction. To do so, we will checkout to ```feature/spectral_subtraction``` branch and run the Jaume's code:
+0. The initial step in order to start even thinking in spectral subtraction is to have an estimation of the noise. Spectral subtraction is an easy concept algorithm, but this step can be challenging.
 
-This is an example with the $\alpha=10$:
+For each audio file we want its specific noise estimation. Because we are working with whale audios, we can assume that the vocalizations are very isolated. For this reason, we can consider the previous seconds of the vocalization as the estimation. Formally, if we consider $s$ and $e$ the initial and end of the vocalization respectively, we will define the noise of this audio as 
+
+$$[s-10, e-10]$$
+
+So we will need to construct an alternative dataset that will contain all the corresponding audio samples of noise that match each of the ones of the original dataset.
+
+To do so, we will run the following code:
 
 ```
-srun -A veu -p veu --mem=16G -c 8  python src/apply_spectral_subtraction.py --spectral_subtraction_prob 1.0 '/home/usuaris/veussd/DATABASES/Ocean/Cleaned_AcousticTrends_min5/data' '/home/usuaris/veussd/DATABASES/Ocean/SPECTRAL_SUBTRACTION/SS_10'
+python3 src/extraction.py "raw_dataset" "final_dataset" --min_frame_size_sec 5
 ```
+
+1. The first step is to create the audio with spectral subtraction. To do so, we will checkout to ```feature/spectral_subtraction``` branch and run Jaume's code:
+
+This is an example with the $\alpha=5$:
+
+```
+srun -A veu -p veu --mem=16G -c 8  python src/apply_spectral_subtraction.py --spectral_subtraction_prob 1.0 '/home/usuaris/veussd/DATABASES/Ocean/Cleaned_AcousticTrends_min5/data' '/home/usuaris/veussd/DATABASES/Ocean/SPECTRAL_SUBTRACTION_NOISE/SS_5' '/home/usuaris/veussd/DATABASES/Ocean/Noise_Aproximators/data'
+```
+
 This is done with $\alpha\in\{0.1, 1, 5, 10, 50\}$.
 
 The Spectrograms will be saved in the following directory:
@@ -22,7 +37,7 @@ We will generate the spectrograms in the folder:
 
 3. Split.
 
-The last step is to split our dataset into TRAIN, VALID and TEST. For doing so we will make usage of the ```split.py``` file. 
+The last step is to split our dataset into TRAIN, VALID and TEST. For doing so we will make use of the ```split.py``` file. 
 
 This is an example of how the path has been configurated:
 
