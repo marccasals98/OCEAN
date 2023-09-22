@@ -14,6 +14,9 @@ import os
 from LeNet import LeNet5
 from metrics import accuracy, Metrics, plot_confusion_matrix
 import torchaudio.transforms as T
+from sklearn.model_selection import KFold
+from settings import CONFIG
+
 
 
 
@@ -127,17 +130,10 @@ def select_model(config):
         raise ValueError('The model name is not on the list')
     return model
 
-def train_model(config):
-
-    model_name = f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}_random_crop_secs{config['random_crop_secs']}_spec_aug_prob{config['spec_aug_prob']}"
-    print("=" * 60)
-    print('Running model:', model_name)
-    print("=" * 60)
-
-    train_loader, val_loader, test_loader = data_loaders(config)
-    my_model = select_model(config)
-    optimizer = optim.Adam(my_model.parameters(), config["lr"])
-    wandb_init(config)
+def training_loop(config, train_loader, val_loader, optimizer, model_name, my_model):
+    """
+    Executes the training loop for a given model.
+    """
     best_metric = float('-inf')
     best_params = None
     best_epoch = 0
@@ -159,7 +155,28 @@ def train_model(config):
             best_params = my_model.state_dict()
             # For each best validation, we overwrite the model parameters.
             # The model could stop training and we'd still have the best params safe.
-            torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + model_name + ".pt") 
+            torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + model_name + ".pt")
+    
+    return best_params, best_epoch 
+
+def train_model(config):
+
+    model_name = f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}_random_crop_secs{config['random_crop_secs']}_spec_aug_prob{config['spec_aug_prob']}"
+    print("=" * 60)
+    print('Running model:', model_name)
+    print("=" * 60)
+
+    train_loader, val_loader, test_loader = data_loaders(config)
+    my_model = select_model(config)
+    optimizer = optim.Adam(my_model.parameters(), config["lr"])
+    wandb_init(config)
+
+    best_params, best_epoch = training_loop(config=config,
+                                            train_loader=train_loader,
+                                            val_loader=val_loader,
+                                            optimizer=optimizer,
+                                            model_name=model_name,
+                                            my_model=my_model)
         
 
     # TEST
@@ -184,30 +201,7 @@ def train_model(config):
 
 if __name__ == "__main__":
     
-    config = {
-        # MODEL CONFIG:
-        "architecture": "ResNet50",
-        "lr": 1e-3,
-        "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
-        "epochs": 20,
-
-        # RUN CONFIG:
-        "species": ['Fin', 'Blue'],
-        "random_crop_secs": 5, # number of seconds that has the spectrogram.
-
-        # DATA AUGMENTATION CONFIG:
-        "random_erasing": 0, # probability that the random erasing operation will be performed.
-        "time_mask_param": 10, # number of time steps that will be masked.
-        "freq_mask_param": 10, # number of frequency steps that will be masked.
-        "spec_aug_prob": 0,
-        
-        # PATHS:
-        "df_dir": "/home/usuaris/veu/marc.casals/dataframes", # where the pickle dataframe is stored.
-        "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/", # where we save the model checkpoints.
-        "train_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TRAIN',
-        "val_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/VALID',
-        "test_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TEST'
-    }
+    config = CONFIG
 
     # Create the different pandas dataframes.
     df_creator_train = DataframeCreator(config['train_specs'], config['df_dir'])
