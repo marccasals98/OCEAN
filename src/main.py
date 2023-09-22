@@ -1,5 +1,5 @@
 import torch
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, ConcatDataset
 from dataset import BlueFinLib
 from ResNet import ResNet50, ResNet101, ResNet152
 import torch.optim as optim
@@ -171,13 +171,35 @@ def train_model(config):
     optimizer = optim.Adam(my_model.parameters(), config["lr"])
     wandb_init(config)
 
-    best_params, best_epoch = training_loop(config=config,
-                                            train_loader=train_loader,
-                                            val_loader=val_loader,
-                                            optimizer=optimizer,
-                                            model_name=model_name,
-                                            my_model=my_model)
-        
+    if config['cross-validation'] == True:
+        dataset_intermedium = ConcatDataset([train_loader.dataset, val_loader.dataset])
+        dataset = ConcatDataset([dataset_intermedium, test_loader.dataset])
+        folds = KFold(n_splits=config['k_folds'], shuffle=True, random_state=42)
+        for fold, (train_ids, val_ids) in enumerate(folds.split(dataset)):
+            print(f"Fold {fold+1}")
+            # We create the new data loaders for each fold:
+            train_subsampler = torch.utils.data.SubsetRandomSampler(train_ids)
+            val_subsampler = torch.utils.data.SubsetRandomSampler(val_ids)
+            train_loader_fold = torch.utils.data.DataLoader(dataset,
+                                                            batch_size=config["batch_size"],
+                                                            sampler=train_subsampler)
+            val_loader_fold = torch.utils.data.DataLoader(dataset,
+                                                            batch_size=config["batch_size"],
+                                                            sampler=val_subsampler)
+            # We train the model:
+            best_params, best_epoch = training_loop(config=config,
+                                                    train_loader=train_loader_fold,
+                                                    val_loader=val_loader_fold,
+                                                    optimizer=optimizer,
+                                                    model_name=model_name,
+                                                    my_model=my_model)
+    else:
+        best_params, best_epoch = training_loop(config=config,
+                                                train_loader=train_loader,
+                                                val_loader=val_loader,
+                                                optimizer=optimizer,
+                                                model_name=model_name,
+                                                my_model=my_model)
 
     # TEST
     my_model.load_state_dict(best_params) # load the best params of the validation.
@@ -214,36 +236,3 @@ if __name__ == "__main__":
     config["df_path_test"] = df_creator_test.get_df_path()
 
     my_model = train_model(config)
-
-
-
-
-
-
-"""
-========================================================================================================================
-PATHS TO THE SPECTROGRAMS:
-========================================================================================================================
-
-# ORIGINAL SPECTROGRAMS:
-        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TRAIN"
-        "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/VALID"
-        "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TEST"
-
-# SPECTROGRAMS WITH SPECTRAL SUBTARCTION:
-        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TRAIN"
-        "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/VALID"
-        "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TEST"
-
-# SPECTROGRAMS WITH DATA AUGMENTATION:
-        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TRAIN"
-        "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/VALID"
-        "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TEST"
-
-
-NEW SPECTRAL SUBTRACTION:
-        "train_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TRAIN',
-        "val_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/VALID',
-        "test_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TEST'
-        
-"""
