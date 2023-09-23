@@ -94,7 +94,7 @@ CONFIG = {
     "architecture": "ResNet50",
     "lr": 1e-3,
     "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
-    "epochs": 1,
+    "epochs": 20,
 
     # CROSS-VALIDATION:
     "cross-validation": True,

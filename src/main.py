@@ -117,7 +117,7 @@ def log_image_table(images, predicted, labels, probs):
 
 def wandb_init(config):
     wandb.init(project="acoustic_trends", config=config)
-    model_name = f"{config['architecture']}_lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}_random_crop_secs{config['random_crop_secs']}_spec_aug_prob{config['spec_aug_prob']}"
+    model_name = f"{config['architecture']}_crossval{config['cross-validation']}_lr={config['lr']}_bs={config['batch_size']}_epochs={config['epochs']}_random_crop_secs{config['random_crop_secs']}_spec_aug_prob{config['spec_aug_prob']}"
     wandb.run.name = model_name
     wandb.run.save(f"{model_name}.h5")
 
@@ -161,7 +161,7 @@ def training_loop(config, train_loader, val_loader, optimizer, model_name, my_mo
 
 def train_model(config):
 
-    model_name = f"{config['architecture']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}_random_crop_secs{config['random_crop_secs']}_spec_aug_prob{config['spec_aug_prob']}"
+    model_name = f"{config['architecture']}_crossval{config['cross-validation']}_lr{config['lr']}_bs{config['batch_size']}_epochs{config['epochs']}_random_crop_secs{config['random_crop_secs']}_spec_aug_prob{config['spec_aug_prob']}"
     print("=" * 60)
     print('Running model:', model_name)
     print("=" * 60)
@@ -172,10 +172,11 @@ def train_model(config):
     wandb_init(config)
 
     if config['cross-validation'] == True:
-        dataset_intermedium = ConcatDataset([train_loader.dataset, val_loader.dataset])
-        dataset = ConcatDataset([dataset_intermedium, test_loader.dataset])
-        folds = KFold(n_splits=config['k_folds'], shuffle=True, random_state=42)
-        for fold, (train_ids, val_ids) in enumerate(folds.split(dataset)):
+        #dataset = ConcatDataset([train_loader.dataset, val_loader.dataset])
+        #dataset = ConcatDataset([dataset_intermedium, test_loader.dataset])
+        dataset = train_loader.dataset
+        folds = KFold(n_splits=config['k_folds'], shuffle=True, random_state=42) # Normally random_state=42
+        for fold, (train_ids, val_ids) in enumerate(folds.split(np.arange(len(dataset)))):
             print(f"Fold {fold+1}")
             # We create the new data loaders for each fold:
             train_subsampler = torch.utils.data.SubsetRandomSampler(train_ids)
