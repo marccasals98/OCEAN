@@ -94,11 +94,11 @@ CONFIG = {
     "architecture": "ResNet50",
     "lr": 1e-3,
     "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
-    "epochs": 20,
+    "epochs": 2,
 
     # CROSS-VALIDATION:
     "cross-validation": True,
-    "k_folds": 5,
+    "k_folds": 10,
 
     # RUN CONFIG:
     "species": ['Fin', 'Blue'],
@@ -115,7 +115,7 @@ CONFIG = {
     "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/", # where we save the model checkpoints.
     "train_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TRAIN',
     "val_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/VALID',
-    "test_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TEST'
+    "test_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TEST',
 }
 
 

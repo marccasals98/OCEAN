@@ -134,7 +134,7 @@ def training_loop(config, train_loader, val_loader, optimizer, model_name, my_mo
     """
     Executes the training loop for a given model.
     """
-    best_metric = float('-inf')
+    best_acc = float('-inf')
     best_params = None
     best_epoch = 0
 
@@ -149,15 +149,16 @@ def training_loop(config, train_loader, val_loader, optimizer, model_name, my_mo
                         "val/val_loss":val_loss,
                         "val/val_acc":val_acc}
         wandb.log(train_metrics, step=epoch+1)
-        if val_acc > best_metric:
+        if val_acc > best_acc:
             best_epoch = epoch
-            best_metric = val_acc
+            best_acc = val_acc
+            best_loss = val_loss
             best_params = my_model.state_dict()
             # For each best validation, we overwrite the model parameters.
             # The model could stop training and we'd still have the best params safe.
             torch.save(best_params, "/home/usuaris/veu/marc.casals/ocean/" + model_name + ".pt")
     
-    return best_params, best_epoch 
+    return best_params, best_epoch, best_acc, best_loss
 
 def train_model(config):
 
@@ -172,35 +173,49 @@ def train_model(config):
     wandb_init(config)
 
     if config['cross-validation'] == True:
-        #dataset = ConcatDataset([train_loader.dataset, val_loader.dataset])
-        #dataset = ConcatDataset([dataset_intermedium, test_loader.dataset])
-        dataset = train_loader.dataset
+        dataset = ConcatDataset([val_loader.dataset, train_loader.dataset]) # Concatenate train and val
+        dataset = ConcatDataset([dataset, test_loader.dataset]) # Concatenate train, val and test (we need to do it in two steps..)
         folds = KFold(n_splits=config['k_folds'], shuffle=True, random_state=42) # Normally random_state=42
+        
+        print(f"Dimension of the Dataset {len(dataset)}")
+
+        accuracy_list = []
+        loss_list = []
         for fold, (train_ids, val_ids) in enumerate(folds.split(np.arange(len(dataset)))):
             print(f"Fold {fold+1}")
-            # We create the new data loaders for each fold:
+
+            # We define the samplers for each phase:
             train_subsampler = torch.utils.data.SubsetRandomSampler(train_ids)
             val_subsampler = torch.utils.data.SubsetRandomSampler(val_ids)
+
+            # We create the new data loaders for each fold:
             train_loader_fold = torch.utils.data.DataLoader(dataset,
                                                             batch_size=config["batch_size"],
                                                             sampler=train_subsampler)
             val_loader_fold = torch.utils.data.DataLoader(dataset,
                                                             batch_size=config["batch_size"],
                                                             sampler=val_subsampler)
+            print(f"print the length of the train_loader_fold", len(train_loader_fold))
+            print(f"print the length of the val_loader_fold", len(val_loader_fold))
             # We train the model:
-            best_params, best_epoch = training_loop(config=config,
-                                                    train_loader=train_loader_fold,
-                                                    val_loader=val_loader_fold,
-                                                    optimizer=optimizer,
-                                                    model_name=model_name,
-                                                    my_model=my_model)
+            best_params, best_epoch, best_acc, best_loss = training_loop(config=config,
+                                                                            train_loader=train_loader_fold,
+                                                                            val_loader=val_loader_fold, 
+                                                                            optimizer=optimizer,
+                                                                            model_name=model_name,
+                                                                            my_model=my_model)
+            accuracy_list.append(best_acc)
+            loss_list.append(best_loss)
+        
+        print(f"Mean validation accuracy: {np.mean(accuracy_list)}")
+        print(f"Mean validation loss: {np.mean(loss_list)}")
     else:
-        best_params, best_epoch = training_loop(config=config,
-                                                train_loader=train_loader,
-                                                val_loader=val_loader,
-                                                optimizer=optimizer,
-                                                model_name=model_name,
-                                                my_model=my_model)
+        best_params, best_epoch, best_acc, best_loss = training_loop(config=config,
+                                                                        train_loader=train_loader,
+                                                                        val_loader=val_loader,
+                                                                        optimizer=optimizer,
+                                                                        model_name=model_name,
+                                                                        my_model=my_model)
 
     # TEST
     my_model.load_state_dict(best_params) # load the best params of the validation.
