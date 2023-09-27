@@ -32,14 +32,14 @@ config = {
     "random_erasing": 0, # probability that the random erasing operation will be performed.
     "time_mask_param": 10, # number of time steps that will be masked.
     "freq_mask_param": 10, # number of frequency steps that will be masked.
-    "spec_aug_prob": 1,
+    "spec_aug_prob": 0,
     
     # PATHS:
-    "df_dir": "/home/usuaris/veussd/DATABASES/Ocean/dataframes", # where the pickle dataframe is stored.
+    "df_dir": "/home/usuaris/veu/marc.casals/dataframes", # where the pickle dataframe is stored.
     "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/", # where we save the model checkpoints.
-    "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TRAIN",
-    "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/VALID",
-    "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TEST"
+    "train_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TRAIN',
+    "val_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/VALID',
+    "test_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TEST'
 }
 
 

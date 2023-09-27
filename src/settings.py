@@ -87,3 +87,62 @@ MODEL_EVALUATOR_DEFAULT_SETTINGS = {
     'batch_size' : 64,
     'random_crop_secs' : 3.5,
 }
+
+
+CONFIG = {
+    # MODEL CONFIG:
+    "architecture": "ResNet50",
+    "lr": 1e-3,
+    "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
+    "epochs": 20,
+
+    # CROSS-VALIDATION:
+    "cross-validation": True,
+    "k_folds": 10,
+
+    # RUN CONFIG:
+    "species": ['Fin', 'Blue'],
+    "random_crop_secs": 5, # number of seconds that has the spectrogram.
+
+    # DATA AUGMENTATION CONFIG:
+    "random_erasing": 0, # probability that the random erasing operation will be performed.
+    "time_mask_param": 10, # number of time steps that will be masked.
+    "freq_mask_param": 10, # number of frequency steps that will be masked.
+    "spec_aug_prob": 0,
+    
+    # PATHS:
+    "df_dir": "/home/usuaris/veu/marc.casals/dataframes", # where the pickle dataframe is stored.
+    "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/", # where we save the model checkpoints.
+    "train_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS_NOISE2/SS_5/TRAIN',
+    "val_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS_NOISE2/SS_5/VALID',
+    "test_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS_NOISE2/SS_5/TEST',
+}
+
+
+"""
+========================================================================================================================
+PATHS TO THE SPECTROGRAMS:
+========================================================================================================================
+
+# ORIGINAL SPECTROGRAMS:
+        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TRAIN"
+        "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/VALID"
+        "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TEST"
+
+# SPECTROGRAMS WITH SPECTRAL SUBTARCTION:
+        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TRAIN"
+        "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/VALID"
+        "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TEST"
+
+# SPECTROGRAMS WITH DATA AUGMENTATION:
+        "train_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/ORIGINAL/TRAIN"
+        "val_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/VALID"
+        "test_specs": "/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_MARC/SPECTRAL_SUBTRACTION/TEST"
+
+
+NEW SPECTRAL SUBTRACTION:
+        "train_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TRAIN',
+        "val_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/VALID',
+        "test_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TEST'
+        
+"""
