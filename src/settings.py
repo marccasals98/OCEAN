@@ -94,7 +94,7 @@ CONFIG = {
     "architecture": "ResNet50",
     "lr": 1e-3,
     "batch_size": 64, # This number must be bigger than one (nn.BatchNorm).
-    "epochs": 2,
+    "epochs": 20,
 
     # CROSS-VALIDATION:
     "cross-validation": True,
@@ -113,9 +113,9 @@ CONFIG = {
     # PATHS:
     "df_dir": "/home/usuaris/veu/marc.casals/dataframes", # where the pickle dataframe is stored.
     "save_dir": "/home/usuaris/veussd/DATABASES/Ocean/checkpoints/", # where we save the model checkpoints.
-    "train_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TRAIN',
-    "val_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/VALID',
-    "test_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_NEW_SS/SS_50/TEST',
+    "train_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS_NOISE2/SS_5/TRAIN',
+    "val_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS_NOISE2/SS_5/VALID',
+    "test_specs": '/home/usuaris/veussd/DATABASES/Ocean/SPECTROGRAMS_SS_NOISE2/SS_5/TEST',
 }
 
 
